@@ -59,24 +59,14 @@ const MissionCard = ({ value, delay }: { value: typeof values[0], delay: number 
   return (
     <div 
       ref={cardRef}
-      className={`bg-white p-8 rounded-xl shadow-lg border border-gray-100 transition-all duration-500 ease-out transform ${
-        isVisible 
-          ? 'opacity-100 translate-y-0 hover:shadow-xl hover:-translate-y-1' 
-          : 'opacity-0 translate-y-8'
-      }`}
-      style={{
-        transitionDelay: isVisible ? `${delay * 100}ms` : '0ms'
-      }}
+      className={`bg-white rounded-xl shadow-lg p-8 transform transition-all duration-700 h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="bg-gradient-to-br from-[#f0f4ff] to-[#e6f0ff] w-20 h-20 rounded-2xl flex items-center justify-center mb-6 mx-auto transition-transform duration-300 hover:scale-110">
+      <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-50 mb-6">
         {value.icon}
       </div>
-      <h3 className="text-xl font-bold text-center mb-3 text-[#2b3343] transition-colors duration-300 hover:text-[#4a90e2]">
-        {value.title}
-      </h3>
-      <p className="text-gray-600 text-center leading-relaxed transition-colors duration-300 hover:text-gray-800">
-        {value.description}
-      </p>
+      <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
+      <p className="text-gray-600">{value.description}</p>
     </div>
   );
 };

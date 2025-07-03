@@ -1,0 +1,16 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Force these files to be CRLF (Windows) on checkout
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
+
+# Force these files to be LF (Unix) on checkout
+*.sh text eol=lf
+
+# Binary files that should not be modified
+*.{png,jpg,jpeg,gif,ico,svg,woff,woff2,ttf,eot} binary
+*.{pdf,zip,rar,7z,tar,gz,mp3,mp4,avi,flv,webm} binary
+
+# Source code files that should always use LF
+*.{js,jsx,ts,tsx,json,css,scss,html,md,yml,yaml} text eol=lf

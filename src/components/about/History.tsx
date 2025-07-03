@@ -39,12 +39,15 @@ const TimelineItem = ({ milestone, index, isVisible }: { milestone: typeof miles
   
   return (
     <div 
-      className={`flex flex-col md:flex-row items-center transition-all duration-700 ease-out ${
+      className={`flex flex-col md:flex-row items-center ${
         isVisible 
           ? 'opacity-100 translate-y-0' 
           : 'opacity-0 translate-y-8'
       }`}
       style={{
+        transitionProperty: 'opacity, transform',
+        transitionDuration: '700ms',
+        transitionTimingFunction: 'ease-out',
         transitionDelay: isVisible ? `${index * 100}ms` : '0ms'
       }}
     >

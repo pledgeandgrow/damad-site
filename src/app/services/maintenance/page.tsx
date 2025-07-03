@@ -1,11 +1,11 @@
-import { Metadata } from 'next';
 import { FaTools, FaClipboardCheck, FaClock, FaShieldAlt } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Maintenance d&apos;Ascenseurs - DAMAD ASCENSEURS',
-  description: 'Service d&apos;entretien préventif et curatif pour garantir la performance et la longévité de vos ascenseurs.',
+  title: 'Maintenance d\'Ascenseurs - DAMAD ASCENSEURS',
+  description: 'Service d\'entretien préventif et curatif pour garantir la performance et la longévité de vos ascenseurs.',
 };
 
 const features = [

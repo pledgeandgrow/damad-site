@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { FaBars, FaTimes, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,6 +29,26 @@ export default function Navbar() {
   return (
     <>
       {/* Top Bar */}
+      <div className="bg-blue-900 text-white text-sm py-2">
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <div className="flex items-center space-x-4">
+            <a href="tel:+33123456789" className="flex items-center hover:text-blue-200 transition-colors">
+              <FaPhoneAlt className="mr-2" />
+              <span>+33 1 23 45 67 89</span>
+            </a>
+            <a href="mailto:contact@damad-ascenseurs.fr" className="flex items-center hover:text-blue-200 transition-colors">
+              <FaEnvelope className="mr-2" />
+              <span>contact@damad-ascenseurs.fr</span>
+            </a>
+          </div>
+          <div className="hidden md:flex items-center space-x-4">
+            <span>Lun-Ven: 8h-18h</span>
+            <a href="/devis" className="bg-blue-600 hover:bg-blue-700 px-4 py-1 rounded-md font-medium transition-colors">
+              Demander un devis
+            </a>
+          </div>
+        </div>
+      </div>
       <div className="bg-[#2b3343] text-white text-sm">
         <div className="container mx-auto px-4 py-2 flex justify-between items-center">
           <div className="flex items-center space-x-4">
@@ -47,12 +68,20 @@ export default function Navbar() {
       </div>
 
       {/* Main Navigation */}
-      <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-white/95 py-4'}`}>
+      <nav className={`bg-white shadow-md transition-all duration-300 fixed w-full z-50 ${scrolled ? 'py-2' : 'py-4'}`}>
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
-            {/* Logo */}
-            <Link href="/" className="text-2xl font-bold text-[#2b3343]">
-              DAMAD<span className="text-[#3d4759]">ASCENSEURS</span>
+            <Link href="/" className="flex items-center">
+              <div className={`relative ${scrolled ? 'h-12' : 'h-16'} w-auto transition-all duration-300`}>
+                <Image 
+                  src="/wdamad-transparent.png" 
+                  alt="DAMAD Ascenseurs" 
+                  width={scrolled ? 48 : 64}
+                  height={scrolled ? 48 : 64}
+                  className="object-contain h-full w-auto"
+                  priority
+                />
+              </div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -68,7 +97,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <Link 
-                href="/contact" 
+                href="/devis" 
                 className="bg-[#2b3343] hover:bg-[#3d4759] text-white px-6 py-2 rounded-lg transition-colors font-medium"
               >
                 Devis gratuit
@@ -116,7 +145,7 @@ export default function Navbar() {
             </div>
           </div>
         )}
-      </header>
+      </nav>
     </>
   );
 }

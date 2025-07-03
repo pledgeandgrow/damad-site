@@ -29,10 +29,6 @@ export default function ContactPage() {
           <div className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-lg">
               <h2 className="text-base font-semibold leading-7 text-blue-600">Nous contacter</h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Vous pouvez également nous contacter par téléphone au <a href="tel:+33123456789" className="font-medium text-blue-600 hover:text-blue-500">01 23 45 67 89</a> ou par email à <a href="mailto:contact@damad-ascenseurs.com" className="font-medium text-blue-600 hover:text-blue-500">contact@damad-ascenseurs.com</a> pour discuter de votre projet.
-              </p>
-              
               <ContactInfo />
             </div>
           </div>

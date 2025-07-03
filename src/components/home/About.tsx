@@ -19,7 +19,7 @@ export default function About() {
           <div className="lg:w-1/2 relative">
             <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-xl">
               <Image 
-                src="/images/about.jpg" 
+                src="/images/1.png" 
                 alt="Équipe technique Damad Ascenseurs"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

@@ -2,7 +2,9 @@ import { FaTools, FaClock, FaPhone, FaClipboardCheck } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export const metadata = {
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: 'Dépannage Ascenseur - DAMAD ASCENSEURS',
   description: 'Service de dépannage d\'ascenseur 24/7. Intervention rapide par des techniciens qualifiés pour tous types de pannes.',
 };

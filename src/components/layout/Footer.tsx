@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { FaFacebook, FaTwitter, FaLinkedin, FaYoutube, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight } from 'react-icons/fa';
+import Image from 'next/image';
+import { FaFacebook, FaLinkedin, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight } from 'react-icons/fa';
 
 const currentYear = new Date().getFullYear();
 
@@ -23,6 +24,7 @@ const footerLinks: FooterSection[] = [
       { name: 'Réalisations', href: '/realisations' },
       { name: 'À Propos', href: '/a-propos' },
       { name: 'Contact', href: '/contact' },
+      { name: 'Devis', href: '/contact?subject=demande-de-devis' },
     ],
   },
   {
@@ -30,6 +32,7 @@ const footerLinks: FooterSection[] = [
     links: [
       { name: 'Installation', href: '/services#installation' },
       { name: 'Maintenance', href: '/services#maintenance' },
+      { name: 'Réparation', href: '/services#reparation' },
       { name: 'Modernisation', href: '/services#modernisation' },
       { name: 'Contrôle Technique', href: '/services#controle' },
       { name: 'Dépannage', href: '/services#depannage' },
@@ -59,9 +62,7 @@ const footerLinks: FooterSection[] = [
 
 const socialLinks = [
   { name: 'Facebook', icon: FaFacebook, href: '#' },
-  { name: 'Twitter', icon: FaTwitter, href: '#' },
   { name: 'LinkedIn', icon: FaLinkedin, href: '#' },
-  { name: 'YouTube', icon: FaYoutube, href: '#' },
 ];
 
 export default function Footer() {
@@ -71,10 +72,22 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold">DAMAD ASCENSEURS</h3>
+            <Link href="/" className="inline-block">
+              <div className="relative h-20 w-40">
+                <Image 
+                  src="/damad-transparent.png" 
+                  alt="DAMAD Ascenseurs" 
+                  fill
+                  className="object-contain hover:opacity-90 transition-opacity"
+                  sizes="(max-width: 768px) 100vw, 160px"
+                  priority
+                />
+              </div>
+            </Link>
             <p className="text-white/80 leading-relaxed">
               Votre partenaire de confiance pour tous vos besoins en ascenseurs, de l&apos;installation à la maintenance.
             </p>
+
             <div className="flex space-x-4">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
@@ -136,19 +149,19 @@ export default function Footer() {
             <p className="text-gray-400">&copy; {currentYear} - Damad Ascenseurs</p>
             <div className="flex flex-wrap justify-center gap-4 mt-4 md:mt-0">
               <Link 
-                href="/mentions-legales" 
+                href="/legal/mentions-legales" 
                 className="text-white/60 hover:text-white text-sm transition-colors duration-300 whitespace-nowrap"
               >
                 Mentions Légales
               </Link>
               <Link 
-                href="/confidentialite" 
+                href="/legal/politique-de-confidentialite" 
                 className="text-white/60 hover:text-white text-sm transition-colors duration-300 whitespace-nowrap"
               >
                 Politique de confidentialité
               </Link>
               <Link 
-                href="/cgv" 
+                href="/legal/cgv" 
                 className="text-white/60 hover:text-white text-sm transition-colors duration-300 whitespace-nowrap"
               >
                 CGV

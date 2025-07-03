@@ -1,11 +1,11 @@
-import { Metadata } from 'next';
 import { FaTools, FaCogs, FaShieldAlt, FaClipboardCheck, FaPhone } from 'react-icons/fa';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Réparation d&apos;Ascenseurs - DAMAD ASCENSEURS',
-  description: 'Service professionnel de réparation d&apos;ascenseurs avec diagnostics précis et interventions rapides pour une remise en service fiable de vos équipements.',
+  title: 'Réparation d\'Ascenseurs - DAMAD ASCENSEURS',
+  description: 'Service professionnel de réparation d\'ascenseurs avec diagnostics précis et interventions rapides pour une remise en service fiable de vos équipements.',
 };
 
 const commonIssues = [

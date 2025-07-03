@@ -2,7 +2,9 @@ import { FaClipboardCheck, FaTools, FaShieldAlt, FaClock } from 'react-icons/fa'
 import Image from 'next/image';
 import Link from 'next/link';
 
-export const metadata = {
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: 'Contrôle Technique - DAMAD ASCENSEURS',
   description: 'Service de contrôle technique réglementaire pour ascenseurs. Vérification de conformité et sécurité selon les normes en vigueur.',
 };

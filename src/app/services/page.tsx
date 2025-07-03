@@ -1,6 +1,6 @@
-import { Metadata } from 'next';
 import Link from 'next/link';
 import ServiceCard from '@/components/services/ServiceCard';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Nos Services - Damad Ascenseurs',
@@ -14,7 +14,7 @@ export default function ServicesPage() {
       title: 'Installation',
       description: 'Installation complète et sur mesure de votre nouvel ascenseur par nos experts certifiés.',
       icon: '🏗️',
-      image: '/images/services/installation.jpg',
+      image: '/images/2.png',
       color: 'from-steel-blue to-steel-blue/90',
       features: [
         'Étude personnalisée',
@@ -29,7 +29,7 @@ export default function ServicesPage() {
       title: 'Dépannage',
       description: 'Service d\'urgence 24/7 pour tous types de pannes d\'ascenseur.',
       icon: '🔧',
-      image: '/images/services/depannage.jpg',
+      image: '/images/3.png',
       color: 'from-steel-blue to-steel-blue/90',
       features: [
         'Intervention rapide',
@@ -44,7 +44,7 @@ export default function ServicesPage() {
       title: 'Contrôle Technique',
       description: 'Vérification complète de la conformité et de la sécurité de votre ascenseur.',
       icon: '✅',
-      image: '/images/services/controle-technique.jpg',
+      image: '/images/4.png',
       color: 'from-steel-blue to-steel-blue/90',
       features: [
         'Contrôle réglementaire',
@@ -59,7 +59,7 @@ export default function ServicesPage() {
       title: 'Maintenance',
       description: 'Contrats de maintenance préventive pour garantir la longévité de votre ascenseur.',
       icon: '🔧',
-      image: '/images/services/maintenance.jpg',
+      image: '/images/5.png',
       color: 'from-steel-blue to-steel-blue/90',
       features: [
         'Visites régulières',
@@ -74,7 +74,7 @@ export default function ServicesPage() {
       title: 'Réparation',
       description: 'Réparation rapide et efficace de tous types de pannes d\'ascenseur.',
       icon: '⚙️',
-      image: '/images/services/reparation.jpg',
+      image: '/images/6.png',
       color: 'from-steel-blue to-steel-blue/90',
       features: [
         'Diagnostic précis',
@@ -89,7 +89,7 @@ export default function ServicesPage() {
       title: 'Modernisation',
       description: 'Mise à niveau de votre ascenseur pour améliorer ses performances et son efficacité énergétique.',
       icon: '🔄',
-      image: '/images/services/modernisation.jpg',
+      image: '/images/7.png',
       color: 'from-steel-blue to-steel-blue/90',
       features: [
         'Économie d\'énergie',

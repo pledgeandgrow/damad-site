@@ -1,5 +1,5 @@
-import { Metadata } from 'next';
 import ServiceDetail from '@/components/services/ServiceDetail';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Modernisation d\'Ascenseurs - Damad Ascenceurs',

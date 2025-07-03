@@ -3,9 +3,11 @@ import { GiElevator } from 'react-icons/gi';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export const metadata = {
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
   title: 'Installation Ascenseur - DAMAD ASCENSEURS',
-  description: 'Installation sur mesure d&#39;ascenseurs neufs. Conception, réalisation et mise en service de votre futur ascenseur par des experts.',
+  description: 'Installation sur mesure d\'ascenseurs neufs. Conception, réalisation et mise en service de votre futur ascenseur par des experts.',
 };
 
 const features = [

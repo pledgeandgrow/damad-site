@@ -10,23 +10,17 @@ interface ProjectCardProps {
 export default function ProjectCard({ project, className = '', onClick }: ProjectCardProps) {
   return (
     <div 
-      className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${className}`}
+      className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col h-full ${className}`}
       onClick={onClick}
     >
-      <div className="h-48 bg-gray-200 relative overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center hover:scale-105 transition-transform duration-500"
-          style={{ backgroundImage: `url(${project.image})` }}
-        ></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-        <div className="absolute bottom-4 left-4 z-20">
+      <div className="p-6 pb-0">
+        <div className="flex justify-between items-start mb-4">
           <span className="inline-block bg-[#2b3343] text-white text-xs px-3 py-1 rounded-full">
             {project.category}
           </span>
+          <span className="text-gray-500 text-sm">{project.year}</span>
         </div>
-      </div>
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
         <p className="text-gray-600 mb-4 line-clamp-2">{project.description}</p>
         
         <div className="grid grid-cols-2 gap-4 text-sm text-gray-500 mb-6">
