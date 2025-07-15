@@ -1,4 +1,6 @@
-export type Project = {
+import { ReactNode } from 'react';
+
+export interface Project {
   id: number;
   title: string;
   category: string;
@@ -13,10 +15,10 @@ export type Project = {
   features?: string[];
   challenge?: string;
   solution?: string;
-};
+}
 
-export type ProjectCategory = {
+export interface ProjectCategory {
   name: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
   value: string;
-};
+}
