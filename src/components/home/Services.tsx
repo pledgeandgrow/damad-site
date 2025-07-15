@@ -1,4 +1,4 @@
-import { FaTools, FaCog, FaWrench, FaClipboardCheck, FaShieldAlt, FaArrowRight, FaChevronLeft, FaChevronRight, FaHammer } from 'react-icons/fa';
+import { FaTools, FaWrench, FaShieldAlt, FaArrowRight, FaChevronLeft, FaChevronRight, FaHammer } from 'react-icons/fa';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';

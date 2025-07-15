@@ -1,12 +1,11 @@
 import { FaTools, FaClock, FaPhone, FaClipboardCheck } from 'react-icons/fa';
-import Image from 'next/image';
 import Link from 'next/link';
 
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Dépannage Ascenseur - DAMAD ASCENSEURS',
-  description: 'Service de dépannage d\'ascenseur 24/7. Intervention rapide par des techniciens qualifiés pour tous types de pannes.',
+  description: 'Service de dépannage d&apos;ascenseur 24/7. Intervention rapide par des techniciens qualifiés pour tous types de pannes.'
 };
 
 const features = [
@@ -52,7 +51,7 @@ export default function Depannage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-10 sm:mb-16">
             <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-[#2b3343] px-3 py-1 rounded-full">
-              Service d'urgence
+              Service d&apos;urgence
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
               Notre service de dépannage
@@ -134,7 +133,7 @@ export default function Depannage() {
             </h2>
             <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed mb-8">
-              Notre équipe d'experts est disponible 24h/24 et 7j/7 pour intervenir rapidement en cas de panne d'ascenseur.
+              Notre équipe d&apos;experts est disponible 24h/24 et 7j/7 pour intervenir rapidement en cas de panne d&apos;ascenseur.
             </p>
             <Link 
               href="tel:+33123456789" 

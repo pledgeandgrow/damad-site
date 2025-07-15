@@ -18,27 +18,7 @@ interface ServiceCardProps {
 }
 
 export default function ServiceCard({ service, index = 0 }: ServiceCardProps) {
-  const gradientVariants = {
-    initial: { 
-      backgroundPosition: '0% 50%',
-      transition: { 
-        duration: 0.8,
-        ease: [0.4, 0, 0.2, 1] as const 
-      } 
-    },
-    hover: { 
-      backgroundPosition: '100% 50%',
-      transition: { 
-        duration: 0.8,
-        ease: [0.4, 0, 0.2, 1] as const 
-      } 
-    }
-  };
-  
-  // Brand colors
-  const brandPrimary = '#2b3343';
-  const brandSecondary = '#3d4759';
-  const brandAccent = '#3b82f6'; // blue-500
+  // Component uses Tailwind classes directly for styling
 
   return (
     <motion.div 

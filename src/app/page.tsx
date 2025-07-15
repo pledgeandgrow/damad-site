@@ -5,7 +5,6 @@ import Hero from '@/components/home/Hero';
 import Services from '@/components/home/Services';
 import About from '@/components/home/About';
 import CTA from '@/components/home/CTA';
-import LogoCarousel from '@/components/shared/LogoCarousel';
 
 // Dynamically import components that use browser APIs
 const DynamicProjects = dynamic(() => import('@/components/home/Projects'), {
