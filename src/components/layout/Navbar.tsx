@@ -2,10 +2,12 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { FaBars, FaTimes, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaBars, FaTimes, FaPhoneAlt, FaEnvelope, FaUser, FaSignOutAlt, FaBuilding } from 'react-icons/fa';
 import Image from 'next/image';
+import { useAuth } from '@/context/AuthContext';
 
 export default function Navbar() {
+  const { user, signOut, isLoading } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -102,6 +104,35 @@ export default function Navbar() {
               >
                 Devis gratuit
               </Link>
+              
+              {isLoading ? (
+                <div className="w-24 h-8 bg-gray-200 animate-pulse rounded"></div>
+              ) : user ? (
+                <div className="flex items-center space-x-4">
+                  <Link 
+                    href="/client" 
+                    className="flex items-center text-gray-700 hover:text-[#2b3343] font-medium transition-colors"
+                  >
+                    <FaBuilding className="mr-2" />
+                    Espace Client
+                  </Link>
+                  <button 
+                    onClick={() => signOut()}
+                    className="flex items-center text-gray-700 hover:text-[#2b3343] font-medium transition-colors"
+                  >
+                    <FaSignOutAlt className="mr-2" />
+                    Déconnexion
+                  </button>
+                </div>
+              ) : (
+                <Link 
+                  href="/auth/signin" 
+                  className="flex items-center text-gray-700 hover:text-[#2b3343] font-medium transition-colors"
+                >
+                  <FaUser className="mr-2" />
+                  Connexion
+                </Link>
+              )}
             </nav>
 
             {/* Mobile menu button */}
@@ -133,7 +164,7 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <div className="px-4 pt-2">
+              <div className="px-4 pt-2 space-y-3">
                 <Link 
                   href="/contact" 
                   className="block w-full text-center bg-[#2b3343] hover:bg-[#3d4759] text-white px-6 py-3 rounded-lg transition-colors font-medium"
@@ -141,6 +172,38 @@ export default function Navbar() {
                 >
                   Devis gratuit
                 </Link>
+                
+                {!isLoading && user ? (
+                  <>
+                    <Link 
+                      href="/client" 
+                      className="block w-full text-center bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-lg transition-colors font-medium flex items-center justify-center"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <FaBuilding className="mr-2" />
+                      Espace Client
+                    </Link>
+                    <button 
+                      onClick={() => {
+                        signOut();
+                        setIsMenuOpen(false);
+                      }}
+                      className="block w-full text-center bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-lg transition-colors font-medium flex items-center justify-center"
+                    >
+                      <FaSignOutAlt className="mr-2" />
+                      Déconnexion
+                    </button>
+                  </>
+                ) : !isLoading && (
+                  <Link 
+                    href="/auth/signin" 
+                    className="block w-full text-center bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-lg transition-colors font-medium flex items-center justify-center"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <FaUser className="mr-2" />
+                    Connexion
+                  </Link>
+                )}
               </div>
             </div>
           </div>
