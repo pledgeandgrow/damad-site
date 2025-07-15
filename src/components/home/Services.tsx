@@ -3,17 +3,8 @@ import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
 
-// Enhanced service cards with more detailed information
+// Enhanced service cards with more detailed information and brand colors
 const services = [
-  {
-    icon: <FaTools className="w-6 h-6 text-white" />,
-    title: "Installation",
-    description: "Installation complète d'ascenseurs neufs, adaptés à vos besoins et à votre espace.",
-    shortDesc: "Solutions sur mesure pour tous types de bâtiments.",
-    features: ["Étude personnalisée", "Installation rapide", "Conformité aux normes"],
-    color: "#2b3343", // Primary brand color
-    link: "/services/installation"
-  },
   {
     icon: <FaWrench className="w-6 h-6 text-white" />,
     title: "Maintenance",
@@ -21,25 +12,8 @@ const services = [
     shortDesc: "Entretien régulier pour une performance optimale.",
     features: ["Visites programmées", "Pièces d'origine", "Rapport détaillé"],
     color: "#2b3343", // Primary brand color
+    gradient: "from-[#2b3343] to-[#3d4759]",
     link: "/services/maintenance"
-  },
-  {
-    icon: <FaCog className="w-6 h-6 text-white" />,
-    title: "Modernisation",
-    description: "Mise à niveau de vos ascenseurs existants pour améliorer leurs performances et leur sécurité.",
-    shortDesc: "Améliorez votre installation sans tout remplacer.",
-    features: ["Économie d'énergie", "Confort amélioré", "Mise aux normes"],
-    color: "#2b3343", // Primary brand color
-    link: "/services/modernisation"
-  },
-  {
-    icon: <FaClipboardCheck className="w-6 h-6 text-white" />,
-    title: "Contrôle Technique",
-    description: "Vérification complète de la conformité et de la sécurité de votre installation.",
-    shortDesc: "Inspections rigoureuses selon les normes en vigueur.",
-    features: ["Rapport détaillé", "Conseils d'amélioration", "Certification"],
-    color: "#2b3343", // Primary brand color
-    link: "/services/controle-technique"
   },
   {
     icon: <FaShieldAlt className="w-6 h-6 text-white" />,
@@ -48,7 +22,18 @@ const services = [
     shortDesc: "Intervention rapide en cas d'urgence.",
     features: ["Disponibilité 24/7", "Délai d'intervention court", "Techniciens qualifiés"],
     color: "#2b3343", // Primary brand color
+    gradient: "from-[#2b3343] to-[#3d4759]",
     link: "/services/depannage"
+  },
+  {
+    icon: <FaTools className="w-6 h-6 text-white" />,
+    title: "Installation",
+    description: "Installation complète d'ascenseurs neufs, adaptés à vos besoins et à votre espace.",
+    shortDesc: "Solutions sur mesure pour tous types de bâtiments.",
+    features: ["Étude personnalisée", "Installation rapide", "Conformité aux normes"],
+    color: "#2b3343", // Primary brand color
+    gradient: "from-[#2b3343] to-[#3d4759]",
+    link: "/services/installation"
   },
   {
     icon: <FaHammer className="w-6 h-6 text-white" />,
@@ -57,6 +42,7 @@ const services = [
     shortDesc: "Solutions efficaces pour tous problèmes techniques.",
     features: ["Diagnostic précis", "Réparations durables", "Pièces de qualité"],
     color: "#2b3343", // Primary brand color
+    gradient: "from-[#2b3343] to-[#3d4759]",
     link: "/services/reparation"
   }
 ];
@@ -142,12 +128,12 @@ export default function Services() {
           <span className="inline-block text-[#2b3343] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-gray-100 px-3 py-1 rounded-full">
             Nos Services
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-            Solutions Professionnelles
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
+            Solutions sur Mesure
           </h2>
           <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
-            Découvrez notre gamme complète de services professionnels conçus pour répondre à tous vos besoins en matière d&apos;ascenseurs.
+          <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+            Découvrez nos services conçus pour garantir la sécurité, la fiabilité et la longévité de votre installation : ascenseurs, EPMR, monte-charges, etc. 
           </p>
         </div>
         
@@ -177,17 +163,16 @@ export default function Services() {
               >
                 <Link 
                   href={service.link || '#'}
-                  className="block h-full bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 relative"
+                  className="block h-full bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 relative hover:translate-y-[-5px] hover:border-blue-600 group"
                 >
-                  <div className="h-2" style={{ backgroundColor: service.color }}></div>
+                  <div className={`h-2 bg-[#2b3343]`}></div>
                   <div className="p-4 sm:p-6 text-center">
                     <div 
-                      className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full mb-3 sm:mb-4 mx-auto" 
-                      style={{ backgroundColor: service.color }}
+                      className={`inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full mb-3 sm:mb-4 mx-auto bg-[#2b3343] transform transition-transform group-hover:scale-110 shadow-md`}
                     >
                       {service.icon}
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold mb-2" style={{ color: service.color }}>
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 text-[#2b3343] group-hover:text-blue-600 transition-colors duration-300">
                       {service.title}
                     </h3>
                     
@@ -200,16 +185,19 @@ export default function Services() {
                     <ul className={`text-left mb-4 ${isMobile ? 'block' : 'hidden sm:block'}`}>
                       {service.features.map((feature, i) => (
                         <li key={i} className="flex items-center text-xs sm:text-sm text-gray-600 mb-1.5">
-                          <span className="mr-2 text-xs" style={{ color: service.color }}>✓</span>
+                          <span className={`inline-flex items-center justify-center w-4 h-4 rounded-full mr-2 bg-[#2b3343] text-white text-[10px] shadow-sm`}>✓</span>
                           {feature}
                         </li>
                       ))}
                     </ul>
                     
-                    <div className="inline-flex items-center font-medium text-sm mt-2" style={{ color: service.color }}>
-                      En savoir plus
-                      <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    {/* Card footer - removed 'En savoir plus' text */}
+                    <div className="mt-4 pt-3 border-t border-gray-100">
+                      <span className="inline-flex items-center text-xs sm:text-sm font-medium text-[#2b3343] group-hover:text-[#3d4759] transition-colors duration-300">
+                        <FaArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
+                      </span>
                     </div>
+
                   </div>
                 </Link>
               </div>
@@ -218,7 +206,7 @@ export default function Services() {
           </div>
           
           {/* Carousel Controls */}
-          <div className="flex justify-center mt-4 gap-2">
+          <div className="flex justify-center mt-6 gap-3">
             {services.map((_, index) => (
               <button
                 key={index}
@@ -232,17 +220,17 @@ export default function Services() {
           {/* Navigation Arrows */}
           <button 
             onClick={prevSlide}
-            className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 bg-white shadow-md rounded-full w-8 h-8 flex items-center justify-center z-10 hidden sm:flex"
+            className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center z-10 hidden sm:flex border border-gray-100 hover:bg-blue-50 hover:border-blue-200 transition-colors duration-300 group"
             aria-label="Previous slide"
           >
-            <FaChevronLeft className="text-gray-600" />
+            <FaChevronLeft className="text-[#2b3343] group-hover:text-[#3d4759] transition-colors duration-300" />
           </button>
           <button 
             onClick={nextSlide}
-            className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 bg-white shadow-md rounded-full w-8 h-8 flex items-center justify-center z-10 hidden sm:flex"
+            className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center z-10 hidden sm:flex border border-gray-100 hover:bg-blue-50 hover:border-blue-200 transition-colors duration-300 group"
             aria-label="Next slide"
           >
-            <FaChevronRight className="text-gray-600" />
+            <FaChevronRight className="text-[#2b3343] group-hover:text-[#3d4759] transition-colors duration-300" />
           </button>
         </div>
 
@@ -250,7 +238,7 @@ export default function Services() {
         <div className="mt-10 sm:mt-16 text-center">
           <Link 
             href="/contact" 
-            className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-[#2b3343] text-white font-medium rounded-lg hover:bg-[#3d4759] transition-colors duration-300 shadow-md hover:shadow-lg"
+            className="inline-flex items-center justify-center px-6 py-3 bg-[#2b3343] text-white font-medium rounded-lg hover:bg-[#3d4759] transition-colors duration-300 shadow-md hover:shadow-lg"
           >
             Demander un devis personnalisé
             <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />

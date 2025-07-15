@@ -29,10 +29,15 @@ module.exports = {
         scroll: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(calc(-50% - 2rem))' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         }
       },
       animation: {
         'scroll': 'scroll 30s linear infinite',
+        'fadeIn': 'fadeIn 0.7s ease-out forwards',
       },
     },
   },

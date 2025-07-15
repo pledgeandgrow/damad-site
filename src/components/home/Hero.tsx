@@ -87,7 +87,7 @@ export default function Hero() {
           {/* Badge with animation - improved for mobile */}
           <div className="mb-4 sm:mb-6">
             <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4 bg-[#2b3343]/70 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/20 shadow-lg transform hover:scale-105 transition-transform duration-300">
-              <span className="hidden xs:inline">Expert Ascenseurs depuis 25+ ans</span>
+              <span className="hidden xs:inline">Expert en réparation, maintenance et entretien d’ascenseurs</span>
               <span className="xs:hidden">25+ ans d&apos;expertise</span>
             </span>
           </div>
@@ -100,7 +100,7 @@ export default function Hero() {
           
           {/* Description with better readability - optimized for mobile */}
           <p className="text-base xs:text-lg sm:text-xl text-white/90 mb-6 xs:mb-8 sm:mb-10 max-w-3xl mx-auto drop-shadow-md leading-relaxed px-1 xs:px-2 sm:px-0">
-            Damad Ascenseurs vous accompagne dans tous vos projets, de la conception à la maintenance, avec des solutions sur mesure et un service d&apos;excellence.
+            Damad vous accompagne dans vos projets, de la conception à la maintenance, avec des solutions sur mesure et un service d&apos;excellence.
           </p>
           
           {/* CTA buttons with enhanced styling and animations - optimized for mobile */}

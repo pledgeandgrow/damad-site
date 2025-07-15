@@ -34,10 +34,15 @@ export default function ServiceCard({ service, index = 0 }: ServiceCardProps) {
       } 
     }
   };
+  
+  // Brand colors
+  const brandPrimary = '#2b3343';
+  const brandSecondary = '#3d4759';
+  const brandAccent = '#3b82f6'; // blue-500
 
   return (
     <motion.div 
-      className="group relative overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+      className="group relative overflow-hidden bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:translate-y-[-5px] border border-gray-100 hover:border-[#2b3343]"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -51,13 +56,13 @@ export default function ServiceCard({ service, index = 0 }: ServiceCardProps) {
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        <div className={`absolute inset-0 bg-gradient-to-b from-transparent to-${service.color}/90`}></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#2b3343]/90"></div>
       </div>
       
       {/* Content */}
       <div className="p-6">
         <div className="flex items-center mb-4">
-          <div className={`p-3 rounded-xl bg-${service.color}/10 text-${service.color} text-2xl`}>
+          <div className="p-3 rounded-xl bg-[#2b3343]/10 text-[#2b3343] text-2xl">
             {service.icon}
           </div>
           <h3 className="ml-4 text-xl font-bold text-gray-900">{service.title}</h3>
@@ -69,7 +74,7 @@ export default function ServiceCard({ service, index = 0 }: ServiceCardProps) {
           {service.features.map((feature, i) => (
             <li key={i} className="flex items-start">
               <svg 
-                className={`h-5 w-5 text-${service.color} mr-2 mt-0.5 flex-shrink-0`} 
+                className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" 
                 fill="none" 
                 viewBox="0 0 24 24" 
                 stroke="currentColor"
@@ -81,23 +86,7 @@ export default function ServiceCard({ service, index = 0 }: ServiceCardProps) {
           ))}
         </ul>
         
-        <motion.a
-          href={`/services#${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-          className={`inline-flex items-center px-6 py-2.5 rounded-full text-sm font-medium text-white bg-gradient-to-r from-${service.color} to-${service.color}-600 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5`}
-          variants={gradientVariants}
-          initial="initial"
-          whileHover="hover"
-        >
-          En savoir plus
-          <svg 
-            className="ml-2 w-4 h-4" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </motion.a>
+
       </div>
     </motion.div>
   );

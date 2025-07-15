@@ -8,7 +8,7 @@ import CTA from '@/components/home/CTA';
 import LogoCarousel from '@/components/shared/LogoCarousel';
 
 // Dynamically import components that use browser APIs
-const DynamicTestimonials = dynamic(() => import('@/components/home/Testimonials'), {
+const DynamicProjects = dynamic(() => import('@/components/home/Projects'), {
   ssr: false,
 });
 
@@ -17,16 +17,9 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow">
         <Hero />
-        <div className="bg-white py-8 sm:py-10 md:py-12 border-b border-gray-200 shadow-sm">
-          <LogoCarousel 
-            title="Nos Clients" 
-            subtitle="Ils nous font confiance" 
-            className="container mx-auto px-4" 
-          />
-        </div>
         <Services />
         <About />
-        <DynamicTestimonials />
+        <DynamicProjects />
         <CTA />
       </main>
     </div>

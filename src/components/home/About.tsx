@@ -6,9 +6,9 @@ export default function About() {
     <section id="about" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <span className="inline-block text-[#2b3343] font-semibold text-sm uppercase tracking-wider mb-3">À propos de nous</span>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Votre partenaire ascenseur de confiance</h2>
-          <div className="w-16 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-[#2b3343] px-3 py-1 rounded-full">À propos de nous</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">Votre partenaire ascenseur de confiance</h2>
+          <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
           <p className="text-gray-600 max-w-3xl mx-auto text-lg">
             Forts de plus de 25 ans d&apos;expérience, nous nous engageons à fournir des solutions d&apos;ascenseurs 
             innovantes, fiables et adaptées à vos besoins spécifiques.
@@ -31,12 +31,12 @@ export default function About() {
               
               <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                 <div className="flex items-center space-x-4">
-                  <div className="bg-blue-600 p-3 rounded-full">
+                  <div className="bg-[#2b3343] p-3 rounded-full">
                     <FaUserTie className="text-xl" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold">Équipe d&apos;experts</h3>
-                    <p className="text-blue-100 text-sm">Professionnels certifiés et expérimentés</p>
+                    <p className="text-gray-100 text-sm">Professionnels certifiés et expérimentés</p>
                   </div>
                 </div>
               </div>

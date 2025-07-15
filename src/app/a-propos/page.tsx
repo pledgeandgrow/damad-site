@@ -2,7 +2,6 @@ import AboutHero from '@/components/about/AboutHero';
 import Mission from '@/components/about/Mission';
 import History from '@/components/about/History';
 import Team from '@/components/about/Team';
-import CallToAction from '@/components/about/CallToAction';
 
 export const metadata = {
   title: 'À Propos - DAMAD Ascenseurs',
@@ -16,7 +15,6 @@ export default function AboutPage() {
       <Mission />
       <History />
       <Team />
-      <CallToAction />
     </main>
   );
 }

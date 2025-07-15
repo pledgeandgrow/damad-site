@@ -25,7 +25,7 @@ const teamMembers: TeamMember[] = [
       twitter: "#",
       email: "johny.mendy@damad-ascenseurs.fr"
     },
-    accent: "from-blue-500 to-indigo-600"
+    accent: "from-[#2b3343] to-[#3d4759]"
   }
 ];
 
@@ -63,17 +63,16 @@ export default function Team() {
     <section id="team" ref={sectionRef} className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div 
-          className="text-center mb-16 transition-all duration-700 ease-out opacity-0 translate-y-8"
+          className={`text-center mb-16 transition-all duration-700 ease-out ${isVisible ? 'animate-fadeIn' : 'opacity-0 translate-y-8'}`}
           style={{
-            animation: isVisible ? 'fadeInUp 0.7s ease-out forwards' : 'none',
-            animationDelay: '100ms'
+            transitionDelay: '100ms'
           }}
         >
-          <span className="inline-block px-4 py-1.5 text-sm font-semibold text-[#2b3343] bg-[#e5e7eb] rounded-full mb-4">
+          <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-[#2b3343] px-3 py-1 rounded-full">
             Rencontrez-nous
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Notre Équipe</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#4a90e2] to-[#2b3343] mx-auto rounded-full mb-6"></div>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#2b3343] mb-4">Notre Équipe</h2>
+          <div className="w-24 h-1 bg-[#2b3343] mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Notre équipe d&apos;experts dédiés est là pour vous accompagner à chaque étape de votre projet d&apos;ascenseur.
           </p>
@@ -87,8 +86,8 @@ export default function Team() {
                 className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col"
               >
                 <div className="p-8 text-center">
-                  <div className="w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                    <span className="text-3xl font-bold text-blue-600">
+                  <div className="w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#2b3343]/10 to-[#2b3343]/20 flex items-center justify-center">
+                    <span className="text-3xl font-bold text-[#2b3343]">
                       {member.name.split(' ').map(n => n[0]).join('')}
                     </span>
                   </div>
@@ -98,26 +97,26 @@ export default function Team() {
                       className="bg-gray-100 hover:bg-gray-200 p-2 rounded-full transition-colors duration-300"
                       aria-label={`LinkedIn de ${member.name}`}
                     >
-                      <FaLinkedin className="w-5 h-5 text-blue-600" />
+                      <FaLinkedin className="w-5 h-5 text-[#2b3343]" />
                     </a>
                     <a 
                       href={`https://twitter.com/${member.social.twitter}`} 
                       className="bg-gray-100 hover:bg-gray-200 p-2 rounded-full transition-colors duration-300"
                       aria-label={`Twitter de ${member.name}`}
                     >
-                      <FaTwitter className="w-5 h-5 text-blue-400" />
+                      <FaTwitter className="w-5 h-5 text-[#2b3343]" />
                     </a>
                     <a 
                       href={`mailto:${member.social.email}`} 
                       className="bg-gray-100 hover:bg-gray-200 p-2 rounded-full transition-colors duration-300"
                       aria-label={`Envoyer un email à ${member.name}`}
                     >
-                      <FaEnvelope className="w-5 h-5 text-gray-600" />
+                      <FaEnvelope className="w-5 h-5 text-[#2b3343]" />
                     </a>
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mt-4">{member.name}</h3>
                   <div className={`w-16 h-1 bg-gradient-to-r ${member.accent} my-3 mx-auto rounded-full`}></div>
-                  <p className="text-blue-600 font-medium">{member.role}</p>
+                  <p className="text-[#2b3343] font-medium">{member.role}</p>
                 </div>
                 <div className="p-6 pt-0 flex-1">
                   <p className="text-gray-600 leading-relaxed">{member.bio}</p>

@@ -3,8 +3,6 @@ import Image from 'next/image';
 import { FaFacebook, FaLinkedin, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight, FaHome, FaTools, FaBuilding, FaInfoCircle, FaEnvelopeOpenText, FaFileInvoiceDollar, FaWrench, FaCogs, FaScrewdriver, FaRecycle, FaClipboardCheck, FaExclamationTriangle } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 
-const currentYear = new Date().getFullYear();
-
 interface FooterLink {
   name: string;
   href: string;
@@ -18,29 +16,27 @@ interface FooterSection {
 
 const footerLinks: FooterSection[] = [
   {
-    title: 'Liens rapides',
+    title: 'Aller plus loin',
     links: [
-      { name: 'Accueil', href: '/', icon: FaHome },
+      { name: 'À Propos', href: '/a-propos', icon: FaInfoCircle },
       { name: 'Nos Services', href: '/services', icon: FaTools },
       { name: 'Réalisations', href: '/realisations', icon: FaBuilding },
-      { name: 'À Propos', href: '/a-propos', icon: FaInfoCircle },
+      { name: 'Support', href: '/support', icon: FaPhoneAlt },
       { name: 'Contact', href: '/contact', icon: FaEnvelopeOpenText },
-      { name: 'Devis', href: '/contact?subject=demande-de-devis', icon: FaFileInvoiceDollar },
     ],
   },
   {
     title: 'Nos Services',
     links: [
-      { name: 'Installation', href: '/services/installation', icon: FaWrench },
       { name: 'Maintenance', href: '/services/maintenance', icon: FaCogs },
-      { name: 'Réparation', href: '/services/reparation', icon: FaScrewdriver },
-      { name: 'Modernisation', href: '/services/modernisation', icon: FaRecycle },
-      { name: 'Contrôle Technique', href: '/services/controle-technique', icon: FaClipboardCheck },
       { name: 'Dépannage', href: '/services/depannage', icon: FaExclamationTriangle },
+      { name: 'Installation', href: '/services/installation', icon: FaWrench },
+      { name: 'Réparation', href: '/services/reparation', icon: FaScrewdriver },
+      { name: 'Devis', href: '/contact?subject=demande-de-devis', icon: FaFileInvoiceDollar },
     ],
   },
   {
-    title: 'Contact',
+    title: 'Nous Rejoindre',
     links: [
       { 
         name: '145 Rue Rateau - La Courneuve - 93120',
@@ -72,14 +68,15 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-[#2b3343] text-white pt-10 sm:pt-16 pb-6 sm:pb-8">
       <div className="container mx-auto px-4">
         <div className="mb-8 sm:mb-12">
           {/* Mobile layout - first row with company info */}
           <div className="block sm:hidden mb-8">
-            <div className="flex items-center">
-              <Link href="/" className="inline-block mr-3">
+            <div className="flex items-center justify-between w-full">
+              <Link href="/" className="inline-flex items-center -ml-4">
                 <div className="relative h-12 w-24">
                   <Image 
                     src="/damad-transparent.png" 
@@ -90,12 +87,10 @@ export default function Footer() {
                     priority
                   />
                 </div>
+                <span className="text-white font-bold text-xl -ml-6">DAMAD</span>
               </Link>
-              <div className="text-white mr-auto">
-                <h3 className="text-xl font-bold">DAMAD</h3>
-              </div>
               
-              <div className="flex space-x-2 ml-4">
+              <div className="flex space-x-2">
                 {socialLinks.map((social) => {
                   const Icon = social.icon;
                   return (
@@ -195,8 +190,8 @@ export default function Footer() {
           {/* Desktop/Tablet layout */}
           <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-12">
           {/* Company Info */}
-          <div className="space-y-5 sm:space-y-6">
-            <Link href="/" className="inline-block">
+          <div className="space-y-5 sm:space-y-6 pl-0">
+            <Link href="/" className="inline-flex items-center -ml-12 sm:-ml-16">
               <div className="relative h-16 sm:h-20 w-32 sm:w-40">
                 <Image 
                   src="/damad-transparent.png" 
@@ -207,6 +202,7 @@ export default function Footer() {
                   priority
                 />
               </div>
+              <span className="text-white font-bold text-xl sm:text-2xl -ml-1 sm:-ml-12">DAMAD</span>
             </Link>
             <p className="text-white/80 text-sm sm:text-base leading-relaxed">
               Votre partenaire de confiance pour tous vos besoins en ascenseurs, de l&apos;installation à la maintenance.
@@ -258,6 +254,19 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
+              {section.title === 'Nous Rejoindre' && (
+                <a 
+                  href="https://damad-client.vercel.app/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center mt-3 text-xs sm:text-sm text-white/60 hover:text-white bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-md transition-all duration-300"
+                >
+                  <span>Espace client</span>
+                  <svg className="ml-1.5 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              )}
             </div>
           ))}
           </div>

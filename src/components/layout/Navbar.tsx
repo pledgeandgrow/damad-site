@@ -72,12 +72,12 @@ export default function Navbar() {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center">
-              <div className={`relative ${scrolled ? 'h-12' : 'h-16'} w-auto transition-all duration-300`}>
+              <div className={`relative ${scrolled ? 'h-16' : 'h-20'} w-auto transition-all duration-300`}>
                 <Image 
                   src="/wdamad-transparent.png" 
                   alt="DAMAD Ascenseurs" 
-                  width={scrolled ? 48 : 64}
-                  height={scrolled ? 48 : 64}
+                  width={scrolled ? 64 : 80}
+                  height={scrolled ? 64 : 80}
                   className="object-contain h-full w-auto"
                   priority
                 />

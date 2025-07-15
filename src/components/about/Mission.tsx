@@ -62,10 +62,10 @@ const MissionCard = ({ value, delay }: { value: typeof values[0], delay: number 
       className={`bg-white rounded-xl shadow-lg p-8 transform transition-all duration-700 h-full ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-blue-50 mb-6">
+      <div className="flex items-center justify-center w-16 h-16 rounded-xl bg-[#2b3343]/10 mb-6">
         {value.icon}
       </div>
-      <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
+      <h3 className="text-xl font-semibold text-[#2b3343] mb-3">{value.title}</h3>
       <p className="text-gray-600">{value.description}</p>
     </div>
   );
@@ -83,11 +83,11 @@ export default function Mission() {
             animationDelay: '100ms'
           }}
         >
-          <span className="inline-block px-4 py-1.5 text-sm font-semibold text-[#2b3343] bg-[#e5e7eb] rounded-full mb-4">
+          <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-[#2b3343] px-3 py-1 rounded-full">
             Notre Engagement
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Notre Mission</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#4a90e2] to-[#2b3343] mx-auto rounded-full mb-6"></div>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#2b3343] mb-4">Notre Mission</h2>
+          <div className="w-24 h-1 bg-[#2b3343] mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Chez DAMAD, notre mission est de fournir des solutions d&apos;ascenseurs innovantes, fiables et accessibles à tous. en offrant un service client exceptionnel et des relations commerciales durables.
           </p>

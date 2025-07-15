@@ -9,28 +9,28 @@ const milestones = [
     title: "Nouveau Siège Social",
     description: "Ouverture de notre nouveau siège social à Paris, doté des dernières technologies pour mieux servir nos clients.",
     icon: <FaBuilding className="w-6 h-6 text-white" />,
-    color: "from-blue-500 to-indigo-600"
+    color: "from-[#2b3343] to-[#3d4759]"
   },
   {
     year: "2021",
     title: "Certification ISO 9001",
     description: "Obtention de la certification ISO 9001 pour notre système de management de la qualité.",
     icon: <FaAward className="w-6 h-6 text-white" />,
-    color: "from-emerald-500 to-teal-600"
+    color: "from-[#2b3343] to-[#3d4759]"
   },
   {
     year: "2019",
     title: "Expansion Nationale",
     description: "Ouverture de trois nouvelles agences en France pour une meilleure couverture nationale.",
     icon: <FaChartLine className="w-6 h-6 text-white" />,
-    color: "from-amber-500 to-orange-600"
+    color: "from-[#2b3343] to-[#3d4759]"
   },
   {
     year: "2017",
     title: "Premier Contrat Majeur",
     description: "Signature d'un contrat majeur pour l'installation d'ascenseurs dans un complexe immobilier de prestige.",
     icon: <FaUsers className="w-6 h-6 text-white" />,
-    color: "from-rose-500 to-pink-600"
+    color: "from-[#2b3343] to-[#3d4759]"
   }
 ];
 
@@ -63,7 +63,7 @@ const TimelineItem = ({ milestone, index, isVisible }: { milestone: typeof miles
             </div>
           </div>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#4a90e2] to-[#2b3343] rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300 -z-0"></div>
+        <div className="absolute inset-0 bg-[#2b3343] rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300 -z-0"></div>
       </div>
       
       <div className="hidden md:block w-1/2 px-8 py-4 text-center">
@@ -119,17 +119,16 @@ export default function History() {
     <section id="history" ref={sectionRef} className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         <div 
-          className="text-center mb-16 transition-all duration-700 ease-out opacity-0 translate-y-8"
+          className={`text-center mb-16 transition-all duration-700 ease-out ${inView ? 'animate-fadeIn' : 'opacity-0 translate-y-8'}`}
           style={{
-            animation: inView ? 'fadeInUp 0.7s ease-out forwards' : 'none',
-            animationDelay: '100ms'
+            transitionDelay: '100ms'
           }}
         >
-          <span className="inline-block px-4 py-1.5 text-sm font-semibold text-[#2b3343] bg-[#e5e7eb] rounded-full mb-4">
+          <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-[#2b3343] px-3 py-1 rounded-full">
             Notre Parcours
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Notre Histoire</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#4a90e2] to-[#2b3343] mx-auto rounded-full mb-6"></div>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#2b3343] mb-4">Notre Histoire</h2>
+          <div className="w-24 h-1 bg-[#2b3343] mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-gray-600 mb-8">
           Depuis notre création, nous avons su nous imposer comme un acteur de référence dans le secteur de l&apos;ascenseur, en mettant l&apos;accent sur l&apos;innovation et la satisfaction client.
         </p>
@@ -138,7 +137,7 @@ export default function History() {
         <div className="relative">
           {/* Timeline line */}
           <div 
-            className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#4a90e2] to-[#2b3343] transform -translate-x-1/2 scale-y-0 origin-top transition-transform duration-1000"
+            className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-[#2b3343] transform -translate-x-1/2 scale-y-0 origin-top transition-transform duration-1000"
             style={{
               transform: inView ? 'translateX(-50%) scaleY(1)' : 'translateX(-50%) scaleY(0)',
               transitionDelay: '300ms'

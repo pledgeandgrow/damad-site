@@ -17,9 +17,11 @@ export default function ContactPage() {
         </div>
         <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Contactez-nous
+            Créons une solution personnalisée, à la mesure de votre besoin.
           </h1>
-          Vous avez des questions ou souhaitez obtenir plus d&apos;informations sur nos services ? Notre équipe est là pour vous aider. pour vous apporter une réponse rapide et personnalisée.
+          <p className="text-lg text-white">
+            Pour commencer, merci de bien vouloir répondre à quelques questions rapides. Puis un membre de l’équipe Damad vous appellera pour parler de votre demande.
+          </p>
         </div>
       </div>
 
@@ -36,7 +38,7 @@ export default function ContactPage() {
           {/* Contact Form */}
           <div className="lg:pl-8 lg:pt-4">
             <div className="rounded-2xl bg-gray-50 p-8 shadow-xl sm:p-10">
-              <h3 className="text-lg font-semibold leading-8 text-gray-900">Envoyez-nous un message</h3>
+              <h3 className="text-lg font-semibold leading-8 text-gray-900"> Parlez-nous de vous.</h3>
               <p className="mt-2 text-sm leading-6 text-gray-600">
                 Tous les champs marqués d&apos;un astérisque (*) sont obligatoires.
               </p>
