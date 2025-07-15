@@ -1,5 +1,5 @@
 import { FaTimes, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
-import { Project } from '@/types/project';
+import { Project } from '@/types';
 import { useEffect, useState } from 'react';
 
 type ProjectModalProps = {

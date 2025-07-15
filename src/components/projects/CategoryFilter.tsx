@@ -1,5 +1,5 @@
 import { FaHome, FaBuilding, FaIndustry, FaShoppingCart } from 'react-icons/fa';
-import { ProjectCategory } from '@/types/project';
+import { ProjectCategory } from '@/types';
 
 interface CategoryFilterProps {
   activeCategory: string;

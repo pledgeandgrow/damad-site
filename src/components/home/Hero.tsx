@@ -1,50 +1,149 @@
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
 
 export default function Hero() {
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  
+  // Check if device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    // Function to handle video loaded event
+    const handleVideoLoaded = () => {
+      console.log('Video loaded successfully');
+      setIsVideoLoaded(true);
+    };
+    
+    // Function to handle video error
+    const handleVideoError = (e: Event) => {
+      console.error('Video failed to load:', e);
+      // Keep the fallback background visible
+    };
+    
+    const videoElement = videoRef.current;
+    if (videoElement) {
+      // Add event listeners
+      videoElement.addEventListener('loadeddata', handleVideoLoaded);
+      videoElement.addEventListener('error', handleVideoError);
+      
+      // Force load attempt
+      if (videoElement.readyState >= 3) {
+        // If video is already loaded
+        handleVideoLoaded();
+      }
+    }
+    
+    // Cleanup function
+    return () => {
+      if (videoElement) {
+        videoElement.removeEventListener('loadeddata', handleVideoLoaded);
+        videoElement.removeEventListener('error', handleVideoError);
+      }
+    };
+  }, []);
+
   return (
-    <section className="relative bg-gradient-to-b from-gray-50 to-white py-20 md:py-28">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="inline-block text-[#2b3343] font-semibold text-sm uppercase tracking-wider mb-4">
-            Expert Ascenseurs
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Installation &amp; Maintenance d&apos;Ascenseurs Professionnels
+    <section className="relative h-[650px] sm:h-[700px] md:h-[800px] overflow-hidden flex items-center justify-center">
+      {/* Background Video or Image */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        {/* Fallback background color/gradient while waiting for video */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#2b3343] to-[#4a5568] w-full h-full"></div>
+        
+        {/* Video element with conditional blur based on device */}
+        <div className={`w-full h-full transition-opacity duration-1000 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className={`absolute inset-0 w-full h-full object-cover scale-105 ${isMobile ? 'filter blur-[1px]' : 'filter blur-[2px]'}`}
+            poster="/images/elevator-placeholder.jpg"
+          >
+            <source src="/videos/elevator.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        {/* Dynamic overlay based on device size */}
+        <div className={`absolute inset-0 ${isMobile ? 'bg-gradient-to-b from-[#2b3343]/70 to-[#2b3343]/40' : 'bg-gradient-to-r from-[#2b3343]/60 to-[#2b3343]/30'}`}></div>
+      </div>
+      
+      {/* Content */}
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-3xl mx-auto text-center">
+          {/* Badge with animation - improved for mobile */}
+          <div className="mb-4 sm:mb-6">
+            <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4 bg-[#2b3343]/70 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/20 shadow-lg transform hover:scale-105 transition-transform duration-300">
+              <span className="hidden xs:inline">Expert Ascenseurs depuis 25+ ans</span>
+              <span className="xs:hidden">25+ ans d&apos;expertise</span>
+            </span>
+          </div>
+          
+          {/* Headline with improved typography and responsive sizing */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight tracking-tight drop-shadow-lg">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">Installation &amp; Maintenance</span> <br className="hidden sm:block" />
+            <span className="inline-block mt-1">d&apos;Ascenseurs</span>
           </h1>
-          <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto">
+          
+          {/* Description with better readability - optimized for mobile */}
+          <p className="text-base xs:text-lg sm:text-xl text-white/90 mb-6 xs:mb-8 sm:mb-10 max-w-3xl mx-auto drop-shadow-md leading-relaxed px-1 xs:px-2 sm:px-0">
             Damad Ascenseurs vous accompagne dans tous vos projets, de la conception à la maintenance, avec des solutions sur mesure et un service d&apos;excellence.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          
+          {/* CTA buttons with enhanced styling and animations - optimized for mobile */}
+          <div className="flex flex-col xs:flex-row gap-3 xs:gap-4 justify-center mt-6 xs:mt-8">
             <Link 
               href="/contact" 
-              className="group inline-flex items-center justify-center bg-[#2b3343] hover:bg-[#3d4759] text-white font-medium py-4 px-8 rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg"
+              className="group bg-white hover:bg-gray-100 text-[#2b3343] font-medium py-3 xs:py-3.5 px-5 xs:px-7 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center transform hover:-translate-y-0.5 text-sm xs:text-base"
             >
-              Demander un devis
+              Demander un devis 
               <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
             <Link 
               href="/services" 
-              className="group inline-flex items-center justify-center border-2 border-[#2b3343] text-[#2b3343] hover:bg-[#2b3343] hover:text-white font-medium py-4 px-8 rounded-lg transition-colors duration-300"
+              className="border-2 border-white text-white hover:bg-white/20 font-medium py-3 xs:py-3.5 px-5 xs:px-7 rounded-lg transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm xs:text-base"
             >
-              Découvrir nos services
+              Nos services
             </Link>
           </div>
           
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {/* Stats section with enhanced styling and animations - optimized for mobile */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 xs:gap-3 sm:gap-4 md:gap-6 max-w-4xl mx-auto mt-8 xs:mt-10 md:mt-12">
             {[
-              { number: '25+', label: 'Ans d\'expérience' },
-              { number: '1000+', label: 'Clients satisfaits' },
-              { number: '24/7', label: 'Service d\'urgence' },
-              { number: '100%', label: 'Garantie pièces' }
+              { number: '25+', label: 'Ans d\'expérience', icon: '🏢' },
+              { number: '1000+', label: 'Clients satisfaits', icon: '👥' },
+              { number: '24/7', label: 'Service d\'urgence', icon: '🔧' },
+              { number: '100%', label: 'Garantie pièces', icon: '✓' }
             ].map((item, index) => (
-              <div key={index} className="text-center p-4">
-                <div className="text-3xl font-bold text-[#2b3343] mb-2">{item.number}</div>
-                <div className="text-sm text-gray-600">{item.label}</div>
+              <div 
+                key={index} 
+                className="text-center p-2 xs:p-3 sm:p-4 bg-white/20 backdrop-blur-sm rounded-lg shadow-lg border border-white/30 hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
+              >
+                <div className="hidden xs:block text-base sm:text-lg opacity-75 mb-0.5 xs:mb-1">{item.icon}</div>
+                <div className="text-xl xs:text-2xl sm:text-3xl font-bold text-white mb-0.5 xs:mb-1 sm:mb-2">{item.number}</div>
+                <div className="text-2xs xs:text-xs sm:text-sm text-white/80">{item.label}</div>
               </div>
             ))}
           </div>
         </div>
+      </div>
+      
+      {/* Bottom gradient fade effect */}
+      <div className="absolute bottom-0 left-0 right-0 z-10">
+        <div className="bg-gradient-to-t from-black/20 to-transparent h-12"></div>
       </div>
     </section>
   );

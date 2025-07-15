@@ -102,25 +102,23 @@ export default function TermsAndConditions() {
           </p>
 
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">11. Contact</h2>
-          <div className="space-y-4">
-            <p className="text-[#3d4759]">
-              Pour toute question concernant nos conditions générales de vente, vous pouvez nous contacter :
-            </p>
-            <div className="space-y-2">
-              <p className="flex items-center">
-                <FaChevronRight className="text-[#2b3343] mr-2 flex-shrink-0" />
-                <span>Email : <a href="mailto:contact@damad-ascenseur.com" className="text-[#2b3343] hover:underline">contact@damad-ascenseur.com</a></span>
-              </p>
-              <p className="flex items-center">
-                <FaChevronRight className="text-[#2b3343] mr-2 flex-shrink-0" />
-                <span>Téléphone : <a href="tel:+33123456789" className="text-[#2b3343] hover:underline">+33 1 23 45 67 89</a></span>
-              </p>
-              <p className="flex items-center">
-                <FaChevronRight className="text-[#2b3343] mr-2 flex-shrink-0" />
-                <span>Adresse : [Adresse complète], France</span>
-              </p>
-            </div>
-          </div>
+          <p className="text-[#3d4759] mb-4">
+            Pour toute question concernant nos conditions générales de vente, vous pouvez nous contacter :
+          </p>
+          <ul className="space-y-3 mb-8">
+            <li className="flex">
+              <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
+              <span className="text-[#3d4759]"><strong>Email :</strong> <a href="mailto:contact@damad-ascenseur.com" className="text-blue-600 hover:underline">contact@damad-ascenseur.com</a></span>
+            </li>
+            <li className="flex">
+              <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
+              <span className="text-[#3d4759]"><strong>Téléphone :</strong> <a href="tel:+33123456789" className="text-blue-600 hover:underline">+33 1 23 45 67 89</a></span>
+            </li>
+            <li className="flex">
+              <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
+              <span className="text-[#3d4759]"><strong>Adresse :</strong> 145 Rue Rateau, La Courneuve, 93120</span>
+            </li>
+          </ul>
 
           <div className="border-t border-gray-200 pt-8 mt-12">
             <p className="text-[#3d4759] text-sm text-center mb-6">

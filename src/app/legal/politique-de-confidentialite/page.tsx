@@ -131,20 +131,28 @@ export default function PolitiqueDeConfidentialite() {
             Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. Toute modification sera publiée sur cette page avec une date de mise à jour révisée.
           </p>
 
-          <h2 className="text-2xl font-semibold text-[#2b3343] mt-8 mb-4">9. Nous contacter</h2>
-          <p className="text-[#3d4759] mb-8">
+          <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">9. Nous contacter</h2>
+          <p className="text-[#3d4759] mb-4">
             Pour toute question concernant cette politique de confidentialité ou pour exercer vos droits, veuillez nous contacter à :
-            <br /><br />
-            <span className="font-medium text-[#2b3343]">DAMAD Ascenseurs</span><br />
-            <span className="flex items-center">
-              <FaChevronRight className="text-[#2b3343] mr-2 flex-shrink-0" />
-              <span>Email : <a href="mailto:contact@damad-ascenseur.com" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">contact@damad-ascenseur.com</a></span>
-            </span>
-            <span className="flex items-center mt-2">
-              <FaChevronRight className="text-[#2b3343] mr-2 flex-shrink-0" />
-              <span>Téléphone : <a href="tel:+33123456789" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">+33 1 23 45 67 89</a></span>
-            </span>
           </p>
+          <ul className="space-y-3 mb-8">
+            <li className="flex">
+              <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
+              <span className="text-[#3d4759]"><strong>DAMAD Ascenseurs</strong></span>
+            </li>
+            <li className="flex">
+              <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
+              <span className="text-[#3d4759]"><strong>Email :</strong> <a href="mailto:contact@damad-ascenseur.com" className="text-blue-600 hover:underline">contact@damad-ascenseur.com</a></span>
+            </li>
+            <li className="flex">
+              <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
+              <span className="text-[#3d4759]"><strong>Téléphone :</strong> <a href="tel:+33123456789" className="text-blue-600 hover:underline">+33 1 23 45 67 89</a></span>
+            </li>
+            <li className="flex">
+              <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
+              <span className="text-[#3d4759]"><strong>Adresse :</strong> 145 Rue Rateau, La Courneuve, 93120</span>
+            </li>
+          </ul>
 
           <div className="border-t border-gray-200 pt-8 mt-8">
             <p className="text-[#3d4759] text-sm text-center">

@@ -7,7 +7,7 @@ import CategoryFilter from '@/components/projects/CategoryFilter';
 import ProjectsGrid from '@/components/projects/ProjectsGrid';
 import ProjectModal from '@/components/ProjectModal';
 import { getProjectsByCategory } from '@/data/projects';
-import { Project } from '@/types/project';
+import { Project } from '@/types';
 import useModal from '@/hooks/useModal';
 
 export default function RealisationsPage() {

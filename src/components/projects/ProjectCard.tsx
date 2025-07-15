@@ -1,5 +1,5 @@
 import { FaArrowRight } from 'react-icons/fa';
-import { Project } from '@/types/project';
+import { Project } from '@/types';
 
 interface ProjectCardProps {
   project: Project;
