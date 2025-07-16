@@ -58,10 +58,9 @@ export default function About() {
           <div className="lg:w-1/2 mt-12 lg:mt-0">
             <div className="space-y-8">
               <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100">
-                <h3 className="text-2xl font-bold text-[#2b3343] mb-4">Notre mission</h3>
+                <h3 className="text-2xl font-bold text-[#2b3343] mb-4">Notre engagement</h3>
                 <p className="text-gray-600 mb-6 leading-relaxed">
-                  Chez Damad Ascenseurs, nous nous engageons à fournir des solutions de mobilité verticale 
-                  innovantes et fiables, en mettant l&apos;accent sur la qualité, la sécurité et le service client.
+                  Chez Damad, nous nous engageons à maintenir votre installation en condition opérationnelle en mettant l'accent sur notre expertise technique, la sécurité, la proximité.
                 </p>
                 <div className="w-16 h-1 bg-[#2b3343] mb-6"></div>
               </div>
@@ -83,7 +82,7 @@ export default function About() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-[#2b3343] text-lg mb-2">Sécurité garantie</h4>
-                    <p className="text-gray-600 text-sm">Respect strict des normes de sécurité en vigueur pour votre tranquillité d&apos;esprit.</p>
+                    <p className="text-gray-600 text-sm">Respect des normes de sécurité en vigueur pour votre tranquillité d&apos;esprit.</p>
                   </div>
                 </div>
 
@@ -92,8 +91,8 @@ export default function About() {
                     <FaUsers className="text-[#2b3343] text-xl" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-[#2b3343] text-lg mb-2">Service client d&apos;exception</h4>
-                    <p className="text-gray-600 text-sm">Une équipe à votre écoute pour répondre à tous vos besoins en matière d&apos;ascenseurs.</p>
+                    <h4 className="font-semibold text-[#2b3343] text-lg mb-2">Service client</h4>
+                    <p className="text-gray-600 text-sm">Une équipe à votre écoute pour répondre à tous vos besoins</p>
                   </div>
                 </div>
               </div>
@@ -124,7 +123,7 @@ export default function About() {
               </div>
 
               <button className="mt-4 w-full md:w-auto bg-[#2b3343] text-white hover:bg-[#3d4759] px-6 py-3 rounded-lg font-medium transition-colors duration-300 flex items-center justify-center space-x-2">
-                <span>En savoir plus sur nous</span>
+                <span>Notre histoire</span>
                 <FaArrowRight className="text-sm" />
               </button>
             </div>
