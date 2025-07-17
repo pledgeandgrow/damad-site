@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight, FaBuilding, FaUsers, FaTools, FaCheckCircle } from 'react-icons/fa';
 
 export default function Hero() {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
@@ -72,7 +72,7 @@ export default function Hero() {
             className={`absolute inset-0 w-full h-full object-cover scale-105 ${isMobile ? 'filter blur-[1px]' : 'filter blur-[2px]'}`}
             poster="/images/elevator-placeholder.jpg"
           >
-            <source src="/videos/elevator.mp4" type="video/mp4" />
+            <source src="https://damad-ascenseurs.com/video/background_drone.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -123,16 +123,16 @@ export default function Hero() {
           {/* Stats section with enhanced styling and animations - optimized for mobile */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 xs:gap-3 sm:gap-4 md:gap-6 max-w-4xl mx-auto mt-8 xs:mt-10 md:mt-12">
             {[
-              { number: '25+', label: 'Ans d\'expérience', icon: '🏢' },
-              { number: '1000+', label: 'Clients satisfaits', icon: '👥' },
-              { number: '24/7', label: 'Service d\'urgence', icon: '🔧' },
-              { number: '100%', label: 'Garantie pièces', icon: '✓' }
+              { number: '25+', label: 'Ans d\'expérience', icon: <FaBuilding className="w-5 h-5 text-[#2b3343] mx-auto" /> },
+              { number: '1000+', label: 'Clients satisfaits', icon: <FaUsers className="w-5 h-5 text-[#2b3343] mx-auto" /> },
+              { number: '24/7', label: 'Service d\'urgence', icon: <FaTools className="w-5 h-5 text-[#2b3343] mx-auto" /> },
+              { number: '100%', label: 'Garantie pièces', icon: <FaCheckCircle className="w-5 h-5 text-[#2b3343] mx-auto" /> }
             ].map((item, index) => (
               <div 
                 key={index} 
                 className="text-center p-2 xs:p-3 sm:p-4 bg-white/20 backdrop-blur-sm rounded-lg shadow-lg border border-white/30 hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
               >
-                <div className="hidden xs:block text-base sm:text-lg opacity-75 mb-0.5 xs:mb-1">{item.icon}</div>
+                <div className="hidden xs:block mb-0.5 xs:mb-1">{item.icon}</div>
                 <div className="text-xl xs:text-2xl sm:text-3xl font-bold text-white mb-0.5 xs:mb-1 sm:mb-2">{item.number}</div>
                 <div className="text-2xs xs:text-xs sm:text-sm text-white/80">{item.label}</div>
               </div>

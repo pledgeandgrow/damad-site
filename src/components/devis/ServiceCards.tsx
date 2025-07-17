@@ -1,3 +1,4 @@
+import React from 'react';
 import { FaBuilding, FaIndustry, FaTools, FaTachometerAlt, FaShieldAlt, FaArrowRight } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
@@ -84,8 +85,8 @@ export default function ServiceCards() {
             >
               <div className="p-6">
                 <div className="flex items-center mb-6">
-                  <div className="p-4 bg-white rounded-lg shadow-md">
-                    {service.icon}
+                  <div className="p-4 bg-gradient-to-br from-[#2b3343] to-[#3d4759] rounded-lg shadow-md">
+                    {React.cloneElement(service.icon, { className: "w-10 h-10 text-white" })}
                   </div>
                   <h3 className="ml-4 text-xl font-semibold text-[#2b3343]">{service.title}</h3>
                 </div>
