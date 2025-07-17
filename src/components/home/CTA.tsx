@@ -35,9 +35,7 @@ export default function CTA() {
             </Link>
           </div>
           
-          <p className="mt-8 text-sm text-gray-500">
-            Réponse sous 24h • Devis gratuit • Service client 5/5
-          </p>
+
         </div>
       </div>
     </section>

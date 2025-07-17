@@ -5,55 +5,33 @@ import { useSwipeable } from 'react-swipeable';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaChevronLeft, FaChevronRight, FaBuilding, FaHotel, FaHospital } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaBuilding, FaHome, FaIndustry } from 'react-icons/fa';
+import { projects as allProjects } from '../projects/data/projects';
 
-interface Project {
-  id: number;
-  title: string;
-  location: string;
-  description: string;
-  image: string;
-  icon: React.ReactNode;
-  category: string;
-  year: string;
-  slug: string;
-}
+// Project interface is defined in the imported data file
 
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "Résidence Les Ormes",
-    location: "Lyon, France",
-    description: "Installation de 3 ascenseurs nouvelle génération dans une résidence de standing avec 120 appartements.",
-    image: "/images/project1.jpg",
-    icon: <FaBuilding />,
-    category: "Installation",
-    year: "2024",
-    slug: "residence-les-ormes"
-  },
-  {
-    id: 2,
-    title: "Hôtel Mercure",
-    location: "Marseille, France",
-    description: "Modernisation complète des 4 ascenseurs existants avec mise aux normes et amélioration de l'efficacité énergétique.",
-    image: "/images/project2.jpg",
-    icon: <FaHotel />,
-    category: "Rénovation",
-    year: "2023",
-    slug: "hotel-mercure"
-  },
-  {
-    id: 3,
-    title: "Clinique Saint-Joseph",
-    location: "Bordeaux, France",
-    description: "Installation d'un monte-charge médical et maintenance préventive pour l'ensemble des ascenseurs de l'établissement.",
-    image: "/images/project3.jpg",
-    icon: <FaHospital />,
-    category: "Installation & Maintenance",
-    year: "2023",
-    slug: "clinique-saint-joseph"
+// Map category to icon
+const getCategoryIcon = (category: string) => {
+  switch (category) {
+    case 'Résidentiel':
+      return <FaHome />;
+    case 'Commercial':
+      return <FaBuilding />;
+    case 'Industriel':
+      return <FaIndustry />;
+    case 'Particulier':
+      return <FaHome />;
+    default:
+      return <FaBuilding />;
   }
-];
+};
+
+// Get the first 3 projects from the main projects data file
+const projects = allProjects.slice(0, 3).map(project => ({
+  ...project,
+  icon: getCategoryIcon(project.category),
+  slug: project.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+}));
 
 const Projects: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -194,7 +172,7 @@ const Projects: React.FC = () => {
                       <p className="text-gray-600 text-sm sm:text-base mb-4 flex-grow">{project.description}</p>
                       
                       <Link 
-                        href={`/realisations/${project.slug}`}
+                        href="/realisations"
                         className="inline-flex items-center text-sm font-medium text-[#2b3343] hover:text-blue-600 mt-auto"
                       >
                         Voir le projet

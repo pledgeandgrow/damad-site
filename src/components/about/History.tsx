@@ -5,30 +5,30 @@ import { useRef, useState, useEffect } from 'react';
 
 const milestones = [
   {
-    year: "2023",
-    title: "Nouveau Siège Social",
-    description: "Ouverture de notre nouveau siège social à Paris, doté des dernières technologies pour mieux servir nos clients.",
+    year: "2024",
+    title: "Renforcement Structurel",
+    description: "DAMAD renforce sa structure et son équipe pour faire face aux nouveaux enjeux économiques, technologiques et sociétaux.",
     icon: <FaBuilding className="w-6 h-6 text-white" />,
     color: "from-[#2b3343] to-[#3d4759]"
   },
   {
-    year: "2021",
-    title: "Certification ISO 9001",
-    description: "Obtention de la certification ISO 9001 pour notre système de management de la qualité.",
-    icon: <FaAward className="w-6 h-6 text-white" />,
-    color: "from-[#2b3343] to-[#3d4759]"
-  },
-  {
     year: "2019",
-    title: "Expansion Nationale",
-    description: "Ouverture de trois nouvelles agences en France pour une meilleure couverture nationale.",
+    title: "Expansion Régionale",
+    description: "Développement d'un ancrage francilien fort pour entretenir une relation de proximité avec nos clients et partenaires.",
     icon: <FaChartLine className="w-6 h-6 text-white" />,
     color: "from-[#2b3343] to-[#3d4759]"
   },
   {
-    year: "2017",
-    title: "Premier Contrat Majeur",
-    description: "Signature d'un contrat majeur pour l'installation d'ascenseurs dans un complexe immobilier de prestige.",
+    year: "2015",
+    title: "Diversification des Services",
+    description: "Extension de nos services à la maintenance de portes automatiques, monte-charges, monte-voitures et EPMR.",
+    icon: <FaAward className="w-6 h-6 text-white" />,
+    color: "from-[#2b3343] to-[#3d4759]"
+  },
+  {
+    year: "2007",
+    title: "Création de DAMAD",
+    description: "Fondation de DAMAD, entreprise spécialisée dans la maintenance d'ascenseurs.",
     icon: <FaUsers className="w-6 h-6 text-white" />,
     color: "from-[#2b3343] to-[#3d4759]"
   }
@@ -130,8 +130,11 @@ export default function History() {
           <h2 className="text-3xl md:text-4xl font-bold text-[#2b3343] mb-4">Notre Histoire</h2>
           <div className="w-24 h-1 bg-[#2b3343] mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-gray-600 mb-8">
-          Depuis notre création, nous avons su nous imposer comme un acteur de référence dans le secteur de l&apos;ascenseur, en mettant l&apos;accent sur l&apos;innovation et la satisfaction client.
-        </p>
+            Créée en 2007, DAMAD gère aujourd&apos;hui plus de 800 ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR. En faisant le choix de s&apos;implanter localement via un maillage du territoire régional, nous proposons des solutions complètes d&apos;installation, de maintenance, d&apos;entretien, de rénovation et de modernisation.
+          </p>
+          <p className="text-lg text-gray-600 mb-8">
+            Prudence, discipline et sécurité s&apos;inscrivent dans notre politique d&apos;accompagnement des équipes terrain, des entrepreneurs, des entreprises et des particuliers. Passionnés par ce métier et par l&apos;accessibilité, nous mettons notre savoir et notre expérience à votre service.
+          </p>
         </div>
 
         <div className="relative">

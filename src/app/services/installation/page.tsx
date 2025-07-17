@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Installation Ascenseur - DAMAD ASCENSEURS',
+  title: 'Installation Ascenseur - DAMAD',
   description: 'Installation sur mesure d&apos;ascenseurs neufs. Conception, réalisation et mise en service de votre futur ascenseur par des experts.',
 };
 

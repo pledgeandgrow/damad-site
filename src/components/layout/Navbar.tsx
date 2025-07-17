@@ -75,7 +75,7 @@ export default function Navbar() {
               <div className={`relative ${scrolled ? 'h-16' : 'h-20'} w-auto transition-all duration-300`}>
                 <Image 
                   src="/wdamad-transparent.png" 
-                  alt="DAMAD Ascenseurs" 
+                  alt="DAMAD" 
                   width={scrolled ? 64 : 80}
                   height={scrolled ? 64 : 80}
                   className="object-contain h-full w-auto"

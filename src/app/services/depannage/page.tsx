@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Dépannage Ascenseur - DAMAD ASCENSEURS',
+  title: 'Dépannage Ascenseur - DAMAD',
   description: 'Service de dépannage d&apos;ascenseur 24/7. Intervention rapide par des techniciens qualifiés pour tous types de pannes.'
 };
 

@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 import { FaChevronRight } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-  title: 'Politique de cookies | DAMAD Ascenseurs',
-  description: 'Découvrez notre politique d\'utilisation des cookies sur le site DAMAD Ascenseurs.',
+  title: 'Politique de cookies | DAMAD',
+  description: 'Découvrez notre politique d\'utilisation des cookies sur le site DAMAD.',
 };
 
 export default function PolitiqueCookiesPage() {
@@ -23,7 +23,7 @@ export default function PolitiqueCookiesPage() {
 
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">1. Politique d&apos;utilisation des cookies</h2>
           <p className="text-[#3d4759] mb-8">
-            Cette politique explique comment DAMAD Ascenseurs utilise les cookies et technologies similaires 
+            Cette politique explique comment DAMAD utilise les cookies et technologies similaires 
             sur son site web. Nous vous invitons à lire attentivement ce document pour comprendre comment 
             nous collectons des informations à l&apos;aide de cookies.
           </p>
@@ -155,7 +155,7 @@ export default function PolitiqueCookiesPage() {
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
-              <span className="text-[#3d4759]"><strong>Adresse :</strong> 145 Rue Rateau, La Courneuve, 93120</span>
+              <span className="text-[#3d4759]"><strong>Adresse :</strong> 3 BOULEVARD DE SEBASTOPOL, 75001 PARIS, France</span>
             </li>
           </ul>
           

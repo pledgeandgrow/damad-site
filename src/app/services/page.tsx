@@ -3,7 +3,7 @@ import ServiceCard from '@/components/services/ServiceCard';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Nos Services - Damad Ascenseurs',
+  title: 'Nos Services - DAMAD',
   description: 'Découvrez nos services professionnels pour ascenseurs : réparation, maintenance et modernisation.',
 };
 

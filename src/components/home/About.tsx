@@ -20,7 +20,7 @@ export default function About() {
             <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-xl">
               <Image 
                 src="/images/1.png" 
-                alt="Équipe technique Damad Ascenseurs"
+                alt="Équipe technique DAMAD"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover transition-transform duration-700 hover:scale-105"

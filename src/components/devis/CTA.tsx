@@ -24,7 +24,7 @@ export default function CTA({ scrollToForm }: CTAProps) {
     {
       icon: <FaMapMarkerAlt className="w-6 h-6 text-[#2b3343]" />,
       title: 'Adresse',
-      description: '123 Avenue des Ascenseurs, 75000 Paris',
+      description: '3 BOULEVARD DE SEBASTOPOL\n75001 PARIS, France',
       link: 'https://maps.google.com',
       linkText: 'Voir sur la carte'
     },

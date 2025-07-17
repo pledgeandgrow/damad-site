@@ -19,7 +19,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Johny MENDY",
     role: "Directeur Général",
-    bio: "Fondateur et Directeur Général de DAMAD Ascenseurs, Johny apporte plus de 15 ans d'expérience dans l'industrie des ascenseurs. Sa vision stratégique et son engagement envers l'excellence technique ont permis à l'entreprise de se positionner comme un leader dans le secteur.",
+    bio: "Fondateur et Directeur Général de DAMAD, Johny apporte plus de 15 ans d'expérience dans l'industrie des ascenseurs. Sa vision stratégique et son engagement envers l'excellence technique ont permis à l'entreprise de se positionner comme un leader dans le secteur.",
     social: {
       linkedin: "#",
       twitter: "#",

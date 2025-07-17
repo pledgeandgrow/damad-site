@@ -4,7 +4,7 @@ import History from '@/components/about/History';
 import Team from '@/components/about/Team';
 
 export const metadata = {
-  title: 'À Propos - DAMAD Ascenseurs',
+  title: 'À Propos - DAMAD',
   description: 'Découvrez DAMAD, votre partenaire de confiance pour la sécurité, la performance et la longévité de vos ascenseurs. Notre équipe d\'experts vous accompagne dans tous vos projets.',
 };
 

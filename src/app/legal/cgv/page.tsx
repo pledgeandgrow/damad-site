@@ -4,8 +4,8 @@ import { FaChevronRight } from 'react-icons/fa';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Conditions Générales de Vente - DAMAD ASCENSEURS',
-  description: 'Conditions Générales de Vente de DAMAD ASCENSEURS - Toutes les conditions applicables à nos services d\'installation et maintenance d\'ascenseurs.',
+  title: 'Conditions Générales de Vente - DAMAD',
+  description: 'Conditions Générales de Vente de DAMAD - Toutes les conditions applicables à nos services d\'installation et maintenance d\'ascenseurs.',
 };
 
 export default function TermsAndConditions() {
@@ -24,7 +24,7 @@ export default function TermsAndConditions() {
 
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">1. Objet</h2>
           <p className="text-[#3d4759] mb-8">
-            Les présentes conditions générales de vente (CGV) s&apos;appliquent à toutes les prestations de services réalisées par DAMAD Ascenseurs, société spécialisée dans l&apos;installation, la maintenance et le dépannage d&apos;ascenseurs.
+            Les présentes conditions générales de vente (CGV) s&apos;appliquent à toutes les prestations de services réalisées par DAMAD, société spécialisée dans l&apos;installation, la maintenance et le dépannage d&apos;ascenseurs.
           </p>
 
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">2. Devis et commande</h2>
@@ -90,7 +90,7 @@ export default function TermsAndConditions() {
 
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">9. Droit applicable et juridiction compétente</h2>
           <p className="text-[#3d4759] mb-8">
-            Les présentes conditions générales de vente sont soumises au droit français. En cas de litige, les tribunaux du lieu du siège social de DAMAD Ascenseurs seront seuls compétents.
+            Les présentes conditions générales de vente sont soumises au droit français. En cas de litige, les tribunaux du lieu du siège social de DAMAD seront seuls compétents.
           </p>
 
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">10. Données personnelles</h2>
@@ -116,7 +116,7 @@ export default function TermsAndConditions() {
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
-              <span className="text-[#3d4759]"><strong>Adresse :</strong> 145 Rue Rateau, La Courneuve, 93120</span>
+              <span className="text-[#3d4759]"><strong>Adresse :</strong> 3 BOULEVARD DE SEBASTOPOL, 75001 PARIS, France</span>
             </li>
           </ul>
 

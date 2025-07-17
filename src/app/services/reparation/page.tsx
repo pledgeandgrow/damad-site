@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Réparation d&apos;Ascenseurs - DAMAD ASCENSEURS',
+  title: 'Réparation d&apos;Ascenseurs - DAMAD',
   description: 'Service professionnel de réparation d&apos;ascenseurs avec diagnostics précis et interventions rapides pour une remise en service fiable de vos équipements.',
 };
 

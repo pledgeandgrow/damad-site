@@ -18,10 +18,12 @@ export default function AboutHero() {
   };
 
   return (
-    <section className="relative bg-white text-[#2b3343] py-20 md:py-28 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-gray-50 to-white text-[#2b3343] py-24 md:py-32 overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-[#2b3343]/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+      <div className="absolute top-0 right-0 w-80 h-80 bg-[#2b3343]/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#2b3343]/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+      <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-[#2b3343]/3 rounded-full"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-48 h-48 bg-[#2b3343]/3 rounded-full"></div>
       
       <div className="absolute inset-0 z-0 opacity-5">
         <div className="absolute inset-0 bg-[url('/images/pattern.svg')] bg-repeat"></div>
@@ -32,19 +34,19 @@ export default function AboutHero() {
           <div 
             className={`text-center transform transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
-            <span className="inline-block px-4 py-2 mb-5 text-sm font-semibold text-white bg-[#2b3343] rounded-full shadow-md">
-              Notre Histoire, Notre Passion
+            <span className="inline-block px-4 py-2 mb-5 text-sm font-semibold text-white bg-[#2b3343] rounded-full shadow-md transform transition-all duration-500 hover:scale-105">
+              Depuis 2007 à votre service
             </span>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               À propos de <span className="text-[#2b3343] relative">
                 DAMAD
                 <span className="absolute -bottom-2 left-0 right-0 h-1 bg-[#2b3343] rounded-full"></span>
-              </span> Ascenseurs
+              </span>
             </h1>
             
             <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Votre partenaire de confiance pour assurer la sécurité, la performance et la longévité de vos ascenseurs.
+              Votre partenaire de confiance pour l&apos;installation, la maintenance et la modernisation de vos ascenseurs, portes automatiques, monte-charges et solutions d&apos;accessibilité.
             </p>
           </div>
           
@@ -67,12 +69,7 @@ export default function AboutHero() {
             </a>
           </div>
           
-          {/* Decorative wave */}
-          <div className="absolute bottom-0 left-0 right-0 h-16 overflow-hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="absolute bottom-0 w-full h-auto">
-              <path fill="#f9fafb" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-            </svg>
-          </div>
+          {/* Decorative wave - removed to prevent hiding buttons */}
         </div>
       </div>
     </section>

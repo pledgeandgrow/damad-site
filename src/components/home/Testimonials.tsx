@@ -33,7 +33,7 @@ const testimonials: Testimonial[] = [
     id: 3,
     name: "Pierre Martin",
     role: "Propriétaire d'hôtel",
-    content: "Nous avons fait appel à Damad Ascenseurs pour l'installation de deux nouveaux ascenseurs dans notre hôtel. Travail soigné et respect des délais.",
+    content: "Nous avons fait appel à DAMAD pour l'installation de deux nouveaux ascenseurs dans notre hôtel. Travail soigné et respect des délais.",
     rating: 4,
 
   }

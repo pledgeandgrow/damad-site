@@ -39,7 +39,7 @@ const footerLinks: FooterSection[] = [
     title: 'Nous Rejoindre',
     links: [
       { 
-        name: '145 Rue Rateau - La Courneuve - 93120',
+        name: '3 BOULEVARD DE SEBASTOPOL - 75001 PARIS',
         href: 'https://share.google/O0KDt5Ij8TVjUXJak',
         icon: FaMapMarkerAlt 
       },
@@ -54,8 +54,8 @@ const footerLinks: FooterSection[] = [
         icon: FaPhoneAlt
       },
       { 
-        name: 'contact@damad-ascenseur.com',
-        href: 'mailto:contact@damad-ascenseur.com',
+        name: 'contact@damad-ascenseurs.com',
+        href: 'mailto:contact@damad-ascenseurs.com',
         icon: FaEnvelope
       },
     ],
@@ -80,7 +80,7 @@ export default function Footer() {
                 <div className="relative h-12 w-24">
                   <Image 
                     src="/damad-transparent.png" 
-                    alt="DAMAD Ascenseurs" 
+                    alt="DAMAD" 
                     fill
                     className="object-contain hover:opacity-90 transition-opacity"
                     sizes="96px"
@@ -195,7 +195,7 @@ export default function Footer() {
               <div className="relative h-16 sm:h-20 w-32 sm:w-40">
                 <Image 
                   src="/damad-transparent.png" 
-                  alt="DAMAD Ascenseurs" 
+                  alt="DAMAD" 
                   fill
                   className="object-contain hover:opacity-90 transition-opacity"
                   sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 160px"
@@ -276,7 +276,7 @@ export default function Footer() {
         
         <div className="border-t border-white/10 pt-6 sm:pt-8 mt-6 sm:mt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-gray-400 text-xs sm:text-sm">&copy; {currentYear} - Damad Ascenseurs</p>
+            <p className="text-gray-400 text-xs sm:text-sm">&copy; {currentYear} - DAMAD</p>
             <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mt-4 sm:mt-0">
               <Link 
                 href="/legal/mentions-legales" 

@@ -1,52 +1,17 @@
 import { Metadata } from 'next';
 import ContactForm from '@/components/contact/ContactForm';
-import ContactInfo from '@/components/contact/ContactInfo';
+import ContactMap from '@/components/contact/ContactMap';
 
 export const metadata: Metadata = {
-  title: 'Contact - Damad Ascenseurs',
+  title: 'Contact - DAMAD',
   description: 'Contactez-nous pour toute demande de devis ou information sur nos services de réparation, maintenance et modernisation d\'ascenseurs.',
 };
 
 export default function ContactPage() {
   return (
     <div className="bg-white">
-      {/* Hero Section */}
-      <div className="relative bg-gray-900">
-        <div className="absolute inset-0">
-          <div className="h-full w-full bg-gray-500 opacity-30" />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Créons une solution personnalisée, à la mesure de votre besoin.
-          </h1>
-          <p className="text-lg text-white">
-            Pour commencer, merci de bien vouloir répondre à quelques questions rapides. Puis un membre de l’équipe Damad vous appellera pour parler de votre demande.
-          </p>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-          <div className="lg:pr-8 lg:pt-4">
-            <div className="lg:max-w-lg">
-              <h2 className="text-base font-semibold leading-7 text-blue-600">Nous contacter</h2>
-              <ContactInfo />
-            </div>
-          </div>
-          
-          {/* Contact Form */}
-          <div className="lg:pl-8 lg:pt-4">
-            <div className="rounded-2xl bg-gray-50 p-8 shadow-xl sm:p-10">
-              <h3 className="text-lg font-semibold leading-8 text-gray-900"> Parlez-nous de vous.</h3>
-              <p className="mt-2 text-sm leading-6 text-gray-600">
-                Tous les champs marqués d&apos;un astérisque (*) sont obligatoires.
-              </p>
-              <ContactForm />
-            </div>
-          </div>
-        </div>
-      </div>
+      <ContactMap />
+      <ContactForm />
     </div>
   );
 }

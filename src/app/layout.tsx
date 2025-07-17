@@ -25,11 +25,11 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "DAMAD Ascenseurs - Installation et Maintenance d'Ascenseurs",
-    template: "%s | DAMAD Ascenseurs"
+    default: "DAMAD - Installation et Maintenance d'Ascenseurs",
+    template: "%s | DAMAD"
   },
   description: "Expert en installation, maintenance et dépannage d'ascenseurs. Solutions sur mesure pour particuliers et professionnels.",
-  keywords: ["ascenseur", "maintenance ascenseur", "installation ascenseur", "dépannage ascenseur", "Damad Ascenseurs"],
+  keywords: ["ascenseur", "maintenance ascenseur", "installation ascenseur", "dépannage ascenseur", "DAMAD"],
   manifest: '/site.webmanifest',
   icons: {
     icon: [

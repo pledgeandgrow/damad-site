@@ -4,8 +4,8 @@ import { FaChevronRight } from 'react-icons/fa';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Politique de Confidentialité - DAMAD ASCENSEURS',
-  description: 'Politique de confidentialité de DAMAD ASCENSEURS - Comment nous collectons, utilisons et protégeons vos données personnelles.',
+  title: 'Politique de Confidentialité - DAMAD',
+  description: 'Politique de confidentialité de DAMAD - Comment nous collectons, utilisons et protégeons vos données personnelles.',
 };
 
 export default function PolitiqueDeConfidentialite() {
@@ -24,7 +24,7 @@ export default function PolitiqueDeConfidentialite() {
 
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">1. Introduction</h2>
           <p className="text-[#3d4759] mb-6">
-            DAMAD Ascenseurs (ci-après dénommé &laquo; nous &raquo;, &laquo; notre &raquo; ou &laquo; nos &raquo;) s&apos;engage à protéger et à respecter votre vie privée. 
+            DAMAD (ci-après dénommé &laquo; nous &raquo;, &laquo; notre &raquo; ou &laquo; nos &raquo;) s&apos;engage à protéger et à respecter votre vie privée. 
             Cette politique de confidentialité explique comment nous collectons, utilisons, protégeons et partageons vos informations personnelles.
           </p>
 
@@ -138,7 +138,7 @@ export default function PolitiqueDeConfidentialite() {
           <ul className="space-y-3 mb-8">
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
-              <span className="text-[#3d4759]"><strong>DAMAD Ascenseurs</strong></span>
+              <span className="text-[#3d4759]"><strong>DAMAD</strong></span>
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
@@ -150,7 +150,7 @@ export default function PolitiqueDeConfidentialite() {
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
-              <span className="text-[#3d4759]"><strong>Adresse :</strong> 145 Rue Rateau, La Courneuve, 93120</span>
+              <span className="text-[#3d4759]"><strong>Adresse :</strong> 3 BOULEVARD DE SEBASTOPOL, 75001 PARIS, France</span>
             </li>
           </ul>
 

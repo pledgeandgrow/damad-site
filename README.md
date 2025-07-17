@@ -1,6 +1,6 @@
-# DAMAD Ascenseurs
+# DAMAD
 
-Site web professionnel pour DAMAD Ascenseurs - Spécialiste en installation, maintenance et dépannage d'ascenseurs.
+Site web professionnel pour DAMAD - Spécialiste en installation, maintenance et dépannage d'ascenseurs.
 
 ## 🚀 Technologies Utilisées
 

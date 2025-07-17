@@ -1,7 +1,7 @@
-# DAMAD Ascenseurs - Project Context
+# DAMAD - Project Context
 
 ## Overview
-DAMAD Ascenseurs is a professional website for an elevator installation and maintenance company. The site serves as a showcase for the company's services, projects, and expertise in the elevator industry.
+DAMAD is a professional website for an elevator installation and maintenance company. The site serves as a showcase for the company's services, projects, and expertise in the elevator industry.
 
 ## Current State
 

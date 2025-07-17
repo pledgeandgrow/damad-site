@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { FaChevronRight } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-  title: 'Politique de traitement RGPD | DAMAD Ascenseurs',
+  title: 'Politique de traitement RGPD | DAMAD',
   description: 'Découvrez notre politique de traitement des données personnelles conformément au Règlement Général sur la Protection des Données (RGPD).',
 };
 
@@ -23,14 +23,14 @@ export default function PolitiqueRGPDPage() {
 
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">1. Politique de protection des données personnelles</h2>
           <p className="text-[#3d4759] mb-8">
-            Chez DAMAD Ascenseurs, nous accordons une importance particulière à la protection de vos données personnelles. 
+            Chez DAMAD, nous accordons une importance particulière à la protection de vos données personnelles. 
             Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations 
             conformément au Règlement Général sur la Protection des Données (RGPD).
           </p>
           
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">2. Responsable du traitement</h2>
           <p className="text-[#3d4759] mb-8">
-            DAMAD Ascenseurs, située au 145 Rue Rateau, La Courneuve, 93120, est responsable du traitement des données 
+            DAMAD, située au 3 BOULEVARD DE SEBASTOPOL, 75001 PARIS, France, est responsable du traitement des données 
             personnelles collectées sur notre site web et dans le cadre de nos services.
           </p>
           
@@ -205,7 +205,7 @@ export default function PolitiqueRGPDPage() {
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
-              <span className="text-[#3d4759]"><strong>Adresse :</strong> 145 Rue Rateau, La Courneuve, 93120</span>
+              <span className="text-[#3d4759]"><strong>Adresse :</strong> 3 BOULEVARD DE SEBASTOPOL, 75001 PARIS, France</span>
             </li>
           </ul>
           

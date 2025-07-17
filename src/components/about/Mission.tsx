@@ -6,23 +6,23 @@ import { useEffect, useRef, useState } from 'react';
 const values = [
   {
     icon: <FaShieldAlt className="w-8 h-8 text-[#2b3343]" />,
-    title: "Sécurité",
+    title: "Prudence",
     description: "La sécurité des utilisateurs est notre priorité absolue. Nous nous engageons à respecter les normes les plus strictes du secteur."
   },
   {
     icon: <FaChartLine className="w-8 h-8 text-[#2b3343]" />,
-    title: "Performance",
-    description: "Nous assurons des performances optimales de vos ascenseurs grâce à une maintenance préventive régulière et des interventions rapides."
+    title: "Discipline",
+    description: "Nous assurons des performances optimales de vos équipements grâce à une maintenance préventive régulière et des interventions méthodiques."
   },
   {
     icon: <FaUsers className="w-8 h-8 text-[#2b3343]" />,
-    title: "Service Client",
-    description: "Notre équipe dévouée est à votre écoute pour répondre à tous vos besoins et vous fournir des solutions personnalisées."
+    title: "Proximité",
+    description: "Notre implantation locale via un maillage du territoire régional nous permet d'entretenir une relation étroite avec nos clients et partenaires."
   },
   {
     icon: <FaHandshake className="w-8 h-8 text-[#2b3343]" />,
-    title: "Engagement",
-    description: "Nous nous engageons à établir des relations durables avec nos clients basées sur la confiance et la satisfaction mutuelle."
+    title: "Accessibilité",
+    description: "Passionnés par notre métier, nous mettons notre savoir et notre expérience au service de l'accessibilité pour tous."
   }
 ];
 
@@ -89,7 +89,7 @@ export default function Mission() {
           <h2 className="text-3xl md:text-4xl font-bold text-[#2b3343] mb-4">Notre Mission</h2>
           <div className="w-24 h-1 bg-[#2b3343] mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Chez DAMAD, notre mission est de fournir des solutions d&apos;ascenseurs innovantes, fiables et accessibles à tous. en offrant un service client exceptionnel et des relations commerciales durables.
+            Chez DAMAD, notre mission est de proposer des solutions complètes d&apos;installation, de maintenance, d&apos;entretien, de rénovation et de modernisation pour tous types d&apos;ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR.
           </p>
         </div>
         
