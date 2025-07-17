@@ -1,5 +1,15 @@
 # https://www.robotstxt.org/robotstxt.html
+# Dernière mise à jour: 2025-07-17
+
+# Règles pour tous les robots
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
 
+# Temps d'attente entre les requêtes
+Crawl-delay: 10
+
+# Sitemap
 Sitemap: https://damad-ascenseurs.fr/sitemap.xml

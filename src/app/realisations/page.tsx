@@ -6,9 +6,10 @@ import { FaArrowRight } from 'react-icons/fa';
 import CategoryFilter from '@/components/projects/CategoryFilter';
 import ProjectsGrid from '@/components/projects/ProjectsGrid';
 import ProjectModal from '../../components/projects/ProjectModal';
-import { getProjectsByCategory } from '../../components/projects/data/projects';
+import { getProjectsByCategory } from '../../data/projects';
 import { Project } from '@/types';
 import useModal from '@/hooks/useModal';
+import MobileProjectCarousel from '@/components/projects/MobileProjectCarousel';
 
 export default function RealisationsPage() {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -61,20 +62,24 @@ export default function RealisationsPage() {
             />
           </div>
 
-          {/* Projects Grid */}
-          <ProjectsGrid 
-            projects={projects} 
-            className="mb-12"
-            onProjectClick={handleProjectClick}
-          />
+          {/* Desktop Projects Grid - Hidden on Mobile */}
+          <div className="hidden md:block">
+            <ProjectsGrid 
+              projects={projects} 
+              className="mb-12"
+              onProjectClick={handleProjectClick}
+            />
+          </div>
+          
+          {/* Mobile Projects Carousel - Hidden on Desktop */}
+          <div className="md:hidden mb-12">
+            <MobileProjectCarousel 
+              projects={projects}
+              onProjectClick={handleProjectClick}
+            />
+          </div>
 
-          {projects.length >= 6 && (
-            <div className="text-center mt-10">
-              <button className="bg-[#2b3343] hover:bg-[#3d4759] text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 inline-flex items-center shadow-md hover:shadow-lg transform hover:-translate-y-1">
-                Charger plus de projets
-              </button>
-            </div>
-          )}
+          {/* Le bouton "Charger plus de projets" a été supprimé */}
           
           {projects.length === 0 && (
             <div className="text-center py-16 bg-gray-50 rounded-xl border border-gray-100">

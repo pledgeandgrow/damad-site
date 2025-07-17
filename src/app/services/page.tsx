@@ -1,11 +1,14 @@
 import Link from 'next/link';
 import ServiceCard from '@/components/services/ServiceCard';
 import { Metadata } from 'next';
+import MobileServiceCarousel from '@/components/services/MobileServiceCarousel';
 
 export const metadata: Metadata = {
   title: 'Nos Services - DAMAD',
   description: 'Découvrez nos services professionnels pour ascenseurs : réparation, maintenance et modernisation.',
 };
+
+
 
 export default function ServicesPage() {
   const services = [
@@ -14,7 +17,7 @@ export default function ServicesPage() {
       title: 'Maintenance',
       description: 'Contrats de maintenance préventive pour garantir la longévité de votre ascenseur.',
       icon: '🔧',
-      image: '/images/5.png',
+      image: '/images/site/5.png',
       color: 'from-[#2b3343] to-[#3d4759]',
       features: [
         'Visites régulières',
@@ -29,7 +32,7 @@ export default function ServicesPage() {
       title: 'Dépannage',
       description: 'Service d\'urgence 24/7 pour tous types de pannes d\'ascenseur.',
       icon: '🔧',
-      image: '/images/3.png',
+      image: '/images/site/3.png',
       color: 'from-[#2b3343] to-[#3d4759]',
       features: [
         'Intervention rapide',
@@ -44,7 +47,7 @@ export default function ServicesPage() {
       title: 'Installation',
       description: 'Installation complète et sur mesure de votre nouvel ascenseur par nos experts certifiés.',
       icon: '🏗️',
-      image: '/images/2.png',
+      image: '/images/site/2.png',
       color: 'from-[#2b3343] to-[#3d4759]',
       features: [
         'Étude personnalisée',
@@ -59,7 +62,7 @@ export default function ServicesPage() {
       title: 'Réparation',
       description: 'Réparation rapide et efficace de tous types de pannes d\'ascenseur.',
       icon: '⚙️',
-      image: '/images/6.png',
+      image: '/images/site/6.png',
       color: 'from-[#2b3343] to-[#3d4759]',
       features: [
         'Diagnostic précis',
@@ -68,6 +71,36 @@ export default function ServicesPage() {
         'Garantie sur les réparations'
       ],
       slug: 'reparation'
+    },
+    {
+      id: 5,
+      title: 'Modernisation',
+      description: 'Mise à niveau de vos installations pour améliorer la sécurité, l\'efficacité énergétique et le confort.',
+      icon: '🔄',
+      image: '/images/site/5.png',
+      color: 'from-[#2b3343] to-[#3d4759]',
+      features: [
+        'Mise aux normes',
+        'Économies d\'\u00e9nergie',
+        'Amélioration du confort',
+        'Valorisation du patrimoine'
+      ],
+      slug: 'modernisation'
+    },
+    {
+      id: 6,
+      title: 'Contrôle Technique',
+      description: 'Inspections réglementaires et audits de sécurité pour garantir la conformité de vos installations.',
+      icon: '📋',
+      image: '/images/site/6.png',
+      color: 'from-[#2b3343] to-[#3d4759]',
+      features: [
+        'Conformité réglementaire',
+        'Prévention des risques',
+        'Rapports détaillés',
+        'Certification officielle'
+      ],
+      slug: 'controle-technique'
     }
   ];
 
@@ -85,25 +118,21 @@ export default function ServicesPage() {
           </p>
         </div>
         
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none md:grid-cols-2 lg:grid-cols-4">
+        {/* Desktop View - 3 cards per row */}
+        <div className="hidden md:grid mx-auto mt-16 max-w-7xl grid-cols-1 gap-8 sm:mt-20 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <Link key={service.id} href={`/services/${service.slug}`} className="block h-full">
               <ServiceCard service={service} index={index} />
             </Link>
           ))}
         </div>
-        
-        <div className="mt-16 sm:mt-20 text-center">
-          <Link 
-            href="/contact?subject=demande-de-devis" 
-            className="inline-flex items-center justify-center px-6 sm:px-8 py-3 bg-[#2b3343] text-white font-medium rounded-lg hover:bg-[#3d4759] transition-colors duration-300 shadow-md hover:shadow-lg"
-          >
-            Demander un devis personnalisé
-            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
+
+        {/* Mobile View - Carousel with 1 card */}
+        <div className="md:hidden relative mt-16 sm:mt-20">
+          <MobileServiceCarousel services={services} />  
         </div>
+        
+        {/* La section "Demander un devis personnalisé" a été supprimée */}
       </div>
     </div>
   );

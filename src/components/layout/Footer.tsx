@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaFacebook, FaLinkedin, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight, FaTools, FaBuilding, FaInfoCircle, FaEnvelopeOpenText, FaFileInvoiceDollar, FaWrench, FaCogs, FaScrewdriver, FaExclamationTriangle } from 'react-icons/fa';
+import { FaLinkedin, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight, FaTools, FaBuilding, FaInfoCircle, FaEnvelopeOpenText, FaFileInvoiceDollar, FaWrench, FaCogs, FaScrewdriver, FaExclamationTriangle, FaNewspaper, FaUsers, FaSyncAlt, FaClipboardCheck } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 
 interface FooterLink {
@@ -21,6 +21,8 @@ const footerLinks: FooterSection[] = [
       { name: 'À Propos', href: '/a-propos', icon: FaInfoCircle },
       { name: 'Nos Services', href: '/services', icon: FaTools },
       { name: 'Réalisations', href: '/realisations', icon: FaBuilding },
+      { name: 'Blog', href: '/blog', icon: FaNewspaper },
+      { name: 'Recrutement', href: '/recrutement', icon: FaUsers },
       { name: 'Support', href: '/support', icon: FaPhoneAlt },
       { name: 'Contact', href: '/contact', icon: FaEnvelopeOpenText },
     ],
@@ -32,6 +34,8 @@ const footerLinks: FooterSection[] = [
       { name: 'Dépannage', href: '/services/depannage', icon: FaExclamationTriangle },
       { name: 'Installation', href: '/services/installation', icon: FaWrench },
       { name: 'Réparation', href: '/services/reparation', icon: FaScrewdriver },
+      { name: 'Modernisation', href: '/services/modernisation', icon: FaSyncAlt },
+      { name: 'Contrôle Technique', href: '/services/controle-technique', icon: FaClipboardCheck },
       { name: 'Devis', href: '/contact?subject=demande-de-devis', icon: FaFileInvoiceDollar },
     ],
   },
@@ -63,7 +67,6 @@ const footerLinks: FooterSection[] = [
 ];
 
 const socialLinks = [
-  { name: 'Facebook', icon: FaFacebook, href: '#' },
   { name: 'LinkedIn', icon: FaLinkedin, href: '#' },
 ];
 

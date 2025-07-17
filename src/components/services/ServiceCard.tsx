@@ -50,22 +50,6 @@ export default function ServiceCard({ service, index = 0 }: ServiceCardProps) {
         
         <p className="text-gray-600 mb-4">{service.description}</p>
         
-        <ul className="space-y-2 mb-6">
-          {service.features.map((feature, i) => (
-            <li key={i} className="flex items-start">
-              <svg 
-                className="h-5 w-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              <span className="text-gray-700">{feature}</span>
-            </li>
-          ))}
-        </ul>
-        
 
       </div>
     </motion.div>

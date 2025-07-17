@@ -41,20 +41,7 @@ export default function ProjectCard({ project, className = '', onClick }: Projec
         <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">{project.title}</h3>
         <p className="text-gray-600 mb-4 line-clamp-3">{project.description}</p>
         
-        <div className="mt-auto space-y-3 text-sm text-gray-500">
-          <div className="flex items-center">
-            <FaBuilding className="mr-2 text-[#2b3343]" />
-            <div className="truncate">{project.client}</div>
-          </div>
-          <div className="flex items-center">
-            <FaCalendarAlt className="mr-2 text-[#2b3343]" />
-            <div>{project.year}</div>
-          </div>
-          <div className="flex items-center">
-            <FaMapMarkerAlt className="mr-2 text-[#2b3343]" />
-            <div className="truncate">{project.location}</div>
-          </div>
-        </div>
+        <div className="mt-auto"></div>
       </div>
       
       <div className="px-6 pb-6 pt-2 border-t border-gray-100 mt-2">

@@ -1,4 +1,4 @@
-import { FaTools, FaWrench, FaShieldAlt, FaArrowRight, FaChevronLeft, FaChevronRight, FaHammer } from 'react-icons/fa';
+import { FaTools, FaWrench, FaShieldAlt, FaArrowRight, FaChevronLeft, FaChevronRight, FaHammer, FaSyncAlt, FaClipboardCheck } from 'react-icons/fa';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
@@ -44,6 +44,26 @@ const services = [
     color: "#2b3343", // Primary brand color
     gradient: "from-[#2b3343] to-[#3d4759]",
     link: "/services/reparation"
+  },
+  {
+    icon: <FaSyncAlt className="w-6 h-6 text-white" />,
+    title: "Modernisation",
+    description: "Mise à niveau de vos installations pour améliorer la sécurité, l'efficacité énergétique et le confort.",
+    shortDesc: "Donnez une seconde vie à vos ascenseurs.",
+    features: ["Mise aux normes", "Économies d'énergie", "Amélioration du confort"],
+    color: "#2b3343", // Primary brand color
+    gradient: "from-[#2b3343] to-[#3d4759]",
+    link: "/services/modernisation"
+  },
+  {
+    icon: <FaClipboardCheck className="w-6 h-6 text-white" />,
+    title: "Contrôle Technique",
+    description: "Inspections réglementaires et audits de sécurité pour garantir la conformité de vos installations.",
+    shortDesc: "Vérifications complètes et rapports détaillés.",
+    features: ["Conformité réglementaire", "Prévention des risques", "Certification officielle"],
+    color: "#2b3343", // Primary brand color
+    gradient: "from-[#2b3343] to-[#3d4759]",
+    link: "/services/controle-technique"
   }
 ];
 

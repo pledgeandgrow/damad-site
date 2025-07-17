@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaSearch, FaTicketAlt, FaSpinner, FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa';
+import SupportTicketButton from './SupportTicketButton';
 
 type TicketStatus = 'pending' | 'in_progress' | 'resolved' | 'closed';
 
@@ -332,12 +333,7 @@ export default function SupportTicketTracker() {
           <p className="text-gray-600 mb-4">
             Vous n&apos;avez pas encore de numéro de ticket ?
           </p>
-          <a 
-            href="#contact" 
-            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#2b3343] hover:bg-[#3a4456] transition-all duration-300"
-          >
-            Créer une nouvelle demande
-          </a>
+          <SupportTicketButton />
         </motion.div>
       </div>
     </section>

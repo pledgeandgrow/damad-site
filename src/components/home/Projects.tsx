@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaChevronLeft, FaChevronRight, FaBuilding, FaHome, FaIndustry } from 'react-icons/fa';
-import { projects as allProjects } from '../projects/data/projects';
+import { projects as allProjects } from '../../data/projects';
 
 // Project interface is defined in the imported data file
 
