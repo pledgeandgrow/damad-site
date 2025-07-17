@@ -90,7 +90,7 @@ export default function CompanyBenefits() {
           <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 max-w-3xl mx-auto">
             <h3 className="text-2xl font-semibold text-[#2b3343] mb-4">Rejoignez-nous !</h3>
             <p className="text-gray-700 mb-6">
-              Chez Damad Ascenseurs, nous valorisons le talent, l&apos;engagement et l&apos;esprit d&apos;équipe. 
+              Chez Damad, nous valorisons le talent, l&apos;engagement et l&apos;esprit d&apos;équipe. 
               Nous offrons un environnement de travail stimulant où chacun peut développer son potentiel.
             </p>
             <a 

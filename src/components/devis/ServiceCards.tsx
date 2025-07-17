@@ -81,7 +81,7 @@ export default function ServiceCards() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`bg-gradient-to-br ${service.bgColor} rounded-xl shadow-md overflow-hidden hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300`}
+              className={`group bg-gradient-to-br ${service.bgColor} rounded-xl shadow-md overflow-hidden hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300`}
             >
               <div className="p-6">
                 <div className="flex items-center mb-6">
@@ -102,7 +102,7 @@ export default function ServiceCards() {
                   ))}
                 </ul>
               </div>
-              <div className="px-6 py-4 bg-white/80 backdrop-blur-sm border-t border-gray-200">
+              <div className="px-6 py-4 bg-white/80 backdrop-blur-sm border-t border-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <a 
                   href="#devis-form" 
                   className="inline-flex items-center text-sm font-medium text-[#2b3343] hover:text-blue-700 transition-colors duration-300"

@@ -37,7 +37,7 @@ export default function RecruitmentHero() {
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
           >
             Construisez votre carrière <br className="hidden sm:block" />
-            <span className="text-blue-200">avec Damad Ascenseurs</span>
+            <span className="text-blue-200">avec Damad</span>
           </motion.h1>
 
           {/* Description */}

@@ -5,7 +5,6 @@ import RecruitmentHero from '@/components/recrutement/RecruitmentHero';
 import JobOpenings from '@/components/recrutement/JobOpenings';
 import CompanyBenefits from '@/components/recrutement/CompanyBenefits';
 import RecruitmentProcess from '@/components/recrutement/RecruitmentProcess';
-import TeamCulture from '@/components/recrutement/TeamCulture';
 import ApplicationForm from '@/components/recrutement/ApplicationForm';
 
 export default function RecruitmentPage() {
@@ -15,7 +14,6 @@ export default function RecruitmentPage() {
       <JobOpenings />
       <CompanyBenefits />
       <RecruitmentProcess />
-      <TeamCulture />
       <ApplicationForm />
     </main>
   );

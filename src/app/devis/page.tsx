@@ -159,7 +159,7 @@ export default function DevisPage() {
               transition={{ duration: 0.6 }}
               className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-blue-200"
             >
-              Devis pour votre ascenseur
+              Devis pour vos ascenseurs
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -167,7 +167,7 @@ export default function DevisPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-6 max-w-2xl mx-auto text-xl text-blue-100"
             >
-              Obtenez un devis personnalisé pour votre projet d&apos;ascenseur en moins de 2 minutes.
+              Obtenez un devis pour votre projet en moins de 2 minutes.
               Notre équipe d&apos;experts est à votre écoute pour vous proposer la solution la plus adaptée à vos besoins.
             </motion.p>
             <motion.div 
