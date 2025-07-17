@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { FaTicketAlt, FaPlus } from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
 import SupportModalTicket from './SupportModalTicket';
 
 export default function SupportTicketButton() {

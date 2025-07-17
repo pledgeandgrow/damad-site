@@ -89,7 +89,7 @@ export default function ControleTechniquePage() {
               Services professionnels
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
-              Contrôle technique d&apos;ascenseurs
+              Contrôle technique d&#39;ascenseurs
             </h2>
             <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
@@ -204,7 +204,7 @@ export default function ControleTechniquePage() {
                     <svg className="h-5 w-5 text-[#2b3343] mt-0.5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span className="text-gray-700">Vérification de l'état de fonctionnement des dispositifs de sécurité</span>
+                    <span className="text-gray-700">Vérification de l&apos;état de fonctionnement des dispositifs de sécurité</span>
                   </li>
                   <li className="flex items-start">
                     <svg className="h-5 w-5 text-[#2b3343] mt-0.5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">

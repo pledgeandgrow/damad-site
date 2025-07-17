@@ -1,4 +1,4 @@
-import { FaArrowRight, FaMapMarkerAlt, FaCalendarAlt, FaBuilding } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 import { Project } from '@/types';
 import Image from 'next/image';
 import { useState } from 'react';

@@ -244,7 +244,7 @@ export default function SupportModalTicket({ isOpen, onClose }: SupportModalTick
                         
                         <div className="sm:col-span-2">
                           <label className="block text-sm font-medium text-gray-700 mb-1">
-                            ID de l'appareil (si applicable)
+                            ID de l&apos;appareil (si applicable)
                           </label>
                           <input
                             type="text"
