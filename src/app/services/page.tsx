@@ -2,6 +2,10 @@ import Link from 'next/link';
 import ServiceCard from '@/components/services/ServiceCard';
 import { Metadata } from 'next';
 import MobileServiceCarousel from '@/components/services/MobileServiceCarousel';
+import ServiceHero from '@/components/services/ServiceHero';
+import ServiceIntro from '@/components/services/ServiceIntro';
+import ServiceContrat from '@/components/services/ServiceContrat';
+import ServiceMaintenance from '@/components/services/ServiceMaintenance';
 
 export const metadata: Metadata = {
   title: 'Nos Services - DAMAD',
@@ -105,18 +109,28 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-gray-50 to-white py-16 sm:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-10 sm:mb-16">
-          <span className="inline-block text-[#2b3343] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-gray-100 px-3 py-1 rounded-full">
-            Nos Services
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Solutions sur Mesure</h2>
-          <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
-            Découvrez nos services conçus pour garantir la sécurité, la fiabilité et la longévité de votre installation : ascenseurs, EPMR, monte-charges, etc.
-          </p>
-        </div>
+    <div className="bg-gradient-to-b from-gray-50 to-white">
+      {/* Service Hero Section */}
+      <ServiceHero />
+      
+      {/* Service Introduction Components */}
+      <ServiceIntro />
+      <ServiceContrat />
+      <ServiceMaintenance />
+      
+      {/* Main Services Section */}
+      <div className="py-16 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-10 sm:mb-16">
+            <span className="inline-block text-[#2b3343] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-gray-100 px-3 py-1 rounded-full">
+              Nos Services
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Solutions sur Mesure</h2>
+            <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
+              Découvrez nos services conçus pour garantir la sécurité, la fiabilité et la longévité de votre installation : ascenseurs, EPMR, monte-charges, etc.
+            </p>
+          </div>
         
         {/* Desktop View - 3 cards per row */}
         <div className="hidden md:grid mx-auto mt-16 max-w-7xl grid-cols-1 gap-8 sm:mt-20 md:grid-cols-2 lg:grid-cols-3">
@@ -133,6 +147,7 @@ export default function ServicesPage() {
         </div>
         
         {/* La section "Demander un devis personnalisé" a été supprimée */}
+        </div>
       </div>
     </div>
   );

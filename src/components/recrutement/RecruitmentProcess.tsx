@@ -108,12 +108,7 @@ export default function RecruitmentProcess() {
           <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
             Notre processus de recrutement est conçu pour être transparent et vous permettre de découvrir notre entreprise autant que nous découvrons votre profil.
           </p>
-          <a 
-            href="#candidature" 
-            className="inline-flex items-center justify-center bg-[#2b3343] hover:bg-[#3d4759] text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
-          >
-            Postuler maintenant
-          </a>
+
         </motion.div>
       </div>
     </section>

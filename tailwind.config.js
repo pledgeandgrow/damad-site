@@ -15,6 +15,9 @@ module.exports = {
       '2xl': '1536px',
     },
     extend: {
+      fontFamily: {
+        'roboto': ['var(--font-roboto)', 'sans-serif'],
+      },
       fontSize: {
         '2xs': '0.625rem',
       },

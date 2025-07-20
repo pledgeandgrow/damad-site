@@ -22,7 +22,7 @@ const features = [
   {
     icon: <FaClock className="h-8 w-8 text-white" />,
     title: 'Service 24/7',
-    description: 'Assistance technique et dépannage disponibles 24h/24 et 7j/7.'
+    description: 'Assistance technique et dépannage avec réponse sous 48h.'
   },
   {
     icon: <FaShieldAlt className="h-8 w-8 text-white" />,

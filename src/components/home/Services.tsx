@@ -20,7 +20,7 @@ const services = [
     title: "Dépannage 24/7",
     description: "Service d'urgence disponible 24 heures sur 24, 7 jours sur 7 pour tout dépannage.",
     shortDesc: "Intervention rapide en cas d'urgence.",
-    features: ["Disponibilité 24/7", "Délai d'intervention court", "Techniciens qualifiés"],
+    features: ["Response sous 48h", "Délai d'intervention court", "Techniciens qualifiés"],
     color: "#2b3343", // Primary brand color
     gradient: "from-[#2b3343] to-[#3d4759]",
     link: "/services/depannage"

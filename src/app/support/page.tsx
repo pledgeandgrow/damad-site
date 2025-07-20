@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import SupportHero from '@/components/support/SupportHero';
 import SupportFAQ from '@/components/support/SupportFAQ';
-import SupportResources from '@/components/support/SupportResources';
 import SupportTicketTracker from '@/components/support/SupportTicketTracker';
 
 export const metadata: Metadata = {
@@ -14,7 +13,6 @@ export default function SupportPage() {
     <div className="bg-white">
       <SupportHero />
       <SupportFAQ />
-      <SupportResources />
       <SupportTicketTracker />
     </div>
   );

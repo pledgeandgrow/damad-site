@@ -25,6 +25,17 @@ export default function ProjectCard({ project, className = '', onClick }: Projec
         <div 
           className={`absolute inset-0 bg-[#2b3343]/20 z-10 transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
         ></div>
+        
+        {/* "Voir le projet" overlay on hover */}
+        <div className={`absolute inset-0 z-20 flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105">
+            <div className="flex items-center text-[#2b3343] font-semibold">
+              Voir le projet
+              <FaArrowRight className="ml-2" />
+            </div>
+          </div>
+        </div>
+        
         <Image 
           src={project.image} 
           alt={project.title} 
@@ -32,7 +43,7 @@ export default function ProjectCard({ project, className = '', onClick }: Projec
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        <span className="absolute top-4 left-4 z-20 inline-block bg-[#2b3343] text-white text-xs px-3 py-1 rounded-full shadow-md">
+        <span className="absolute top-4 left-4 z-30 inline-block bg-[#2b3343] text-white text-xs px-3 py-1 rounded-full shadow-md">
           {project.category}
         </span>
       </div>
@@ -44,12 +55,7 @@ export default function ProjectCard({ project, className = '', onClick }: Projec
         <div className="mt-auto"></div>
       </div>
       
-      <div className="px-6 pb-6 pt-2 border-t border-gray-100 mt-2">
-        <div className="inline-flex items-center text-[#2b3343] font-medium hover:text-[#3d4759] group transition-colors cursor-pointer">
-          Voir le projet
-          <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-        </div>
-      </div>
+
     </div>
   );
 }

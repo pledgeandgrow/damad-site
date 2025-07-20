@@ -16,8 +16,8 @@ const features = [
   },
   {
     icon: <FaClock className="w-8 h-8 text-white" />,
-    title: 'Disponibilité 24/7',
-    description: 'Un service d\'urgence disponible 24h/24 et 7j/7 pour répondre à tous vos besoins en dépannage.'
+    title: 'Response sous 48h',
+    description: 'Un service d\'urgence avec réponse sous 48h pour répondre à tous vos besoins en dépannage.'
   },
   {
     icon: <FaLeaf className="w-8 h-8 text-white" />,

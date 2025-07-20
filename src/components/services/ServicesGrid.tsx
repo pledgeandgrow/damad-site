@@ -53,7 +53,7 @@ const services = [
     id: 4,
     slug: 'depannage',
     title: 'Dépannage',
-    description: 'Intervention rapide et efficace pour tous types de pannes d\'ascenseurs, 24h/24 et 7j/7.',
+    description: 'Intervention rapide et efficace pour tous types de pannes d\'ascenseurs, réponse sous 48h.',
     icon: <FaWrench className="w-6 h-6" />,
     image: '/images/services/repair.jpg',
     color: 'red-500',

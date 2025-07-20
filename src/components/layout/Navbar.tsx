@@ -19,10 +19,10 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: 'Accueil', href: '/' },
+    { name: 'À propos', href: '/a-propos' },
     { name: 'Services', href: '/services' },
     { name: 'Réalisations', href: '/realisations' },
-    { name: 'À propos', href: '/a-propos' },
+    { name: 'Recrutement', href: '/recrutement' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -100,7 +100,7 @@ export default function Navbar() {
                 href="/devis" 
                 className="bg-[#2b3343] hover:bg-[#3d4759] text-white px-6 py-2 rounded-lg transition-colors font-medium"
               >
-                Devis gratuit
+                Devis
               </Link>
             </nav>
 
@@ -139,7 +139,7 @@ export default function Navbar() {
                   className="block w-full text-center bg-[#2b3343] hover:bg-[#3d4759] text-white px-6 py-3 rounded-lg transition-colors font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Devis gratuit
+                  Devis
                 </Link>
               </div>
             </div>

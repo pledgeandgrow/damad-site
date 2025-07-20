@@ -13,7 +13,6 @@
 - [ ] Add more project examples with high-quality images
 - [ ] Finalize all legal pages (Privacy Policy, Terms of Service)
 - [ ] Complete company information and team member details
-- [ ] Add testimonials from satisfied clients
 
 ### 3. UI/UX Improvements
 - [ ] Implement proper loading states for all components

@@ -1,28 +1,23 @@
 'use client';
 
-import { FaShieldAlt, FaUsers, FaChartLine, FaHandshake } from 'react-icons/fa';
+import { FaShieldAlt, FaUsers, FaChartLine } from 'react-icons/fa';
 import { useEffect, useRef, useState } from 'react';
 
 const values = [
   {
     icon: <FaShieldAlt className="w-8 h-8 text-[#2b3343]" />,
     title: "Prudence",
-    description: "La sécurité des utilisateurs est notre priorité absolue. Nous nous engageons à respecter les normes les plus strictes du secteur."
+    description: "La prudence guide chacune de nos actions pour garantir la sécurité et la fiabilité de nos interventions."
   },
   {
     icon: <FaChartLine className="w-8 h-8 text-[#2b3343]" />,
     title: "Discipline",
-    description: "Nous assurons des performances optimales de vos équipements grâce à une maintenance préventive régulière et des interventions méthodiques."
+    description: "La discipline nous permet d'assurer des performances optimales grâce à une approche méthodique et rigoureuse."
   },
   {
     icon: <FaUsers className="w-8 h-8 text-[#2b3343]" />,
-    title: "Proximité",
-    description: "Notre implantation locale via un maillage du territoire régional nous permet d'entretenir une relation étroite avec nos clients et partenaires."
-  },
-  {
-    icon: <FaHandshake className="w-8 h-8 text-[#2b3343]" />,
-    title: "Accessibilité",
-    description: "Passionnés par notre métier, nous mettons notre savoir et notre expérience au service de l'accessibilité pour tous."
+    title: "Sécurité",
+    description: "La sécurité est au cœur de notre métier, nous respectons les normes les plus strictes pour protéger nos utilisateurs."
   }
 ];
 
@@ -88,12 +83,12 @@ export default function Mission() {
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-[#2b3343] mb-4">Notre Mission</h2>
           <div className="w-24 h-1 bg-[#2b3343] mx-auto rounded-full mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Chez DAMAD, notre mission est de proposer des solutions complètes d&apos;installation, de maintenance, d&apos;entretien, de rénovation et de modernisation pour tous types d&apos;ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR.
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
+            Prudence, discipline et sécurité s&apos;inscrivent dans la politique d&apos;accompagnement des équipes terrains, des entrepreneurs, des entreprises, des particuliers.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {values.map((value, index) => (
             <MissionCard 
               key={index} 
@@ -101,6 +96,12 @@ export default function Mission() {
               delay={index * 0.1} 
             />
           ))}
+        </div>
+        
+        <div className="text-center">
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed font-medium">
+            Passionné par ce métier et par l&apos;accessibilité, Damad met son savoir et son expérience à votre service.
+          </p>
         </div>
       </div>
     </section>

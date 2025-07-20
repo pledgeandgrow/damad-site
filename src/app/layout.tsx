@@ -1,17 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const roboto = Roboto({
+  weight: ['300', '400', '500', '700'],
+  subsets: ['latin'],
+  variable: '--font-roboto',
+  display: 'swap',
 });
 
 export const viewport: Viewport = {
@@ -55,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
+      <body className={`${roboto.variable} font-roboto antialiased flex flex-col min-h-screen`}>
         <Navbar />
         <main className="flex-grow">
           {children}

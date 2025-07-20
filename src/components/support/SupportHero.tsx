@@ -70,7 +70,7 @@ export default function SupportHero() {
                 <h2 className="text-2xl font-bold text-white">Support 24/7</h2>
               </div>
               <p className="text-blue-100 mb-6">
-                Notre équipe de support est disponible 24h/24 et 7j/7 pour répondre à toutes vos questions et résoudre vos problèmes techniques.
+                Notre équipe de support répond sous 48h pour répondre à toutes vos questions et résoudre vos problèmes techniques.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-white/5 p-4 rounded-lg">

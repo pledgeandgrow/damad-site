@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaUsers, FaBuilding, FaHandshake } from 'react-icons/fa';
 
 export default function RecruitmentHero() {
   return (
@@ -36,8 +35,7 @@ export default function RecruitmentHero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
           >
-            Construisez votre carrière <br className="hidden sm:block" />
-            <span className="text-blue-200">avec Damad</span>
+            REJOINGNEZ DAMAD !
           </motion.h1>
 
           {/* Description */}
@@ -47,68 +45,10 @@ export default function RecruitmentHero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg sm:text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed"
           >
-            Nous recherchons des talents passionnés pour rejoindre notre équipe d&apos;experts en ascenseurs. 
-            Découvrez nos opportunités et développez vos compétences dans un environnement innovant et dynamique.
+            Nous accueillons des collaborateurs aux profils et parcours et formations très différentes les uns des autres.
           </motion.p>
 
-          {/* CTA buttons */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <a 
-              href="#postes-ouverts" 
-              className="bg-white hover:bg-gray-100 text-[#2b3343] font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
-            >
-              Voir les postes ouverts
-            </a>
-            <a 
-              href="#candidature" 
-              className="border-2 border-white text-white hover:bg-white/20 font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg"
-            >
-              Postuler maintenant
-            </a>
-          </motion.div>
         </div>
-
-        {/* Stats */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-16"
-        >
-          {[
-            {
-              icon: <FaUsers className="w-6 h-6 text-blue-200" />,
-              title: "Équipe dynamique",
-              description: "Rejoignez une équipe de professionnels passionnés et expérimentés"
-            },
-            {
-              icon: <FaBuilding className="w-6 h-6 text-blue-200" />,
-              title: "Projets innovants",
-              description: "Travaillez sur des projets d'envergure avec les dernières technologies"
-            },
-            {
-              icon: <FaHandshake className="w-6 h-6 text-blue-200" />,
-              title: "Évolution de carrière",
-              description: "Des opportunités de formation et d'évolution professionnelle"
-            }
-          ].map((item, index) => (
-            <div 
-              key={index}
-              className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
-            >
-              <div className="inline-flex items-center justify-center p-3 bg-[#2b3343] rounded-full mb-4">
-                {item.icon}
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
-              <p className="text-white/80">{item.description}</p>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

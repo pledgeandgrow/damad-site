@@ -63,7 +63,7 @@ export default function ContactMap() {
             <div className="mt-8 pt-6 border-t border-gray-200">
               <h4 className="text-lg font-medium text-[#2b3343] mb-4">Service d&apos;urgence</h4>
               <p className="text-gray-600 mb-2">
-                Notre service d&apos;urgence est disponible 24h/24 et 7j/7 pour les situations critiques.
+                Notre service d&apos;urgence répond sous 48h pour les situations critiques.
               </p>
               <p className="text-[#2b3343] font-bold">
                 Numéro d&apos;urgence: +33 1 23 45 67 00

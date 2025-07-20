@@ -267,7 +267,7 @@ export default function ControleTechniquePage() {
                   href="/contact?subject=controle-technique" 
                   className="bg-white text-[#2b3343] hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg transition-colors duration-300 shadow-md"
                 >
-                  Demander un devis gratuit
+                  Demander un devis
                 </Link>
                 <Link 
                   href="/contact" 

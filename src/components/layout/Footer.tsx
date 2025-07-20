@@ -24,7 +24,7 @@ const footerLinks: FooterSection[] = [
       { name: 'Blog', href: '/blog', icon: FaNewspaper },
       { name: 'Recrutement', href: '/recrutement', icon: FaUsers },
       { name: 'Support', href: '/support', icon: FaPhoneAlt },
-      { name: 'Contact', href: '/contact', icon: FaEnvelopeOpenText },
+      { name: 'Nous joindre', href: '/contact', icon: FaEnvelopeOpenText },
     ],
   },
   {
@@ -40,7 +40,7 @@ const footerLinks: FooterSection[] = [
     ],
   },
   {
-    title: 'Nous Rejoindre',
+    title: 'Nous Contacter',
     links: [
       { 
         name: '3 BOULEVARD DE SEBASTOPOL - 75001 PARIS',

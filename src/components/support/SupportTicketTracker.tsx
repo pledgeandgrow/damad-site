@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaSearch, FaTicketAlt, FaSpinner, FaExclamationTriangle, FaCheckCircle } from 'react-icons/fa';
+import { FaSearch, FaTicketAlt, FaSpinner, FaExclamationTriangle, FaCheckCircle, FaClock, FaUser, FaCalendarAlt, FaCommentAlt, FaDownload, FaPhone, FaEnvelope, FaHistory, FaBell } from 'react-icons/fa';
 import SupportTicketButton from './SupportTicketButton';
 
 type TicketStatus = 'pending' | 'in_progress' | 'resolved' | 'closed';
@@ -16,10 +16,18 @@ type Ticket = {
   createdAt: string;
   updatedAt: string;
   assignedTo?: string;
+  estimatedResolution?: string;
+  category: string;
+  location?: string;
+  contactPhone?: string;
+  progress: number; // 0-100
+  attachments?: string[];
   comments: {
+    id: string;
     author: string;
     content: string;
     timestamp: string;
+    type: 'comment' | 'status_change' | 'assignment' | 'resolution';
   }[];
 };
 
@@ -40,21 +48,40 @@ export default function SupportTicketTracker() {
     createdAt: '2023-11-15T09:30:00Z',
     updatedAt: '2023-11-15T14:45:00Z',
     assignedTo: 'Technicien Jean Dupont',
+    estimatedResolution: '2023-11-16T10:00:00Z',
+    category: 'Panne technique',
+    location: 'Immeuble Résidentiel - 123 Rue de la Paix, Paris 75001',
+    contactPhone: '+33 1 23 45 67 89',
+    progress: 65,
+    attachments: ['diagnostic-initial.pdf', 'photo-probleme.jpg'],
     comments: [
       {
+        id: 'c1',
         author: 'Support Client',
         content: 'Nous avons reçu votre demande et un technicien a été assigné à votre cas.',
-        timestamp: '2023-11-15T09:45:00Z'
+        timestamp: '2023-11-15T09:45:00Z',
+        type: 'assignment'
       },
       {
+        id: 'c2',
         author: 'Technicien Jean Dupont',
         content: 'Je suis en route pour votre bâtiment. Temps d\'arrivée estimé : 30 minutes.',
-        timestamp: '2023-11-15T10:15:00Z'
+        timestamp: '2023-11-15T10:15:00Z',
+        type: 'comment'
       },
       {
+        id: 'c3',
         author: 'Technicien Jean Dupont',
         content: 'Après inspection, j\'ai identifié un problème avec le système de contrôle. J\'ai commandé la pièce nécessaire qui devrait arriver demain matin.',
-        timestamp: '2023-11-15T14:45:00Z'
+        timestamp: '2023-11-15T14:45:00Z',
+        type: 'comment'
+      },
+      {
+        id: 'c4',
+        author: 'Système',
+        content: 'Statut mis à jour: En cours de traitement',
+        timestamp: '2023-11-15T14:50:00Z',
+        type: 'status_change'
       }
     ]
   };
@@ -251,60 +278,175 @@ export default function SupportTicketTracker() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100"
+            className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100"
           >
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-semibold text-[#2b3343]">Détails du ticket</h3>
+            {/* Header with status and priority */}
+            <div className="bg-gradient-to-r from-[#2b3343] to-[#3d4759] text-white p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center space-x-3">
+                  <FaTicketAlt className="w-6 h-6" />
+                  <h3 className="text-xl font-semibold">Ticket #{ticket.id}</h3>
+                </div>
                 <div className="flex items-center space-x-2">
                   {getStatusBadge(ticket.status)}
                   {getPriorityBadge(ticket.priority)}
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <p className="text-sm text-gray-500">ID du ticket</p>
-                  <p className="font-medium">{ticket.id}</p>
+              {/* Progress Bar */}
+              <div className="mb-4">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm font-medium">Progression</span>
+                  <span className="text-sm font-medium">{ticket.progress}%</span>
                 </div>
-                <div>
-                  <p className="text-sm text-gray-500">Créé le</p>
-                  <p className="font-medium">{formatDate(ticket.createdAt)}</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Dernière mise à jour</p>
-                  <p className="font-medium">{formatDate(ticket.updatedAt)}</p>
-                </div>
-                <div>
-                  <p className="text-sm text-gray-500">Assigné à</p>
-                  <p className="font-medium">{ticket.assignedTo || 'Non assigné'}</p>
+                <div className="w-full bg-white/20 rounded-full h-2">
+                  <div 
+                    className="bg-white h-2 rounded-full transition-all duration-500 ease-out"
+                    style={{ width: `${ticket.progress}%` }}
+                  ></div>
                 </div>
               </div>
               
+              <h4 className="text-lg font-medium">{ticket.subject}</h4>
+            </div>
+            
+            <div className="p-6">
+              {/* Key Information Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                <div className="flex items-start space-x-3">
+                  <FaCalendarAlt className="w-5 h-5 text-[#2b3343] mt-1" />
+                  <div>
+                    <p className="text-sm text-gray-500">Créé le</p>
+                    <p className="font-medium">{formatDate(ticket.createdAt)}</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <FaClock className="w-5 h-5 text-[#2b3343] mt-1" />
+                  <div>
+                    <p className="text-sm text-gray-500">Dernière mise à jour</p>
+                    <p className="font-medium">{formatDate(ticket.updatedAt)}</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <FaUser className="w-5 h-5 text-[#2b3343] mt-1" />
+                  <div>
+                    <p className="text-sm text-gray-500">Assigné à</p>
+                    <p className="font-medium">{ticket.assignedTo || 'Non assigné'}</p>
+                  </div>
+                </div>
+                {ticket.estimatedResolution && (
+                  <div className="flex items-start space-x-3">
+                    <FaBell className="w-5 h-5 text-[#2b3343] mt-1" />
+                    <div>
+                      <p className="text-sm text-gray-500">Résolution estimée</p>
+                      <p className="font-medium">{formatDate(ticket.estimatedResolution)}</p>
+                    </div>
+                  </div>
+                )}
+                <div className="flex items-start space-x-3">
+                  <FaTicketAlt className="w-5 h-5 text-[#2b3343] mt-1" />
+                  <div>
+                    <p className="text-sm text-gray-500">Catégorie</p>
+                    <p className="font-medium">{ticket.category}</p>
+                  </div>
+                </div>
+                {ticket.contactPhone && (
+                  <div className="flex items-start space-x-3">
+                    <FaPhone className="w-5 h-5 text-[#2b3343] mt-1" />
+                    <div>
+                      <p className="text-sm text-gray-500">Contact</p>
+                      <p className="font-medium">{ticket.contactPhone}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+              
+              {/* Location */}
+              {ticket.location && (
+                <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                  <div className="flex items-start space-x-3">
+                    <FaEnvelope className="w-5 h-5 text-blue-600 mt-1" />
+                    <div>
+                      <p className="text-sm font-medium text-blue-800">Localisation</p>
+                      <p className="text-blue-700">{ticket.location}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+              
+              {/* Description */}
               <div className="mb-6">
-                <p className="text-sm text-gray-500">Sujet</p>
-                <p className="font-medium text-lg">{ticket.subject}</p>
-              </div>
-              
-              <div className="mb-8">
-                <p className="text-sm text-gray-500 mb-2">Description</p>
-                <div className="bg-gray-50 p-4 rounded-md text-gray-700">
+                <p className="text-sm font-medium text-[#2b3343] mb-2">Description du problème</p>
+                <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 text-gray-700">
                   {ticket.description}
                 </div>
               </div>
               
-              <div className="border-t border-gray-200 pt-6">
-                <h4 className="text-md font-semibold text-[#2b3343] mb-4">Historique des commentaires</h4>
-                <div className="space-y-4">
-                  {ticket.comments.map((comment, index) => (
-                    <div key={index} className="bg-gray-50 p-4 rounded-md">
-                      <div className="flex items-center justify-between mb-2">
-                        <p className="font-medium text-[#2b3343]">{comment.author}</p>
-                        <p className="text-xs text-gray-500">{formatDate(comment.timestamp)}</p>
+              {/* Attachments */}
+              {ticket.attachments && ticket.attachments.length > 0 && (
+                <div className="mb-6">
+                  <p className="text-sm font-medium text-[#2b3343] mb-3">Pièces jointes</p>
+                  <div className="flex flex-wrap gap-2">
+                    {ticket.attachments.map((attachment, index) => (
+                      <div key={index} className="flex items-center space-x-2 bg-gray-100 px-3 py-2 rounded-lg">
+                        <FaDownload className="w-4 h-4 text-[#2b3343]" />
+                        <span className="text-sm font-medium text-[#2b3343]">{attachment}</span>
                       </div>
-                      <p className="text-gray-700">{comment.content}</p>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              <div className="border-t border-gray-200 pt-6">
+                <div className="flex items-center space-x-2 mb-4">
+                  <FaHistory className="w-5 h-5 text-[#2b3343]" />
+                  <h4 className="text-md font-semibold text-[#2b3343]">Historique des commentaires</h4>
+                </div>
+                <div className="space-y-4">
+                  {ticket.comments.map((comment) => {
+                    const getCommentIcon = (type: string) => {
+                      switch (type) {
+                        case 'assignment':
+                          return <FaUser className="w-4 h-4 text-blue-600" />;
+                        case 'status_change':
+                          return <FaBell className="w-4 h-4 text-green-600" />;
+                        case 'resolution':
+                          return <FaCheckCircle className="w-4 h-4 text-green-600" />;
+                        default:
+                          return <FaCommentAlt className="w-4 h-4 text-gray-600" />;
+                      }
+                    };
+                    
+                    const getCommentBorder = (type: string) => {
+                      switch (type) {
+                        case 'assignment':
+                          return 'border-l-4 border-blue-500 bg-blue-50';
+                        case 'status_change':
+                          return 'border-l-4 border-green-500 bg-green-50';
+                        case 'resolution':
+                          return 'border-l-4 border-green-600 bg-green-100';
+                        default:
+                          return 'border-l-4 border-gray-300 bg-gray-50';
+                      }
+                    };
+                    
+                    return (
+                      <div key={comment.id} className={`p-4 rounded-lg ${getCommentBorder(comment.type)}`}>
+                        <div className="flex items-start space-x-3">
+                          <div className="flex-shrink-0 mt-1">
+                            {getCommentIcon(comment.type)}
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center justify-between mb-2">
+                              <p className="font-medium text-[#2b3343]">{comment.author}</p>
+                              <p className="text-xs text-gray-500">{formatDate(comment.timestamp)}</p>
+                            </div>
+                            <p className="text-gray-700 leading-relaxed">{comment.content}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
               

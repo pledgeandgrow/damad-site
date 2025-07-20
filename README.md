@@ -1,16 +1,18 @@
-# DAMAD
+# DAMAD Ascenseurs
 
-Site web professionnel pour DAMAD - Spécialiste en installation, maintenance et dépannage d'ascenseurs.
+Site web professionnel pour DAMAD - Spécialiste en installation, maintenance et dépannage d'ascenseurs, EPMR, monte-charges et équipements de mobilité verticale.
 
 ## 🚀 Technologies Utilisées
 
-- Next.js 13+ (App Router)
-- React 19
-- TypeScript
-- Tailwind CSS
-- Supabase (Backend)
-- Framer Motion (Animations)
-- React Icons
+- **Next.js 15.3.4** (App Router)
+- **React 19**
+- **TypeScript 5.4.5**
+- **Tailwind CSS 3.4.3**
+- **Framer Motion 12.23.6** (Animations)
+- **React Icons 5.5.0**
+- **React Hook Form 7.59.0**
+- **Supabase 2.50.4** (Backend - pour projets futurs)
+- **Vercel Analytics**
 
 ## 🛠️ Prérequis
 
@@ -47,6 +49,142 @@ Site web professionnel pour DAMAD - Spécialiste en installation, maintenance et
 
 5. **Ouvrir dans le navigateur**
    - Allez sur [http://localhost:3000](http://localhost:3000)
+
+## 🏗️ Structure du Projet
+
+```
+src/
+├── app/                    # Pages Next.js (App Router)
+│   ├── a-propos/          # Page À propos
+│   ├── blog/              # Blog (3 articles)
+│   ├── contact/           # Page de contact
+│   ├── devis/             # Demande de devis
+│   ├── legal/             # Pages légales (5 pages)
+│   ├── realisations/      # Portfolio projets
+│   ├── recrutement/       # Recrutement
+│   ├── services/          # Services (7 pages)
+│   └── support/           # Support client
+├── components/            # Composants réutilisables
+│   ├── about/             # Composants page À propos
+│   ├── blog/              # Composants blog
+│   ├── contact/           # Formulaires de contact
+│   ├── devis/             # Formulaires de devis
+│   ├── home/              # Composants page d'accueil
+│   ├── layout/            # Navigation et footer
+│   ├── projects/          # Galerie de projets
+│   ├── recrutement/       # Composants recrutement
+│   ├── services/          # Composants services
+│   ├── support/           # Support et FAQ
+│   └── ui/                # Composants UI génériques
+├── data/                  # Données statiques
+├── docs/                  # Documentation projet
+├── hooks/                 # Hooks React personnalisés
+├── lib/                   # Utilitaires
+└── types/                 # Types TypeScript
+```
+
+## ✨ Fonctionnalités Principales
+
+### 🏠 **Page d'Accueil**
+- Hero section avec présentation de l'entreprise
+- Services principaux en vedette
+- Projets récents
+- Témoignages clients
+- Call-to-action pour devis
+
+### 🔧 **Services (7 pages spécialisées)**
+- **Hero section** avec présentation générale
+- **ServiceIntro**: Expérience et installation & garantie
+- **ServiceContrat**: Services et dépannage 7/7
+- **ServiceMaintenance**: Contrats de maintenance détaillés
+- Pages individuelles: Installation, Maintenance, Dépannage, Réparation, Modernisation, Contrôle Technique
+
+### 👥 **Recrutement**
+- **CompanyIntro**: Présentation de l'entreprise et valeurs
+- **Hero section** avec message d'accueil
+- **Bonnes raisons de nous rejoindre** (5 points clés)
+- Offres d'emploi techniques
+- Formulaire de candidature complet
+
+### 🏢 **À Propos**
+- Histoire de l'entreprise
+- Équipe et expertise
+- Valeurs et engagement qualité
+- Certifications et partenaires
+
+### 📁 **Réalisations**
+- Galerie de projets avec filtres
+- Cartes projet avec effet hover "Voir le projet"
+- Détails techniques des installations
+- Témoignages clients
+
+### 📞 **Contact & Support**
+- Formulaires de contact multiples
+- Support client avec FAQ (15+ questions)
+- Suivi de tickets de support
+- Informations de contact complètes
+
+### 📝 **Blog**
+- Articles techniques et actualités
+- Conseils maintenance
+- Actualités réglementaires
+
+## 🎨 Système de Design
+
+### **Palette de Couleurs**
+- **Couleur principale**: `#2b3343` (Bleu-gris foncé)
+- **Couleur secondaire**: `#3d4759` (Bleu-gris moyen)
+- **Couleur accent**: Bleu (variantes)
+- **Arrière-plans**: Dégradés gris et blancs
+
+### **Typographie**
+- **Police principale**: Roboto (Google Fonts)
+- **Hiérarchie**: H1-H6 avec tailles responsives
+- **Poids**: Regular, Medium, Semibold, Bold
+
+### **Composants UI**
+- **Animations**: Framer Motion avec transitions fluides
+- **Icônes**: React Icons (FA, Lucide)
+- **Formulaires**: React Hook Form avec validation
+- **Responsive**: Mobile-first avec Tailwind CSS
+- **Accessibilité**: ARIA labels et navigation clavier
+
+## 🔄 Améliorations Récentes
+
+### **Services Page Enhancement**
+- ✅ Nouveau `ServiceHero` avec présentation engageante
+- ✅ `ServiceIntro` avec expérience et installation
+- ✅ `ServiceContrat` avec services 7/7 détaillés
+- ✅ `ServiceMaintenance` avec critères spécifiques
+- ✅ Structure modulaire et réutilisable
+
+### **Recrutement Section Refinement**
+- ✅ `CompanyIntro` avec 2 points iconiques + paragraphe
+- ✅ Suppression du contenu promotionnel excessif
+- ✅ Texte hero personnalisé: "REJOINGNEZ DAMAD !"
+- ✅ "Bonnes raisons de nous rejoindre" (5 points)
+- ✅ Formulaire de candidature optimisé
+- ✅ Offres d'emploi techniques uniquement
+
+### **Modernisation Page Updates**
+- ✅ Police Roboto appliquée globalement
+- ✅ 5 cartes de fonctionnalités en ligne (desktop)
+- ✅ Texte explicatif sous les cartes
+- ✅ Nouveau contenu et CTA
+- ✅ Design responsive optimisé
+
+### **Navigation & UX**
+- ✅ Navbar mise à jour: "À propos" en premier
+- ✅ "Recrutement" ajouté avant "Contact"
+- ✅ Suppression de "Accueil" du menu
+- ✅ "Voir le projet" au hover sur les cartes
+- ✅ Suppression du mot "gratuit" des devis
+
+### **Support & FAQ Enhancement**
+- ✅ 15+ questions FAQ avec recherche
+- ✅ Système de tickets de support avancé
+- ✅ Catégorisation et filtrage
+- ✅ Interface utilisateur améliorée
 
 ## 🚀 Déploiement sur Vercel
 

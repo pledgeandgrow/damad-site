@@ -11,23 +11,28 @@ export const metadata: Metadata = {
 const features = [
   {
     icon: <FaSyncAlt className="h-8 w-8 text-white" />,
-    title: 'Mise à niveau complète',
-    description: 'Remplacement des composants obsolètes pour améliorer les performances et la sécurité.'
-  },
-  {
-    icon: <FaChartLine className="h-8 w-8 text-white" />,
-    title: 'Amélioration des performances',
-    description: 'Optimisation de la vitesse, de la capacité et de la fiabilité de vos ascenseurs.'
+    title: '',
+    description: 'Le remplacement des composants tels que l\'armoire de manœuvre, moteur, variateur de fréquence'
   },
   {
     icon: <FaLeaf className="h-8 w-8 text-white" />,
-    title: 'Efficacité énergétique',
-    description: 'Réduction de la consommation d\'énergie et de l\'empreinte carbone.'
+    title: '',
+    description: 'L\'installation de dispositifs d\'\'économies d\'\'énergies, par exemple l\'\'éclairage LED'
   },
   {
     icon: <FaUniversalAccess className="h-8 w-8 text-white" />,
-    title: 'Mise en conformité PMR',
-    description: 'Adaptation aux normes d\'accessibilité pour personnes à mobilité réduite.'
+    title: '',
+    description: 'Le remplacement des portes de l\'ascenseur'
+  },
+  {
+    icon: <FaChartLine className="h-8 w-8 text-white" />,
+    title: '',
+    description: 'La réduction des vibrations et du bruit'
+  },
+  {
+    icon: <FaSyncAlt className="h-8 w-8 text-white" />,
+    title: '',
+    description: 'La modernisation de la cabine avec un nouvel habillage des parois et du sol'
   }
 ];
 
@@ -81,35 +86,61 @@ const clientTypes = [
 export default function ModernisationPage() {
   return (
     <div className="bg-white">
-      {/* Features Section */}
+      {/* New First Section */}
+      <div className="py-16 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-12">
+            <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4 bg-[#2b3343] px-4 py-2 rounded-full">
+              Rénovation et Modernisation
+            </span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2b3343] mb-6">
+              Pourquoi moderniser son ascenseur ?
+            </h1>
+            <div className="w-20 h-1 bg-[#2b3343] mx-auto mb-8"></div>
+            <div className="text-gray-700 text-lg leading-relaxed space-y-4">
+              <p>
+                Rénover ou moderniser l&apos;ascenseur c&apos;est choisir de prolonger sa durée de vie votre installation. Lorsqu&apos;un ascenseur devient vétuste, la maintenance préventive ne suffit plus à garantir un taux de panne acceptable.
+              </p>
+              <p>
+                Le remaniement total ou partiel d&apos;un ascenseur nécessite un réel savoir-faire pour partir de l&apos;existant afin réduire le risque de panne, intégrer des nouvelles technologies pour améliorer la sécurité et le confort, réduire vos factures d&apos;électricité tout en optimisant la longévité de l&apos;appareil
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Updated Features Section */}
       <div className="py-20 bg-white sm:py-24">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-10 sm:mb-16">
-            <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-[#2b3343] px-3 py-1 rounded-full">
-              Services professionnels
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
-              Modernisation d&apos;ascenseurs
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-6">
+              Zoom sur la rénovation et la modernisation d&apos;ascenseurs
             </h2>
-            <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-              Donnez une seconde vie à vos installations avec nos solutions de modernisation sur mesure.
-            </p>
+            <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-8"></div>
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-gray-700 text-lg">
+              Elle peut s&apos;apparenter :
+              </p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {features.map((feature, index) => (
               <div key={index} className="group">
-                <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:translate-y-[-5px] hover:border-[#2b3343] h-full">
+                <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#2b3343] h-full">
                   <div className="h-2 bg-[#2b3343]"></div>
                   <div className="p-6 text-center">
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-5 mx-auto bg-[#2b3343] transform transition-transform group-hover:scale-110 shadow-md">
                       <div className="text-white">{feature.icon}</div>
                     </div>
-                    <h3 className="text-xl font-bold mb-3 text-[#2b3343] group-hover:text-[#3d4759] transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-                    <div className="w-10 h-0.5 bg-[#2b3343] mx-auto mb-3"></div>
+                    {feature.title && (
+                      <>
+                        <h3 className="text-xl font-bold mb-3 text-[#2b3343] group-hover:text-[#3d4759] transition-colors duration-300">
+                          {feature.title}
+                        </h3>
+                        <div className="w-10 h-0.5 bg-[#2b3343] mx-auto mb-3"></div>
+                      </>
+                    )}
                     <p className="text-gray-600 text-sm">
                       {feature.description}
                     </p>
@@ -117,6 +148,18 @@ export default function ModernisationPage() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Additional explanatory text */}
+          <div className="mt-12 max-w-4xl mx-auto text-center">
+            <div className="bg-gray-50 rounded-xl p-8 border border-gray-100">
+              <p className="text-gray-700 text-lg leading-relaxed mb-6">
+              La modernisation d&#39;un ascenseur consiste à remplacer ou à améliorer certains composants de l&#39;équipement pour améliorer ses performances, sa sécurité et son efficacité énergétique. Cette démarche permet de prolonger la durée de vie de l&#39;installation tout en répondant aux normes actuelles.
+            </p>
+              <p className="text-gray-700 text-lg leading-relaxed font-medium">
+                Nous sommes en mesure de vous proposer diverses solutions d&apos;accompagnement afin de mettre en réussite votre projet de rénovation et de modernisation !
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -175,18 +218,33 @@ export default function ModernisationPage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="bg-gradient-to-br from-[#2b3343] to-[#3d4759] rounded-2xl p-8 sm:p-12 shadow-xl">
             <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                Prêt à moderniser vos ascenseurs ?
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
+                Vous avez un projet ? Contactez nous !
               </h2>
-              <p className="text-white/80 mb-8 text-base sm:text-lg">
-                Nos experts sont à votre disposition pour étudier votre projet et vous proposer une solution adaptée à vos besoins et à votre budget.
-              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                  <h3 className="text-xl font-semibold text-white mb-3">
+                    Autres services
+                  </h3>
+                  <p className="text-white/80">
+                    Découvrez notre gamme complète de services pour vos ascenseurs
+                  </p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                  <h3 className="text-xl font-semibold text-white mb-3">
+                    Assistance technique
+                  </h3>
+                  <p className="text-white/80">
+                    Conseil et accompagnement
+                  </p>
+                </div>
+              </div>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Link 
                   href="/contact?subject=modernisation" 
                   className="bg-white text-[#2b3343] hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg transition-colors duration-300 shadow-md"
                 >
-                  Demander un devis gratuit
+                  Demander un devis
                 </Link>
                 <Link 
                   href="/contact" 

@@ -12,7 +12,7 @@ const features = [
   {
     icon: <FaClock className="h-8 w-8 text-white" />,
     title: 'Intervention rapide',
-    description: 'Disponibles 24h/24 et 7j/7 pour des interventions d\'urgence.'
+    description: 'Réponse sous 48h pour des interventions d\'urgence.'
   },
   {
     icon: <FaTools className="h-8 w-8 text-white" />,
@@ -98,7 +98,7 @@ export default function Depannage() {
             </h2>
             <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed mb-8">
-              Notre équipe d&apos;experts est disponible 24h/24 et 7j/7 pour intervenir rapidement en cas de panne d&apos;ascenseur.
+              Notre équipe d&apos;experts répond sous 48h pour intervenir rapidement en cas de panne d&apos;ascenseur.
             </p>
           </div>
           <div className="bg-white shadow-md rounded-xl overflow-hidden border border-gray-100">
@@ -133,7 +133,7 @@ export default function Depannage() {
             </h2>
             <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed mb-8">
-              Notre équipe d&apos;experts est disponible 24h/24 et 7j/7 pour intervenir rapidement en cas de panne d&apos;ascenseur.
+              Notre équipe d&apos;experts répond sous 48h pour intervenir rapidement en cas de panne d&apos;ascenseur.
             </p>
             <Link 
               href="tel:+33123456789" 
