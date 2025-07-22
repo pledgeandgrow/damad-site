@@ -41,18 +41,18 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   };
   
   const handlePrevImage = () => {
-    if (!project?.images) return;
+    if (!project?.images || !project.images.length) return;
     setIsImageLoaded(false);
     setCurrentImageIndex((prev) => 
-      prev === 0 ? project.images.length - 1 : prev - 1
+      prev === 0 ? (project.images?.length || 1) - 1 : prev - 1
     );
   };
 
   const handleNextImage = () => {
-    if (!project?.images) return;
+    if (!project?.images || !project.images.length) return;
     setIsImageLoaded(false);
     setCurrentImageIndex((prev) => 
-      prev === project.images.length - 1 ? 0 : prev + 1
+      prev === (project.images?.length || 1) - 1 ? 0 : prev + 1
     );
   };
 
@@ -130,7 +130,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               {/* Image navigation */}
               {hasMultipleImages && (
                 <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-                  {project.images.map((_, index) => (
+                  {project.images?.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => {
