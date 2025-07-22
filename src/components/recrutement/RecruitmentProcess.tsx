@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaFileAlt, FaPhoneAlt, FaUserTie, FaHandshake, FaUserCheck } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function RecruitmentProcess() {
   const steps = [
@@ -108,7 +109,65 @@ export default function RecruitmentProcess() {
           <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
             Notre processus de recrutement est conçu pour être transparent et vous permettre de découvrir notre entreprise autant que nous découvrons votre profil.
           </p>
-
+        </motion.div>
+        
+        {/* Formation et Développement Professionnel */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-16"
+        >
+          <h3 className="text-2xl font-bold text-[#2b3343] mb-8 text-center relative inline-block">
+            <span className="relative z-10">Formation et Développement Professionnel</span>
+            <span className="absolute bottom-0 left-0 w-full h-3 bg-blue-100 -z-10 transform -rotate-1"></span>
+          </h3>
+          
+          <div className="grid md:grid-cols-2 gap-8 mt-10 max-w-5xl mx-auto">
+            <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="relative h-64">
+                <Image 
+                  src="/images/site/FORMATION.jpg" 
+                  alt="Formation technique DAMAD" 
+                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2b3343]/80 to-transparent flex items-end">
+                  <div className="p-6 text-white">
+                    <h4 className="text-xl font-bold mb-2">Formation Technique</h4>
+                    <p className="text-sm">Nos techniciens bénéficient d&apos;une formation complète sur nos équipements et technologies</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div className="relative h-64">
+                <Image 
+                  src="/images/site/formation securite.jpg" 
+                  alt="Formation sécurité DAMAD" 
+                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2b3343]/80 to-transparent flex items-end">
+                  <div className="p-6 text-white">
+                    <h4 className="text-xl font-bold mb-2">Formation Sécurité</h4>
+                    <p className="text-sm">La sécurité est notre priorité - formations régulières aux protocoles de sécurité</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-center mt-8">
+            <p className="text-gray-700 max-w-3xl mx-auto">
+              Chez DAMAD, nous investissons dans le développement professionnel de nos collaborateurs. 
+              Nos programmes de formation vous permettent d&apos;acquérir de nouvelles compétences et d&apos;évoluer au sein de notre entreprise.
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

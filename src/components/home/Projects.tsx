@@ -21,13 +21,22 @@ const getCategoryIcon = (category: string) => {
       return <FaIndustry />;
     case 'Particulier':
       return <FaHome />;
+    case 'Maintenance':
+      return <FaIndustry />;
+    case 'Public':
+      return <FaBuilding />;
     default:
       return <FaBuilding />;
   }
 };
 
-// Get the first 3 projects from the main projects data file
-const projects = allProjects.slice(0, 3).map(project => ({
+// Select a diverse set of projects to showcase on the home page
+// Include projects from different categories and some of the newest ones
+const selectedProjectIds = [1, 7, 9, 10, 12]; // Mix of residential, maintenance, commercial, public projects
+const projects = allProjects
+  .filter(project => selectedProjectIds.includes(project.id))
+  .slice(0, 5) // Limit to 5 projects
+  .map(project => ({
   ...project,
   icon: getCategoryIcon(project.category),
   slug: project.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')

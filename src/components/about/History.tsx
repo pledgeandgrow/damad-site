@@ -129,12 +129,7 @@ export default function History() {
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-[#2b3343] mb-4">Notre Histoire</h2>
           <div className="w-24 h-1 bg-[#2b3343] mx-auto rounded-full mb-6"></div>
-          <p className="text-lg text-gray-600 mb-8">
-            Créée en 2007, DAMAD gère aujourd&apos;hui plus de 800 ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR. En faisant le choix de s&apos;implanter localement via un maillage du territoire régional, nous proposons des solutions complètes d&apos;installation, de maintenance, d&apos;entretien, de rénovation et de modernisation.
-          </p>
-          <p className="text-lg text-gray-600 mb-8">
-            Prudence, discipline et sécurité s&apos;inscrivent dans notre politique d&apos;accompagnement des équipes terrain, des entrepreneurs, des entreprises et des particuliers. Passionnés par ce métier et par l&apos;accessibilité, nous mettons notre savoir et notre expérience à votre service.
-          </p>
+
         </div>
 
         <div className="relative">

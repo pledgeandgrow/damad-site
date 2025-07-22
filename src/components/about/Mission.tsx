@@ -84,7 +84,7 @@ export default function Mission() {
           <h2 className="text-3xl md:text-4xl font-bold text-[#2b3343] mb-4">Notre Mission</h2>
           <div className="w-24 h-1 bg-[#2b3343] mx-auto rounded-full mb-6"></div>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-            Prudence, discipline et sécurité s&apos;inscrivent dans la politique d&apos;accompagnement des équipes terrains, des entrepreneurs, des entreprises, des particuliers.
+            Notre mission est d&apos;assurer la sécurité et la fiabilité des installations d&apos;ascenseurs pour tous nos clients.
           </p>
         </div>
         
