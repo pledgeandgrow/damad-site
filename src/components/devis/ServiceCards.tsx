@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaBuilding, FaIndustry, FaTools, FaTachometerAlt, FaShieldAlt, FaArrowRight } from 'react-icons/fa';
+import { FaBuilding, FaIndustry, FaTools, FaTachometerAlt, FaShieldAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 export default function ServiceCards() {
@@ -8,7 +8,7 @@ export default function ServiceCards() {
       icon: <FaTools className="w-10 h-10 text-[#2b3343]" />,
       title: 'Dépannage',
       description: 'Service d\'urgence pour résoudre rapidement les problèmes de votre ascenseur',
-      features: ['Intervention rapide', 'Disponible 24/7', 'Techniciens qualifiés'],
+      features: ['Intervention rapide', 'Disponible Réponse sous 48h', 'Techniciens qualifiés'],
       bgColor: 'from-blue-50 to-blue-100'
     },
     {
@@ -36,7 +36,7 @@ export default function ServiceCards() {
       icon: <FaTachometerAlt className="w-10 h-10 text-[#2b3343]" />,
       title: 'Maintenance',
       description: 'Contrats d\'entretien sur mesure pour une tranquillité d\'esprit',
-      features: ['Intervention 24/7', 'Pièces détachées', 'Rapports détaillés'],
+      features: ['Réponse sous 48h', 'Pièces détachées', 'Rapports détaillés'],
       bgColor: 'from-blue-50 to-blue-100'
     },
     {
@@ -102,15 +102,7 @@ export default function ServiceCards() {
                   ))}
                 </ul>
               </div>
-              <div className="px-6 py-4 bg-white/80 backdrop-blur-sm border-t border-gray-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <a 
-                  href="#devis-form" 
-                  className="inline-flex items-center text-sm font-medium text-[#2b3343] hover:text-blue-700 transition-colors duration-300"
-                >
-                  Demander un devis
-                  <FaArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
-              </div>
+
             </motion.div>
           ))}
         </div>

@@ -68,7 +68,7 @@ export default function ReparationPage() {
             </h2>
             <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-              Notre équipe d&apos;experts est disponible 24/7 pour résoudre rapidement tout problème technique.
+              Notre équipe d&apos;experts est disponible avec Réponse sous 48h pour résoudre rapidement tout problème technique.
             </p>
           </div>
 
@@ -135,7 +135,7 @@ export default function ReparationPage() {
             </h2>
             <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed mb-8">
-              Notre équipe d&apos;experts est disponible 24/7 pour résoudre rapidement tout problème technique.
+              Notre équipe d&apos;experts est disponible avec Réponse sous 48h pour résoudre rapidement tout problème technique.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link

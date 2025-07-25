@@ -1,4 +1,4 @@
-import { FaTools, FaWrench, FaShieldAlt, FaArrowRight, FaChevronLeft, FaChevronRight, FaHammer, FaSyncAlt, FaClipboardCheck } from 'react-icons/fa';
+import { FaTools, FaWrench, FaShieldAlt, FaArrowRight, FaChevronLeft, FaChevronRight, FaHammer, FaSyncAlt } from 'react-icons/fa';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
@@ -17,8 +17,8 @@ const services = [
   },
   {
     icon: <FaShieldAlt className="w-6 h-6 text-white" />,
-    title: "Dépannage 24/7",
-    description: "Service d'urgence disponible 24 heures sur 24, 7 jours sur 7 pour tout dépannage.",
+    title: "Dépannage",
+    description: "Service Dépannage disponible 24 heures sur 24, 7 jours sur 7 pour tout dépannage.",
     shortDesc: "Intervention rapide en cas d'urgence.",
     features: ["Response sous 48h", "Délai d'intervention court", "Techniciens qualifiés"],
     color: "#2b3343", // Primary brand color
@@ -47,23 +47,13 @@ const services = [
   },
   {
     icon: <FaSyncAlt className="w-6 h-6 text-white" />,
-    title: "Modernisation",
+    title: "Modernisation & Renovation",
     description: "Mise à niveau de vos installations pour améliorer la sécurité, l'efficacité énergétique et le confort.",
     shortDesc: "Donnez une seconde vie à vos ascenseurs.",
     features: ["Mise aux normes", "Économies d'énergie", "Amélioration du confort"],
     color: "#2b3343", // Primary brand color
     gradient: "from-[#2b3343] to-[#3d4759]",
     link: "/services/modernisation"
-  },
-  {
-    icon: <FaClipboardCheck className="w-6 h-6 text-white" />,
-    title: "Contrôle Technique",
-    description: "Inspections réglementaires et audits de sécurité pour garantir la conformité de vos installations.",
-    shortDesc: "Vérifications complètes et rapports détaillés.",
-    features: ["Conformité réglementaire", "Prévention des risques", "Certification officielle"],
-    color: "#2b3343", // Primary brand color
-    gradient: "from-[#2b3343] to-[#3d4759]",
-    link: "/services/controle-technique"
   }
 ];
 
@@ -145,9 +135,6 @@ export default function Services() {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-16">
-          <span className="inline-block text-[#2b3343] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-gray-100 px-3 py-1 rounded-full">
-            Nos Services
-          </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
             Solutions sur Mesure
           </h2>
@@ -254,16 +241,7 @@ export default function Services() {
           </button>
         </div>
 
-        {/* CTA Button */}
-        <div className="mt-10 sm:mt-16 text-center">
-          <Link 
-            href="/contact" 
-            className="inline-flex items-center justify-center px-6 py-3 bg-[#2b3343] text-white font-medium rounded-lg hover:bg-[#3d4759] transition-colors duration-300 shadow-md hover:shadow-lg"
-          >
-            Demander un devis personnalisé
-            <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-          </Link>
-        </div>
+        {/* CTA Button removed */}
       </div>
     </section>
   );

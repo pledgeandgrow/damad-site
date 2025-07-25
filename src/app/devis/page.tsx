@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { FaPhone } from 'react-icons/fa';
+import { FiPhone } from 'react-icons/fi';
 import dynamic from 'next/dynamic';
 
 // Import components with SSR disabled to avoid hydration issues
@@ -118,12 +118,7 @@ export default function DevisPage() {
     }
   }, [formData]);
 
-  const scrollToForm = useCallback(() => {
-    const formSection = document.getElementById('devis-form');
-    if (formSection) {
-      formSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, []);
+  // Form is now positioned right after hero, so no scroll function needed
 
   if (isSubmitted) {
     return <DevisSuccess />;
@@ -174,23 +169,17 @@ export default function DevisPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-10 flex flex-col sm:flex-row justify-center gap-4"
+              className="mt-10 flex justify-center"
             >
-              <motion.button
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={scrollToForm}
-                className="px-8 py-3 border border-transparent text-base font-medium rounded-lg text-[#2b3343] bg-white hover:bg-blue-50 shadow-lg hover:shadow-xl transition-all duration-300 md:py-4 md:text-lg md:px-10"
-              >
-                Demander un devis
-              </motion.button>
               <motion.a
                 whileHover={{ scale: 1.05, y: -5 }}
                 whileTap={{ scale: 0.98 }}
                 href="tel:+33123456789"
-                className="px-8 py-3 border-2 border-blue-300 text-base font-medium rounded-lg text-white hover:bg-white/10 transition-all duration-300 md:py-4 md:text-lg md:px-10 inline-flex items-center justify-center"
+                className="px-8 py-3 border-2 border-blue-300 text-base font-medium rounded-lg text-white hover:bg-white/10 transition-all duration-300 md:py-4 md:text-lg md:px-10 inline-flex items-center justify-center group"
               >
-                <FaPhone className="mr-2" />
+                <span className="bg-white/20 p-2 rounded-full mr-3 group-hover:bg-white/30 transition-colors">
+                  <FiPhone className="text-white w-4 h-4" />
+                </span>
                 Appeler un expert
               </motion.a>
             </motion.div>
@@ -198,13 +187,6 @@ export default function DevisPage() {
         </div>
       </div>
 
-
-
-      {/* Services Section */}
-      <ServiceCards />
-
-      {/* Why Choose Us Section */}
-      <WhyChooseUs />
 
       {/* Form Section */}
       <div id="devis-form" className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 relative">
@@ -258,6 +240,12 @@ export default function DevisPage() {
           </motion.div>
         </div>
       </div>
+
+      {/* Services Section */}
+      <ServiceCards />
+
+      {/* Why Choose Us Section */}
+      <WhyChooseUs />
     </div>
   );
 }

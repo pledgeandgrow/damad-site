@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Dépannage Ascenseur - DAMAD',
-  description: 'Service de dépannage d&apos;ascenseur 24/7. Intervention rapide par des techniciens qualifiés pour tous types de pannes.'
+  description: 'Service de dépannage d&apos;ascenseur Réponse sous 48h. Intervention rapide par des techniciens qualifiés pour tous types de pannes.'
 };
 
 const features = [
@@ -51,7 +51,7 @@ export default function Depannage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-10 sm:mb-16">
             <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-[#2b3343] px-3 py-1 rounded-full">
-              Service d&apos;urgence
+              Service Dépannage
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
               Notre service de dépannage
@@ -129,7 +129,7 @@ export default function Depannage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="mt-10 sm:mt-16 text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
-              <span className="block">Urgence Ascenseur ?</span>
+              <span className="block">Besoin d&apos;un dépannage ?</span>
             </h2>
             <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed mb-8">
@@ -140,7 +140,7 @@ export default function Depannage() {
               className="inline-flex items-center justify-center px-6 py-3 bg-[#2b3343] text-white font-medium rounded-lg hover:bg-[#3d4759] transition-colors duration-300 shadow-md hover:shadow-lg"
             >
               <FaPhone className="mr-2" />
-              Appel d&apos;urgence : 01 23 45 67 89
+              Appel dépannage : 01 23 45 67 89
             </Link>
           </div>
         </div>

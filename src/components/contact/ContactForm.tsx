@@ -25,9 +25,11 @@ type FormData = {
 
 export default function ContactForm() {
   // Common CSS classes
-  const inputClass = "block w-full rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#2b3343] sm:text-sm sm:leading-6";
-  const labelClass = "block text-sm font-medium text-gray-700";
-  const errorClass = "mt-1 text-xs text-red-600";
+  const inputClass = "block w-full rounded-md border-0 px-4 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#2b3343] sm:text-sm sm:leading-6 transition-all duration-200 ease-in-out hover:ring-[#3d4759]";
+  const labelClass = "block text-sm font-medium text-[#2b3343] mb-1";
+  const errorClass = "mt-1 text-xs text-red-600 font-medium";
+  const selectClass = "block w-full rounded-md border-0 px-4 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#2b3343] sm:text-sm sm:leading-6 transition-all duration-200 ease-in-out hover:ring-[#3d4759]";
+  const checkboxClass = "h-4 w-4 rounded border-gray-300 text-[#2b3343] focus:ring-[#3d4759] transition-all duration-200 ease-in-out";
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{ success: boolean; message: string } | null>(null);
@@ -66,8 +68,8 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mt-8 max-w-3xl mx-auto bg-white rounded-lg shadow-sm p-6 border border-gray-100">
-      <h3 className="text-lg font-semibold text-[#2b3343] mb-6 pb-3 border-b border-gray-100">Formulaire de contact</h3>
+    <form onSubmit={handleSubmit(onSubmit)} className="mt-8 mx-auto bg-white rounded-xl shadow-lg p-8 border border-gray-100 transition-all duration-300 hover:shadow-xl">
+      <h3 className="text-xl font-bold text-[#2b3343] mb-8 pb-4 border-b border-gray-200 text-center">Comment pouvons-nous vous aider ?</h3>
       <div className="grid grid-cols-1 gap-x-5 gap-y-4 sm:grid-cols-2">
         <div>
           <label htmlFor="firstName" className={labelClass}>
@@ -209,7 +211,7 @@ export default function ContactForm() {
           <div className="mt-1.5">
             <select
               id="buildingType"
-              className={inputClass}
+              className={selectClass}
               defaultValue=""
               {...register('buildingType', { required: 'Veuillez sélectionner un type de bâtiment' })}
             >
@@ -365,9 +367,9 @@ export default function ContactForm() {
           <div className="mt-1.5">
             <textarea
               id="message"
-              rows={3}
-              className={inputClass}
-              placeholder="Décrivez votre demande ici..."
+              rows={5}
+              className={`${inputClass} resize-none focus:shadow-inner`}
+              placeholder="Décrivez votre demande en détail..."
               {...register('message', { required: 'Ce champ est requis', minLength: { value: 10, message: 'Le message doit contenir au moins 10 caractères' } })}
             />
             {errors.message && (
@@ -382,7 +384,7 @@ export default function ContactForm() {
               <input
                 id="privacyPolicy"
                 type="checkbox"
-                className="h-4 w-4 rounded border-gray-300 text-[#2b3343] focus:ring-[#2b3343]"
+                className={checkboxClass}
                 {...register('privacyPolicy', {
                   required: 'Vous devez accepter la politique de confidentialité',
                 })}
@@ -406,9 +408,9 @@ export default function ContactForm() {
 
       {submitStatus && (
         <div
-          className={`mt-4 mb-4 rounded-md p-3 border ${
-            submitStatus.success ? 'bg-[#f8fafc] border-[#d1dbe8] text-[#2b3343]' : 'bg-red-50 border-red-200 text-red-800'
-          }`}
+          className={`mt-6 mb-6 rounded-lg p-4 border shadow-sm ${
+            submitStatus.success ? 'bg-[#eef2f7] border-[#c0cfe0] text-[#2b3343]' : 'bg-red-50 border-red-200 text-red-800'
+          } transition-all duration-300 ease-in-out`}
         >
           <div className="flex items-center">
             <div className="flex-shrink-0">
@@ -449,11 +451,11 @@ export default function ContactForm() {
         </div>
       )}
 
-      <div className="mt-6 flex justify-center">
+      <div className="mt-8 flex justify-center">
         <button
           type="submit"
           disabled={isSubmitting}
-          className="rounded-md bg-[#2b3343] px-5 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-[#3d4759] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2b3343] disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 ease-in-out w-full sm:w-auto sm:min-w-[180px]"
+          className="rounded-md bg-[#2b3343] px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-[#3d4759] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2b3343] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 ease-in-out w-full sm:w-auto sm:min-w-[200px] hover:shadow-lg hover:translate-y-[-2px]"
         >
           {isSubmitting ? (
             <>

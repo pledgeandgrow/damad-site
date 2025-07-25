@@ -29,7 +29,7 @@ const services = [
     slug: 'maintenance',
     features: [
       'Visites techniques régulières',
-      'Dépannage 24/7',
+      'Dépannage Réponse sous 48h',
       'Pièces détachées d\'origine',
       'Rapports d\'intervention détaillés'
     ]

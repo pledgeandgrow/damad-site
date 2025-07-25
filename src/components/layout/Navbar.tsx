@@ -20,7 +20,11 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'À propos', href: '/a-propos' },
-    { name: 'Services', href: '/services' },
+    { name: 'Maintenance', href: '/services/maintenance' },
+    { name: 'Dépannage', href: '/services/depannage' },
+    { name: 'Installation', href: '/services/installation' },
+    { name: 'Réparation', href: '/services/reparation' },
+    { name: 'Modernisation & Rénovation', href: '/services/modernisation' },
     { name: 'Réalisations', href: '/realisations' },
     { name: 'Recrutement', href: '/recrutement' },
     { name: 'Contact', href: '/contact' },
@@ -74,7 +78,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center">
               <div className={`relative ${scrolled ? 'h-16' : 'h-20'} w-auto transition-all duration-300`}>
                 <Image 
-                  src="/wdamad-transparent.png" 
+                  src="/damad-transparent.png" 
                   alt="DAMAD" 
                   width={scrolled ? 64 : 80}
                   height={scrolled ? 64 : 80}

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaLinkedin, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight, FaTools, FaBuilding, FaInfoCircle, FaEnvelopeOpenText, FaFileInvoiceDollar, FaWrench, FaCogs, FaScrewdriver, FaExclamationTriangle, FaNewspaper, FaUsers, FaSyncAlt, FaClipboardCheck } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight, FaTools, FaBuilding, FaInfoCircle, FaEnvelopeOpenText, FaFileInvoiceDollar, FaWrench, FaCogs, FaExclamationTriangle, FaUsers, FaSyncAlt } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 
 interface FooterLink {
@@ -12,6 +12,7 @@ interface FooterLink {
 interface FooterSection {
   title: string;
   links: FooterLink[];
+  buttons?: FooterLink[];
 }
 
 const footerLinks: FooterSection[] = [
@@ -19,24 +20,20 @@ const footerLinks: FooterSection[] = [
     title: 'Aller plus loin',
     links: [
       { name: 'À Propos', href: '/a-propos', icon: FaInfoCircle },
-      { name: 'Nos Services', href: '/services', icon: FaTools },
       { name: 'Réalisations', href: '/realisations', icon: FaBuilding },
-      { name: 'Blog', href: '/blog', icon: FaNewspaper },
       { name: 'Recrutement', href: '/recrutement', icon: FaUsers },
-      { name: 'Support', href: '/support', icon: FaPhoneAlt },
-      { name: 'Nous joindre', href: '/contact', icon: FaEnvelopeOpenText },
+      { name: 'FAQ', href: '/faq', icon: FaPhoneAlt },
+      { name: 'Devis', href: '/contact?subject=demande-de-devis', icon: FaFileInvoiceDollar },
     ],
   },
   {
     title: 'Nos Services',
     links: [
+      { name: 'Installation', href: '/services/installation', icon: FaTools },
       { name: 'Maintenance', href: '/services/maintenance', icon: FaCogs },
       { name: 'Dépannage', href: '/services/depannage', icon: FaExclamationTriangle },
-      { name: 'Installation', href: '/services/installation', icon: FaWrench },
-      { name: 'Réparation', href: '/services/reparation', icon: FaScrewdriver },
-      { name: 'Modernisation', href: '/services/modernisation', icon: FaSyncAlt },
-      { name: 'Contrôle Technique', href: '/services/controle-technique', icon: FaClipboardCheck },
-      { name: 'Devis', href: '/contact?subject=demande-de-devis', icon: FaFileInvoiceDollar },
+      { name: 'Modernisation & Rénovation', href: '/services/modernisation', icon: FaSyncAlt },
+      { name: 'Réparation', href: '/services/reparation', icon: FaWrench },
     ],
   },
   {
@@ -63,12 +60,24 @@ const footerLinks: FooterSection[] = [
         icon: FaEnvelope
       },
     ],
+    buttons: [
+      {
+        name: 'Nous joindre',
+        href: '/contact',
+        icon: FaEnvelopeOpenText
+      }
+    ]
   },
 ];
 
-const socialLinks = [
-  { name: 'LinkedIn', icon: FaLinkedin, href: '#' },
-];
+interface SocialLink {
+  name: string;
+  icon: IconType;
+  href: string;
+}
+
+const socialLinks: SocialLink[] = [];
+
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -82,7 +91,7 @@ export default function Footer() {
               <Link href="/" className="inline-flex items-center -ml-4">
                 <div className="relative h-12 w-24">
                   <Image 
-                    src="/damad-transparent.png" 
+                    src="/damad-transparent-white.png" 
                     alt="DAMAD" 
                     fill
                     className="object-contain hover:opacity-90 transition-opacity"
@@ -166,11 +175,11 @@ export default function Footer() {
           <div className="block sm:hidden mt-8">
             <div className="space-y-3">
               <h4 className="text-base font-semibold text-white relative inline-block">
-                {footerLinks[2].title}
+                {footerLinks[1].title}
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-400 transform scale-x-50 origin-left"></span>
               </h4>
               <ul className="space-y-3 bg-white/5 rounded-lg p-3 mt-2">
-                {footerLinks[2].links.map((link) => {
+                {footerLinks[1].links.map((link) => {
                   const Icon = link.icon;
                   return (
                     <li key={link.name} className="flex items-start hover:translate-x-1 transition-transform duration-200">
@@ -187,6 +196,23 @@ export default function Footer() {
                   );
                 })}
               </ul>
+              {footerLinks[1].buttons && (
+                <div className="flex flex-row space-x-2 mt-4">
+                  {footerLinks[1].buttons.map((button) => {
+                    const Icon = button.icon;
+                    return (
+                      <a
+                        key={button.name}
+                        href={button.href}
+                        className="flex items-center justify-center bg-white/10 hover:bg-white/20 text-white py-1.5 px-3 rounded-md transition-colors duration-200 text-sm"
+                      >
+                        {Icon && <Icon className="w-3.5 h-3.5 mr-1.5" />}
+                        {button.name}
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
           
@@ -197,7 +223,7 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center -ml-12 sm:-ml-16">
               <div className="relative h-16 sm:h-20 w-32 sm:w-40">
                 <Image 
-                  src="/damad-transparent.png" 
+                  src="/damad-transparent-white.png" 
                   alt="DAMAD" 
                   fill
                   className="object-contain hover:opacity-90 transition-opacity"
@@ -257,6 +283,23 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
+              {section.buttons && (
+                <div className="flex flex-row space-x-3 mt-4">
+                  {section.buttons.map((button) => {
+                    const Icon = button.icon;
+                    return (
+                      <a
+                        key={button.name}
+                        href={button.href}
+                        className="flex items-center justify-center bg-white/10 hover:bg-white/20 text-white py-1.5 px-3 rounded-md transition-colors duration-200 text-sm"
+                      >
+                        {Icon && <Icon className="w-3.5 h-3.5 mr-1.5" />}
+                        {button.name}
+                      </a>
+                    );
+                  })}
+                </div>
+              )}
               {section.title === 'Nous Rejoindre' && (
                 <a 
                   href="https://damad-client.vercel.app/" 

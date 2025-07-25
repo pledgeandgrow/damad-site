@@ -13,8 +13,8 @@ export default function RecruitmentPage() {
     <main>
       <RecruitmentHero />
       <CompanyIntro />
-      <JobOpenings />
       <CompanyBenefits />
+      <JobOpenings />
       <RecruitmentProcess />
       <ApplicationForm />
     </main>

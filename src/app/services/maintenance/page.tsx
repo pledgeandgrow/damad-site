@@ -21,7 +21,7 @@ const features = [
   },
   {
     icon: <FaClock className="h-8 w-8 text-white" />,
-    title: 'Service 24/7',
+    title: 'Service Réponse sous 48h',
     description: 'Assistance technique et dépannage avec réponse sous 48h.'
   },
   {
@@ -48,7 +48,7 @@ const clientTypes = [
     name: 'Établissements de santé',
     description: 'Solutions de maintenance prioritaires pour hôpitaux, cliniques et EHPAD où la fiabilité des équipements est cruciale.',
     benefits: [
-      'Intervention d\'urgence 24/7',
+      'Intervention d\'urgence Réponse sous 48h',
       'Maintenance préventive renforcée',
       'Conformité aux normes sanitaires strictes',
       'Minimisation des temps d\'arrêt'

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaHandshake, FaGraduationCap, FaLightbulb, FaUsers, FaComments } from 'react-icons/fa';
 
 export default function CompanyBenefits() {
 
@@ -31,31 +32,41 @@ export default function CompanyBenefits() {
           <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 shadow-md">
             <div className="space-y-6 text-left">
               <div className="flex items-start">
-                <span className="text-2xl font-bold text-[#2b3343] mr-4 mt-1">#1</span>
+                <div className="bg-[#2b3343]/10 p-3 rounded-xl mr-4 flex-shrink-0">
+                  <FaHandshake className="text-[#2b3343] text-xl" />
+                </div>
                 <p className="text-gray-700 text-lg leading-relaxed">
                   Exercer un métier passionnant à la fois technique et relationnel, sur le terrain ou en back office
                 </p>
               </div>
               <div className="flex items-start">
-                <span className="text-2xl font-bold text-[#2b3343] mr-4 mt-1">#2</span>
+                <div className="bg-[#2b3343]/10 p-3 rounded-xl mr-4 flex-shrink-0">
+                  <FaGraduationCap className="text-[#2b3343] text-xl" />
+                </div>
                 <p className="text-gray-700 text-lg leading-relaxed">
                   Grandir dans une entreprise apprenante qui partage son savoir, forme et transmets des compétences
                 </p>
               </div>
               <div className="flex items-start">
-                <span className="text-2xl font-bold text-[#2b3343] mr-4 mt-1">#3</span>
+                <div className="bg-[#2b3343]/10 p-3 rounded-xl mr-4 flex-shrink-0">
+                  <FaLightbulb className="text-[#2b3343] text-xl" />
+                </div>
                 <p className="text-gray-700 text-lg leading-relaxed">
                   Développer votre potentiel et votre expertise aux côtés d&apos;experts dans leur domaine
                 </p>
               </div>
               <div className="flex items-start">
-                <span className="text-2xl font-bold text-[#2b3343] mr-4 mt-1">#4</span>
+                <div className="bg-[#2b3343]/10 p-3 rounded-xl mr-4 flex-shrink-0">
+                  <FaUsers className="text-[#2b3343] text-xl" />
+                </div>
                 <p className="text-gray-700 text-lg leading-relaxed mb-4">
                   Une entreprise qui place l&apos;humain au cœur de ses préoccupations et qui valorise le talent de chacun.
                 </p>
               </div>
               <div className="flex items-start">
-                <span className="text-2xl font-bold text-[#2b3343] mr-4 mt-1">#5</span>
+                <div className="bg-[#2b3343]/10 p-3 rounded-xl mr-4 flex-shrink-0">
+                  <FaComments className="text-[#2b3343] text-xl" />
+                </div>
                 <p className="text-gray-700 text-lg leading-relaxed">
                   Disposer des avantages d&apos;un management de proximité
                 </p>

@@ -84,13 +84,6 @@ export default function Hero() {
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          {/* Badge with animation - improved for mobile */}
-          <div className="mb-4 sm:mb-6">
-            <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4 bg-[#2b3343]/70 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/20 shadow-lg transform hover:scale-105 transition-transform duration-300">
-              <span className="hidden xs:inline">Expert en réparation, maintenance et entretien d’ascenseurs</span>
-              <span className="xs:hidden">25+ ans d&apos;expertise</span>
-            </span>
-          </div>
           
           {/* Headline with improved typography and responsive sizing */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight tracking-tight drop-shadow-lg">
@@ -125,7 +118,7 @@ export default function Hero() {
             {[
               { number: '25+', label: 'Ans d\'expérience', icon: <FaBuilding className="w-5 h-5 text-[#2b3343] mx-auto" /> },
               { number: '1000+', label: 'Clients satisfaits', icon: <FaUsers className="w-5 h-5 text-[#2b3343] mx-auto" /> },
-              { number: '24/7', label: 'Service d\'urgence', icon: <FaTools className="w-5 h-5 text-[#2b3343] mx-auto" /> },
+              { number: 'Sous 48h', label: 'Réponse Dépannage', icon: <FaTools className="w-5 h-5 text-[#2b3343] mx-auto" /> },
               { number: '100%', label: 'Garantie pièces', icon: <FaCheckCircle className="w-5 h-5 text-[#2b3343] mx-auto" /> }
             ].map((item, index) => (
               <div 

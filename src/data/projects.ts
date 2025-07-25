@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: 1,
     title: 'Rénovation complète d\'ascenseur résidentiel',
-    category: 'Résidentiel',
+    category: 'Immeubles',
     description: 'Modernisation complète d\'un ascenseur dans un immeuble résidentiel du 16ème arrondissement de Paris.',
     fullDescription: 'Nous avons réalisé une rénovation complète de l\'ascenseur principal de la résidence Les Jardins de Passy. Les travaux comprenaient le remplacement de la cabine, des portes palières, de la motorisation et du système de commande.',
     image: '/images/projects/damad1.jpg',
@@ -177,7 +177,7 @@ export const projects: Project[] = [
       'Analyse vibratoire préventive',
       'Remplacement programmé des pièces d\'usure',
       'Rapport détaillé après chaque intervention',
-      'Assistance technique 24/7'
+      'Assistance technique Réponse sous 48h'
     ],
     challenge: 'Assurer une disponibilité maximale des ascenseurs dans un environnement professionnel à forte affluence tout en minimisant les interruptions de service.',
     solution: 'Développement d\'un programme de maintenance sur mesure avec interventions en dehors des heures de bureau et système de surveillance à distance pour une détection précoce des anomalies.'
@@ -263,7 +263,7 @@ export const projects: Project[] = [
   {
     id: 11,
     title: 'Remplacement de portes palières',
-    category: 'Résidentiel',
+    category: 'Immeubles',
     description: 'Remplacement des portes palières de 3 ascenseurs dans une résidence de standing.',
     fullDescription: 'Remplacement complet des portes palières de 3 ascenseurs sur 8 étages dans une résidence de standing, améliorant l\'esthétique, la sécurité et l\'isolation phonique.',
     image: '/images/projects/FERME PORTE.jpg',
@@ -390,6 +390,32 @@ export const projects: Project[] = [
     ],
     challenge: 'Remplacer les systèmes d\'éclairage dans 25 cabines avec un minimum d\'interruption de service dans un environnement universitaire actif.',
     solution: 'Développement d\'un kit de conversion rapide permettant de réaliser chaque remplacement en moins de 2 heures, avec interventions programmées en dehors des heures de cours.'
+  },
+  {
+    id: 16,
+    title: 'Monte-plats pour restaurant gastronomique',
+    category: 'Restauration',
+    description: 'Installation d\'un système de monte-plats pour un restaurant gastronomique sur plusieurs étages.',
+    fullDescription: 'Conception et installation d\'un système de monte-plats sur mesure pour un restaurant gastronomique étoilé, permettant un service fluide entre les cuisines et les salles de restauration réparties sur trois étages.',
+    image: '/images/projects/damad4.jpg',
+    images: [
+      '/images/projects/damad4.jpg',
+      '/images/projects/damad5.jpg',
+      '/images/projects/damad6.jpg',
+    ],
+    client: 'Restaurant L\'Atelier Gourmand',
+    year: '2023',
+    location: 'Paris',
+    duration: '6 semaines',
+    features: [
+      'Système silencieux',
+      'Capacité de charge optimisée',
+      'Plateaux amovibles en acier inoxydable',
+      'Commandes tactiles à chaque étage',
+      'Système d\'alerte sonore discrète'
+    ],
+    challenge: 'Intégrer un système de monte-plats efficace dans un bâtiment historique tout en respectant les normes d\'hygiène strictes de la restauration et en préservant l\'esthétique du lieu.',
+    solution: 'Conception d\'un système sur mesure avec des matériaux conformes aux normes HACCP et une intégration discrète dans le décor existant.'
   }
 ];
 

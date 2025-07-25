@@ -1,6 +1,6 @@
 'use client';
 
-import { FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { useEffect, useRef, useState } from 'react';
 
 interface TeamMember {
@@ -9,7 +9,6 @@ interface TeamMember {
   bio: string;
   social: {
     linkedin: string;
-    twitter: string;
     email: string;
   };
   accent: string;
@@ -22,7 +21,6 @@ const teamMembers: TeamMember[] = [
     bio: "Fondateur et Directeur Général de DAMAD, Johny apporte plus de 15 ans d'expérience dans l'industrie des ascenseurs. Sa vision stratégique et son engagement envers l'excellence technique ont permis à l'entreprise de se positionner comme un leader dans le secteur.",
     social: {
       linkedin: "#",
-      twitter: "#",
       email: "johny.mendy@damad-ascenseurs.fr"
     },
     accent: "from-[#2b3343] to-[#3d4759]"
@@ -68,14 +66,9 @@ export default function Team() {
             transitionDelay: '100ms'
           }}
         >
-          <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-[#2b3343] px-3 py-1 rounded-full">
-            Rencontrez-nous
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2b3343] mb-4">Notre Équipe</h2>
+
+          <h2 className="text-3xl md:text-4xl font-bold text-[#2b3343] mb-4">Fondateur</h2>
           <div className="w-24 h-1 bg-[#2b3343] mx-auto rounded-full mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Notre équipe d&apos;experts dédiés est là pour vous accompagner à chaque étape de votre projet d&apos;ascenseur.
-          </p>
         </div>
 
         <div className="flex justify-center">
@@ -98,13 +91,6 @@ export default function Team() {
                       aria-label={`LinkedIn de ${member.name}`}
                     >
                       <FaLinkedin className="w-5 h-5 text-[#2b3343]" />
-                    </a>
-                    <a 
-                      href={`https://twitter.com/${member.social.twitter}`} 
-                      className="bg-gray-100 hover:bg-gray-200 p-2 rounded-full transition-colors duration-300"
-                      aria-label={`Twitter de ${member.name}`}
-                    >
-                      <FaTwitter className="w-5 h-5 text-[#2b3343]" />
                     </a>
                     <a 
                       href={`mailto:${member.social.email}`} 

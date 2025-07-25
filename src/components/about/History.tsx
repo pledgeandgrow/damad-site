@@ -116,19 +116,26 @@ export default function History() {
   }, []);
 
   return (
-    <section id="history" ref={sectionRef} className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="history" ref={sectionRef} className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div 
-          className={`text-center mb-16 transition-all duration-700 ease-out ${inView ? 'animate-fadeIn' : 'opacity-0 translate-y-8'}`}
-          style={{
-            transitionDelay: '100ms'
-          }}
+          className={`text-center max-w-4xl mx-auto transition-all duration-700 ease-out ${
+            inView 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}
         >
-          <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-[#2b3343] px-3 py-1 rounded-full">
-            Notre Parcours
-          </span>
           <h2 className="text-3xl md:text-4xl font-bold text-[#2b3343] mb-4">Notre Histoire</h2>
           <div className="w-24 h-1 bg-[#2b3343] mx-auto rounded-full mb-6"></div>
+          
+          <div className="space-y-6 text-lg text-gray-600 leading-relaxed mb-12 text-left">
+            <p>
+              Damad est une entreprise de maintenance d&apos;ascenseurs créée en 2007.
+            </p>
+            <p>
+              Aujourd&apos;hui, Damad gère plus de 800 ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR confondus. En faisant le choix de s&apos;implanter localement via un maillage du territoire régional, Damad propose des solutions complètes d&apos;installation, de maintenance et d&apos;entretien, de rénovation et de modernisation.
+            </p>
+          </div>
 
         </div>
 

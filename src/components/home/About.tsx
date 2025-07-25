@@ -6,7 +6,6 @@ export default function About() {
     <section id="about" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-[#2b3343] px-3 py-1 rounded-full">À propos de nous</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">Votre partenaire ascenseur de confiance</h2>
           <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
           <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -19,7 +18,7 @@ export default function About() {
           <div className="lg:w-1/2 relative">
             <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-xl">
               <Image 
-                src="/images/1.png" 
+                src="/images/site/1.png" 
                 alt="Équipe technique DAMAD"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -115,8 +114,8 @@ export default function About() {
                       <FaBuilding className="text-[#2b3343] text-lg" />
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-[#2b3343]">24/7</div>
-                      <div className="text-sm text-gray-500">Service d&apos;urgence</div>
+                      <div className="text-2xl font-bold text-[#2b3343]">Réponse sous 48h</div>
+                      <div className="text-sm text-gray-500">Service Dépannage</div>
                     </div>
                   </div>
                 </div>

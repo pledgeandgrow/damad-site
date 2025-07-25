@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import CookieConsent from "@/components/common/CookieConsent";
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -58,6 +59,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

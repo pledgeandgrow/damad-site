@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaArrowRight, FaTools, FaWrench } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 
 type Job = {
   id: string;
@@ -18,38 +18,7 @@ type Job = {
 export default function JobOpenings() {
   const [expandedJob, setExpandedJob] = useState<string | null>(null);
 
-  const jobs: Job[] = [
-    {
-      id: 'tech-1',
-      title: 'Technicien de maintenance ascenseurs',
-      location: 'Paris, France',
-      type: 'CDI',
-      category: 'technique',
-      description: 'Nous recherchons un technicien de maintenance qualifié pour assurer l\'entretien préventif et correctif de notre parc d\'ascenseurs. Vous serez responsable des visites de maintenance programmées et des interventions d\'urgence.',
-      requirements: [
-        'Formation technique en électromécanique ou équivalent',
-        'Expérience de 2 ans minimum dans la maintenance d\'ascenseurs',
-        'Permis B obligatoire',
-        'Connaissance des normes de sécurité en vigueur'
-      ],
-      icon: <FaTools className="w-6 h-6" />
-    },
-    {
-      id: 'tech-2',
-      title: 'Monteur d\'ascenseurs',
-      location: 'Lyon, France',
-      type: 'CDI',
-      category: 'technique',
-      description: 'Vous participerez à l\'installation de nouveaux ascenseurs sur différents chantiers. Vous serez chargé du montage mécanique et électrique des équipements selon les plans et les normes de sécurité.',
-      requirements: [
-        'CAP/BEP ou Bac Pro en électromécanique',
-        'Expérience de 3 ans dans l\'installation d\'ascenseurs',
-        'Lecture de plans techniques',
-        'Travail en hauteur et en équipe'
-      ],
-      icon: <FaWrench className="w-6 h-6" />
-    }
-  ];
+  const jobs: Job[] = []; // Aucun poste ouvert actuellement
 
 
 
@@ -150,9 +119,22 @@ export default function JobOpenings() {
               </motion.div>
             ))
           ) : (
-            <div className="text-center py-10">
-              <p className="text-gray-500">Aucun poste disponible dans cette catégorie actuellement.</p>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-center py-16 bg-white rounded-xl shadow-md border border-gray-100"
+            >
+              <div className="max-w-md mx-auto">
+                <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-gray-100 mb-4">
+                  <svg className="h-8 w-8 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Pas de postes ouverts</h3>
+                <p className="text-gray-600">Il n&apos;y a actuellement aucun poste disponible. N&apos;hésitez pas à nous contacter pour toute candidature spontanée.</p>
+              </div>
+            </motion.div>
           )}
         </div>
       </div>

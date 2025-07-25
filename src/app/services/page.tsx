@@ -34,7 +34,7 @@ export default function ServicesPage() {
     {
       id: 2,
       title: 'Dépannage',
-      description: 'Service d\'urgence 24/7 pour tous types de pannes d\'ascenseur.',
+      description: 'Service d\'urgence Réponse sous 48h pour tous types de pannes d\'ascenseur.',
       icon: '🔧',
       image: '/images/site/3.png',
       color: 'from-[#2b3343] to-[#3d4759]',

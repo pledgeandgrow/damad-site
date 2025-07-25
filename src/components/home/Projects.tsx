@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { FaChevronLeft, FaChevronRight, FaBuilding, FaHome, FaIndustry } from 'react-icons/fa';
 import { projects as allProjects } from '../../data/projects';
 
@@ -108,7 +107,6 @@ const Projects: React.FC = () => {
     <section id="realisations" className="py-16 sm:py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10 sm:mb-16">
-          <span className="inline-block text-[#2b3343] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-gray-100 px-3 py-1 rounded-full">Réalisations</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">Nos Projets Récents</h2>
           <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
           <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
@@ -174,21 +172,10 @@ const Projects: React.FC = () => {
                         </div>
                         <div className="ml-3">
                           <h3 className="font-bold text-gray-900">{project.title}</h3>
-                          <p className="text-sm text-gray-500">{project.location}</p>
                         </div>
                       </div>
                       
-                      <p className="text-gray-600 text-sm sm:text-base mb-4 flex-grow">{project.description}</p>
-                      
-                      <Link 
-                        href="/realisations"
-                        className="inline-flex items-center text-sm font-medium text-[#2b3343] hover:text-blue-600 mt-auto"
-                      >
-                        Voir le projet
-                        <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </Link>
+
                     </div>
                   </div>
                 </motion.div>
@@ -225,18 +212,7 @@ const Projects: React.FC = () => {
           </button>
         </div>
         
-        {/* View All Projects Button */}
-        <div className="text-center">
-          <Link 
-            href="/realisations" 
-            className="inline-flex items-center justify-center px-6 py-3 bg-[#2b3343] text-white font-medium rounded-lg hover:bg-[#3d4759] transition-colors duration-300 shadow-md hover:shadow-lg"
-          >
-            Voir toutes nos réalisations
-            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
-        </div>
+
       </div>
     </section>
   );

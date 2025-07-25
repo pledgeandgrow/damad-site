@@ -17,7 +17,7 @@ const features = [
   {
     icon: <FaClock className="w-8 h-8 text-white" />,
     title: 'Response sous 48h',
-    description: 'Un service d\'urgence avec réponse sous 48h pour répondre à tous vos besoins en dépannage.'
+    description: 'Un Service Dépannage avec réponse sous 48h pour répondre à tous vos besoins en dépannage.'
   },
   {
     icon: <FaLeaf className="w-8 h-8 text-white" />,

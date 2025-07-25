@@ -126,13 +126,15 @@ export default function RecruitmentProcess() {
           
           <div className="grid md:grid-cols-2 gap-8 mt-10 max-w-5xl mx-auto">
             <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="relative h-64">
+              <div className="relative h-80 w-full">
                 <Image 
                   src="/images/site/FORMATION.jpg" 
                   alt="Formation technique DAMAD" 
-                  className="w-full h-full object-cover"
+                  className="object-cover object-center"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                  quality={90}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2b3343]/80 to-transparent flex items-end">
                   <div className="p-6 text-white">
@@ -144,13 +146,15 @@ export default function RecruitmentProcess() {
             </div>
             
             <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="relative h-64">
+              <div className="relative h-80 w-full">
                 <Image 
                   src="/images/site/formation securite.jpg" 
                   alt="Formation sécurité DAMAD" 
-                  className="w-full h-full object-cover"
+                  className="object-cover object-center"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                  quality={90}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2b3343]/80 to-transparent flex items-end">
                   <div className="p-6 text-white">

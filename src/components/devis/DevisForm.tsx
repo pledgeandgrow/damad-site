@@ -124,7 +124,7 @@ export default function DevisForm({
           { 
             type: 'depannage', 
             title: 'Dépannage', 
-            description: 'Urgence 24/7', 
+            description: 'Urgence Réponse sous 48h', 
             icon: <FaExclamationTriangle className="text-3xl text-[#2b3343] mb-2" />,
             delay: 0.4
           }

@@ -1,7 +1,5 @@
 import AboutHero from '@/components/about/AboutHero';
-import AboutIntro from '@/components/about/AboutIntro';
 import AboutContext from '@/components/about/AboutContext';
-import Mission from '@/components/about/Mission';
 import History from '@/components/about/History';
 import Team from '@/components/about/Team';
 
@@ -14,10 +12,8 @@ export default function AboutPage() {
   return (
     <main>
       <AboutHero />
-      <AboutIntro />
-      <AboutContext />
-      <Mission />
       <History />
+      <AboutContext />
       <Team />
     </main>
   );

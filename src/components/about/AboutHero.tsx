@@ -34,9 +34,6 @@ export default function AboutHero() {
           <div 
             className={`text-center transform transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
-            <span className="inline-block px-4 py-2 mb-5 text-sm font-semibold text-white bg-[#2b3343] rounded-full shadow-md transform transition-all duration-500 hover:scale-105">
-              Depuis 2007 à votre service
-            </span>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               À propos de <span className="text-[#2b3343] relative">

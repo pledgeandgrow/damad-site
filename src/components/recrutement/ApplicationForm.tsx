@@ -171,12 +171,9 @@ export default function ApplicationForm() {
             <span className="relative z-10">Notre richesse, c&apos;est vous !</span>
             <span className="absolute bottom-0 left-0 w-full h-3 bg-blue-300/30 -z-10 transform -rotate-1"></span>
           </h2>
-          <div className="text-white/90 max-w-4xl mx-auto space-y-4">
-            <p className="text-lg leading-relaxed">
-              La diversité de nos métiers, le haut niveau de compétence requis par le secteur de la maintenance font de nos salariés la première richesse de DAMAD.
-            </p>
-            <p className="text-gray-600 text-lg leading-relaxed mb-8">
-              Notre richesse, c&apos;est vous ! Nous recherchons des talents passionnés pour rejoindre notre équipe et contribuer à l&apos;excellence de nos services. Chaque candidature est une opportunité de découvrir de nouveaux profils et compétences. Nous nous engageons à étudier chaque dossier avec attention.
+          <div className="text-white/90 max-w-4xl mx-auto">
+            <p className="text-lg leading-relaxed mb-8">
+              Chaque candidature est une opportunité de découvrir de nouveaux profils et compétences. Nous nous engageons à étudier chaque dossier avec attention.
             </p>
           </div>
         </motion.div>

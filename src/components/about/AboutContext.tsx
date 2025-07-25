@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { FaShieldAlt, FaBalanceScale, FaClipboardCheck } from 'react-icons/fa';
 
 export default function AboutContext() {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,9 +46,7 @@ export default function AboutContext() {
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-[#2b3343] px-3 py-1 rounded-full">
-            Notre Contexte
-          </span>
+
           <h2 className="text-3xl md:text-4xl font-bold text-[#2b3343] mb-6">
             Développement et Innovation
           </h2>
@@ -60,6 +59,42 @@ export default function AboutContext() {
             <p>
               Depuis 2024, DAMAD renforce sa structure et son équipe pour faire face aux nouveaux enjeux économiques, technologiques et sociétaux (vieillissement de la population, croissance verticale des villes, densification urbaine, sobriété énergétique...).
             </p>
+          </div>
+          
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-md transition-transform hover:transform hover:scale-105">
+              <div className="flex items-center mb-3">
+                <FaBalanceScale className="text-[#2b3343] text-2xl mr-2" />
+                <h3 className="text-xl font-bold text-[#2b3343]">Prudence</h3>
+              </div>
+              <p className="text-gray-600">
+                La prudence guide chacune de nos actions pour garantir la sécurité et la fiabilité de nos interventions.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-md transition-transform hover:transform hover:scale-105">
+              <div className="flex items-center mb-3">
+                <FaClipboardCheck className="text-[#2b3343] text-2xl mr-2" />
+                <h3 className="text-xl font-bold text-[#2b3343]">Discipline</h3>
+              </div>
+              <p className="text-gray-600">
+                La discipline nous permet d&apos;assurer des performances optimales grâce à une approche méthodique et rigoureuse.
+              </p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-md transition-transform hover:transform hover:scale-105">
+              <div className="flex items-center mb-3">
+                <FaShieldAlt className="text-[#2b3343] text-2xl mr-2" />
+                <h3 className="text-xl font-bold text-[#2b3343]">Sécurité</h3>
+              </div>
+              <p className="text-gray-600">
+                La sécurité est au cœur de notre métier, nous respectons les normes les plus strictes pour protéger nos utilisateurs.
+              </p>
+            </div>
+          </div>
+          
+          <div className="mt-12 text-lg text-gray-600 italic font-medium">
+            <p>Passionné par ce métier et par l&apos;accessibilité, Damad met son savoir et son expérience à votre service.</p>
           </div>
         </div>
       </div>
