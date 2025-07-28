@@ -60,9 +60,6 @@ export default function ReparationPage() {
       <div className="py-20 bg-white">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-10 sm:mb-16">
-            <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-[#2b3343] px-3 py-1 rounded-full">
-              Diagnostic précis
-            </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
               Pannes les plus courantes
             </h2>
@@ -95,9 +92,6 @@ export default function ReparationPage() {
       <div className="bg-white py-20 border-t border-gray-100">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-10 sm:mb-16">
-            <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-[#2b3343] px-3 py-1 rounded-full">
-              Méthodologie
-            </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
               Notre processus d&apos;intervention
             </h2>

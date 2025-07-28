@@ -94,7 +94,7 @@ export default function DevisForm({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
       >
-        <h3 className="text-xl font-semibold text-[#2b3343] mb-2">Type de service</h3>
+        <h3 className="text-xl font-semibold text-[#2b3343] mb-2">Service</h3>
         <p className="text-gray-600">Sélectionnez le type de service dont vous avez besoin :</p>
       </motion.div>
       
@@ -110,13 +110,20 @@ export default function DevisForm({
           { 
             type: 'maintenance', 
             title: 'Maintenance', 
-            description: 'Entretien et réparation', 
+            description: 'Entretien préventif', 
             icon: <FaTools className="text-3xl text-[#2b3343] mb-2" />,
             delay: 0.2
           },
           { 
+            type: 'reparation', 
+            title: 'Réparation', 
+            description: 'Remise en état et réparations', 
+            icon: <FaTools className="text-3xl text-[#2b3343] mb-2" />,
+            delay: 0.25
+          },
+          { 
             type: 'modernisation', 
-            title: 'Modernisation', 
+            title: 'Renovation & Modernisation', 
             description: 'Mise à jour d\'ascenseur existant', 
             icon: <FaSyncAlt className="text-3xl text-[#2b3343] mb-2" />,
             delay: 0.3

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight, FaTools, FaBuilding, FaInfoCircle, FaEnvelopeOpenText, FaFileInvoiceDollar, FaWrench, FaCogs, FaExclamationTriangle, FaUsers, FaSyncAlt } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight, FaTools, FaBuilding, FaInfoCircle, FaEnvelopeOpenText, FaFileInvoiceDollar, FaWrench, FaCogs, FaExclamationTriangle, FaUsers, FaSyncAlt, FaHandshake } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 
 interface FooterLink {
@@ -23,6 +23,7 @@ const footerLinks: FooterSection[] = [
       { name: 'Réalisations', href: '/realisations', icon: FaBuilding },
       { name: 'Recrutement', href: '/recrutement', icon: FaUsers },
       { name: 'FAQ', href: '/faq', icon: FaPhoneAlt },
+      { name: 'Partenariat', href: '/partenariat', icon: FaHandshake },
       { name: 'Devis', href: '/contact?subject=demande-de-devis', icon: FaFileInvoiceDollar },
     ],
   },
@@ -34,6 +35,7 @@ const footerLinks: FooterSection[] = [
       { name: 'Dépannage', href: '/services/depannage', icon: FaExclamationTriangle },
       { name: 'Modernisation & Rénovation', href: '/services/modernisation', icon: FaSyncAlt },
       { name: 'Réparation', href: '/services/reparation', icon: FaWrench },
+      { name: 'Interventions', href: '/interventions', icon: FaTools },
     ],
   },
   {

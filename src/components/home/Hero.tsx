@@ -19,39 +19,40 @@ export default function Hero() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Simplified video handling - will be expanded later when video is added
   useEffect(() => {
-    // Function to handle video loaded event
-    const handleVideoLoaded = () => {
-      console.log('Video loaded successfully');
-      setIsVideoLoaded(true);
-    };
-    
-    // Function to handle video error
-    const handleVideoError = (e: Event) => {
-      console.error('Video failed to load:', e);
-      // Keep the fallback background visible
-    };
-    
+    // Store the current value of videoRef to use in cleanup
     const videoElement = videoRef.current;
+    
     if (videoElement) {
+      const handleVideoLoaded = () => {
+        console.log('Video loaded successfully');
+        setIsVideoLoaded(true);
+      };
+      
+      const handleVideoError = (e: Event) => {
+        console.error('Video failed to load:', e);
+      };
+      
       // Add event listeners
       videoElement.addEventListener('loadeddata', handleVideoLoaded);
       videoElement.addEventListener('error', handleVideoError);
       
-      // Force load attempt
-      if (videoElement.readyState >= 3) {
-        // If video is already loaded
-        handleVideoLoaded();
-      }
+      // Return cleanup function
+      return () => {
+        // Use the same videoElement reference in cleanup
+        if (videoElement) {
+          videoElement.removeEventListener('loadeddata', handleVideoLoaded);
+          videoElement.removeEventListener('error', handleVideoError);
+          
+          try {
+            videoElement.pause();
+          } catch (e) {
+            console.error('Error pausing video during cleanup:', e);
+          }
+        }
+      };
     }
-    
-    // Cleanup function
-    return () => {
-      if (videoElement) {
-        videoElement.removeEventListener('loadeddata', handleVideoLoaded);
-        videoElement.removeEventListener('error', handleVideoError);
-      }
-    };
   }, []);
 
   return (
@@ -72,7 +73,7 @@ export default function Hero() {
             className={`absolute inset-0 w-full h-full object-cover scale-105 ${isMobile ? 'filter blur-[1px]' : 'filter blur-[2px]'}`}
             poster="/images/elevator-placeholder.jpg"
           >
-            <source src="https://damad-ascenseurs.com/video/background_drone.mp4" type="video/mp4" />
+            <source src="/video/background_drone.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -116,7 +117,7 @@ export default function Hero() {
           {/* Stats section with enhanced styling and animations - optimized for mobile */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2 xs:gap-3 sm:gap-4 md:gap-6 max-w-4xl mx-auto mt-8 xs:mt-10 md:mt-12">
             {[
-              { number: '25+', label: 'Ans d\'expérience', icon: <FaBuilding className="w-5 h-5 text-[#2b3343] mx-auto" /> },
+              { number: '15+', label: 'Ans d\'expérience', icon: <FaBuilding className="w-5 h-5 text-[#2b3343] mx-auto" /> },
               { number: '1000+', label: 'Clients satisfaits', icon: <FaUsers className="w-5 h-5 text-[#2b3343] mx-auto" /> },
               { number: 'Sous 48h', label: 'Réponse Dépannage', icon: <FaTools className="w-5 h-5 text-[#2b3343] mx-auto" /> },
               { number: '100%', label: 'Garantie pièces', icon: <FaCheckCircle className="w-5 h-5 text-[#2b3343] mx-auto" /> }

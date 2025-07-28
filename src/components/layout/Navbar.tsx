@@ -100,6 +100,7 @@ export default function Navbar() {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#2b3343] transition-all group-hover:w-full"></span>
                 </Link>
               ))}
+
               <Link 
                 href="/devis" 
                 className="bg-[#2b3343] hover:bg-[#3d4759] text-white px-6 py-2 rounded-lg transition-colors font-medium"
@@ -139,7 +140,14 @@ export default function Navbar() {
               ))}
               <div className="px-4 pt-2 space-y-3">
                 <Link 
-                  href="/contact" 
+                  href="/partenariat" 
+                  className="block w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-lg transition-colors font-medium mb-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Partenariat
+                </Link>
+                <Link 
+                  href="/devis" 
                   className="block w-full text-center bg-[#2b3343] hover:bg-[#3d4759] text-white px-6 py-3 rounded-lg transition-colors font-medium"
                   onClick={() => setIsMenuOpen(false)}
                 >
