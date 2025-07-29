@@ -25,9 +25,12 @@ export default function Navbar() {
     { name: 'Installation', href: '/services/installation' },
     { name: 'Réparation', href: '/services/reparation' },
     { name: 'Modernisation & Rénovation', href: '/services/modernisation' },
+    { name: 'Contact', href: '/contact' },
+  ];
+  
+  const secondaryLinks = [
     { name: 'Réalisations', href: '/realisations' },
     { name: 'Recrutement', href: '/recrutement' },
-    { name: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -73,6 +76,21 @@ export default function Navbar() {
 
       {/* Main Navigation */}
       <nav className={`bg-white shadow-md transition-all duration-300 fixed w-full z-50 ${scrolled ? 'py-2' : 'py-4'}`}>
+        {/* Secondary links above main nav */}
+        <div className="container mx-auto px-4 hidden md:block">
+          <div className="flex justify-end mb-1">
+            {secondaryLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-gray-500 hover:text-gray-700 transition-colors text-xs font-light ml-6"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+        
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center">
@@ -133,6 +151,16 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              {secondaryLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors text-sm"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}

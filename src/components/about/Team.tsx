@@ -2,6 +2,7 @@
 
 import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 
 interface TeamMember {
   name: string;
@@ -79,10 +80,14 @@ export default function Team() {
                 className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col"
               >
                 <div className="p-8 text-center">
-                  <div className="w-24 h-24 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#2b3343]/10 to-[#2b3343]/20 flex items-center justify-center">
-                    <span className="text-3xl font-bold text-[#2b3343]">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </span>
+                  <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden relative">
+                    <Image 
+                      src="/images/about1.jpg" 
+                      alt={member.name} 
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 128px"
+                    />
                   </div>
                   <div className="flex justify-center space-x-3 mb-4">
                     <a 
