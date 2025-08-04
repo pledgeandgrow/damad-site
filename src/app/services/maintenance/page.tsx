@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Maintenance d\'Ascenseurs - DAMAD',
-  description: 'Service d\'entretien préventif et curatif pour garantir la performance et la longévité de vos ascenseurs.',
+  title: 'Maintenance d\'Appareils d\'Accessibilité - DAMAD',
+  description: 'Service d\'entretien préventif et curatif pour garantir la performance et la longévité de vos appareils d\'accessibilité.',
 };
 
 const features = [
@@ -69,7 +69,7 @@ const features = [
   {
     icon: <FaIndustry className="h-10 w-10" />,
     name: 'Sites industriels',
-    description: 'Maintenance robuste pour monte-charges et ascenseurs industriels soumis à des conditions d\'utilisation intensives.',
+    description: 'Maintenance robuste pour monte-charges et appareils d\'accessibilité industriels soumis à des conditions d\'utilisation intensives.',
     benefits: [
       'Maintenance adaptée aux fortes charges',
       'Résistance aux environnements difficiles',
@@ -91,7 +91,7 @@ const features = [
   {
     icon: <FaHome className="h-10 w-10" />,
     name: 'Particuliers',
-    description: 'Entretien personnalisé pour les ascenseurs privatifs et élévateurs dans les maisons individuelles.',
+    description: 'Entretien personnalisé pour les appareils d\'accessibilité privatifs et élévateurs dans les maisons individuelles.',
     benefits: [
       'Forfaits adaptés aux usages résidentiels',
       'Préservation de la valeur immobilière',
@@ -109,8 +109,8 @@ export default function MaintenancePage() {
       <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/images/maintenance-hero.jpg" 
-            alt="Maintenance d&apos;ascenseur" 
+            src="/images/services/serious-business-people-standing-elevator-preparing-meeting-surfing-net-gadgets.jpg" 
+            alt="Maintenance d&apos;appareil d&apos;accessibilité" 
             className="object-cover opacity-40"
             fill
             sizes="100vw"
@@ -129,16 +129,9 @@ export default function MaintenancePage() {
             </h1>
             <div className="w-24 h-1 bg-[#99a8b1] mx-auto"></div>
             <p className="text-white text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
-              Les Experts de DAMAD sont à votre service pour l&apos;entretien de vos ascenseurs
+              Les Experts de DAMAD sont à votre service pour l&apos;entretien de vos appareils d&apos;accessibilité
             </p>
-            <div className="mt-8 flex justify-center space-x-4">
-              <a href="#features" className="px-6 py-3 bg-[#0046fe] hover:bg-[#0046fe] text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-flex items-center">
-                Découvrir nos services
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-              </a>
-            </div>
+
           </div>
         </div>
         {/* Decorative elements */}
@@ -473,11 +466,11 @@ export default function MaintenancePage() {
               <ul className="space-y-4 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-[#0046fe] font-bold mr-2">•</span>
-                  <span><strong>Complexité :</strong> L’entretien ou la maintenance d’ascenseurs exige une expertise technique qui varie selon le type d’équipement</span>
+                  <span><strong>Complexité :</strong> L&#39;entretien ou la maintenance d&#39;appareils d&#39;accessibilité exige une expertise technique qui varie selon le type d&#39;équipement</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#0046fe] font-bold mr-2">•</span>
-                  <span><strong>Respect des normes et des réglementations :</strong> Nos équipes respectent les normes les plus strictes. Votre technicien effectuera des interventions occasionnelles pour réparer et/ou remplacer des pièces défectueuses ou usagées : boutons de commande, automatisme de la porte, fonctionnement du bouton d’appel de secours, voyants lumineux, machinerie, éclairage, etc.</span>
+                  <span><strong>Respect des normes et des réglementations :</strong> Nos équipes respectent les normes les plus strictes. Votre technicien effectuera des interventions occasionnelles pour réparer et/ou remplacer des pièces défectueuses ou usagées : boutons de commande, automatisme de la porte, fonctionnement du bouton d&#39;appel de secours, voyants lumineux, machinerie, éclairage, etc.</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#0046fe] font-bold mr-2">•</span>
@@ -595,7 +588,7 @@ export default function MaintenancePage() {
             {/* FAQ Item 3 */}
             <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
               <h3 className="text-xl font-bold text-[#2b3343] mb-3">
-                À quelle fréquence devez-vous faire la maintenance de votre ascenseur, monte-charge.
+                À quelle fréquence devez-vous faire la maintenance de votre appareil d&apos;accessibilité.
               </h3>
               <p className="text-gray-700">
                 Une fréquence de maintenance régulière est indispensable au bon fonctionnement et à la sécurité de votre installation.

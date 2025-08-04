@@ -1,18 +1,18 @@
 import { FaClipboardCheck, FaTools, FaHandshake } from 'react-icons/fa';
 import { GiElevator } from 'react-icons/gi';
 import Link from 'next/link';
-
+import Image from 'next/image';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Installation Ascenseur - DAMAD',
-  description: 'Installation sur mesure d&apos;ascenseurs neufs. Conception, réalisation et mise en service de votre futur ascenseur par des experts.',
+  title: 'Installation Appareils d\'Accessibilité - DAMAD',
+  description: 'Installation sur mesure d\'appareils d\'accessibilité neufs. Conception, réalisation et mise en service de votre futur équipement par des experts.',
 };
 
 const features = [
   {
     icon: <GiElevator className="h-8 w-8 text-white" />,
-    title: 'Tous types d&#39;ascenseurs',
+    title: 'Tous types d\'appareils d\'accessibilité',
     description: 'Électriques, hydrauliques, sans local technique, PMR, etc.'
   },
   {
@@ -62,23 +62,23 @@ const installationSteps = [
 
 const elevatorTypes = [
   {
-    name: 'Ascenseur électrique',
+    name: 'Appareil d\'accessibilité électrique',
     description: 'Idéal pour les bâtiments de moyenne et grande hauteur.',
     features: ['Faible consommation', 'Silencieux', 'Entretien réduit']
   },
   {
-    name: 'Ascenseur hydraulique',
+    name: 'Appareil d\'accessibilité hydraulique',
     description: 'Parfait pour les faibles hauteurs et charges lourdes.',
-    features: ['Puissant', 'Fiabilité éprouvée', 'Coût d&#39;installation réduit']
+    features: ['Puissant', 'Fiabilité éprouvée', 'Coût d\'installation réduit']
   },
   {
-    name: 'Ascenseur sans local technique',
+    name: 'Appareil d\'accessibilité sans local technique',
     description: 'Solution compacte sans besoin de local dédié.',
     features: ['Gain de place', 'Installation simplifiée', 'Design moderne']
   },
   {
-    name: 'Ascenseur PMR',
-    description: 'Conforme aux normes d&#39;accessibilité.',
+    name: 'Appareil d\'accessibilité PMR',
+    description: 'Conforme aux normes d\'accessibilité.',
     features: ['Normes PMR', 'Largeur de porte adaptée', 'Boutons en braille']
   }
 ];
@@ -86,8 +86,44 @@ const elevatorTypes = [
 export default function Installation() {
   return (
     <div className="bg-white">
+      {/* Hero Section */}
+      <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/images/services/ascenseur-de-rue-pour-personnes-handicapees.jpg" 
+            alt="Installation d&apos;appareil d&apos;accessibilité" 
+            className="object-cover opacity-40"
+            fill
+            sizes="100vw"
+            priority
+          />
+        </div>
+        {/* Animated overlay pattern */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#2b3343]/80 to-[#2b3343]/60 z-[1]"></div>
+        <div className="absolute inset-0 opacity-20 z-[1]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }}></div>
+        <div className="container mx-auto px-4 max-w-7xl relative z-10 text-center">
+          <div className="animate-fade-in-up">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+              INSTALLATION
+            </h1>
+            <div className="w-24 h-1 bg-[#99a8b1] mx-auto"></div>
+            <p className="text-white text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
+              Solutions sur mesure pour tous vos projets d&apos;installation
+            </p>
+
+          </div>
+        </div>
+        {/* Decorative elements */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-[2]">
+          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-[60px] text-white">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="currentColor"></path>
+          </svg>
+        </div>
+      </div>
       {/* Features Section */}
-      <div className="py-20 bg-white">
+      <div id="features" className="py-20 bg-white scroll-mt-16">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-10 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
@@ -95,7 +131,7 @@ export default function Installation() {
             </h2>
             <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-              Notre équipe d&#39;experts vous accompagne dans la réalisation de votre projet d&#39;ascenseur, de l&#39;étude technique à la mise en service. Nous mettons notre savoir-faire à votre service pour vous proposer des solutions adaptées à vos besoins et à votre budget.
+              Notre équipe d&apos;experts vous accompagne dans la réalisation de votre projet d&apos;accessibilité, de l&apos;étude technique à la mise en service. Nous mettons notre savoir-faire à votre service pour vous proposer des solutions adaptées à vos besoins et à votre budget.
             </p>
           </div>
 
@@ -157,7 +193,7 @@ export default function Installation() {
               Solutions adaptées
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
-              Nos solutions d&apos;ascenseurs
+              Nos solutions d&apos;accessibilité
             </h2>
             <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
@@ -208,7 +244,7 @@ export default function Installation() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="mt-10 sm:mt-16 text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
-              <span className="block">Projet d&apos;installation d&apos;ascenseur ?</span>
+              <span className="block">Projet d&apos;installation d&apos;appareil d&apos;accessibilité ?</span>
             </h2>
             <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed mb-8">

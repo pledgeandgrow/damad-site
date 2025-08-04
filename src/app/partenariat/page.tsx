@@ -5,7 +5,7 @@ import PartenariatForm from '@/components/partenariat/PartenariatForm';
 
 export const metadata = {
   title: 'Partenariat - DAMAD',
-  description: 'Découvrez les opportunités de partenariat avec DAMAD, votre expert en ascenseurs. Ensemble, développons des solutions innovantes et durables pour vos projets d\'ascenseurs et d\'accessibilité.',
+  description: 'Découvrez les opportunités de partenariat avec DAMAD, votre expert en appareils d\'accessibilité. Ensemble, développons des solutions innovantes et durables pour vos projets d\'appareils d\'accessibilité.',
 };
 
 export default function PartenariatPage() {

@@ -23,11 +23,11 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "DAMAD - Installation et Maintenance d'Ascenseurs",
+    default: "DAMAD - Installation et Maintenance d'Appareils d'Accessibilité",
     template: "%s | DAMAD"
   },
-  description: "Expert en installation, maintenance et dépannage d'ascenseurs. Solutions sur mesure pour particuliers et professionnels.",
-  keywords: ["ascenseur", "maintenance ascenseur", "installation ascenseur", "dépannage ascenseur", "DAMAD"],
+  description: "Expert en installation, maintenance et dépannage d'appareils d'accessibilité. Solutions sur mesure pour particuliers et professionnels.",
+  keywords: ["appareils d'accessibilité", "ascenseur", "maintenance", "installation", "dépannage", "DAMAD"],
   manifest: '/site.webmanifest',
   icons: {
     icon: [

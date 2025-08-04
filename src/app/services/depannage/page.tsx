@@ -5,8 +5,8 @@ import Image from 'next/image';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Dépannage Ascenseur - DAMAD',
-  description: 'Service de dépannage d&apos;ascenseur Réponse sous 48h. Intervention rapide par des techniciens qualifiés pour tous types de pannes.'
+  title: 'Dépannage d&apos;Appareils d&apos;Accessibilité - DAMAD',
+  description: 'Service de dépannage d&apos;appareils d&apos;accessibilité Réponse sous 48h. Intervention rapide par des techniciens qualifiés pour tous types de pannes.'
 };
 
 const features = [
@@ -18,7 +18,7 @@ const features = [
   {
     icon: <FaTools className="h-8 w-8 text-white" />,
     title: 'Techniciens qualifiés',
-    description: 'Des experts formés aux dernières technologies des ascenseurs.'
+    description: 'Des experts formés aux dernières technologies des appareils d&apos;accessibilité.'
   },
   {
     icon: <FaClipboardCheck className="h-8 w-8 text-white" />,
@@ -33,7 +33,7 @@ const features = [
 ];
 
 const commonIssues = [
-  "Ascenseur bloqué entre deux étages",
+  "Appareil bloqué entre deux étages",
   "Portes qui ne s'ouvrent ou ne se ferment pas",
   "Boutons d'appel défectueux",
   "Problèmes de niveaux",
@@ -50,8 +50,8 @@ export default function Depannage() {
       <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/images/depannage-hero.jpg" 
-            alt="Dépannage d'ascenseur" 
+            src="/images/services/technician-repairing-elevator.jpg" 
+            alt="Dépannage d&apos;appareils d&apos;accessibilité" 
             className="object-cover opacity-40"
             fill
             sizes="100vw"
@@ -66,20 +66,13 @@ export default function Depannage() {
         <div className="container mx-auto px-4 max-w-7xl relative z-10 text-center">
           <div className="animate-fade-in-up">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-              Dépannage
+              DÉPANNAGE
             </h1>
             <div className="w-24 h-1 bg-[#99a8b1] mx-auto"></div>
             <p className="text-white text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
               Les Experts de DAMAD sont à votre service pour tout dépannage
             </p>
-            <div className="mt-8 flex justify-center space-x-4">
-              <a href="#features" className="px-6 py-3 bg-[#0046fe] hover:bg-[#0046fe] text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-flex items-center">
-                Nos services de dépannage
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-              </a>
-            </div>
+
           </div>
         </div>
         {/* Decorative elements */}
@@ -97,10 +90,11 @@ export default function Depannage() {
             <span className="text-[#0046fe] font-semibold tracking-wider text-sm uppercase">Services professionnels</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4 mt-2">
               Notre service de dépannage
+
             </h2>
             <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
-              Une équipe réactive et compétente pour tous vos problèmes d&apos;ascenseur.
+              Une équipe réactive et compétente pour tous vos problèmes d&apos;appareils d&apos;accessibilité.
             </p>
           </div>
 
@@ -135,11 +129,11 @@ export default function Depannage() {
           <div className="text-center mb-16">
             <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Expertise technique</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mt-2 mb-4">
-              Pannes fréquentes que nous réparons
+              Pannes fréquentes que nous dépannons
             </h2>
             <div className="w-24 h-1 bg-[#0046fe] mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed mb-8">
-              Notre équipe d&apos;experts répond sous 48h pour intervenir rapidement en cas de panne d&apos;ascenseur.
+              Notre équipe d&apos;experts répond sous 48h pour intervenir rapidement en cas de panne d&apos;appareil d&apos;accessibilité.
             </p>
           </div>
           <div className="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100 transform transition-all hover:shadow-2xl">

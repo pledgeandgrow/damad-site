@@ -9,7 +9,7 @@ export default function InterventionsForm() {
     email: '',
     phone: '',
     address: '',
-    buildingType: '',
+    appareilType: '',
     urgency: 'normal',
     issueType: '',
     description: '',
@@ -54,7 +54,7 @@ export default function InterventionsForm() {
     }
     if (!formData.phone.trim()) newErrors.phone = 'Veuillez entrer votre numéro de téléphone';
     if (!formData.address.trim()) newErrors.address = 'Veuillez entrer l\'adresse du bâtiment';
-    if (!formData.buildingType) newErrors.buildingType = 'Veuillez sélectionner un type de bâtiment';
+    if (!formData.appareilType) newErrors.appareilType = 'Veuillez sélectionner un type d\'appareil';
     if (!formData.issueType) newErrors.issueType = 'Veuillez sélectionner un type de problème';
     if (!formData.description.trim()) newErrors.description = 'Veuillez décrire le problème';
     if (!formData.acceptTerms) newErrors.acceptTerms = 'Vous devez accepter les conditions';
@@ -102,7 +102,7 @@ export default function InterventionsForm() {
         email: '',
         phone: '',
         address: '',
-        buildingType: '',
+        appareilType: '',
         urgency: 'normal',
         issueType: '',
         description: '',
@@ -241,23 +241,24 @@ export default function InterventionsForm() {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label htmlFor="buildingType" className="block text-sm font-medium text-gray-700 mb-1">
-                    Type de bâtiment *
+                  <label htmlFor="appareilType" className="block text-sm font-medium text-gray-700 mb-1">
+                    Type d&apos;appareils *
                   </label>
                   <select
-                    id="buildingType"
-                    name="buildingType"
-                    value={formData.buildingType}
+                    id="appareilType"
+                    name="appareilType"
+                    value={formData.appareilType}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border ${errors.buildingType ? 'border-red-300' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-[#2b3343]/30 focus:border-[#2b3343] transition-colors`}
+                    className={`w-full px-4 py-2 border ${errors.appareilType ? 'border-red-300' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-[#2b3343]/30 focus:border-[#2b3343] transition-colors`}
                   >
                     <option value="">Sélectionner</option>
-                    <option value="residential">Résidentiel</option>
-                    <option value="commercial">Commercial</option>
-                    <option value="industrial">Industriel</option>
-                    <option value="public">Établissement public</option>
+                    <option value="elevator">Ascenseur</option>
+                    <option value="platform">Plateforme élévatrice</option>
+                    <option value="stairlift">Monte-escalier</option>
+                    <option value="doors">Portes automatiques</option>
+                    <option value="other">Autre appareil d&apos;accessibilité</option>
                   </select>
-                  {errors.buildingType && <p className="mt-1 text-sm text-red-500">{errors.buildingType}</p>}
+                  {errors.appareilType && <p className="mt-1 text-sm text-red-500">{errors.appareilType}</p>}
                 </div>
                 <div>
                   <label htmlFor="urgency" className="block text-sm font-medium text-gray-700 mb-1">

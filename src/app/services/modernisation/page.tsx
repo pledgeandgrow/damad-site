@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Modernisation d&apos;Ascenseurs - DAMAD',
-  description: 'Services de modernisation d&apos;ascenseurs pour améliorer la sécurité, l&apos;efficacité énergétique et le confort de vos installations.',
+  title: 'Modernisation d&apos;Appareils d&apos;Accessibilité - DAMAD',
+  description: 'Services de modernisation d&apos;appareils d&apos;accessibilité pour améliorer la sécurité, l&apos;efficacité énergétique et le confort de vos installations.',
 };
 
 const features = [
@@ -38,8 +38,8 @@ export default function ModernisationPage() {
       <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/images/modernisation-banner.jpg" 
-            alt="Rénovation et modernisation d'ascenseurs" 
+            src="/images/services/ascenseur-en-verre-vers-un-metro-pietonnier-souterrain-avec-des-panneaux-de-verre-vert-et-un-pavage-tactile-dans-un-environnement-urbain-moderne.jpg" 
+            alt="Rénovation et modernisation d&apos;appareils d&apos;accessibilité" 
             className="object-cover opacity-40"
             fill
             sizes="100vw"
@@ -58,16 +58,9 @@ export default function ModernisationPage() {
             </h1>
             <div className="w-24 h-1 bg-[#99a8b1] mx-auto"></div>
             <p className="text-white text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
-              Les Experts de DAMAD sont à votre service pour moderniser vos ascenseurs
+              Les Experts de DAMAD sont à votre service pour moderniser vos appareils d&apos;accessibilité
             </p>
-            <div className="mt-8 flex justify-center space-x-4">
-              <a href="#features" className="px-6 py-3 bg-[#0046fe] hover:bg-[#0046fe] text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg inline-flex items-center">
-                Découvrir nos services
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-              </a>
-            </div>
+
           </div>
         </div>
         {/* Decorative elements */}
@@ -84,11 +77,11 @@ export default function ModernisationPage() {
           <div className="text-center mb-12">
             <span className="text-[#0046fe] font-semibold tracking-wider text-sm uppercase">Notre expertise</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4 mt-2">
-              Pourquoi moderniser son ascenseur ?
+              Pourquoi moderniser son appareil d&apos;accessibilité ?
             </h2>
             <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
             <p className="text-gray-700 leading-relaxed mb-6">
-              Moderniser partiellement ou totalement un ascenseur nécessite un réel savoir-faire. Lorsqu&apos;un ascenseur est vétuste, la maintenance préventive ne suffit plus à garantir un taux de panne acceptable.
+              Moderniser partiellement ou totalement un appareil d&apos;accessibilité nécessite un réel savoir-faire. Lorsqu&apos;un appareil est vétuste, la maintenance préventive ne suffit plus à garantir un taux de panne acceptable.
             </p>
             <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-left">
               <p className="text-gray-700 font-medium mb-4">La modernisation permet de :</p>
@@ -145,11 +138,11 @@ export default function ModernisationPage() {
           <div className="text-center mb-10 sm:mb-16">
             <span className="text-[#0046fe] font-semibold tracking-wider text-sm uppercase">Nos services</span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4 mt-2">
-              Zoom sur la rénovation et la modernisation d&apos;ascenseurs
+              Zoom sur la rénovation et la modernisation d&apos;appareils d&apos;accessibilité
             </h2>
             <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
             <p className="text-gray-600 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
-              La modernisation d&apos;un ascenseur consiste à remplacer ou à améliorer certains composants de l&apos;équipement pour améliorer ses performances, sa sécurité et son efficacité énergétique.
+              La modernisation d&apos;un appareil d&apos;accessibilité consiste à remplacer ou à améliorer certains composants de l&apos;équipement pour améliorer ses performances, sa sécurité et son efficacité énergétique.
             </p>
           </div>
 

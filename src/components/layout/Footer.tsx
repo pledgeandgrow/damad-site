@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight, FaTools, FaBuilding, FaInfoCircle, FaEnvelopeOpenText, FaFileInvoiceDollar, FaWrench, FaCogs, FaExclamationTriangle, FaUsers, FaSyncAlt, FaHandshake } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight, FaTools, FaBuilding, FaInfoCircle, FaEnvelopeOpenText, FaFileInvoiceDollar, FaWrench, FaCogs, FaExclamationTriangle, FaUsers, FaSyncAlt, FaHandshake, FaLinkedin } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 
 interface FooterLink {
@@ -31,7 +31,7 @@ const footerLinks: FooterSection[] = [
     title: 'Nos Services',
     links: [
       { name: 'Installation', href: '/services/installation', icon: FaTools },
-      { name: 'Maintenance', href: '/services/maintenance', icon: FaCogs },
+      { name: 'Maintenance & Entretien', href: '/services/maintenance', icon: FaCogs },
       { name: 'Dépannage', href: '/services/depannage', icon: FaExclamationTriangle },
       { name: 'Modernisation & Rénovation', href: '/services/modernisation', icon: FaSyncAlt },
       { name: 'Réparation', href: '/services/reparation', icon: FaWrench },
@@ -57,6 +57,11 @@ const footerLinks: FooterSection[] = [
         icon: FaPhoneAlt
       },
       { 
+        name: '0 826 101 202 (Centrale d\'appel 24h/24, 7j/7)',
+        href: 'tel:0826101202',
+        icon: FaPhoneAlt
+      },
+      { 
         name: 'contact@damad-ascenseurs.com',
         href: 'mailto:contact@damad-ascenseurs.com',
         icon: FaEnvelope
@@ -78,7 +83,13 @@ interface SocialLink {
   href: string;
 }
 
-const socialLinks: SocialLink[] = [];
+const socialLinks: SocialLink[] = [
+  {
+    name: "LinkedIn",
+    icon: FaLinkedin,
+    href: "https://www.linkedin.com/company/damad-ascenseurs/"
+  }
+];
 
 
 export default function Footer() {

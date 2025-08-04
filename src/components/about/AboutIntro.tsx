@@ -57,10 +57,10 @@ export default function AboutIntro() {
               
               <div className="space-y-6 text-lg md:text-xl text-gray-700 leading-relaxed">
                 <p className="font-medium">
-                  Damad est une entreprise de maintenance d&apos;ascenseurs créée en 2007, avec l&apos;ambition d&apos;offrir un service de proximité et d&apos;excellence.
+                  Damad est une entreprise de maintenance d&apos;appareils d&apos;accessibilité créée en 2007, avec l&apos;ambition d&apos;offrir un service de proximité et d&apos;excellence.
                 </p>
                 <p>
-                  Aujourd&apos;hui, Damad gère plus de 800 ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR confondus. En faisant le choix de s&apos;implanter localement via un maillage du territoire régional, Damad propose des solutions complètes d&apos;installation, de maintenance et d&apos;entretien, de rénovation et de modernisation.
+                  Aujourd&apos;hui, Damad gère plus de 800 appareils d&apos;accessibilité, portes automatiques, monte-charges, monte-voitures et EPMR confondus. En faisant le choix de s&apos;implanter localement via un maillage du territoire régional, Damad propose des solutions complètes d&apos;installation, de maintenance et d&apos;entretien, de rénovation et de modernisation.
                 </p>
                 <div className="pt-4">
                   <a href="#history" className="inline-block px-8 py-3 bg-[#2b3343] text-white font-medium rounded-lg hover:bg-[#3d4759] transition-colors duration-300 shadow-md hover:shadow-lg">
@@ -75,7 +75,7 @@ export default function AboutIntro() {
                 {/* Replace with your actual image path */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#2b3343]/80 to-transparent opacity-30 z-10"></div>
                 <div className="bg-[#2b3343] h-full w-full flex items-center justify-center text-white text-lg font-medium">
-                  Image d&apos;ascenseur DAMAD
+                  Image d&apos;appareil d&apos;accessibilité DAMAD
                 </div>
               </div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#2b3343] rounded-full opacity-10 z-0"></div>

@@ -6,10 +6,10 @@ export default function About() {
     <section id="about" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">Votre partenaire ascenseur de confiance</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">Votre partenaire d&apos;accessibilité de confiance</h2>
           <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
           <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-            Forts de plus de 25 ans d&apos;expérience, nous nous engageons à fournir des solutions d&apos;ascenseurs 
+            Forts de plus de 25 ans d&apos;expérience, nous nous engageons à fournir des solutions d&apos;accessibilité 
             innovantes, fiables et adaptées à vos besoins spécifiques.
           </p>
         </div>

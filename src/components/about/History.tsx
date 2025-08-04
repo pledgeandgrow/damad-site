@@ -5,17 +5,10 @@ import { useRef, useState, useEffect } from 'react';
 
 const milestones = [
   {
-    year: "2024",
-    title: "Renforcement Structurel",
-    description: "DAMAD renforce sa structure et son équipe pour faire face aux nouveaux enjeux économiques, technologiques et sociétaux.",
-    icon: <FaBuilding className="w-6 h-6 text-white" />,
-    color: "from-[#2b3343] to-[#3d4759]"
-  },
-  {
-    year: "2019",
-    title: "Expansion Régionale",
-    description: "Développement d'un ancrage francilien fort pour entretenir une relation de proximité avec nos clients et partenaires.",
-    icon: <FaChartLine className="w-6 h-6 text-white" />,
+    year: "2007",
+    title: "Création de DAMAD",
+    description: "Fondation de DAMAD, entreprise spécialisée dans la maintenance d&apos;ascenseurs.",
+    icon: <FaUsers className="w-6 h-6 text-white" />,
     color: "from-[#2b3343] to-[#3d4759]"
   },
   {
@@ -26,10 +19,17 @@ const milestones = [
     color: "from-[#2b3343] to-[#3d4759]"
   },
   {
-    year: "2007",
-    title: "Création de DAMAD",
-    description: "Fondation de DAMAD, entreprise spécialisée dans la maintenance d'ascenseurs.",
-    icon: <FaUsers className="w-6 h-6 text-white" />,
+    year: "2019",
+    title: "Expansion Régionale",
+    description: "Développement d&apos;un ancrage francilien fort pour entretenir une relation de proximité avec nos clients et partenaires.",
+    icon: <FaChartLine className="w-6 h-6 text-white" />,
+    color: "from-[#2b3343] to-[#3d4759]"
+  },
+  {
+    year: "2024",
+    title: "Renforcement Structurel",
+    description: "DAMAD renforce sa structure et son équipe pour faire face aux nouveaux enjeux économiques, technologiques et sociétaux.",
+    icon: <FaBuilding className="w-6 h-6 text-white" />,
     color: "from-[#2b3343] to-[#3d4759]"
   }
 ];
@@ -130,7 +130,7 @@ export default function History() {
           
           <div className="space-y-6 text-lg text-gray-600 leading-relaxed mb-12 text-left">
             <p>
-              Damad est une entreprise de maintenance d&apos;ascenseurs créée en 2007.
+              Damad est une entreprise de maintenance d&apos;appareils d&apos;accessibilité créée en 2007.
             </p>
             <p>
               Aujourd&apos;hui, Damad gère plus de 800 ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR confondus. En faisant le choix de s&apos;implanter localement via un maillage du territoire régional, Damad propose des solutions complètes d&apos;installation, de maintenance et d&apos;entretien, de rénovation et de modernisation.
