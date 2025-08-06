@@ -104,35 +104,35 @@ export default function DevisForm({
             type: 'installation', 
             title: 'Installation', 
             description: 'Installation de nouveaux ascenseurs', 
-            icon: <FaArrowUp className="text-3xl text-[#2b3343] mb-2" />,
+            icon: <FaArrowUp className="text-3xl text-[#0046fe] mb-2" />,
             delay: 0.1
           },
           { 
             type: 'maintenance', 
             title: 'Maintenance', 
             description: 'Entretien préventif', 
-            icon: <FaTools className="text-3xl text-[#2b3343] mb-2" />,
+            icon: <FaTools className="text-3xl text-[#0046fe] mb-2" />,
             delay: 0.2
           },
           { 
             type: 'reparation', 
             title: 'Réparation', 
             description: 'Remise en état et réparations', 
-            icon: <FaTools className="text-3xl text-[#2b3343] mb-2" />,
+            icon: <FaTools className="text-3xl text-[#0046fe] mb-2" />,
             delay: 0.25
           },
           { 
             type: 'modernisation', 
             title: 'Renovation & Modernisation', 
             description: 'Mise à jour d\'ascenseur existant', 
-            icon: <FaSyncAlt className="text-3xl text-[#2b3343] mb-2" />,
+            icon: <FaSyncAlt className="text-3xl text-[#0046fe] mb-2" />,
             delay: 0.3
           },
           { 
             type: 'depannage', 
             title: 'Dépannage', 
             description: 'Urgence Réponse sous 48h', 
-            icon: <FaExclamationTriangle className="text-3xl text-[#2b3343] mb-2" />,
+            icon: <FaExclamationTriangle className="text-3xl text-[#0046fe] mb-2" />,
             delay: 0.4
           }
         ].map((service) => (
@@ -145,18 +145,18 @@ export default function DevisForm({
             transition={{ duration: 0.4, delay: service.delay }}
             className={`p-6 border-2 rounded-lg text-center transition-all duration-300 transform hover:-translate-y-1 ${
               getInputValue('serviceType') === service.type
-                ? 'border-[#2b3343] bg-blue-50 shadow-lg'
-                : 'border-gray-300 hover:border-[#2b3343] hover:bg-gray-50 hover:shadow-md'
+                ? 'border-[#0046fe] bg-blue-50 shadow-lg'
+                : 'border-gray-300 hover:border-[#0046fe] hover:bg-gray-50 hover:shadow-md'
             }`}
           >
             <div className="flex flex-col items-center">
-              <div className={`rounded-full p-3 mb-2 ${getInputValue('serviceType') === service.type ? 'bg-[#2b3343]/10' : 'bg-gray-100'}`}>
+              <div className={`rounded-full p-3 mb-2 ${getInputValue('serviceType') === service.type ? 'bg-[#0046fe]/10' : 'bg-gray-100'}`}>
                 {service.icon}
               </div>
-              <span className="font-semibold text-[#2b3343] text-lg">{service.title}</span>
+              <span className="font-semibold text-[#0046fe] text-lg">{service.title}</span>
               <p className="text-sm text-gray-600 mt-2">{service.description}</p>
               {getInputValue('serviceType') === service.type && (
-                <div className="mt-3 text-[#2b3343]">
+                <div className="mt-3 text-[#0046fe]">
                   <FaCheckCircle className="inline-block mr-1" /> Sélectionné
                 </div>
               )}
@@ -171,13 +171,13 @@ export default function DevisForm({
         transition={{ duration: 0.5, delay: 0.5 }}
         className="pt-8 border-t border-gray-200"
       >
-        <h4 className="text-lg font-semibold text-[#2b3343] mb-4">Type de bâtiment</h4>
+        <h4 className="text-lg font-semibold text-[#0046fe] mb-4">Type de bâtiment</h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { value: 'residential', label: 'Résidentiel', icon: <FaHome className="text-2xl text-[#2b3343]" /> },
-            { value: 'corporate', label: 'Bureaux', icon: <FaBuilding className="text-2xl text-[#2b3343]" /> },
-            { value: 'industrial', label: 'Industriel', icon: <FaIndustry className="text-2xl text-[#2b3343]" /> },
-            { value: 'commercial', label: 'Commercial', icon: <FaStore className="text-2xl text-[#2b3343]" /> },
+            { value: 'residential', label: 'Résidentiel', icon: <FaHome className="text-2xl text-[#0046fe]" /> },
+            { value: 'corporate', label: 'Bureaux', icon: <FaBuilding className="text-2xl text-[#0046fe]" /> },
+            { value: 'industrial', label: 'Industriel', icon: <FaIndustry className="text-2xl text-[#0046fe]" /> },
+            { value: 'commercial', label: 'Commercial', icon: <FaStore className="text-2xl text-[#0046fe]" /> },
           ].map((buildingType, index) => (
             <motion.button
               key={buildingType.value}
@@ -188,14 +188,14 @@ export default function DevisForm({
               transition={{ duration: 0.3, delay: 0.6 + (index * 0.1) }}
               className={`p-4 border-2 rounded-lg flex flex-col items-center transition-all duration-300 ${
                 getInputValue('buildingType') === buildingType.value
-                  ? 'border-[#2b3343] bg-blue-50 shadow-md'
-                  : 'border-gray-300 hover:border-[#2b3343] hover:bg-gray-50 hover:shadow-sm'
+                  ? 'border-[#0046fe] bg-blue-50 shadow-md'
+                  : 'border-gray-300 hover:border-[#0046fe] hover:bg-gray-50 hover:shadow-sm'
               }`}
             >
-              <div className={`rounded-full p-2 mb-2 ${getInputValue('buildingType') === buildingType.value ? 'bg-[#2b3343]/10' : 'bg-gray-100'}`}>
+              <div className={`rounded-full p-2 mb-2 ${getInputValue('buildingType') === buildingType.value ? 'bg-[#0046fe]/10' : 'bg-gray-100'}`}>
                 {buildingType.icon}
               </div>
-              <span className="text-sm font-medium text-[#2b3343]">{buildingType.label}</span>
+              <span className="text-sm font-medium text-[#0046fe]">{buildingType.label}</span>
             </motion.button>
           ))}
         </div>
@@ -518,12 +518,12 @@ export default function DevisForm({
               type="checkbox"
               checked={getInputValue('privacyPolicy') as boolean}
               onChange={handleChange}
-              className="h-5 w-5 rounded border-gray-300 text-[#2b3343] focus:ring-[#2b3343] transition-all duration-200"
+              className="h-5 w-5 rounded border-gray-300 text-[#0046fe] focus:ring-[#0046fe] transition-all duration-200"
               required
             />
           </div>
           <div className="ml-3">
-            <label htmlFor="privacyPolicy" className="font-medium text-[#2b3343]">
+            <label htmlFor="privacyPolicy" className="font-medium text-[#0046fe]">
               J&apos;accepte la politique de confidentialité <span className="text-red-500">*</span>
             </label>
             <p className="text-gray-600 text-sm mt-1">
@@ -559,7 +559,7 @@ export default function DevisForm({
           transition={{ duration: 0.3 }}
           type="button"
           onClick={prevStep}
-          className="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-[#2b3343] bg-white hover:bg-gray-50 hover:border-[#2b3343] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2b3343] transition-all duration-300 shadow-sm"
+          className="inline-flex items-center px-6 py-3 border border-[#0046fe] text-base font-medium rounded-md text-[#0046fe] bg-white hover:bg-[#0046fe]/5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0046fe] transition-all duration-300 shadow-sm"
         >
           <FaArrowLeft className="mr-2 h-4 w-4" />
           Précédent
@@ -575,7 +575,7 @@ export default function DevisForm({
           transition={{ duration: 0.3 }}
           type="button"
           onClick={nextStep}
-          className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md shadow-md text-white bg-[#2b3343] hover:bg-[#3a4456] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2b3343] transition-all duration-300 transform hover:-translate-y-1"
+          className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md shadow-md text-white bg-[#0046fe] hover:bg-[#0046fe]/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0046fe] transition-all duration-300 transform hover:-translate-y-1"
         >
           Suivant
           <FaArrowRight className="ml-2 h-4 w-4" />
@@ -587,9 +587,9 @@ export default function DevisForm({
           transition={{ duration: 0.3 }}
           type="submit"
           disabled={!getInputValue('privacyPolicy')}
-          className={`inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md shadow-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2b3343] transition-all duration-300 ${
+          className={`inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md shadow-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0046fe] transition-all duration-300 ${
             getInputValue('privacyPolicy')
-              ? 'bg-[#2b3343] hover:bg-[#3a4456] transform hover:-translate-y-1'
+              ? 'bg-[#0046fe] hover:bg-[#0046fe]/90 transform hover:-translate-y-1'
               : 'bg-gray-400 cursor-not-allowed'
           }`}
         >

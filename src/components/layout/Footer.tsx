@@ -31,9 +31,9 @@ const footerLinks: FooterSection[] = [
     title: 'Nos Services',
     links: [
       { name: 'Installation', href: '/services/installation', icon: FaTools },
-      { name: 'Maintenance & Entretien', href: '/services/maintenance', icon: FaCogs },
+      { name: 'Maintenance', href: '/services/maintenance', icon: FaCogs },
       { name: 'Dépannage', href: '/services/depannage', icon: FaExclamationTriangle },
-      { name: 'Modernisation & Rénovation', href: '/services/modernisation', icon: FaSyncAlt },
+      { name: 'Modernisation', href: '/services/modernisation', icon: FaSyncAlt },
       { name: 'Réparation', href: '/services/reparation', icon: FaWrench },
       { name: 'Interventions', href: '/interventions', icon: FaTools },
     ],
@@ -52,12 +52,7 @@ const footerLinks: FooterSection[] = [
         icon: FaPhoneAlt
       },
       { 
-        name: '+33 1 86 04 30 63 (Urgence)',
-        href: 'tel:+33186043063',
-        icon: FaPhoneAlt
-      },
-      { 
-        name: '0 826 101 202 (Centrale d\'appel 24h/24, 7j/7)',
+        name: '0 826 101 202 (Centrale d\'appel)',
         href: 'tel:0826101202',
         icon: FaPhoneAlt
       },
@@ -112,7 +107,7 @@ export default function Footer() {
                     priority
                   />
                 </div>
-                <span className="text-white font-bold text-xl -ml-6">DAMAD</span>
+                <span className="text-white font-bold text-xl -ml-6">DMD</span>
               </Link>
               
               <div className="flex space-x-2">
@@ -168,18 +163,21 @@ export default function Footer() {
             {/* Second column - Nos Services */}
             <div className="space-y-3">
               <h4 className="text-base font-semibold text-white">{footerLinks[1].title}</h4>
-              <ul className="space-y-2">
-                {footerLinks[1].links.map((link) => (
-                  <li key={link.name} className="flex items-start">
-                    <Link
-                      href={link.href}
-                      className="flex items-center text-sm text-white/70 hover:text-white transition-colors duration-200"
-                    >
-                      <FaChevronRight className="w-2.5 h-2.5 mr-1.5 text-white/30" />
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
+              <ul className="space-y-2 mt-2">
+                {footerLinks[1].links.map((link) => {
+                  const Icon = link.icon;
+                  return (
+                    <li key={link.name} className="flex items-start hover:translate-x-1 transition-transform duration-200">
+                      {Icon && <Icon className="w-4 h-4 mt-0.5 mr-2 text-blue-400 flex-shrink-0" />}
+                      <Link
+                        href={link.href}
+                        className="text-sm text-white/80 hover:text-white transition-colors duration-200"
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
@@ -188,11 +186,11 @@ export default function Footer() {
           <div className="block sm:hidden mt-8">
             <div className="space-y-3">
               <h4 className="text-base font-semibold text-white relative inline-block">
-                {footerLinks[1].title}
+                {footerLinks[2].title}
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-400 transform scale-x-50 origin-left"></span>
               </h4>
-              <ul className="space-y-3 bg-white/5 rounded-lg p-3 mt-2">
-                {footerLinks[1].links.map((link) => {
+              <ul className="space-y-3 mt-2">
+                {footerLinks[2].links.map((link) => {
                   const Icon = link.icon;
                   return (
                     <li key={link.name} className="flex items-start hover:translate-x-1 transition-transform duration-200">
@@ -209,9 +207,9 @@ export default function Footer() {
                   );
                 })}
               </ul>
-              {footerLinks[1].buttons && (
+              {footerLinks[2].buttons && (
                 <div className="flex flex-row space-x-2 mt-4">
-                  {footerLinks[1].buttons.map((button) => {
+                  {footerLinks[2].buttons.map((button) => {
                     const Icon = button.icon;
                     return (
                       <a
@@ -244,7 +242,7 @@ export default function Footer() {
                   priority
                 />
               </div>
-              <span className="text-white font-bold text-xl sm:text-2xl -ml-1 sm:-ml-12">DAMAD</span>
+              <span className="text-white font-bold text-xl sm:text-2xl -ml-1 sm:-ml-12">DMD</span>
             </Link>
             <p className="text-white/80 text-sm sm:text-base leading-relaxed">
               Votre partenaire de confiance pour tous vos besoins en ascenseurs, de l&apos;installation à la maintenance.

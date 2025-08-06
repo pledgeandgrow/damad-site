@@ -9,19 +9,15 @@ export default function InterventionsHero() {
         <Image 
           src="/images/services/multiethnic-customer-support-team-work.jpg" 
           alt="Demande d'intervention" 
-          className="object-cover opacity-40"
+          className="object-cover"
           fill
           sizes="100vw"
           priority
         />
       </div>
-      {/* Animated overlay pattern */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#2b3343]/80 to-[#2b3343]/60 z-[1]"></div>
-      <div className="absolute inset-0 opacity-20 z-[1]" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-      }}></div>
+      {/* Removed overlay patterns */}
       <div className="container mx-auto px-4 max-w-7xl relative z-10 text-center">
-        <div className="animate-fade-in-up">
+        <div className="animate-fade-in-up bg-black/40 backdrop-blur-sm inline-block px-8 py-6 rounded-lg">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
             DEMANDE D&apos;INTERVENTION
           </h1>

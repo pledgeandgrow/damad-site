@@ -1,4 +1,4 @@
-import { FaSyncAlt, FaChartLine, FaLeaf, FaUniversalAccess } from 'react-icons/fa';
+import { FaSyncAlt, FaChartLine, FaLeaf, FaUniversalAccess, FaArrowRight } from 'react-icons/fa';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
@@ -40,27 +40,21 @@ export default function ModernisationPage() {
           <Image 
             src="/images/services/ascenseur-en-verre-vers-un-metro-pietonnier-souterrain-avec-des-panneaux-de-verre-vert-et-un-pavage-tactile-dans-un-environnement-urbain-moderne.jpg" 
             alt="Rénovation et modernisation d&apos;appareils d&apos;accessibilité" 
-            className="object-cover opacity-40"
+            className="object-cover"
             fill
             sizes="100vw"
             priority
           />
         </div>
-        {/* Animated overlay pattern */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#2b3343]/80 to-[#2b3343]/60 z-[1]"></div>
-        <div className="absolute inset-0 opacity-20 z-[1]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}></div>
         <div className="container mx-auto px-4 max-w-7xl relative z-10 text-center">
-          <div className="animate-fade-in-up">
+          <div className="animate-fade-in-up bg-black/40 backdrop-blur-sm inline-block px-8 py-6 rounded-lg">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-              Rénovation & Modernisation
+              MODERNISATION
             </h1>
             <div className="w-24 h-1 bg-[#99a8b1] mx-auto"></div>
             <p className="text-white text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
-              Les Experts de DAMAD sont à votre service pour moderniser vos appareils d&apos;accessibilité
+              Solutions sur mesure pour la rénovation de vos appareils d&apos;accessibilité
             </p>
-
           </div>
         </div>
         {/* Decorative elements */}
@@ -72,20 +66,19 @@ export default function ModernisationPage() {
       </div>
 
       {/* Description Section */}
-      <div className="py-16 bg-[#f9fafb]">
+      <div className="py-16 bg-[#fbfcfc] border-t border-gray-100">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center mb-12">
-            <span className="text-[#0046fe] font-semibold tracking-wider text-sm uppercase">Notre expertise</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4 mt-2">
+          <div className="text-center mb-10 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
               Pourquoi moderniser son appareil d&apos;accessibilité ?
             </h2>
-            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed mb-8">
               Moderniser partiellement ou totalement un appareil d&apos;accessibilité nécessite un réel savoir-faire. Lorsqu&apos;un appareil est vétuste, la maintenance préventive ne suffit plus à garantir un taux de panne acceptable.
             </p>
-            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-left">
-              <p className="text-gray-700 font-medium mb-4">La modernisation permet de :</p>
-              <ul className="text-gray-700 space-y-3">
+            <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-left hover:border-[#0046fe] transition-all duration-300">
+              <p className="text-[#2b3343] font-medium mb-4">La modernisation permet de :</p>
+              <ul className="text-[#2b3343] space-y-3">
                 <li className="flex items-start">
                   <span className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f0f5f9] flex items-center justify-center mr-3">
                     <svg className="h-3 w-3 text-[#0046fe]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -133,37 +126,30 @@ export default function ModernisationPage() {
       </div>
 
       {/* Features Section */}
-      <div id="features" className="py-20 bg-white sm:py-24 scroll-mt-16">
+      <div id="features" className="py-20 bg-[#fbfcfc] scroll-mt-16">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-10 sm:mb-16">
-            <span className="text-[#0046fe] font-semibold tracking-wider text-sm uppercase">Nos services</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4 mt-2">
-              Zoom sur la rénovation et la modernisation d&apos;appareils d&apos;accessibilité
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
+              Zoom sur la rénovation et la modernisation
             </h2>
-            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
-            <p className="text-gray-600 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
+            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
               La modernisation d&apos;un appareil d&apos;accessibilité consiste à remplacer ou à améliorer certains composants de l&apos;équipement pour améliorer ses performances, sa sécurité et son efficacité énergétique.
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
-              <div key={index} className="group transform transition-all duration-300 hover:translate-y-[-5px]">
-                <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] h-full relative">
-                  <div className="h-2 bg-[#2b3343]"></div>
-                  <div className="p-8 text-center">
-                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-6 mx-auto bg-[#2b3343] transform transition-transform group-hover:scale-110 shadow-lg group-hover:shadow-[#d6e2e8]">
-                      <div className="text-white">{feature.icon}</div>
+              <div key={index} className="pt-6">
+                <div className="flow-root bg-white rounded-xl px-6 pb-8 h-full border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 hover:border-[#0046fe] group">
+                  <div className="-mt-6">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-[#0046fe] text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      {feature.icon}
                     </div>
-                    <h3 className="text-xl font-bold mb-4 text-[#2b3343] group-hover:text-[#0046fe] transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-                    <div className="w-10 h-0.5 bg-[#0046fe] mx-auto mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></div>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
+                    <h3 className="mt-6 text-lg font-bold text-[#2b3343] tracking-tight">{feature.title}</h3>
+                    <div className="w-10 h-0.5 bg-[#0046fe] my-3"></div>
+                    <p className="text-base text-[#2b3343]">{feature.description}</p>
                   </div>
-                  <div className="absolute bottom-0 left-0 w-full h-1 bg-[#0046fe] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </div>
             ))}
@@ -184,15 +170,14 @@ export default function ModernisationPage() {
       </div>
 
       {/* Notre Accompagnement Section */}
-      <div className="py-20 bg-[#f9fafb]">
+      <div className="py-20 bg-[#fbfcfc] border-t border-gray-100">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-12">
-            <span className="text-[#0046fe] font-semibold tracking-wider text-sm uppercase">Étape par étape</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4 mt-2">
+          <div className="text-center mb-10 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
               Notre accompagnement
             </h2>
-            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
-            <p className="text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
               Un accompagnement sur mesure pour rénover et moderniser vos ascenseurs en toute sérénité.
             </p>
           </div>
@@ -205,15 +190,15 @@ export default function ModernisationPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 {/* Step 1 */}
                 <div className="md:col-start-1 relative group">
-                  <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] relative z-10">
+                  <div className="bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#0046fe] relative z-10">
                     <div className="absolute -top-5 -right-5 w-10 h-10 bg-[#0046fe] text-white rounded-full flex items-center justify-center font-bold md:left-auto md:right-0 transform md:translate-x-1/2 shadow-md group-hover:scale-110 transition-transform duration-300">
                       1
                     </div>
-                    <h3 className="text-xl font-bold text-[#2b3343] mb-4 group-hover:text-[#0046fe] transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-[#2b3343] mb-3">
                       Description du projet
                     </h3>
-                    <div className="w-10 h-0.5 bg-[#0046fe] mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></div>
-                    <p className="text-gray-600 leading-relaxed">
+                    <div className="w-10 h-0.5 bg-[#0046fe] mb-3"></div>
+                    <p className="text-[#2b3343] leading-relaxed">
                       Nous prenons le temps d&apos;écouter et comprendre vos besoins spécifiques pour votre projet de modernisation et rénovation.
                     </p>
                   </div>
@@ -221,15 +206,15 @@ export default function ModernisationPage() {
 
                 {/* Step 2 */}
                 <div className="md:col-start-2 relative group">
-                  <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] relative z-10">
+                  <div className="bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#0046fe] relative z-10">
                     <div className="absolute -top-5 -left-5 w-10 h-10 bg-[#0046fe] text-white rounded-full flex items-center justify-center font-bold md:right-auto md:left-0 transform md:-translate-x-1/2 shadow-md group-hover:scale-110 transition-transform duration-300">
                       2
                     </div>
-                    <h3 className="text-xl font-bold text-[#2b3343] mb-4 group-hover:text-[#0046fe] transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-[#2b3343] mb-3">
                       Visite technique
                     </h3>
-                    <div className="w-10 h-0.5 bg-[#0046fe] mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></div>
-                    <p className="text-gray-600 leading-relaxed">
+                    <div className="w-10 h-0.5 bg-[#0046fe] mb-3"></div>
+                    <p className="text-[#2b3343] leading-relaxed">
                       Notre responsable de travaux se déplace sur site pour évaluer précisément les travaux nécessaires et les contraintes techniques.
                     </p>
                   </div>
@@ -237,15 +222,15 @@ export default function ModernisationPage() {
 
                 {/* Step 3 */}
                 <div className="md:col-start-1 relative group">
-                  <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] relative z-10">
+                  <div className="bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#0046fe] relative z-10">
                     <div className="absolute -top-5 -right-5 w-10 h-10 bg-[#0046fe] text-white rounded-full flex items-center justify-center font-bold md:left-auto md:right-0 transform md:translate-x-1/2 shadow-md group-hover:scale-110 transition-transform duration-300">
                       3
                     </div>
-                    <h3 className="text-xl font-bold text-[#2b3343] mb-4 group-hover:text-[#0046fe] transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-[#2b3343] mb-3">
                       Estimation gratuite
                     </h3>
-                    <div className="w-10 h-0.5 bg-[#0046fe] mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></div>
-                    <p className="text-gray-600 leading-relaxed">
+                    <div className="w-10 h-0.5 bg-[#0046fe] mb-3"></div>
+                    <p className="text-[#2b3343] leading-relaxed">
                       Nous vous proposons un devis détaillé et transparent, sans engagement, avec différentes options adaptées à vos besoins.
                     </p>
                   </div>
@@ -253,15 +238,15 @@ export default function ModernisationPage() {
 
                 {/* Step 4 */}
                 <div className="md:col-start-2 relative group">
-                  <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] relative z-10">
+                  <div className="bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#0046fe] relative z-10">
                     <div className="absolute -top-5 -left-5 w-10 h-10 bg-[#0046fe] text-white rounded-full flex items-center justify-center font-bold md:right-auto md:left-0 transform md:-translate-x-1/2 shadow-md group-hover:scale-110 transition-transform duration-300">
                       4
                     </div>
-                    <h3 className="text-xl font-bold text-[#2b3343] mb-4 group-hover:text-[#0046fe] transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-[#2b3343] mb-3">
                       Accord & signature
                     </h3>
-                    <div className="w-10 h-0.5 bg-[#0046fe] mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></div>
-                    <p className="text-gray-600 leading-relaxed">
+                    <div className="w-10 h-0.5 bg-[#0046fe] mb-3"></div>
+                    <p className="text-[#2b3343] leading-relaxed">
                       Une fois le devis validé, nous planifions ensemble les travaux selon vos contraintes et établissons un calendrier précis.
                     </p>
                   </div>
@@ -269,15 +254,15 @@ export default function ModernisationPage() {
 
                 {/* Step 5 */}
                 <div className="md:col-start-1 relative group">
-                  <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] relative z-10">
+                  <div className="bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#0046fe] relative z-10">
                     <div className="absolute -top-5 -right-5 w-10 h-10 bg-[#0046fe] text-white rounded-full flex items-center justify-center font-bold md:left-auto md:right-0 transform md:translate-x-1/2 shadow-md group-hover:scale-110 transition-transform duration-300">
                       5
                     </div>
-                    <h3 className="text-xl font-bold text-[#2b3343] mb-4 group-hover:text-[#0046fe] transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-[#2b3343] mb-3">
                       Suivi de chantier
                     </h3>
-                    <div className="w-10 h-0.5 bg-[#0046fe] mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></div>
-                    <p className="text-gray-600 leading-relaxed">
+                    <div className="w-10 h-0.5 bg-[#0046fe] mb-3"></div>
+                    <p className="text-[#2b3343] leading-relaxed">
                       Nos équipes assurent un accompagnement et suivi rigoureux du chantier et vous tiennent informés à chaque étape des travaux.
                     </p>
                   </div>
@@ -285,15 +270,15 @@ export default function ModernisationPage() {
 
                 {/* Step 6 */}
                 <div className="md:col-start-2 relative group">
-                  <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] relative z-10">
+                  <div className="bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#0046fe] relative z-10">
                     <div className="absolute -top-5 -left-5 w-10 h-10 bg-[#0046fe] text-white rounded-full flex items-center justify-center font-bold md:right-auto md:left-0 transform md:-translate-x-1/2 shadow-md group-hover:scale-110 transition-transform duration-300">
                       6
                     </div>
-                    <h3 className="text-xl font-bold text-[#2b3343] mb-4 group-hover:text-[#0046fe] transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-[#2b3343] mb-3">
                       Livraison & garantie
                     </h3>
-                    <div className="w-10 h-0.5 bg-[#0046fe] mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></div>
-                    <p className="text-gray-600 leading-relaxed">
+                    <div className="w-10 h-0.5 bg-[#0046fe] mb-3"></div>
+                    <p className="text-[#2b3343] leading-relaxed">
                       Nous effectuons une réception des travaux avec vous pour garantir votre entière satisfaction et vous accompagnons avec un service après-vente de qualité.
                     </p>
                   </div>
@@ -308,7 +293,7 @@ export default function ModernisationPage() {
       <div className="bg-white py-20 border-t border-gray-100">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12">
-            <span className="text-[#0046fe] font-semibold tracking-wider text-sm uppercase">Gestion de projet</span>
+
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4 mt-2">
               Une plateforme digitale pour piloter votre projet
             </h2>
@@ -344,7 +329,7 @@ export default function ModernisationPage() {
               {/* Card 1 - Espace client */}
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] group">
                 <div className="flex items-start">
-                  <div className="bg-[#2b3343] group-hover:bg-[#0046fe] rounded-full p-3 mr-4 transition-colors duration-300 shadow-md">
+                  <div className="bg-[#0046fe] rounded-full p-3 mr-4 transition-colors duration-300 shadow-md">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
@@ -363,7 +348,7 @@ export default function ModernisationPage() {
               {/* Card 2 - Suivi de chantier */}
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] group">
                 <div className="flex items-start">
-                  <div className="bg-[#2b3343] group-hover:bg-[#0046fe] rounded-full p-3 mr-4 transition-colors duration-300 shadow-md">
+                  <div className="bg-[#0046fe] rounded-full p-3 mr-4 transition-colors duration-300 shadow-md">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                     </svg>
@@ -381,7 +366,7 @@ export default function ModernisationPage() {
               {/* Card 3 - Communication */}
               <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] group">
                 <div className="flex items-start">
-                  <div className="bg-[#2b3343] group-hover:bg-[#0046fe] rounded-full p-3 mr-4 transition-colors duration-300 shadow-md">
+                  <div className="bg-[#0046fe] rounded-full p-3 mr-4 transition-colors duration-300 shadow-md">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                     </svg>
@@ -501,45 +486,11 @@ export default function ModernisationPage() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-
-
-      {/* CTA Section */}
-      <div className="bg-gray-50 py-16 sm:py-20">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="bg-[#2b3343] rounded-2xl p-8 sm:p-12 shadow-xl">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">
-                Vous avez un projet de rénovation et de modernisation?
-              </h2>
-              <p className="text-white text-lg mb-6">
-                Besoin d&apos;information sur la maintenance après la fin de chantier ?
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-                <Link 
-                  href="/contact?subject=modernisation" 
-                  className="bg-white text-[#2b3343] hover:bg-gray-100 font-semibold py-3 px-6 rounded-lg transition-colors duration-300 shadow-md"
-                >
-                  Contactez-nous
-                </Link>
-                <Link 
-                  href="/devis" 
-                  className="bg-transparent text-white border border-white hover:bg-white/10 font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
-                >
-                  J&apos;estime mes travaux
-                </Link>
-              </div>
-              <div className="mt-6">
-                <Link 
-                  href="/services/maintenance" 
-                  className="text-white underline hover:text-blue-200 font-medium"
-                >
-                  Maintenance
-                </Link>
-              </div>
-            </div>
+          <div className="mt-10 flex justify-center">
+            <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-[#ff5c35] hover:bg-[#e64a24] transition-all duration-300">
+              Contactez-nous
+              <FaArrowRight className="ml-2 h-5 w-5" />
+            </Link>
           </div>
         </div>
       </div>

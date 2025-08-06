@@ -21,7 +21,7 @@ const features = [
   },
   {
     icon: <FaClock className="h-8 w-8 text-white" />,
-    title: 'Service Réponse sous 48h',
+    title: 'Service Rapide',
     description: 'Assistance technique et dépannage avec réponse sous 48h.'
   },
   {
@@ -111,19 +111,15 @@ export default function MaintenancePage() {
           <Image 
             src="/images/services/serious-business-people-standing-elevator-preparing-meeting-surfing-net-gadgets.jpg" 
             alt="Maintenance d&apos;appareil d&apos;accessibilité" 
-            className="object-cover opacity-40"
+            className="object-cover"
             fill
             sizes="100vw"
             priority
           />
         </div>
-        {/* Animated overlay pattern */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#2b3343]/80 to-[#2b3343]/60 z-[1]"></div>
-        <div className="absolute inset-0 opacity-20 z-[1]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}></div>
+        {/* Removed overlay pattern */}
         <div className="container mx-auto px-4 max-w-7xl relative z-10 text-center">
-          <div className="animate-fade-in-up">
+          <div className="animate-fade-in-up bg-black/40 backdrop-blur-sm inline-block px-8 py-6 rounded-lg">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
               MAINTENANCE ET ENTRETIEN
             </h1>
@@ -143,40 +139,34 @@ export default function MaintenancePage() {
       </div>
 
       {/* Features Section */}
-      <div id="features" className="py-20 bg-white sm:py-24 scroll-mt-16">
+      <div id="features" className="py-20 bg-[#fbfcfc] sm:py-24 scroll-mt-16">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-10 sm:mb-16">
-            <span className="text-[#0046fe] font-semibold tracking-wider text-sm uppercase">Nos services</span>
+
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4 mt-2">
               Nous maintenons et entretenons tout type d&apos;équipements
             </h2>
             <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
-            <p className="text-gray-600 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed mb-4 font-medium">
+            <p className="text-[#2b3343] max-w-3xl mx-auto text-base sm:text-lg leading-relaxed mb-4 font-medium">
               ASCENSEUR – EPMR – MONTE-CHARGE – MONTE VOITURE - MONTE-FÛTS – PORTE DE PARKING – PORTE GARAGE
             </p>
-            <p className="text-gray-600 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
+            <p className="text-[#2b3343] max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
               Depuis 2007, les techniciens de Damad vérifient le bon fonctionnement des solutions de mobilité verticale des particuliers et des professionnels.
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
-              <div key={index} className="group transform transition-all duration-300 hover:translate-y-[-5px]">
-                <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] h-full relative">
-                  <div className="h-2 bg-[#2b3343]"></div>
-                  <div className="p-8 text-center">
-                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-6 mx-auto bg-[#2b3343] transform transition-transform group-hover:scale-110 shadow-lg group-hover:shadow-[#d6e2e8]">
-                      <div className="text-white">{feature.icon}</div>
+              <div key={index} className="pt-6">
+                <div className="flow-root bg-white rounded-xl px-6 pb-8 h-full border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 hover:border-[#0046fe] group">
+                  <div className="-mt-6">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-[#0046fe] text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      {feature.icon}
                     </div>
-                    <h3 className="text-xl font-bold mb-4 text-[#2b3343] group-hover:text-[#0046fe] transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-                    <div className="w-10 h-0.5 bg-[#0046fe] mx-auto mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></div>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
+                    <h3 className="mt-6 text-lg font-bold text-[#2b3343] tracking-tight">{feature.title}</h3>
+                    <div className="w-10 h-0.5 bg-[#0046fe] my-3"></div>
+                    <p className="text-base text-[#2b3343]">{feature.description}</p>
                   </div>
-                  <div className="absolute bottom-0 left-0 w-full h-1 bg-[#0046fe] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </div>
             ))}
@@ -185,7 +175,7 @@ export default function MaintenancePage() {
       </div>
 
       {/* Contracts Section */}
-      <div className="bg-white py-20 border-t border-gray-100">
+      <div className="bg-[#fbfcfc] py-20 border-t border-gray-100">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-10">
             <span className="text-[#0046fe] font-semibold tracking-wider text-sm uppercase">Solutions personnalisées</span>
@@ -193,7 +183,7 @@ export default function MaintenancePage() {
               Nos Contrats de Maintenance et d&apos;Entretien
             </h2>
             <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
-            <p className="text-gray-600 max-w-3xl mx-auto text-sm italic mb-4 bg-blue-50 py-2 px-4 rounded-lg inline-block">
+            <p className="text-[#2b3343] max-w-3xl mx-auto text-sm italic mb-4 bg-blue-50 py-2 px-4 rounded-lg inline-block">
               conformément aux dispositions de l&apos;article 79 de la loi du 2 juillet 2003 et du décret 2004-964
             </p>
           </div>
@@ -255,7 +245,7 @@ export default function MaintenancePage() {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12 max-w-3xl mx-auto">
             {/* Contract 1 */}
             <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] h-full transform hover:-translate-y-1">
               <div className="h-2 bg-[#2b3343]"></div>
@@ -338,103 +328,7 @@ export default function MaintenancePage() {
               </div>
             </div>
             
-            {/* Contract 3 */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] h-full transform hover:-translate-y-1">
-              <div className="h-2 bg-[#2b3343]"></div>
-              <div className="p-8">
-                <div className="w-16 h-16 bg-[#f0f5f9] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-[#0046fe] font-bold text-lg">03</span>
-                </div>
-                <h3 className="text-xl font-bold mb-6 text-[#2b3343] text-center">CONTRAT MAINTENANCE</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f0f5f9] flex items-center justify-center mr-3">
-                      <svg className="h-3 w-3 text-[#0046fe]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span className="text-gray-700 font-medium">Visites programmées</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f0f5f9] flex items-center justify-center mr-3">
-                      <svg className="h-3 w-3 text-[#0046fe]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span className="text-gray-700 font-medium">Conforme aux normes</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f0f5f9] flex items-center justify-center mr-3">
-                      <svg className="h-3 w-3 text-[#0046fe]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span className="text-gray-700 font-medium">Consommables</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f0f5f9] flex items-center justify-center mr-3">
-                      <svg className="h-3 w-3 text-[#0046fe]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span className="text-gray-700 font-medium">Pièces détachées*</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f0f5f9] flex items-center justify-center mr-3">
-                      <svg className="h-3 w-3 text-[#0046fe]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span className="text-gray-700 font-medium">Réparation et le remplacement pièces</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f0f5f9] flex items-center justify-center mr-3">
-                      <svg className="h-3 w-3 text-[#0046fe]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span className="text-gray-700 font-medium">Référentiel AFNOR NF P 82-022</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Contract 4 */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] h-full transform hover:-translate-y-1">
-              <div className="h-2 bg-[#2b3343]"></div>
-              <div className="p-8">
-                <div className="w-16 h-16 bg-[#f0f5f9] rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-[#0046fe] font-bold text-lg">04</span>
-                </div>
-                <h3 className="text-xl font-bold mb-6 text-[#2b3343] text-center">CONTRAT ENTRETIEN</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f0f5f9] flex items-center justify-center mr-3">
-                      <svg className="h-3 w-3 text-[#0046fe]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span className="text-gray-700 font-medium">Visites programmées</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f0f5f9] flex items-center justify-center mr-3">
-                      <svg className="h-3 w-3 text-[#0046fe]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span className="text-gray-700 font-medium">Conformité à la norme</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f0f5f9] flex items-center justify-center mr-3">
-                      <svg className="h-3 w-3 text-[#0046fe]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span className="text-gray-700 font-medium">Consommables</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            {/* Cards 03 and 04 removed as requested */}
           </div>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -479,7 +373,7 @@ export default function MaintenancePage() {
               </ul>
               <div className="mt-8">
                 <p className="text-gray-700 font-semibold mb-4">Vous souhaitez souscrire à un contrat de maintenance ? Contactez-nous</p>
-                <Link href="/contact" className="inline-block bg-[#2b3343] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#3d4759] transition-colors duration-300 shadow-md text-center">
+                <Link href="/contact" className="inline-block bg-[#ff5c35] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#ff5c35]/80 transition-colors duration-300 shadow-md text-center">
                   NOUS CONTACTER
                 </Link>
               </div>
@@ -493,37 +387,37 @@ export default function MaintenancePage() {
               <div className="w-16 h-1 bg-[#0046fe] mb-6"></div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="p-4 bg-[#f0f5f9] rounded-lg">
+                <div className="p-4 bg-[#fbfcfd] rounded-lg">
                   <h3 className="text-lg font-bold text-[#2b3343] mb-2">TRANSPARENCE & ACCOMPAGNEMENT</h3>
                   <div className="w-10 h-0.5 bg-[#0046fe] mb-3"></div>
                   <p className="text-gray-700">Nous vous accompagnons à chaque étape avec une communication claire et transparente.</p>
                 </div>
                 
-                <div className="p-4 bg-[#f0f5f9] rounded-lg">
+                <div className="p-4 bg-[#fbfcfd] rounded-lg">
                   <h3 className="text-lg font-bold text-[#2b3343] mb-2">EXPERTISE</h3>
                   <div className="w-10 h-0.5 bg-[#0046fe] mb-3"></div>
                   <p className="text-gray-700">Nos techniciens sont formés aux dernières technologies et normes du secteur.</p>
                 </div>
                 
-                <div className="p-4 bg-[#f0f5f9] rounded-lg">
+                <div className="p-4 bg-[#fbfcfd] rounded-lg">
                   <h3 className="text-lg font-bold text-[#2b3343] mb-2">CONSEILS PERSONNALISÉS</h3>
                   <div className="w-10 h-0.5 bg-[#0046fe] mb-3"></div>
                   <p className="text-gray-700">Nous élaborons des solutions adaptées à vos besoins spécifiques.</p>
                 </div>
                 
-                <div className="p-4 bg-[#f0f5f9] rounded-lg">
+                <div className="p-4 bg-[#fbfcfd] rounded-lg">
                   <h3 className="text-lg font-bold text-[#2b3343] mb-2">SUR-MESURE</h3>
                   <div className="w-10 h-0.5 bg-[#0046fe] mb-3"></div>
                   <p className="text-gray-700">Chaque installation est unique et reçoit un traitement personnalisé.</p>
                 </div>
                 
-                <div className="p-4 bg-[#f0f5f9] rounded-lg">
+                <div className="p-4 bg-[#fbfcfd] rounded-lg">
                   <h3 className="text-lg font-bold text-[#2b3343] mb-2">DURABILITÉ</h3>
                   <div className="w-10 h-0.5 bg-[#0046fe] mb-3"></div>
                   <p className="text-gray-700">Nos solutions visent à prolonger la durée de vie de vos équipements.</p>
                 </div>
                 
-                <div className="p-4 bg-[#f0f5f9] rounded-lg">
+                <div className="p-4 bg-[#fbfcfd] rounded-lg">
                   <h3 className="text-lg font-bold text-[#2b3343] mb-2">SÉRÉNITÉ – PLATEFORME DEDIEÉ</h3>
                   <div className="w-10 h-0.5 bg-[#0046fe] mb-3"></div>
                   <p className="text-gray-700">Accédez à votre espace client pour suivre vos interventions en temps réel.</p>
@@ -546,7 +440,7 @@ export default function MaintenancePage() {
       </div>
 
       {/* FAQ Section */}
-      <div className="py-16 bg-[#f0f5f9]">
+      <div className="py-16 bg-[#fbfcfd]">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#2b3343] mb-4">

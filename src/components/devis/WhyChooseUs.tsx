@@ -4,19 +4,19 @@ import { motion } from 'framer-motion';
 export default function WhyChooseUs() {
   const features = [
     {
-      icon: <FaAward className="w-10 h-10 text-[#2b3343]" />,
+      icon: <FaAward className="w-10 h-10 text-[#0046fe]" />,
       title: 'Expertise',
       description: 'Plus de 15 ans d\'expérience dans l\'installation et la maintenance d\'ascenseurs.',
       color: 'bg-blue-50'
     },
     {
-      icon: <FaUsers className="w-10 h-10 text-[#2b3343]" />,
+      icon: <FaUsers className="w-10 h-10 text-[#0046fe]" />,
       title: 'Équipe Qualifiée',
       description: 'Des techniciens certifiés et formés aux dernières technologies.',
       color: 'bg-gray-50'
     },
     {
-      icon: <FaHandshake className="w-10 h-10 text-[#2b3343]" />,
+      icon: <FaHandshake className="w-10 h-10 text-[#0046fe]" />,
       title: 'Approche Personnalisée',
       description: 'Des solutions sur mesure adaptées à vos besoins spécifiques.',
       color: 'bg-blue-50'
@@ -24,8 +24,8 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-16 bg-gray-50 relative">
-      <div className="absolute inset-0 bg-[#2b3343] opacity-5 pattern-grid-lg"></div>
+    <section className="py-16 bg-[#fbfcfd] relative">
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="lg:text-center">
           <motion.h2 
@@ -63,7 +63,7 @@ export default function WhyChooseUs() {
                 <div className={`flow-root ${feature.color} rounded-lg px-6 pb-8 h-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-gray-100`}>
                   <div className="-mt-6">
                     <div>
-                      <span className="inline-flex items-center justify-center p-4 bg-white rounded-full shadow-lg border-2 border-[#2b3343]/10">
+                      <span className="inline-flex items-center justify-center p-4 bg-white rounded-full shadow-lg border-2 border-[#0046fe]/20">
                         {feature.icon}
                       </span>
                     </div>

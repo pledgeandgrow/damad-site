@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { FaArrowRight, FaBuilding, FaUsers, FaTools, FaCheckCircle } from 'react-icons/fa';
+import { FaArrowRight, FaAward } from 'react-icons/fa';
+import { FaElevator } from 'react-icons/fa6';
 
 export default function Hero() {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   
@@ -19,37 +19,45 @@ export default function Hero() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Simplified video handling - will be expanded later when video is added
+  // Debug video loading
   useEffect(() => {
-    // Store the current value of videoRef to use in cleanup
     const videoElement = videoRef.current;
     
     if (videoElement) {
+      console.log('Video element found, attempting to load video');
+      
+      const handleCanPlay = () => {
+        console.log('Video can play now');
+      };
+      
+      const handlePlaying = () => {
+        console.log('Video is playing');
+      };
+      
       const handleVideoLoaded = () => {
         console.log('Video loaded successfully');
-        setIsVideoLoaded(true);
       };
       
       const handleVideoError = (e: Event) => {
         console.error('Video failed to load:', e);
+        if (videoElement.error) {
+          console.error('Error code:', videoElement.error.code);
+          console.error('Error message:', videoElement.error.message);
+        }
       };
       
-      // Add event listeners
+      // Add comprehensive event listeners for debugging
       videoElement.addEventListener('loadeddata', handleVideoLoaded);
+      videoElement.addEventListener('canplay', handleCanPlay);
+      videoElement.addEventListener('playing', handlePlaying);
       videoElement.addEventListener('error', handleVideoError);
       
-      // Return cleanup function
       return () => {
-        // Use the same videoElement reference in cleanup
         if (videoElement) {
           videoElement.removeEventListener('loadeddata', handleVideoLoaded);
+          videoElement.removeEventListener('canplay', handleCanPlay);
+          videoElement.removeEventListener('playing', handlePlaying);
           videoElement.removeEventListener('error', handleVideoError);
-          
-          try {
-            videoElement.pause();
-          } catch (e) {
-            console.error('Error pausing video during cleanup:', e);
-          }
         }
       };
     }
@@ -63,17 +71,17 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#2b3343] to-[#4a5568] w-full h-full"></div>
         
         {/* Video element with conditional blur based on device */}
-        <div className={`w-full h-full transition-opacity duration-1000 ${isVideoLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="w-full h-full">
           <video
             ref={videoRef}
             autoPlay
             muted
             loop
             playsInline
-            className={`absolute inset-0 w-full h-full object-cover scale-105 ${isMobile ? 'filter blur-[1px]' : 'filter blur-[2px]'}`}
+            src="/videos/ascenceur.mp4"
+            className={`absolute inset-0 w-full h-full object-cover ${isMobile ? 'filter blur-[1px]' : 'filter blur-[2px]'}`}
             poster="/images/elevator-placeholder.jpg"
           >
-            <source src="/video/background_drone.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -89,46 +97,44 @@ export default function Hero() {
           {/* Headline with improved typography and responsive sizing */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight tracking-tight drop-shadow-lg">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">Installation &amp; Maintenance</span> <br className="hidden sm:block" />
-            <span className="inline-block mt-1">d&apos;Ascenseurs</span>
+            <span className="inline-block mt-1">d&#39;Ascenseurs</span>
           </h1>
           
           {/* Description with better readability - optimized for mobile */}
           <p className="text-base xs:text-lg sm:text-xl text-white/90 mb-6 xs:mb-8 sm:mb-10 max-w-3xl mx-auto drop-shadow-md leading-relaxed px-1 xs:px-2 sm:px-0">
-            Damad vous accompagne dans vos projets, de la conception à la maintenance, avec des solutions sur mesure et un service d&apos;excellence.
+            Damad vous accompagne dans vos projets, de l&#39;installation à la maintenance, avec des solutions d&#39;accessibilité et un service d&#39;excellence.
           </p>
           
           {/* CTA buttons with enhanced styling and animations - optimized for mobile */}
           <div className="flex flex-col xs:flex-row gap-3 xs:gap-4 justify-center mt-6 xs:mt-8">
             <Link 
               href="/contact" 
-              className="group bg-white hover:bg-gray-100 text-[#2b3343] font-medium py-3 xs:py-3.5 px-5 xs:px-7 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center transform hover:-translate-y-0.5 text-sm xs:text-base"
+              className="group bg-[#ff5c35] hover:bg-[#ff5c35]/90 text-white font-medium py-3 xs:py-3.5 px-5 xs:px-7 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center transform hover:-translate-y-0.5 text-sm xs:text-base"
             >
-              Demander un devis 
+              Nous contacter 
               <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
             <Link 
               href="/services" 
-              className="border-2 border-white text-white hover:bg-white/20 font-medium py-3 xs:py-3.5 px-5 xs:px-7 rounded-lg transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm xs:text-base"
+              className="border-2 border-[#0046fe] bg-[#0046fe] text-white hover:bg-[#0046fe]/90 font-medium py-3 xs:py-3.5 px-5 xs:px-7 rounded-lg transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm xs:text-base"
             >
               Nos services
             </Link>
           </div>
           
           {/* Stats section with enhanced styling and animations - optimized for mobile */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 xs:gap-3 sm:gap-4 md:gap-6 max-w-4xl mx-auto mt-8 xs:mt-10 md:mt-12">
+          <div className="grid grid-cols-2 gap-2 xs:gap-3 sm:gap-4 md:gap-6 max-w-4xl mx-auto mt-8 xs:mt-10 md:mt-12">
             {[
-              { number: '15+', label: 'Ans d\'expérience', icon: <FaBuilding className="w-5 h-5 text-[#2b3343] mx-auto" /> },
-              { number: '1000+', label: 'Clients satisfaits', icon: <FaUsers className="w-5 h-5 text-[#2b3343] mx-auto" /> },
-              { number: 'Sous 48h', label: 'Réponse Dépannage', icon: <FaTools className="w-5 h-5 text-[#2b3343] mx-auto" /> },
-              { number: '100%', label: 'Garantie pièces', icon: <FaCheckCircle className="w-5 h-5 text-[#2b3343] mx-auto" /> }
+              { number: '20+', label: 'Ans d&#39;expérience', icon: <FaAward className="w-5 h-5 text-[#0046fe] mx-auto" /> },
+              { number: '1000+', label: 'Appareils en gestion', icon: <FaElevator className="w-5 h-5 text-[#0046fe] mx-auto" /> }
             ].map((item, index) => (
               <div 
                 key={index} 
-                className="text-center p-2 xs:p-3 sm:p-4 bg-white/20 backdrop-blur-sm rounded-lg shadow-lg border border-white/30 hover:bg-white/30 transition-all duration-300 transform hover:scale-105"
+                className="text-center p-2 xs:p-3 sm:p-4 bg-[#2b3343] backdrop-blur-sm rounded-lg shadow-lg border border-[#2b3343]/50 hover:bg-[#2b3343]/90 transition-all duration-300 transform hover:scale-105"
               >
                 <div className="hidden xs:block mb-0.5 xs:mb-1">{item.icon}</div>
                 <div className="text-xl xs:text-2xl sm:text-3xl font-bold text-white mb-0.5 xs:mb-1 sm:mb-2">{item.number}</div>
-                <div className="text-2xs xs:text-xs sm:text-sm text-white/80">{item.label}</div>
+                <div className="text-2xs xs:text-xs sm:text-sm text-white/90">{item.label}</div>
               </div>
             ))}
           </div>

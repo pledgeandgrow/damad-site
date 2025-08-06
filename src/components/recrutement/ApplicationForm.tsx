@@ -158,33 +158,31 @@ export default function ApplicationForm() {
   };
 
   return (
-    <section id="candidature" className="py-16 bg-gradient-to-br from-[#2b3343] to-[#3d4759]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl font-bold text-white mb-6 relative inline-block">
-            <span className="relative z-10">Notre richesse, c&apos;est vous !</span>
-            <span className="absolute bottom-0 left-0 w-full h-3 bg-blue-300/30 -z-10 transform -rotate-1"></span>
-          </h2>
-          <div className="text-white/90 max-w-4xl mx-auto">
-            <p className="text-lg leading-relaxed mb-8">
-              Chaque candidature est une opportunité de découvrir de nouveaux profils et compétences. Nous nous engageons à étudier chaque dossier avec attention.
-            </p>
-          </div>
-        </motion.div>
-
+    <section id="application" className="py-20 bg-[#fbfcfd]">
+      <div className="container mx-auto px-4 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="bg-white rounded-xl shadow-xl p-6 sm:p-8 md:p-10"
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100"
         >
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4 mt-2">
+              Notre richesse, c&apos;est vous !
+            </h2>
+            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
+            <div className="max-w-4xl mx-auto">
+              <p className="text-[#2b3343] text-base sm:text-lg leading-relaxed mb-8">
+                Chaque candidature est une opportunité de découvrir de nouveaux profils et compétences. Nous nous engageons à étudier chaque dossier avec attention.
+              </p>
+            </div>
+          </motion.div>
+
           {submitStatus === 'success' ? (
             <div className="text-center py-10">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-6">
@@ -203,7 +201,7 @@ export default function ApplicationForm() {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
@@ -215,7 +213,7 @@ export default function ApplicationForm() {
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors ${
+                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#0046fe] focus:border-[#0046fe] outline-none transition-colors ${
                       errors.firstName ? 'border-red-500' : 'border-gray-300'
                     }`}
                   />
@@ -233,7 +231,7 @@ export default function ApplicationForm() {
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors ${
+                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#0046fe] focus:border-[#0046fe] outline-none transition-colors ${
                       errors.lastName ? 'border-red-500' : 'border-gray-300'
                     }`}
                   />
@@ -254,7 +252,7 @@ export default function ApplicationForm() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors ${
+                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#0046fe] focus:border-[#0046fe] outline-none transition-colors ${
                       errors.email ? 'border-red-500' : 'border-gray-300'
                     }`}
                   />
@@ -272,7 +270,7 @@ export default function ApplicationForm() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors ${
+                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#0046fe] focus:border-[#0046fe] outline-none transition-colors ${
                       errors.phone ? 'border-red-500' : 'border-gray-300'
                     }`}
                   />
@@ -292,7 +290,7 @@ export default function ApplicationForm() {
                     name="position"
                     value={formData.position}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors ${
+                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#0046fe] focus:border-[#0046fe] outline-none transition-colors ${
                       errors.position ? 'border-red-500' : 'border-gray-300'
                     }`}
                   >
@@ -315,7 +313,7 @@ export default function ApplicationForm() {
                     name="experience"
                     value={formData.experience}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors ${
+                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#0046fe] focus:border-[#0046fe] outline-none transition-colors ${
                       errors.experience ? 'border-red-500' : 'border-gray-300'
                     }`}
                   >
@@ -341,7 +339,7 @@ export default function ApplicationForm() {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#0046fe] focus:border-[#0046fe] outline-none transition-colors"
                   placeholder="Présentez-vous et expliquez votre motivation pour rejoindre notre équipe..."
                 ></textarea>
               </div>
@@ -400,7 +398,7 @@ export default function ApplicationForm() {
                   name="privacy"
                   type="checkbox"
                   required
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                  className="h-4 w-4 text-[#0046fe] focus:ring-[#0046fe] border-gray-300 rounded"
                 />
                 <label htmlFor="privacy" className="ml-2 block text-sm text-gray-700">
                   J&apos;accepte que mes données soient traitées pour le processus de recrutement *
@@ -418,7 +416,7 @@ export default function ApplicationForm() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="inline-flex items-center justify-center bg-[#2b3343] hover:bg-[#3d4759] text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full flex items-center justify-center bg-[#ff5c35] hover:bg-[#ff5c35]/90 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg disabled:bg-gray-400 disabled:cursor-not-allowed"
                 >
                   {submitting ? (
                     <>

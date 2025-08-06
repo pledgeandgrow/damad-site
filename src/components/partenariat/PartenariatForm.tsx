@@ -104,13 +104,14 @@ export default function PartenariatForm() {
   };
 
   return (
-    <section className="py-20 bg-white text-gray-800">
+    <section className="py-20 bg-[#fbfcfd] text-gray-800">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#2b3343]">
+            <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#2b3343] mb-3 sm:mb-4">
               Devenez partenaire de DAMAD dès aujourd&apos;hui
             </h2>
+            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Complétez le formulaire ci-dessous pour soumettre votre candidature de partenariat.
             </p>
@@ -592,7 +593,7 @@ export default function PartenariatForm() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="px-8 py-3 bg-[#2b3343] hover:bg-[#3d4759] text-white font-medium rounded-lg transition-colors duration-300"
+                    className="px-8 py-3 bg-[#0046fe] hover:bg-[#0046fe]/90 text-white font-medium rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg"
                   >
                     {loading ? 'Envoi en cours...' : 'Je candidate'}
                   </button>

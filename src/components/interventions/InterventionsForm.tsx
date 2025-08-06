@@ -120,7 +120,7 @@ export default function InterventionsForm() {
   };
 
   return (
-    <section id="intervention-form" className="py-20 bg-gray-50">
+    <section id="interventions-form" className="py-20 bg-[#fbfcfd]">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="max-w-4xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-[#2b3343]">
@@ -167,7 +167,7 @@ export default function InterventionsForm() {
             
             <div className="mb-8">
               <h3 className="text-xl font-semibold mb-4 text-[#2b3343] flex items-center">
-                <FaBuilding className="mr-2" />
+                <FaBuilding className="mr-2 text-[#0046fe]" />
                 Informations de contact
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -236,7 +236,7 @@ export default function InterventionsForm() {
             
             <div className="mb-8">
               <h3 className="text-xl font-semibold mb-4 text-[#2b3343] flex items-center">
-                <FaExclamationTriangle className="mr-2" />
+                <FaExclamationTriangle className="mr-2 text-[#0046fe]" />
                 Détails de l&apos;intervention
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -319,7 +319,7 @@ export default function InterventionsForm() {
             <div className="mb-8">
               <h3 className="text-xl font-semibold mb-4 text-[#2b3343] flex items-center">
                 <FaCalendarAlt className="mr-2" />
-                Date et heure préférées (optionnel)
+                Planification (optionnel)
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -387,7 +387,7 @@ export default function InterventionsForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-[#2b3343] text-white px-8 py-3 rounded-lg hover:bg-[#3a4456] transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                className="bg-[#ff5c35] text-white px-8 py-3 rounded-md hover:bg-[#e64a24] transition-all disabled:opacity-70 disabled:cursor-not-allowed shadow-md"
               >
                 {isSubmitting ? 'Envoi en cours...' : 'Envoyer ma demande'}
               </button>

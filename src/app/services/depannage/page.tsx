@@ -13,17 +13,17 @@ const features = [
   {
     icon: <FaClock className="h-8 w-8 text-white" />,
     title: 'Intervention rapide',
-    description: 'Réponse sous 48h pour des interventions d\'urgence.'
+    description: 'Réponse rapide pour des interventions d\'urgence.'
   },
   {
     icon: <FaTools className="h-8 w-8 text-white" />,
     title: 'Techniciens qualifiés',
-    description: 'Des experts formés aux dernières technologies des appareils d&apos;accessibilité.'
+    description: 'Des experts formés aux dernières technologies.'
   },
   {
     icon: <FaClipboardCheck className="h-8 w-8 text-white" />,
     title: 'Pièces détachées',
-    description: 'Stock important de pièces détachées pour une réparation immédiate.'
+    description: 'Stock important de pièces détachées.'
   },
   {
     icon: <FaPhone className="h-8 w-8 text-white" />,
@@ -52,19 +52,15 @@ export default function Depannage() {
           <Image 
             src="/images/services/technician-repairing-elevator.jpg" 
             alt="Dépannage d&apos;appareils d&apos;accessibilité" 
-            className="object-cover opacity-40"
+            className="object-cover"
             fill
             sizes="100vw"
             priority
           />
         </div>
-        {/* Animated overlay pattern */}
-        <div className="absolute inset-0 bg-[#2b3343]/80 z-[1]"></div>
-        <div className="absolute inset-0 opacity-20 z-[1]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}></div>
+        {/* Removed overlay pattern */}
         <div className="container mx-auto px-4 max-w-7xl relative z-10 text-center">
-          <div className="animate-fade-in-up">
+          <div className="animate-fade-in-up bg-black/40 backdrop-blur-sm inline-block px-8 py-6 rounded-lg">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
               DÉPANNAGE
             </h1>
@@ -84,38 +80,30 @@ export default function Depannage() {
       </div>
 
       {/* Features Section */}
-      <div id="features" className="py-20 bg-white sm:py-24 scroll-mt-16">
+      <div id="features" className="py-20 bg-[#fbfcfc] scroll-mt-16">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-10 sm:mb-16">
-            <span className="text-[#0046fe] font-semibold tracking-wider text-sm uppercase">Services professionnels</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4 mt-2">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
               Notre service de dépannage
-
             </h2>
             <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
+            <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
               Une équipe réactive et compétente pour tous vos problèmes d&apos;appareils d&apos;accessibilité.
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
-              <div key={index} className="group transform transition-all duration-300 hover:translate-y-[-5px]">
-                <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] h-full relative">
-                  <div className="h-2 bg-[#2b3343]"></div>
-                  <div className="p-8 text-center">
-                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-6 mx-auto bg-[#2b3343] transform transition-transform group-hover:scale-110 shadow-lg group-hover:shadow-[#d6e2e8]">
-                      <div className="text-white">{feature.icon}</div>
+              <div key={index} className="pt-6">
+                <div className="flow-root bg-white rounded-xl px-6 pb-8 h-full border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 hover:border-[#0046fe] group">
+                  <div className="-mt-6">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-[#0046fe] text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      {feature.icon}
                     </div>
-                    <h3 className="text-xl font-bold mb-4 text-[#2b3343] group-hover:text-[#0046fe] transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-                    <div className="w-10 h-0.5 bg-[#0046fe] mx-auto mb-4 opacity-70 group-hover:opacity-100 transition-opacity"></div>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
+                    <h3 className="mt-6 text-lg font-bold text-[#2b3343] tracking-tight">{feature.title}</h3>
+                    <div className="w-10 h-0.5 bg-[#0046fe] my-3"></div>
+                    <p className="text-base text-[#2b3343]">{feature.description}</p>
                   </div>
-                  <div className="absolute bottom-0 left-0 w-full h-1 bg-[#0046fe] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </div>
             ))}
@@ -124,19 +112,18 @@ export default function Depannage() {
       </div>
 
       {/* Common Issues Section */}
-      <div className="bg-[#f0f5f9] py-24 border-t border-gray-100">
+      <div className="py-20 bg-[#fbfcfc] border-t border-gray-100">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-16">
-            <span className="text-blue-600 font-semibold text-sm uppercase tracking-wider">Expertise technique</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mt-2 mb-4">
+          <div className="text-center mb-10 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
               Pannes fréquentes que nous dépannons
             </h2>
-            <div className="w-24 h-1 bg-[#0046fe] mx-auto mb-6"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed mb-8">
+            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
               Notre équipe d&apos;experts répond sous 48h pour intervenir rapidement en cas de panne d&apos;appareil d&apos;accessibilité.
             </p>
           </div>
-          <div className="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100 transform transition-all hover:shadow-2xl">
+          <div className="bg-white shadow-lg rounded-xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 hover:border-[#0046fe]">
             <div className="relative">
               {/* Decorative pattern */}
               <div className="absolute top-0 right-0 w-32 h-32 opacity-5">
@@ -175,43 +162,44 @@ export default function Depannage() {
       </div>
 
       {/* Contrat de dépannage Section */}
-      <div className="py-20 sm:py-24 bg-gray-50">
+      <div className="py-20 bg-[#fbfcfc] border-t border-gray-100">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-12">
-            <span className="text-[#0046fe] font-semibold text-sm uppercase tracking-wider">Solutions complètes</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mt-2 mb-3">
+          <div className="text-center mb-10 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
               Contrat de dépannage
             </h2>
-            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
-            <p className="text-gray-600 max-w-3xl mx-auto text-sm italic mb-4 bg-blue-50 py-2 px-4 rounded-lg inline-block">
+            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
               Profitez d&apos;une prestation de qualité à un prix compétitif, avec un dépannage rapide.
             </p>
           </div>
           
           <div className="max-w-4xl mx-auto mb-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500 transform hover:-translate-y-1">
+              <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#0046fe]">
                 <div className="flex items-center mb-4">
-                  <div className="bg-[#f0f5f9] p-3 rounded-full mr-4">
-                    <svg className="w-6 h-6 text-[#0046fe]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-[#0046fe] text-white shadow-lg mr-4">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-[#2b3343]">Interventions en 4h</h3>
+                  <h3 className="text-lg font-bold text-[#2b3343]">Interventions en 4h</h3>
                 </div>
-                <p className="text-gray-600 pl-16">Remise en service de tous types d&apos;ascenseurs, d&apos;ascenseurs privatifs, élévateurs, plateforme</p>
+                <div className="w-10 h-0.5 bg-[#0046fe] my-3 ml-16"></div>
+                <p className="text-[#2b3343] pl-16">Remise en service de tous types d&apos;ascenseurs, d&apos;ascenseurs privatifs, élévateurs, plateforme</p>
               </div>
               
-              <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500 transform hover:-translate-y-1">
+              <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-[#0046fe]">
                 <div className="flex items-center mb-4">
-                  <div className="bg-[#f0f5f9] p-3 rounded-full mr-4">
-                    <svg className="w-6 h-6 text-[#0046fe]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <div className="flex items-center justify-center h-12 w-12 rounded-full bg-[#0046fe] text-white shadow-lg mr-4">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-[#2b3343]">Assistance 7j/7</h3>
+                  <h3 className="text-lg font-bold text-[#2b3343]">Assistance 7j/7</h3>
                 </div>
-                <p className="text-gray-600 pl-16">Un service d&apos;astreinte 7/7 afin de réagir rapidement et remettre en service l&apos;appareil</p>
+                <div className="w-10 h-0.5 bg-[#0046fe] my-3 ml-16"></div>
+                <p className="text-[#2b3343] pl-16">Notre équipe est disponible 7j/7 pour vous assister en cas de panne ou d&apos;urgence.</p>
               </div>
             </div>
             
@@ -231,57 +219,21 @@ export default function Depannage() {
               </div>
             </div>
             
-            <div className="bg-white p-8 rounded-xl shadow-lg mb-8 border border-gray-100">
-              <div className="flex items-start">
-                <div className="bg-[#f0f5f9] p-3 rounded-full mr-4 flex-shrink-0 mt-1">
-                  <svg className="w-6 h-6 text-[#0046fe]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                </div>
-                <p className="text-gray-600 leading-relaxed">
-                  Fourniture des consommables (ampoules, shunt, câblette, galet, ferme porte) et astreinte soirée, week-end et jours fériés.
-                </p>
-              </div>
-            </div>
+
           </div>
-          <div className="bg-white p-8 rounded-xl shadow-lg mb-8 border border-gray-100 max-w-4xl mx-auto relative overflow-hidden">
-            {/* Decorative pattern */}
-            <div className="absolute inset-0 opacity-5">
-              <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1"/>
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid)" stroke="blue"/>
-              </svg>
-            </div>
-            
-            <p className="text-gray-700 text-center mb-10 text-lg relative z-10">
-              Vous aurez à votre disposition un technicien expérimenté maitrisant les domaines d&apos;expertise les plus avancés pour un diagnostic immédiat.
-            </p>
-            <div className="text-center relative z-10">
-              <Link href="/contact" className="inline-flex items-center px-8 py-4 bg-[#0046fe] text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
-                Demander un devis
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </Link>
-            </div>
-          </div>
+          {/* Section removed as requested by the user */}
         </div>
       </div>
 
       {/* Interventions de dépannages ponctuelle Section */}
-      <div className="py-20 sm:py-24 bg-white border-t border-gray-100">
+      <div className="py-20 bg-[#fbfcfc] border-t border-gray-100">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-12">
-            <span className="text-[#0046fe] font-semibold text-sm uppercase tracking-wider">Assistance rapide</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mt-2 mb-3">
+          <div className="text-center mb-10 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
               Interventions de dépannages ponctuelle
             </h2>
-            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
-            <p className="text-gray-600 max-w-3xl mx-auto text-sm italic mb-4 bg-blue-50 py-2 px-4 rounded-lg inline-block">
+            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
               L&apos;intervention ponctuelle permet de faire appel à un technicien qualifié pour une réparation ou dépannage
             </p>
           </div>
@@ -352,7 +304,7 @@ export default function Depannage() {
                 </div>
               </div>
               
-              <div className="mt-12 p-8 bg-[#f0f5f9] rounded-xl border border-blue-100 shadow-lg">
+              <div className="mt-12 p-8 bg-[#fbfcfd] rounded-xl border border-blue-100 shadow-lg">
                 <div className="flex items-start">
                   <div className="flex-shrink-0 mr-5">
                     <div className="w-14 h-14 bg-[#0046fe] rounded-full flex items-center justify-center shadow-lg">
@@ -369,7 +321,7 @@ export default function Depannage() {
               </div>
               
               <div className="mt-12 text-center">
-                <Link href="/contact?subject=rdv-depannage" className="inline-flex items-center px-8 py-4 bg-[#0046fe] text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+                <Link href="/contact?subject=rdv-depannage" className="inline-flex items-center px-8 py-4 bg-[#ff5c35] text-white font-semibold rounded-lg hover:bg-[#ff5c35]/80 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                   Prendre rendez-vous
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -402,7 +354,7 @@ export default function Depannage() {
       </div>
 
       {/* Réalisations Section */}
-      <div className="py-24 bg-[#f0f5f9] border-t border-gray-100">
+      <div className="py-24 bg-[#fbfcfd] border-t border-gray-100">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mt-2 mb-4">

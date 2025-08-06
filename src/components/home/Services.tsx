@@ -11,8 +11,8 @@ const services = [
     description: "Contrats de maintenance préventive et corrective pour garantir la longévité de votre équipement.",
     shortDesc: "Entretien régulier pour une performance optimale.",
     features: ["Visites programmées", "Pièces d'origine", "Rapport détaillé"],
-    color: "#2b3343", // Primary brand color
-    gradient: "from-[#2b3343] to-[#3d4759]",
+    color: "#0046fe", // Primary brand color
+    gradient: "from-[#0046fe] to-[#0046fe]/80",
     link: "/services/maintenance"
   },
   {
@@ -21,8 +21,8 @@ const services = [
     description: "Service Dépannage disponible 24 heures sur 24, 7 jours sur 7 pour tout dépannage.",
     shortDesc: "Intervention rapide en cas d'urgence.",
     features: ["Response sous 48h", "Délai d'intervention court", "Techniciens qualifiés"],
-    color: "#2b3343", // Primary brand color
-    gradient: "from-[#2b3343] to-[#3d4759]",
+    color: "#0046fe", // Primary brand color
+    gradient: "from-[#0046fe] to-[#0046fe]/80",
     link: "/services/depannage"
   },
   {
@@ -31,8 +31,8 @@ const services = [
     description: "Installation complète d'ascenseurs neufs, adaptés à vos besoins et à votre espace.",
     shortDesc: "Solutions sur mesure pour tous types de bâtiments.",
     features: ["Étude personnalisée", "Installation rapide", "Conformité aux normes"],
-    color: "#2b3343", // Primary brand color
-    gradient: "from-[#2b3343] to-[#3d4759]",
+    color: "#0046fe", // Primary brand color
+    gradient: "from-[#0046fe] to-[#0046fe]/80",
     link: "/services/installation"
   },
   {
@@ -41,8 +41,8 @@ const services = [
     description: "Réparation professionnelle de tous types de pannes et dysfonctionnements sur vos ascenseurs.",
     shortDesc: "Solutions efficaces pour tous problèmes techniques.",
     features: ["Diagnostic précis", "Réparations durables", "Pièces de qualité"],
-    color: "#2b3343", // Primary brand color
-    gradient: "from-[#2b3343] to-[#3d4759]",
+    color: "#0046fe", // Primary brand color
+    gradient: "from-[#0046fe] to-[#0046fe]/80",
     link: "/services/reparation"
   },
   {
@@ -51,8 +51,8 @@ const services = [
     description: "Mise à niveau de vos installations pour améliorer la sécurité, l'efficacité énergétique et le confort.",
     shortDesc: "Donnez une seconde vie à vos ascenseurs.",
     features: ["Mise aux normes", "Économies d'énergie", "Amélioration du confort"],
-    color: "#2b3343", // Primary brand color
-    gradient: "from-[#2b3343] to-[#3d4759]",
+    color: "#0046fe", // Primary brand color
+    gradient: "from-[#0046fe] to-[#0046fe]/80",
     link: "/services/modernisation"
   }
 ];
@@ -172,14 +172,14 @@ export default function Services() {
                   href={service.link || '#'}
                   className="block h-full bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 relative hover:translate-y-[-5px] hover:border-blue-600 group"
                 >
-                  <div className={`h-2 bg-[#2b3343]`}></div>
+                  <div className={`h-2 bg-[#0046fe]`}></div>
                   <div className="p-4 sm:p-6 text-center">
                     <div 
-                      className={`inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full mb-3 sm:mb-4 mx-auto bg-[#2b3343] transform transition-transform group-hover:scale-110 shadow-md`}
+                      className={`inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full mb-3 sm:mb-4 mx-auto bg-[#0046fe] transform transition-transform group-hover:scale-110 shadow-md`}
                     >
                       {service.icon}
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold mb-2 text-[#2b3343] group-hover:text-blue-600 transition-colors duration-300">
+                    <h3 className="text-lg sm:text-xl font-bold mb-2 text-[#2b3343] group-hover:text-[#0046fe] transition-colors duration-300">
                       {service.title}
                     </h3>
                     
@@ -192,7 +192,7 @@ export default function Services() {
                     <ul className={`text-left mb-4 ${isMobile ? 'block' : 'hidden sm:block'}`}>
                       {service.features.map((feature, i) => (
                         <li key={i} className="flex items-center text-xs sm:text-sm text-gray-600 mb-1.5">
-                          <span className={`inline-flex items-center justify-center w-4 h-4 rounded-full mr-2 bg-[#2b3343] text-white text-[10px] shadow-sm`}>✓</span>
+                          <span className={`inline-flex items-center justify-center w-4 h-4 rounded-full mr-2 bg-[#0046fe] text-white text-[10px] shadow-sm`}>✓</span>
                           {feature}
                         </li>
                       ))}
@@ -200,7 +200,7 @@ export default function Services() {
                     
                     {/* Card footer - removed 'En savoir plus' text */}
                     <div className="mt-4 pt-3 border-t border-gray-100">
-                      <span className="inline-flex items-center text-xs sm:text-sm font-medium text-[#2b3343] group-hover:text-[#3d4759] transition-colors duration-300">
+                      <span className="inline-flex items-center text-xs sm:text-sm font-medium text-[#0046fe] group-hover:text-[#0046fe]/80 transition-colors duration-300">
                         <FaArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
                       </span>
                     </div>
@@ -218,7 +218,7 @@ export default function Services() {
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${activeIndex === index ? 'bg-[#2b3343] w-5' : 'bg-gray-300'}`}
+                className={`w-2.5 h-2.5 rounded-full transition-all ${activeIndex === index ? 'bg-[#0046fe] w-5' : 'bg-gray-300'}`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
@@ -230,14 +230,14 @@ export default function Services() {
             className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center z-10 hidden sm:flex border border-gray-100 hover:bg-blue-50 hover:border-blue-200 transition-colors duration-300 group"
             aria-label="Previous slide"
           >
-            <FaChevronLeft className="text-[#2b3343] group-hover:text-[#3d4759] transition-colors duration-300" />
+            <FaChevronLeft className="text-[#0046fe] group-hover:text-[#0046fe]/80 transition-colors duration-300" />
           </button>
           <button 
             onClick={nextSlide}
             className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 bg-white shadow-lg rounded-full w-10 h-10 flex items-center justify-center z-10 hidden sm:flex border border-gray-100 hover:bg-blue-50 hover:border-blue-200 transition-colors duration-300 group"
             aria-label="Next slide"
           >
-            <FaChevronRight className="text-[#2b3343] group-hover:text-[#3d4759] transition-colors duration-300" />
+            <FaChevronRight className="text-[#0046fe] group-hover:text-[#0046fe]/80 transition-colors duration-300" />
           </button>
         </div>
 

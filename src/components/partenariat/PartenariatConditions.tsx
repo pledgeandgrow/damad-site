@@ -29,31 +29,32 @@ export default function PartenariatConditions() {
   const steps = [
     {
       number: "1",
-      icon: <FaUserPlus className="text-3xl text-[#2b3343]" />,
+      icon: <FaUserPlus className="text-3xl text-white" />,
       title: "Inscrivez vous !",
       description: "Remplissez le formulaire en bas de page."
     },
     {
       number: "2",
-      icon: <FaClipboardCheck className="text-3xl text-[#2b3343]" />,
+      icon: <FaClipboardCheck className="text-3xl text-white" />,
       title: "Nous examinerons votre candidature",
       description: "Nous vous contacterons pour établir une première prise de contact et faire connaissance !"
     },
     {
       number: "3",
-      icon: <FaHandshake className="text-3xl text-[#2b3343]" />,
+      icon: <FaHandshake className="text-3xl text-white" />,
       title: "Vous êtes partenaire officiel !",
       description: "Ensemble, nous collaborons sur des projets et satisfaire de manière complète les besoins de nos clients !"
     }
   ];
 
   return (
-    <section id="partenariat-conditions" className="py-20 bg-gray-50">
+    <section id="partenariat-conditions" className="py-20 bg-[#fbfcfd]">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="max-w-4xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-[#2b3343]">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#2b3343] mb-3 sm:mb-4">
             Comment devenir partenaire
           </h2>
+          <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto">
             Rejoignez notre réseau de partenaires en suivant ces trois étapes simples
           </p>
@@ -65,10 +66,10 @@ export default function PartenariatConditions() {
               key={index}
               className={`bg-white p-8 rounded-xl shadow-md border border-gray-100 transform transition-all duration-700 delay-${index * 200} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} relative overflow-hidden`}
             >
-              <div className="absolute top-0 right-0 bg-[#2b3343] text-white w-12 h-12 flex items-center justify-center text-xl font-bold rounded-bl-xl">
+              <div className="absolute top-0 right-0 bg-[#0046fe] text-white w-12 h-12 flex items-center justify-center text-xl font-bold rounded-bl-xl">
                 {step.number}
               </div>
-              <div className="mb-6 p-4 bg-[#2b3343]/10 inline-block rounded-full">
+              <div className="mb-6 p-4 bg-[#0046fe] inline-block rounded-lg shadow-md">
                 {step.icon}
               </div>
               <h3 className="text-xl font-semibold mb-4 text-[#2b3343] pr-8">{step.title}</h3>

@@ -104,7 +104,7 @@ const Projects: React.FC = () => {
   });
   
   return (
-    <section id="realisations" className="py-16 sm:py-20 bg-white">
+    <section id="realisations" className="py-16 sm:py-20 bg-[#fbfcfd]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">Nos Projets Récents</h2>
@@ -144,7 +144,7 @@ const Projects: React.FC = () => {
                 >
                   <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col border border-gray-100 overflow-hidden group hover:translate-y-[-5px]">
                     {/* Project Image */}
-                    <div className="relative h-48 sm:h-56 overflow-hidden">
+                    <div className="relative h-64 sm:h-80 md:h-96 overflow-hidden">
                       <Image
                         src={project.image}
                         alt={project.title}
@@ -152,31 +152,9 @@ const Projects: React.FC = () => {
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#2b3343]/80"></div>
-                      
-                      {/* Category Badge */}
-                      <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-[#2b3343]">
-                        {project.category}
-                      </div>
-                      
-                      {/* Year Badge */}
-                      <div className="absolute top-4 right-4 bg-[#2b3343]/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-white">
-                        {project.year}
-                      </div>
                     </div>
                     
-                    {/* Content */}
-                    <div className="p-6 flex-1 flex flex-col">
-                      <div className="flex items-center mb-3">
-                        <div className="p-2 rounded-lg bg-[#2b3343]/10 text-[#2b3343] text-lg">
-                          {project.icon}
-                        </div>
-                        <div className="ml-3">
-                          <h3 className="font-bold text-gray-900">{project.title}</h3>
-                        </div>
-                      </div>
-                      
-
-                    </div>
+                    {/* Content section removed - showing only images */}
                   </div>
                 </motion.div>
               ))}

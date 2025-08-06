@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/common/CookieConsent";
+import FloatingArrow from "@/components/common/FloatingArrow";
+import FloatingPhone from "@/components/common/FloatingPhone";
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -60,6 +62,8 @@ export default function RootLayout({
         </main>
         <Footer />
         <CookieConsent />
+        <FloatingArrow />
+        <FloatingPhone />
       </body>
     </html>
   );

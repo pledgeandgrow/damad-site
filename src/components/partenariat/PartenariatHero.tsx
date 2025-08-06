@@ -14,7 +14,7 @@ export default function PartenariatHero() {
   // If needed in the future, implement a function to scroll to the details section
 
   return (
-    <section className="relative bg-gradient-to-b from-gray-50 to-white text-[#2b3343] py-24 md:py-32 overflow-hidden">
+    <section className="relative bg-[#fbfcfc] text-[#2b3343] py-24 md:py-32 overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-[#2b3343]/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#2b3343]/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
@@ -31,17 +31,15 @@ export default function PartenariatHero() {
             className={`text-center transform transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
             <div className="flex justify-center mb-6">
-              <div className="bg-[#2b3343]/10 p-5 rounded-full">
-                <FaHandshake className="text-[#2b3343] text-4xl" />
+              <div className="p-5 bg-[#0046fe] rounded-lg shadow-md">
+                <FaHandshake className="text-white text-4xl" />
               </div>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Devenir <span className="text-[#2b3343] relative">
-                partenaire DAMAD
-                <span className="absolute -bottom-2 left-0 right-0 h-1 bg-[#2b3343] rounded-full"></span>
-              </span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#2b3343] mb-3 sm:mb-4">
+              Devenir partenaire DAMAD
             </h1>
+            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
           </div>
         </div>
       </div>

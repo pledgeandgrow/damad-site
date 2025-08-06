@@ -1,74 +1,42 @@
 'use client';
 
-import { FaChevronDown } from 'react-icons/fa';
-import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { useEffect } from 'react';
 
 export default function AboutHero() {
-  const [isVisible, setIsVisible] = useState(false);
-  
   useEffect(() => {
-    setIsVisible(true);
+    // Animation effect when component mounts
   }, []);
-  
-  const scrollToMission = () => {
-    const missionElement = document.getElementById('mission');
-    if (missionElement) {
-      missionElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
-    <section className="relative bg-gradient-to-b from-gray-50 to-white text-[#2b3343] py-24 md:py-32 overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-[#2b3343]/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#2b3343]/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
-      <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-[#2b3343]/3 rounded-full"></div>
-      <div className="absolute bottom-1/3 right-1/4 w-48 h-48 bg-[#2b3343]/3 rounded-full"></div>
-      
-      <div className="absolute inset-0 z-0 opacity-5">
-        <div className="absolute inset-0 bg-[url('/images/pattern.svg')] bg-repeat"></div>
+    <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Image 
+          src="/images/projects/damad2.jpg" 
+          alt="À propos de DAMAD" 
+          className="object-cover"
+          fill
+          sizes="100vw"
+          priority
+        />
       </div>
-      
-      <div className="container mx-auto px-4 relative z-10 max-w-7xl">
-        <div className="max-w-4xl mx-auto">
-          <div 
-            className={`text-center transform transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-          >
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              À propos de <span className="text-[#2b3343] relative">
-                DAMAD
-                <span className="absolute -bottom-2 left-0 right-0 h-1 bg-[#2b3343] rounded-full"></span>
-              </span>
-            </h1>
-            
-            <p className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Votre partenaire de confiance pour l&apos;installation, la maintenance et la modernisation de vos ascenseurs, portes automatiques, monte-charges et solutions d&apos;accessibilité.
-            </p>
-          </div>
-          
-          <div 
-            className={`mt-12 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 transform transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-          >
-            <a 
-              href="#mission" 
-              onClick={(e) => { e.preventDefault(); scrollToMission(); }}
-              className="group px-8 py-4 bg-[#2b3343] text-white font-medium rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center"
-            >
-              Découvrir notre mission
-              <FaChevronDown className="ml-2 group-hover:animate-bounce" />
-            </a>
-            <a 
-              href="#contact" 
-              className="px-8 py-4 border-2 border-[#2b3343] text-[#2b3343] font-medium rounded-lg hover:bg-[#2b3343] hover:text-white transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
-            >
-              Nous contacter
-            </a>
-          </div>
-          
-          {/* Decorative wave - removed to prevent hiding buttons */}
+      <div className="container mx-auto px-4 max-w-7xl relative z-10 text-center">
+        <div className="animate-fade-in-up bg-black/40 backdrop-blur-sm inline-block px-8 py-6 rounded-lg">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+            À PROPOS DE DAMAD
+          </h1>
+          <div className="w-24 h-1 bg-[#99a8b1] mx-auto"></div>
+          <p className="text-white text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
+            Votre partenaire de confiance pour l&apos;installation, la maintenance et la modernisation
+          </p>
         </div>
       </div>
-    </section>
+      {/* Decorative elements */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-[2]">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-[60px] text-white">
+          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="currentColor"></path>
+        </svg>
+      </div>
+    </div>
   );
 }

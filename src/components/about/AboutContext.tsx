@@ -36,21 +36,22 @@ export default function AboutContext() {
   return (
     <section 
       ref={sectionRef}
-      className="py-16 bg-gray-50"
+      className="py-20 bg-[#fbfcfc] sm:py-24 scroll-mt-16"
+      id="mission"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-7xl">
         <div 
-          className={`text-center max-w-4xl mx-auto transition-all duration-700 ease-out ${
+          className={`text-center mb-10 sm:mb-16 transition-all duration-700 ease-out ${
             isVisible 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
           }`}
         >
-
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2b3343] mb-6">
+          <span className="text-[#0046fe] font-semibold tracking-wider text-sm uppercase">Notre philosophie</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4 mt-2">
             Développement et Innovation
           </h2>
-          <div className="w-24 h-1 bg-[#2b3343] mx-auto rounded-full mb-8"></div>
+          <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
           
           <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
             <p>
@@ -62,34 +63,46 @@ export default function AboutContext() {
           </div>
           
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md transition-transform hover:transform hover:scale-105">
-              <div className="flex items-center mb-3">
-                <FaBalanceScale className="text-[#2b3343] text-2xl mr-2" />
-                <h3 className="text-xl font-bold text-[#2b3343]">Prudence</h3>
+            <div className="group transform transition-all duration-300 hover:translate-y-[-5px]">
+              <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] h-full relative">
+                <div className="p-6">
+                  <div className="w-12 h-12 bg-[#0046fe]/10 rounded-lg flex items-center justify-center mb-4">
+                    <FaBalanceScale className="text-[#0046fe] text-2xl" />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#2b3343] mb-3">Prudence</h3>
+                  <p className="text-gray-600">
+                    La prudence guide chacune de nos actions pour garantir la sécurité et la fiabilité de nos interventions.
+                  </p>
+                </div>
               </div>
-              <p className="text-gray-600">
-                La prudence guide chacune de nos actions pour garantir la sécurité et la fiabilité de nos interventions.
-              </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-md transition-transform hover:transform hover:scale-105">
-              <div className="flex items-center mb-3">
-                <FaClipboardCheck className="text-[#2b3343] text-2xl mr-2" />
-                <h3 className="text-xl font-bold text-[#2b3343]">Discipline</h3>
+            <div className="group transform transition-all duration-300 hover:translate-y-[-5px]">
+              <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] h-full relative">
+                <div className="p-6">
+                  <div className="w-12 h-12 bg-[#0046fe]/10 rounded-lg flex items-center justify-center mb-4">
+                    <FaClipboardCheck className="text-[#0046fe] text-2xl" />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#2b3343] mb-3">Discipline</h3>
+                  <p className="text-gray-600">
+                    La discipline nous permet d&apos;assurer des performances optimales grâce à une approche méthodique et rigoureuse.
+                  </p>
+                </div>
               </div>
-              <p className="text-gray-600">
-                La discipline nous permet d&apos;assurer des performances optimales grâce à une approche méthodique et rigoureuse.
-              </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-md transition-transform hover:transform hover:scale-105">
-              <div className="flex items-center mb-3">
-                <FaShieldAlt className="text-[#2b3343] text-2xl mr-2" />
-                <h3 className="text-xl font-bold text-[#2b3343]">Sécurité</h3>
+            <div className="group transform transition-all duration-300 hover:translate-y-[-5px]">
+              <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] h-full relative">
+                <div className="p-6">
+                  <div className="w-12 h-12 bg-[#0046fe]/10 rounded-lg flex items-center justify-center mb-4">
+                    <FaShieldAlt className="text-[#0046fe] text-2xl" />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#2b3343] mb-3">Sécurité</h3>
+                  <p className="text-gray-600">
+                    La sécurité est au cœur de notre métier, nous respectons les normes les plus strictes pour protéger nos utilisateurs.
+                  </p>
+                </div>
               </div>
-              <p className="text-gray-600">
-                La sécurité est au cœur de notre métier, nous respectons les normes les plus strictes pour protéger nos utilisateurs.
-              </p>
             </div>
           </div>
           

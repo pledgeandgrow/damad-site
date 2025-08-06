@@ -2,7 +2,7 @@
 
 import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+
 
 interface TeamMember {
   name: string;
@@ -19,7 +19,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Johny MENDY",
     role: "Directeur Général",
-    bio: "Fondateur et Directeur Général de DAMAD, Johny apporte plus de 15 ans d&apos;expérience dans l&apos;industrie des appareils d&apos;accessibilité. Sa vision stratégique et son engagement envers l&apos;excellence technique ont permis à l&apos;entreprise de se positionner comme un leader dans le secteur.",
+    bio: "Fondateur et Directeur Général de DAMAD, Johny apporte plus de 15 ans d'expérience dans l'industrie des ascenseurs. Sa vision stratégique et son engagement envers l'excellence technique ont permis à l'entreprise de se positionner comme un leader dans le secteur.",
     social: {
       linkedin: "https://www.linkedin.com/company/damad-ascenseurs/",
       email: "johny.mendy@damad-ascenseurs.fr"
@@ -80,15 +80,6 @@ export default function Team() {
                 className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col"
               >
                 <div className="p-8 text-center">
-                  <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden relative">
-                    <Image 
-                      src="/images/about/about1.jpg" 
-                      alt={member.name} 
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 128px"
-                    />
-                  </div>
                   <div className="flex justify-center space-x-3 mb-4">
                     <a 
                       href={member.social.linkedin} 

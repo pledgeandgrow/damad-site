@@ -9,28 +9,28 @@ const milestones = [
     title: "Création de DAMAD",
     description: "Fondation de DAMAD, entreprise spécialisée dans la maintenance d&apos;ascenseurs.",
     icon: <FaUsers className="w-6 h-6 text-white" />,
-    color: "from-[#2b3343] to-[#3d4759]"
+    color: "from-[#0046fe] to-[#0057ff]"
   },
   {
     year: "2015",
     title: "Diversification des Services",
     description: "Extension de nos services à la maintenance de portes automatiques, monte-charges, monte-voitures et EPMR.",
     icon: <FaAward className="w-6 h-6 text-white" />,
-    color: "from-[#2b3343] to-[#3d4759]"
+    color: "from-[#0046fe] to-[#0057ff]"
   },
   {
     year: "2019",
     title: "Expansion Régionale",
     description: "Développement d&apos;un ancrage francilien fort pour entretenir une relation de proximité avec nos clients et partenaires.",
     icon: <FaChartLine className="w-6 h-6 text-white" />,
-    color: "from-[#2b3343] to-[#3d4759]"
+    color: "from-[#0046fe] to-[#0057ff]"
   },
   {
     year: "2024",
     title: "Renforcement Structurel",
     description: "DAMAD renforce sa structure et son équipe pour faire face aux nouveaux enjeux économiques, technologiques et sociétaux.",
     icon: <FaBuilding className="w-6 h-6 text-white" />,
-    color: "from-[#2b3343] to-[#3d4759]"
+    color: "from-[#0046fe] to-[#0057ff]"
   }
 ];
 
@@ -116,17 +116,18 @@ export default function History() {
   }, []);
 
   return (
-    <section id="history" ref={sectionRef} className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="history" ref={sectionRef} className="py-20 bg-white sm:py-24">
+      <div className="container mx-auto px-4 max-w-7xl">
         <div 
-          className={`text-center max-w-4xl mx-auto transition-all duration-700 ease-out ${
+          className={`text-center mb-10 sm:mb-16 transition-all duration-700 ease-out ${
             inView 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2b3343] mb-4">Notre Histoire</h2>
-          <div className="w-24 h-1 bg-[#2b3343] mx-auto rounded-full mb-6"></div>
+          <span className="text-[#0046fe] font-semibold tracking-wider text-sm uppercase">Notre parcours</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4 mt-2">Notre Histoire</h2>
+          <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
           
           <div className="space-y-6 text-lg text-gray-600 leading-relaxed mb-12 text-left">
             <p>
@@ -142,7 +143,7 @@ export default function History() {
         <div className="relative">
           {/* Timeline line */}
           <div 
-            className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-[#2b3343] transform -translate-x-1/2 scale-y-0 origin-top transition-transform duration-1000"
+            className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-[#0046fe] transform -translate-x-1/2 scale-y-0 origin-top transition-transform duration-1000"
             style={{
               transform: inView ? 'translateX(-50%) scaleY(1)' : 'translateX(-50%) scaleY(0)',
               transitionDelay: '300ms'

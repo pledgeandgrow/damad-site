@@ -1,13 +1,17 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FaBars, FaTimes, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  // Removed unused activeDropdown state
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +21,29 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    // Close menu when route changes
+    setIsMenuOpen(false);
+    // Removed setActiveDropdown call as it's no longer needed
+  }, [pathname]);
+
+  useEffect(() => {
+    // Handle clicks outside of mobile menu to close it
+    const handleClickOutside = (event: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   const navLinks = [
     { name: 'Maintenance & Entretien', href: '/services/maintenance' },
@@ -28,7 +55,7 @@ export default function Navbar() {
   ];
   
   const secondaryLinks = [
-    { name: 'À propos', href: '/a-propos' },
+    { name: 'Notre histoire', href: '/a-propos' },
     { name: 'Réalisations', href: '/realisations' },
     { name: 'Recrutement', href: '/recrutement' },
     { name: 'Partenariat', href: '/partenariat' },
@@ -37,55 +64,46 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top Bar */}
-      <div className="bg-blue-900 text-white text-sm py-2">
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <div className="flex items-center space-x-4">
-            <a href="tel:+33123456789" className="flex items-center hover:text-blue-200 transition-colors">
-              <FaPhoneAlt className="mr-2" />
-              <span>+33 1 23 45 67 89</span>
+      {/* Top Bar - Only visible on desktop */}
+      <div className="bg-[#2b3343] text-white text-sm hidden md:block">
+        <div className="container mx-auto px-6 py-2.5 flex justify-between items-center">
+          <div className="flex items-center space-x-8">
+            <a href="tel:+33123456789" className="flex items-center hover:text-blue-300 transition-colors group">
+              <div className="bg-blue-500/20 p-1.5 rounded-full mr-2.5 group-hover:bg-blue-500/30 transition-colors">
+                <FaPhoneAlt className="text-blue-400" />
+              </div>
+              <span className="font-medium">+33 1 23 45 67 89</span>
             </a>
-            <a href="mailto:contact@damad-ascenseurs.fr" className="flex items-center hover:text-blue-200 transition-colors">
-              <FaEnvelope className="mr-2" />
-              <span>contact@damad-ascenseurs.fr</span>
-            </a>
-          </div>
-          <div className="hidden md:flex items-center space-x-4">
-            <span>Lun-Ven: 8h-18h</span>
-            <a href="/devis" className="bg-blue-600 hover:bg-blue-700 px-4 py-1 rounded-md font-medium transition-colors">
-              Demander un devis
+            <a href="mailto:contact@damad-ascenseurs.fr" className="flex items-center hover:text-blue-300 transition-colors group">
+              <div className="bg-blue-500/20 p-1.5 rounded-full mr-2.5 group-hover:bg-blue-500/30 transition-colors">
+                <FaEnvelope className="text-blue-400" />
+              </div>
+              <span className="font-medium">contact@damad-ascenseurs.fr</span>
             </a>
           </div>
-        </div>
-      </div>
-      <div className="bg-[#2b3343] text-white text-sm">
-        <div className="container mx-auto px-4 py-2 flex justify-between items-center">
-          <div className="flex items-center space-x-4">
-            <a href="tel:+33123456789" className="flex items-center hover:text-gray-300 transition-colors">
-              <FaPhoneAlt className="mr-2" />
-              +33 1 23 45 67 89
+          <div className="flex items-center">
+            <a 
+              href="https://damad-client.vercel.app/dashboard" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-blue-300 transition-colors border-b border-transparent hover:border-blue-300 py-1 font-medium"
+            >
+              Espace client
             </a>
-            <a href="mailto:contact@damad-ascenseurs.fr" className="hidden md:flex items-center hover:text-gray-300 transition-colors">
-              <FaEnvelope className="mr-2" />
-              contact@damad-ascenseurs.fr
-            </a>
-          </div>
-          <div className="hidden md:flex items-center space-x-4">
-            <a href="https://damad-client.vercel.app/dashboard" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">Espace client</a>
           </div>
         </div>
       </div>
 
       {/* Main Navigation */}
-      <nav className={`bg-white shadow-lg transition-all duration-300 fixed w-full z-50 ${scrolled ? 'py-2' : 'py-4'}`}>
+      <nav className={`bg-[#fbfcfd] shadow-lg transition-all duration-300 fixed w-full z-50 ${scrolled ? 'py-2' : 'py-4'}`} ref={mobileMenuRef}>
         {/* Secondary links above main nav */}
-        <div className="container mx-auto px-4 hidden md:block">
-          <div className="flex justify-end mb-1">
+        <div className="container mx-auto px-6 hidden md:block">
+          <div className="flex justify-end mb-2">
             {secondaryLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-gray-500 hover:text-gray-700 hover:underline transition-colors text-xs font-medium ml-6 py-1"
+                className={`text-gray-600 hover:text-[#0046fe] transition-colors text-sm font-medium ml-8 py-1 border-b-2 ${pathname === link.href ? 'border-[#0046fe]' : 'border-transparent'}`}
               >
                 {link.name}
               </Link>
@@ -93,37 +111,38 @@ export default function Navbar() {
           </div>
         </div>
         
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6">
           <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center">
-              <div className={`relative ${scrolled ? 'h-16' : 'h-20'} w-auto transition-all duration-300`}>
+            <Link href="/" className="flex items-center space-x-3 group">
+              <div className={`relative ${scrolled ? 'h-16' : 'h-20'} w-auto transition-all duration-300 overflow-hidden`}>
                 <Image 
                   src="/damad-transparent.png" 
                   alt="DAMAD" 
                   width={scrolled ? 64 : 80}
                   height={scrolled ? 64 : 80}
-                  className="object-contain h-full w-auto"
+                  className="object-contain h-full w-auto group-hover:scale-105 transition-transform duration-300"
                   priority
                 />
               </div>
+              <span className={`font-bold text-[#2b3343] ${scrolled ? 'text-xl' : 'text-2xl'} transition-all duration-300 group-hover:text-[#ff5c35]`}>DMD</span>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-gray-700 hover:text-[#2b3343] font-medium transition-colors relative group px-2 py-1"
+                  className={`text-gray-700 hover:text-[#0046fe] font-medium transition-colors relative group px-3 py-2 rounded-md ${pathname === link.href ? 'bg-gray-50 text-[#0046fe]' : 'hover:bg-gray-50'}`}
                 >
                   {link.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#2b3343] transition-all group-hover:w-full"></span>
+                  <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-[#0046fe] transition-all group-hover:w-full ${pathname === link.href ? 'w-full' : ''}`}></span>
                 </Link>
               ))}
 
               <Link 
                 href="/devis" 
-                className="bg-[#2b3343] hover:bg-[#3d4759] text-white px-6 py-2.5 rounded-lg transition-all duration-300 font-medium mr-3 hover:shadow-md flex items-center justify-center"
+                className="bg-[#ff5c35] hover:bg-[#e64a25] text-white px-7 py-2.5 rounded-lg transition-all duration-300 font-medium mr-4 hover:shadow-md flex items-center justify-center transform hover:-translate-y-0.5"
               >
                 <span>Devis</span>
               </Link>
@@ -131,7 +150,7 @@ export default function Navbar() {
                 href="https://damad-client.vercel.app/dashboard" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#0046fe] hover:bg-[#0035c8] text-white px-6 py-2.5 rounded-lg transition-all duration-300 font-medium hover:shadow-md flex items-center justify-center"
+                className="bg-[#0046fe] hover:bg-[#0035c8] text-white px-7 py-2.5 rounded-lg transition-all duration-300 font-medium hover:shadow-md flex items-center justify-center transform hover:-translate-y-0.5"
               >
                 <span>Espace client</span>
               </a>
@@ -140,63 +159,72 @@ export default function Navbar() {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-gray-700 focus:outline-none"
+              className="md:hidden text-gray-700 focus:outline-none p-2 rounded-md hover:bg-gray-100 transition-colors"
               aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? (
-                <FaTimes className="w-6 h-6" />
+                <FaTimes className="w-6 h-6 text-[#2b3343]" />
               ) : (
-                <FaBars className="w-6 h-6" />
+                <FaBars className="w-6 h-6 text-[#2b3343]" />
               )}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white shadow-lg">
-            <div className="px-4 pt-2 pb-4 space-y-2">
+        <div 
+          className={`md:hidden bg-[#fbfcfd] shadow-lg absolute w-full left-0 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-5 opacity-0 pointer-events-none'}`}
+          style={{ maxHeight: isMenuOpen ? '90vh' : '0', overflow: 'auto' }}
+        > 
+          <div className="px-4 py-2 divide-y divide-gray-100 bg-[#fbfcfd]">
+            {/* Primary navigation links */}
+            <div className="py-2">
+              <h3 className="text-xs uppercase text-gray-500 font-semibold px-4 py-2">Services</h3>
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="block px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors font-medium"
-                  onClick={() => setIsMenuOpen(false)}
+                  className={`block px-4 py-3 rounded-lg transition-colors font-medium ${pathname === link.href ? 'bg-blue-50 text-[#0046fe]' : 'text-gray-700 hover:bg-gray-50'}`}
                 >
                   {link.name}
                 </Link>
               ))}
+            </div>
+            
+            {/* Secondary navigation links */}
+            <div className="py-2">
+              <h3 className="text-xs uppercase text-gray-500 font-semibold px-4 py-2">À propos</h3>
               {secondaryLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="block px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors text-sm font-medium"
-                  onClick={() => setIsMenuOpen(false)}
+                  className={`block px-4 py-3 rounded-lg transition-colors font-medium ${pathname === link.href ? 'bg-blue-50 text-[#0046fe]' : 'text-gray-600 hover:bg-gray-50'}`}
                 >
                   {link.name}
                 </Link>
               ))}
-              <div className="px-4 pt-2 space-y-3">
-                <Link 
-                  href="/devis" 
-                  className="block w-full text-center bg-[#2b3343] hover:bg-[#3d4759] text-white px-6 py-3 rounded-lg transition-colors font-medium mb-2"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Devis
-                </Link>
-                <a 
-                  href="https://damad-client.vercel.app/dashboard" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full text-center bg-[#0046fe] hover:bg-[#0035c8] text-white px-6 py-3 rounded-lg transition-colors font-medium"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Espace client
-                </a>
-              </div>
+            </div>
+            
+            {/* Call-to-action buttons */}
+            <div className="py-4 space-y-3">
+              <Link 
+                href="/devis" 
+                className="block w-full text-center bg-[#ff5c35] hover:bg-[#e64a25] text-white px-6 py-3.5 rounded-lg transition-colors font-medium shadow-sm"
+              >
+                Demander un devis
+              </Link>
+              <a 
+                href="https://damad-client.vercel.app/dashboard" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full text-center bg-[#0046fe] hover:bg-[#0035c8] text-white px-6 py-3.5 rounded-lg transition-colors font-medium shadow-sm"
+              >
+                Espace client
+              </a>
             </div>
           </div>
-        )}
+        </div>
       </nav>
     </>
   );

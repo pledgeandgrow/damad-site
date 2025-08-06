@@ -2,8 +2,8 @@
 
 import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { FiPhone } from 'react-icons/fi';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 
 // Import components with SSR disabled to avoid hydration issues
 const DevisForm = dynamic(() => import('@/components/devis/DevisForm'), { ssr: false });
@@ -125,71 +125,43 @@ export default function DevisPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#2b3343] to-[#1a202c] text-white py-28 relative overflow-hidden">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{ backgroundImage: 'url("/pattern-bg.png")', backgroundSize: '200px' }}></div>
+      <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image 
+            src="/images/projects/damad10.jpg" 
+            alt="Demande de devis" 
+            className="object-cover"
+            fill
+            sizes="100vw"
+            priority
+          />
+        </div>
+
+        <div className="container mx-auto px-4 max-w-7xl relative z-10 text-center">
+          <div className="animate-fade-in-up bg-black/40 backdrop-blur-sm inline-block px-8 py-6 rounded-lg">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+              DEVIS
+            </h1>
+            <div className="w-24 h-1 bg-[#99a8b1] mx-auto"></div>
+            <p className="text-white text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
+              Obtenez un devis pour votre projet
+            </p>
+          </div>
         </div>
         
-        {/* Animated shapes */}
-        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-20 right-10 w-64 h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-64 h-64 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="inline-block mb-4 px-6 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium text-blue-100 border border-white/20"
-            >
-              Service rapide et professionnel
-            </motion.div>
-            <motion.h1 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-blue-200"
-            >
-              Devis pour vos ascenseurs
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-6 max-w-2xl mx-auto text-xl text-blue-100"
-            >
-              Obtenez un devis pour votre projet en moins de 2 minutes.
-              Notre équipe d&apos;experts est à votre écoute pour vous proposer la solution la plus adaptée à vos besoins.
-            </motion.p>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-10 flex justify-center"
-            >
-              <motion.a
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.98 }}
-                href="tel:+33123456789"
-                className="px-8 py-3 border-2 border-blue-300 text-base font-medium rounded-lg text-white hover:bg-white/10 transition-all duration-300 md:py-4 md:text-lg md:px-10 inline-flex items-center justify-center group"
-              >
-                <span className="bg-white/20 p-2 rounded-full mr-3 group-hover:bg-white/30 transition-colors">
-                  <FiPhone className="text-white w-4 h-4" />
-                </span>
-                Appeler un expert
-              </motion.a>
-            </motion.div>
-          </div>
+        {/* Decorative elements */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-[2]">
+          <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-[60px] text-white">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="currentColor"></path>
+          </svg>
         </div>
       </div>
 
 
       {/* Form Section */}
-      <div id="devis-form" className="py-20 bg-gradient-to-b from-gray-50 to-gray-100 relative">
+      <div id="devis-form" className="py-20 bg-[#fbfcfc] relative">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{ backgroundImage: 'url("/pattern-bg.png")', backgroundSize: '300px' }}></div>
@@ -205,15 +177,13 @@ export default function DevisPage() {
           >
             <div className="p-8 sm:p-10">
               <div className="text-center mb-10">
-                <div className="inline-block mb-4 px-4 py-1 bg-blue-50 rounded-full text-sm font-medium text-[#2b3343]">
-                  Rapide et sans engagement
-                </div>
+
                 <motion.h2 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="text-3xl font-extrabold text-[#2b3343] sm:text-4xl"
+                  className="text-3xl font-extrabold text-[#0046fe] sm:text-4xl"
                 >
                   Demande de devis
                 </motion.h2>

@@ -43,15 +43,7 @@ export default function ContactInfo() {
               </div>
             </div>
             
-            <div className="mt-8 pt-6 border-t border-gray-200">
-              <h4 className="text-lg font-medium text-[#2b3343] mb-4">Service Dépannage</h4>
-              <p className="text-gray-600 mb-2">
-                Notre Service Dépannage répond sous 48h pour les situations critiques.
-              </p>
-              <p className="text-[#2b3343] font-bold">
-                Numéro de dépannage: +33 1 23 45 67 00
-              </p>
-            </div>
+            {/* Service Dépannage section removed as requested */}
             
             <div className="mt-8 pt-6 border-t border-gray-200">
               <h4 className="text-lg font-medium text-[#2b3343] mb-4">Centrale d&apos;appel</h4>

@@ -86,25 +86,20 @@ const elevatorTypes = [
 export default function Installation() {
   return (
     <div className="bg-white">
-      {/* Hero Section */}
+      {/* Hero Section with Background Image */}
       <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
             src="/images/services/ascenseur-de-rue-pour-personnes-handicapees.jpg" 
             alt="Installation d&apos;appareil d&apos;accessibilité" 
-            className="object-cover opacity-40"
+            className="object-cover"
             fill
             sizes="100vw"
             priority
           />
         </div>
-        {/* Animated overlay pattern */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#2b3343]/80 to-[#2b3343]/60 z-[1]"></div>
-        <div className="absolute inset-0 opacity-20 z-[1]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}></div>
         <div className="container mx-auto px-4 max-w-7xl relative z-10 text-center">
-          <div className="animate-fade-in-up">
+          <div className="animate-fade-in-up bg-black/40 backdrop-blur-sm inline-block px-8 py-6 rounded-lg">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
               INSTALLATION
             </h1>
@@ -112,7 +107,6 @@ export default function Installation() {
             <p className="text-white text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
               Solutions sur mesure pour tous vos projets d&apos;installation
             </p>
-
           </div>
         </div>
         {/* Decorative elements */}
@@ -123,14 +117,14 @@ export default function Installation() {
         </div>
       </div>
       {/* Features Section */}
-      <div id="features" className="py-20 bg-white scroll-mt-16">
+      <div id="features" className="py-20 bg-[#fbfcfc] scroll-mt-16">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-10 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
               Une installation clé en main
             </h2>
-            <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
               Notre équipe d&apos;experts vous accompagne dans la réalisation de votre projet d&apos;accessibilité, de l&apos;étude technique à la mise en service. Nous mettons notre savoir-faire à votre service pour vous proposer des solutions adaptées à vos besoins et à votre budget.
             </p>
           </div>
@@ -138,14 +132,14 @@ export default function Installation() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {features.map((feature, index) => (
               <div key={index} className="pt-6">
-                <div className="flow-root bg-white rounded-xl px-6 pb-8 h-full border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 hover:border-[#2b3343] group">
+                <div className="flow-root bg-white rounded-xl px-6 pb-8 h-full border border-gray-100 shadow-md hover:shadow-lg transition-all duration-300 hover:border-[#0046fe] group">
                   <div className="-mt-6">
-                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-[#2b3343] text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex items-center justify-center h-16 w-16 rounded-full bg-[#0046fe] text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
                       {feature.icon}
                     </div>
                     <h3 className="mt-6 text-lg font-bold text-[#2b3343] tracking-tight">{feature.title}</h3>
-                    <div className="w-10 h-0.5 bg-[#2b3343] my-3"></div>
-                    <p className="text-base text-gray-600">{feature.description}</p>
+                    <div className="w-10 h-0.5 bg-[#0046fe] my-3"></div>
+                    <p className="text-base text-[#2b3343]">{feature.description}</p>
                   </div>
                 </div>
               </div>
@@ -155,14 +149,14 @@ export default function Installation() {
       </div>
 
       {/* Process Section */}
-      <div className="bg-white py-20 border-t border-gray-100">
+      <div className="bg-[#fbfcfc] py-20 border-t border-gray-100">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-10 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
               Notre processus d&apos;installation
             </h2>
-            <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
               Un accompagnement personnalisé à chaque étape de votre projet.
             </p>
           </div>
@@ -171,13 +165,13 @@ export default function Installation() {
             <div className="space-y-10 md:space-y-0 md:grid md:grid-cols-5 md:gap-x-8 md:gap-y-10">
               {installationSteps.map((step) => (
                 <div key={step.step} className="relative group">
-                  <div className="flex items-center justify-center h-16 w-16 rounded-full bg-[#2b3343] text-white text-xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex items-center justify-center h-16 w-16 rounded-full bg-[#0046fe] text-white text-xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
                     {step.step}
                   </div>
-                  <div className="hidden md:block absolute top-8 left-16 w-full h-0.5 bg-[#2b3343] transform -translate-y-1/2 opacity-50"></div>
+                  <div className="hidden md:block absolute top-8 left-16 w-full h-0.5 bg-[#0046fe] transform -translate-y-1/2 opacity-50"></div>
                   <p className="mt-5 text-lg font-bold text-[#2b3343]">{step.title}</p>
-                  <div className="w-10 h-0.5 bg-[#2b3343] my-3"></div>
-                  <p className="text-base text-gray-600">{step.description}</p>
+                  <div className="w-10 h-0.5 bg-[#0046fe] my-3"></div>
+                  <p className="text-base text-[#2b3343]">{step.description}</p>
                 </div>
               ))}
             </div>
@@ -186,52 +180,39 @@ export default function Installation() {
       </div>
 
       {/* Elevator Types */}
-      <div className="py-20 bg-white border-t border-gray-100">
+      <div className="py-20 bg-[#fbfcfc] border-t border-gray-100">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-10 sm:mb-16">
-            <span className="inline-block text-white font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2 sm:mb-3 bg-[#2b3343] px-3 py-1 rounded-full">
-              Solutions adaptées
-            </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
               Nos solutions d&apos;accessibilité
             </h2>
-            <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
               Choisissez la solution la plus adaptée à vos besoins.
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {elevatorTypes.map((type, index) => (
-              <div key={index} className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:border-[#2b3343] group">
-                <div className="h-2 bg-[#2b3343]"></div>
+              <div key={index} className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:border-[#0046fe] group">
+                <div className="h-2 bg-[#0046fe]"></div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-[#2b3343]">{type.name}</h3>
-                  <div className="w-10 h-0.5 bg-[#2b3343] my-3"></div>
-                  <p className="text-gray-600">{type.description}</p>
+                  <div className="w-10 h-0.5 bg-[#0046fe] my-3"></div>
+                  <p className="text-[#2b3343]">{type.description}</p>
                   <ul className="mt-4 space-y-3">
                     {type.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <span className="flex-shrink-0 h-5 w-5 rounded-full bg-[#2b3343] flex items-center justify-center mr-2">
+                        <span className="flex-shrink-0 h-5 w-5 rounded-full bg-[#0046fe] flex items-center justify-center mr-2">
                           <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                           </svg>
                         </span>
-                        <span className="text-gray-700">{feature}</span>
+                        <span className="text-[#2b3343]">{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-6 pt-4 border-t border-gray-100">
-                    <Link
-                      href="/contact"
-                      className="group inline-flex items-center text-base font-medium text-[#2b3343] hover:text-[#3d4759] transition-colors duration-300"
-                    >
-                      En savoir plus
-                      <svg className="ml-2 h-4 w-4 text-[#2b3343] group-hover:text-[#3d4759] group-hover:translate-x-1 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                  </div>
+
                 </div>
               </div>
             ))}
@@ -240,19 +221,19 @@ export default function Installation() {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-white py-20 sm:py-24 border-t border-gray-100">
+      <div className="bg-[#fbfcfc] py-20 sm:py-24 border-t border-gray-100">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="mt-10 sm:mt-16 text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
               <span className="block">Projet d&apos;installation d&apos;appareil d&apos;accessibilité ?</span>
             </h2>
-            <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-6"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed mb-8">
+            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
+            <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed mb-8">
               Nos experts sont à votre écoute pour étudier votre projet et vous proposer la meilleure solution.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 bg-[#2b3343] text-white font-medium rounded-lg hover:bg-[#3d4759] transition-colors duration-300 shadow-md hover:shadow-lg"
+              className="inline-flex items-center justify-center px-6 py-3 bg-[#ff5c35] text-white font-medium rounded-lg hover:bg-[#ff5c35]/80 transition-colors duration-300 shadow-md hover:shadow-lg"
             >
               Demander un devis
               <svg className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
