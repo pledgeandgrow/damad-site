@@ -11,16 +11,16 @@ export default function DevisSuccess() {
           </div>
         </div>
         
-        <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
+        <h2 className="mt-6 text-3xl font-extrabold text-[#2b3343]">
           Demande de devis envoyée avec succès !
         </h2>
         
-        <p className="mt-4 text-lg text-gray-600">
+        <p className="mt-4 text-lg text-[#2b3343]">
           Merci pour votre confiance. Nous avons bien reçu votre demande et nous vous recontacterons dans les plus brefs délais.
         </p>
         
         <div className="mt-10 bg-blue-50 rounded-lg p-6 text-left">
-          <h3 className="text-lg font-medium text-gray-900 mb-4">
+          <h3 className="text-lg font-medium text-[#2b3343] mb-4">
             Prochaines étapes
           </h3>
           
@@ -30,7 +30,7 @@ export default function DevisSuccess() {
                 <FaEnvelope className="h-5 w-5 text-[#2b3343]" />
               </div>
               <div className="ml-3">
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-[#2b3343]">
                   Vous allez recevoir un email de confirmation avec les détails de votre demande.
                 </p>
               </div>
@@ -41,7 +41,7 @@ export default function DevisSuccess() {
                 <FaPhoneAlt className="h-5 w-5 text-[#2b3343]" />
               </div>
               <div className="ml-3">
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-[#2b3343]">
                   Un conseiller vous contactera sous 24h ouvrées pour discuter de votre projet.
                 </p>
               </div>
@@ -52,7 +52,7 @@ export default function DevisSuccess() {
                 <FaClock className="h-5 w-5 text-[#2b3343]" />
               </div>
               <div className="ml-3">
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-[#2b3343]">
                   Notre équipe est disponible du lundi au vendredi de 9h à 18h pour répondre à toutes vos questions.
                 </p>
               </div>
@@ -77,7 +77,7 @@ export default function DevisSuccess() {
         </div>
         
         <div className="mt-10 border-t border-gray-200 pt-6">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-[#2b3343]">
             Besoin d&apos;une réponse immédiate ? Appelez-nous au{' '}
             <a href="tel:+33123456789" className="font-medium text-[#2b3343] hover:text-[#3d4759]">
               01 23 45 67 89

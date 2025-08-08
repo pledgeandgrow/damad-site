@@ -1,4 +1,3 @@
-import PartenariatHero from '@/components/partenariat/PartenariatHero';
 import PartenariatContext from '@/components/partenariat/PartenariatContext'; 
 import PartenariatConditions from '@/components/partenariat/PartenariatConditions';
 import PartenariatForm from '@/components/partenariat/PartenariatForm';
@@ -11,8 +10,9 @@ export const metadata = {
 export default function PartenariatPage() {
   return (
     <main>
-      <PartenariatHero />
-      <PartenariatContext />
+      <div className="pt-16 md"> {/* Added padding top */}
+        <PartenariatContext />
+      </div>
       <PartenariatConditions />
       <PartenariatForm />
     </main>

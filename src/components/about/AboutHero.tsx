@@ -12,7 +12,7 @@ export default function AboutHero() {
     <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/images/projects/damad2.jpg" 
+          src="/images/a-propos/about1.jpg" 
           alt="À propos de DAMAD" 
           className="object-cover"
           fill

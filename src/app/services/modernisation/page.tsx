@@ -38,7 +38,7 @@ export default function ModernisationPage() {
       <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/images/services/ascenseur-en-verre-vers-un-metro-pietonnier-souterrain-avec-des-panneaux-de-verre-vert-et-un-pavage-tactile-dans-un-environnement-urbain-moderne.jpg" 
+            src="/images/services/modernisation.jpg" 
             alt="Rénovation et modernisation d&apos;appareils d&apos;accessibilité" 
             className="object-cover"
             fill

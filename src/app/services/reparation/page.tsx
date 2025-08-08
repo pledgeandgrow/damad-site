@@ -61,7 +61,7 @@ export default function ReparationPage() {
       <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/images/services/parking-gate-automatic-car-barrier-system-car-park-security.jpg" 
+            src="/images/services/reparation.jpg" 
             alt="Réparation d&apos;appareil d&apos;accessibilité" 
             className="object-cover"
             fill
@@ -96,7 +96,7 @@ export default function ReparationPage() {
             </h2>
             <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
             <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-              Notre équipe d&apos;experts est disponible avec Réponse sous 48h pour résoudre rapidement tout problème technique.
+              
             </p>
           </div>
 
@@ -156,11 +156,11 @@ export default function ReparationPage() {
           <div className="mt-10 sm:mt-16 text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
               <span className="block">Urgence appareil d&apos;accessibilité bloqué ?</span>
-              <span className="block text-[#2b3343]/80">Nos techniciens interviennent sous 2h*</span>
+              <span className="block text-[#2b3343]/80">Nos techniciens interviennent rapidement</span>
             </h2>
             <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
             <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed mb-8">
-              Notre équipe d&apos;experts est disponible pour résoudre rapidement tout problème technique.
+              
             </p>
             <div className="flex items-center justify-center">
               <Link

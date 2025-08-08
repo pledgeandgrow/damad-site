@@ -36,7 +36,7 @@ export default function PartenariatConditions() {
     {
       number: "2",
       icon: <FaClipboardCheck className="text-3xl text-white" />,
-      title: "Nous examinerons votre candidature",
+      title: "Nous examinons votre candidature",
       description: "Nous vous contacterons pour établir une première prise de contact et faire connaissance !"
     },
     {

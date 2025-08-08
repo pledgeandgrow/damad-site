@@ -90,7 +90,7 @@ export default function Installation() {
       <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/images/services/ascenseur-de-rue-pour-personnes-handicapees.jpg" 
+            src="/images/services/installation.jpg" 
             alt="Installation d&apos;appareil d&apos;accessibilité" 
             className="object-cover"
             fill
@@ -125,7 +125,7 @@ export default function Installation() {
             </h2>
             <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
             <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-              Notre équipe d&apos;experts vous accompagne dans la réalisation de votre projet d&apos;accessibilité, de l&apos;étude technique à la mise en service. Nous mettons notre savoir-faire à votre service pour vous proposer des solutions adaptées à vos besoins et à votre budget.
+              Notre équipe vous accompagne dans la réalisation de votre projet d&apos;accessibilité, de l&apos;étude technique à la mise en service. Nous mettons notre savoir-faire à votre service pour vous proposer des solutions adaptées à vos besoins et à votre budget.
             </p>
           </div>
 
@@ -141,6 +141,46 @@ export default function Installation() {
                     <div className="w-10 h-0.5 bg-[#0046fe] my-3"></div>
                     <p className="text-base text-[#2b3343]">{feature.description}</p>
                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Elevator Types - Moved before Process Section */}
+      <div className="py-20 bg-[#fbfcfc] border-t border-gray-100">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="text-center mb-10 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
+              Nos solutions d&apos;accessibilité
+            </h2>
+            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+              Choisissez la solution la plus adaptée à vos besoins.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {elevatorTypes.map((type, index) => (
+              <div key={index} className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:border-[#0046fe] group">
+                <div className="h-2 bg-[#0046fe]"></div>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold text-[#2b3343]">{type.name}</h3>
+                  <div className="w-10 h-0.5 bg-[#0046fe] my-3"></div>
+                  <p className="text-[#2b3343]">{type.description}</p>
+                  <ul className="mt-4 space-y-3">
+                    {type.features.map((feature, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className="flex-shrink-0 h-5 w-5 rounded-full bg-[#0046fe] flex items-center justify-center mr-2">
+                          <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </span>
+                        <span className="text-[#2b3343]">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}
@@ -175,47 +215,6 @@ export default function Installation() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Elevator Types */}
-      <div className="py-20 bg-[#fbfcfc] border-t border-gray-100">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-10 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
-              Nos solutions d&apos;accessibilité
-            </h2>
-            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
-            <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-              Choisissez la solution la plus adaptée à vos besoins.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {elevatorTypes.map((type, index) => (
-              <div key={index} className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:border-[#0046fe] group">
-                <div className="h-2 bg-[#0046fe]"></div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-[#2b3343]">{type.name}</h3>
-                  <div className="w-10 h-0.5 bg-[#0046fe] my-3"></div>
-                  <p className="text-[#2b3343]">{type.description}</p>
-                  <ul className="mt-4 space-y-3">
-                    {type.features.map((feature, i) => (
-                      <li key={i} className="flex items-start">
-                        <span className="flex-shrink-0 h-5 w-5 rounded-full bg-[#0046fe] flex items-center justify-center mr-2">
-                          <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
-                        <span className="text-[#2b3343]">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </div>

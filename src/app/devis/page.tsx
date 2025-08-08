@@ -183,16 +183,16 @@ export default function DevisPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="text-3xl font-extrabold text-[#0046fe] sm:text-4xl"
+                  className="text-3xl font-extrabold text-[#2b3343] sm:text-4xl"
                 >
-                  Demande de devis
+                  Besoin d&apos;un devis ?
                 </motion.h2>
                 <motion.p 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                   viewport={{ once: true }}
-                  className="mt-4 text-lg text-gray-600"
+                  className="mt-4 text-lg text-[#2b3343]"
                 >
                   N&apos;hésitez pas à nous contacter pour toute question ou demande d&apos;information complémentaire.
                 </motion.p>

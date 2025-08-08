@@ -123,18 +123,18 @@ export default function Hero() {
           </div>
           
           {/* Stats section with enhanced styling and animations - optimized for mobile */}
-          <div className="grid grid-cols-2 gap-2 xs:gap-3 sm:gap-4 md:gap-6 max-w-4xl mx-auto mt-8 xs:mt-10 md:mt-12">
+          <div className="grid grid-cols-2 gap-4 xs:gap-5 sm:gap-6 max-w-4xl mx-auto mt-8 xs:mt-10 md:mt-12">
             {[
-              { number: '20+', label: 'Ans d&#39;expérience', icon: <FaAward className="w-5 h-5 text-[#0046fe] mx-auto" /> },
-              { number: '1000+', label: 'Appareils en gestion', icon: <FaElevator className="w-5 h-5 text-[#0046fe] mx-auto" /> }
+              { number: '20+', label: "Ans d'expérience", icon: <FaAward className="w-5 h-5 text-[#99a8b1] mx-auto" /> },
+              { number: '1000+', label: 'Appareils en gestion', icon: <FaElevator className="w-5 h-5 text-[#99a8b1] mx-auto" /> }
             ].map((item, index) => (
               <div 
                 key={index} 
-                className="text-center p-2 xs:p-3 sm:p-4 bg-[#2b3343] backdrop-blur-sm rounded-lg shadow-lg border border-[#2b3343]/50 hover:bg-[#2b3343]/90 transition-all duration-300 transform hover:scale-105"
+                className="text-center p-3 xs:p-4 sm:p-5 bg-black/40 backdrop-blur-sm rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105"
               >
-                <div className="hidden xs:block mb-0.5 xs:mb-1">{item.icon}</div>
-                <div className="text-xl xs:text-2xl sm:text-3xl font-bold text-white mb-0.5 xs:mb-1 sm:mb-2">{item.number}</div>
-                <div className="text-2xs xs:text-xs sm:text-sm text-white/90">{item.label}</div>
+                <div className="hidden xs:block mb-1 xs:mb-2">{item.icon}</div>
+                <div className="text-xl xs:text-2xl sm:text-3xl font-bold text-white mb-1 xs:mb-2">{item.number}</div>
+                <div className="text-xs xs:text-sm sm:text-base text-white">{item.label}</div>
               </div>
             ))}
           </div>

@@ -119,16 +119,18 @@ export default function RecruitmentProcess() {
           viewport={{ once: true }}
           className="mt-16"
         >
-          <h3 className="text-2xl font-bold text-[#2b3343] mb-8 text-center relative inline-block">
-            <span className="relative z-10">Formation et Développement Professionnel</span>
-            <span className="absolute bottom-0 left-0 w-full h-3 bg-blue-100 -z-10 transform -rotate-1"></span>
-          </h3>
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-[#2b3343] relative inline-block">
+              <span className="relative z-10">Formation et Développement Professionnel</span>
+              <span className="absolute bottom-0 left-0 w-full h-3 bg-blue-100 -z-10 transform -rotate-1"></span>
+            </h3>
+          </div>
           
           <div className="grid md:grid-cols-2 gap-8 mt-10 max-w-5xl mx-auto">
             <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="relative h-80 w-full">
                 <Image 
-                  src="/images/site/FORMATION.jpg" 
+                  src="/images/recrutement/recrutement1.jpg" 
                   alt="Formation technique DAMAD" 
                   className="object-cover object-center"
                   fill
@@ -148,7 +150,7 @@ export default function RecruitmentProcess() {
             <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               <div className="relative h-80 w-full">
                 <Image 
-                  src="/images/site/formation securite.jpg" 
+                  src="/images/recrutement/recrutement2.jpg" 
                   alt="Formation sécurité DAMAD" 
                   className="object-cover object-center"
                   fill
@@ -166,12 +168,7 @@ export default function RecruitmentProcess() {
             </div>
           </div>
           
-          <div className="text-center mt-8">
-            <p className="text-gray-700 max-w-3xl mx-auto">
-              Chez DAMAD, nous investissons dans le développement professionnel de nos collaborateurs. 
-              Nos programmes de formation vous permettent d&apos;acquérir de nouvelles compétences et d&apos;évoluer au sein de notre entreprise.
-            </p>
-          </div>
+
         </motion.div>
       </div>
     </section>

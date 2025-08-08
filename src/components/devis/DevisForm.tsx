@@ -95,7 +95,7 @@ export default function DevisForm({
         transition={{ duration: 0.4 }}
       >
         <h3 className="text-xl font-semibold text-[#2b3343] mb-2">Service</h3>
-        <p className="text-gray-600">Sélectionnez le type de service dont vous avez besoin :</p>
+        <p className="text-[#2b3343]">Sélectionnez le type de service dont vous avez besoin :</p>
       </motion.div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -153,8 +153,8 @@ export default function DevisForm({
               <div className={`rounded-full p-3 mb-2 ${getInputValue('serviceType') === service.type ? 'bg-[#0046fe]/10' : 'bg-gray-100'}`}>
                 {service.icon}
               </div>
-              <span className="font-semibold text-[#0046fe] text-lg">{service.title}</span>
-              <p className="text-sm text-gray-600 mt-2">{service.description}</p>
+              <span className="font-semibold text-[#2b3343] text-lg">{service.title}</span>
+              <p className="text-sm text-[#2b3343] mt-2">{service.description}</p>
               {getInputValue('serviceType') === service.type && (
                 <div className="mt-3 text-[#0046fe]">
                   <FaCheckCircle className="inline-block mr-1" /> Sélectionné
@@ -171,7 +171,7 @@ export default function DevisForm({
         transition={{ duration: 0.5, delay: 0.5 }}
         className="pt-8 border-t border-gray-200"
       >
-        <h4 className="text-lg font-semibold text-[#0046fe] mb-4">Type de bâtiment</h4>
+        <h4 className="text-lg font-semibold text-[#2b3343] mb-4">Type de bâtiment</h4>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { value: 'residential', label: 'Résidentiel', icon: <FaHome className="text-2xl text-[#0046fe]" /> },
@@ -195,7 +195,7 @@ export default function DevisForm({
               <div className={`rounded-full p-2 mb-2 ${getInputValue('buildingType') === buildingType.value ? 'bg-[#0046fe]/10' : 'bg-gray-100'}`}>
                 {buildingType.icon}
               </div>
-              <span className="text-sm font-medium text-[#0046fe]">{buildingType.label}</span>
+              <span className="text-sm font-medium text-[#2b3343]">{buildingType.label}</span>
             </motion.button>
           ))}
         </div>
@@ -212,7 +212,7 @@ export default function DevisForm({
         transition={{ duration: 0.4 }}
       >
         <h3 className="text-xl font-semibold text-[#2b3343] mb-2">Détails du projet</h3>
-        <p className="text-gray-600">Veuillez préciser les caractéristiques techniques de votre projet</p>
+        <p className="text-[#2b3343]">Veuillez préciser les caractéristiques techniques de votre projet</p>
       </motion.div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -342,7 +342,7 @@ export default function DevisForm({
         transition={{ duration: 0.4 }}
       >
         <h3 className="text-xl font-semibold text-[#2b3343] mb-2">Vos coordonnées</h3>
-        <p className="text-gray-600">Veuillez remplir vos informations de contact pour recevoir votre devis</p>
+        <p className="text-[#2b3343]">Veuillez remplir vos informations de contact pour recevoir votre devis</p>
       </motion.div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -526,7 +526,7 @@ export default function DevisForm({
             <label htmlFor="privacyPolicy" className="font-medium text-[#0046fe]">
               J&apos;accepte la politique de confidentialité <span className="text-red-500">*</span>
             </label>
-            <p className="text-gray-600 text-sm mt-1">
+            <p className="text-[#2b3343] text-sm mt-1">
               En soumettant ce formulaire, j&apos;accepte que mes données personnelles soient utilisées pour me recontacter dans le cadre de ma demande de devis.
             </p>
           </div>

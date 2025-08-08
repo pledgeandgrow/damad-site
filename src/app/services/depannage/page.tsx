@@ -1,6 +1,7 @@
 import { FaTools, FaClock, FaPhone, FaClipboardCheck } from 'react-icons/fa';
 import Link from 'next/link';
 import Image from 'next/image';
+import FaqDropdown from '@/components/FaqDropdown';
 
 import { Metadata } from 'next';
 
@@ -50,7 +51,7 @@ export default function Depannage() {
       <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/images/services/technician-repairing-elevator.jpg" 
+            src="/images/services/depannage.jpg" 
             alt="Dépannage d&apos;appareils d&apos;accessibilité" 
             className="object-cover"
             fill
@@ -322,7 +323,7 @@ export default function Depannage() {
               
               <div className="mt-12 text-center">
                 <Link href="/contact?subject=rdv-depannage" className="inline-flex items-center px-8 py-4 bg-[#ff5c35] text-white font-semibold rounded-lg hover:bg-[#ff5c35]/80 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
-                  Prendre rendez-vous
+                  Prendre rendez-vous en ligne
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
@@ -481,30 +482,27 @@ export default function Depannage() {
             <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-6"></div>
           </div>
           
-          <div className="max-w-4xl mx-auto space-y-8">
+          <div className="max-w-4xl mx-auto space-y-6">
             {/* Question 1 */}
-            <div className="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <h3 className="text-xl font-bold text-[#2b3343] mb-3">Dans quelle région vous intervenez ?</h3>
-              <p className="text-gray-600">
+            <FaqDropdown question="Dans quelle région vous intervenez ?">
+              <p>
                 Nous intervenons à Paris et petite couronne (92, 93, 94) ainsi qu&apos;une partie de la grande couronne (78, 95).
               </p>
-            </div>
+            </FaqDropdown>
             
             {/* Question 2 */}
-            <div className="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <h3 className="text-xl font-bold text-[#2b3343] mb-3">Pourrais-je annuler mon intervention ponctuelle ?</h3>
-              <p className="text-gray-600">
+            <FaqDropdown question="Pourrais-je annuler mon intervention ponctuelle ?">
+              <p>
                 Oui, il vous est possible d&apos;annuler votre intervention, jusqu&apos;à 24 h jour ouvrable avant l&apos;intervention en contactant notre service client à l&apos;horaire d&apos;ouverture sur service. Passé ce délai, l&apos;annulation ne sera plus possible.
               </p>
-            </div>
+            </FaqDropdown>
             
             {/* Question 3 */}
-            <div className="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <h3 className="text-xl font-bold text-[#2b3343] mb-3">Que se passe-t-il si mon problème n&apos;est pas résolu ?</h3>
-              <p className="text-gray-600">
+            <FaqDropdown question="Que se passe-t-il si mon problème n&apos;est pas résolu ?">
+              <p>
                 En cas de non résolution du problème, selon le diagnostic une intervention sera reprogrammée.
               </p>
-            </div>
+            </FaqDropdown>
           </div>
         </div>
       </div>

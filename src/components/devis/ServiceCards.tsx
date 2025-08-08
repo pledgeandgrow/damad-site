@@ -9,7 +9,7 @@ export default function ServiceCards() {
       title: 'Dépannage',
       description: 'Service d\'urgence pour résoudre rapidement les problèmes de votre ascenseur',
       features: ['Intervention rapide', 'Disponible Réponse sous 48h', 'Techniciens qualifiés'],
-      bgColor: 'from-blue-50 to-blue-100'
+      bgColor: 'from-gray-50 to-gray-100'
     },
     {
       icon: <FaBuilding className="w-10 h-10 text-[#0046fe]" />,
@@ -23,7 +23,7 @@ export default function ServiceCards() {
       title: 'Réparation',
       description: 'Services de réparation complets pour tous types de pannes et dysfonctionnements',
       features: ['Diagnostic précis', 'Pièces d\'origine', 'Garantie des réparations'],
-      bgColor: 'from-blue-50 to-blue-100'
+      bgColor: 'from-gray-50 to-gray-100'
     },
     {
       icon: <FaTools className="w-10 h-10 text-[#0046fe]" />,
@@ -37,7 +37,7 @@ export default function ServiceCards() {
       title: 'Maintenance',
       description: 'Contrats d\'entretien sur mesure pour une tranquillité d\'esprit',
       features: ['Réponse sous 48h', 'Pièces détachées', 'Rapports détaillés'],
-      bgColor: 'from-blue-50 to-blue-100'
+      bgColor: 'from-gray-50 to-gray-100'
     },
     {
       icon: <FaShieldAlt className="w-10 h-10 text-[#0046fe]" />,
@@ -57,7 +57,7 @@ export default function ServiceCards() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold text-[#0046fe] mb-4 relative inline-block"
+            className="text-3xl font-bold text-[#2b3343] mb-4 relative inline-block"
           >
             <span className="relative z-10">Nos Services</span>
             <span className="absolute bottom-0 left-0 w-full h-3 bg-blue-100 -z-10 transform -rotate-1"></span>
@@ -67,9 +67,9 @@ export default function ServiceCards() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-xl text-[#2b3343] max-w-3xl mx-auto"
           >
-            Découvrez nos services professionnels pour l&apos;entretien et l&apos;installation de vos ascenseurs
+            Découvrez nos services pour l&apos;entretien et l&apos;installation de vos ascenseurs
           </motion.p>
         </div>
 
@@ -90,14 +90,14 @@ export default function ServiceCards() {
                   </div>
                   <h3 className="ml-4 text-xl font-semibold text-[#2b3343]">{service.title}</h3>
                 </div>
-                <p className="text-gray-700 mb-6">{service.description}</p>
+                <p className="text-[#2b3343] mb-6">{service.description}</p>
                 <ul className="space-y-3">
                   {service.features.map((feature, i) => (
                     <li key={i} className="flex items-start">
                       <svg className="h-5 w-5 text-[#0046fe] mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-gray-800">{feature}</span>
+                      <span className="text-[#2b3343]">{feature}</span>
                     </li>
                   ))}
                 </ul>

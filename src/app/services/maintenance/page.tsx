@@ -1,6 +1,7 @@
 import { FaTools, FaClipboardCheck, FaClock, FaShieldAlt } from 'react-icons/fa';
 import Link from 'next/link';
 import Image from 'next/image';
+import FaqDropdown from '@/components/FaqDropdown';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -109,7 +110,7 @@ export default function MaintenancePage() {
       <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/images/services/serious-business-people-standing-elevator-preparing-meeting-surfing-net-gadgets.jpg" 
+            src="/images/services/maintenance.jpg" 
             alt="Maintenance d&apos;appareil d&apos;accessibilité" 
             className="object-cover"
             fill
@@ -449,46 +450,37 @@ export default function MaintenancePage() {
             <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
           </div>
           
-          <div className="space-y-8">
+          <div className="space-y-6 max-w-4xl mx-auto">
             {/* FAQ Item 1 */}
-            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-              <h3 className="text-xl font-bold text-[#2b3343] mb-3">
-                Dans quelles villes d&apos;Île-de-France intervenez-vous ?
-              </h3>
-              <p className="text-gray-700">
+            <FaqDropdown question="Dans quelles villes d'Île-de-France intervenez-vous ?">
+              <p>
                 Nous intervenons à Paris et petite couronne (92, 93, 94) ainsi qu&apos;une partie de la grande couronne (78, 95).
               </p>
-            </div>
+            </FaqDropdown>
             
             {/* FAQ Item 2 */}
-            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-              <h3 className="text-xl font-bold text-[#2b3343] mb-3">
-                Quels sont les signes indiquant qu&apos;un monte-charge nécessite une maintenance ?
-              </h3>
-              <p className="text-gray-700 mb-4">
+            <FaqDropdown question="Quels sont les signes indiquant qu'un monte-charge nécessite une maintenance ?">
+              <p className="mb-4">
                 Pour que votre monte-charge ou ascenseur continue de fonctionner de manière fiable et sécurisée, vous devez rester attentif aux signes qui indiquent un besoin
                 contrôle. Ignorer ses signes entraîne le risque de dysfonctionnements coûteux, compromet la sécurité des usagers.
               </p>
-              <p className="text-gray-700 mb-2 font-semibold">Quelques signes courants à surveiller :</p>
-              <ul className="list-disc pl-6 text-gray-700 space-y-1">
+              <p className="mb-2 font-semibold">Quelques signes courants à surveiller :</p>
+              <ul className="list-disc pl-6 space-y-1">
                 <li>Bruits inhabituels (grincements, cliquetis, vibrations excessives...) ;</li>
                 <li>Problèmes d&apos;ouverture et de fermeture des portes ;</li>
                 <li>Anomalies d&apos;affichage ou défauts de commande ;</li>
                 <li>Ralentissements ou arrêts inattendus ;</li>
                 <li>Mouvements irréguliers ou saccadés</li>
               </ul>
-            </div>
+            </FaqDropdown>
             
             {/* FAQ Item 3 */}
-            <div className="bg-white rounded-xl shadow-md p-6 border border-gray-100">
-              <h3 className="text-xl font-bold text-[#2b3343] mb-3">
-                À quelle fréquence devez-vous faire la maintenance de votre appareil d&apos;accessibilité.
-              </h3>
-              <p className="text-gray-700">
+            <FaqDropdown question="À quelle fréquence devez-vous faire la maintenance de votre appareil d'accessibilité ?">
+              <p>
                 Une fréquence de maintenance régulière est indispensable au bon fonctionnement et à la sécurité de votre installation.
                 L&apos;intervalle entre deux visites d&apos;entretien et de maintenance ne peut pas être supérieur à six semaines.
               </p>
-            </div>
+            </FaqDropdown>
           </div>
         </div>
       </div>

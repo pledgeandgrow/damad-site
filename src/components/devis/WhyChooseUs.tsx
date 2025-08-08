@@ -43,7 +43,7 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="mt-4 max-w-2xl text-xl text-gray-600 lg:mx-auto"
+            className="mt-4 max-w-2xl text-xl text-[#2b3343] lg:mx-auto"
           >
             Découvrez ce qui fait de nous le partenaire idéal pour votre projet d&apos;ascenseur.
           </motion.p>
@@ -70,7 +70,7 @@ export default function WhyChooseUs() {
                     <h3 className="mt-8 text-xl font-semibold text-[#2b3343] tracking-tight">
                       {feature.title}
                     </h3>
-                    <p className="mt-5 text-base text-gray-700">
+                    <p className="mt-5 text-base text-[#2b3343]">
                       {feature.description}
                     </p>
                   </div>
