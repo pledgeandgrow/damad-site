@@ -37,7 +37,7 @@ const faqItems: FAQItem[] = [
   {
     id: 'faq-3',
     question: "Comment fonctionne la garantie sur les réparations ?",
-    answer: "Toutes nos réparations sont garanties pendant une période de 12 mois pour les pièces et la main-d'œuvre. Cette garantie couvre les défauts de fabrication et les problèmes liés à l'installation. Elle ne s'applique pas en cas d'usage inapproprié, de vandalisme ou de catastrophe naturelle. Pour faire valoir votre garantie, contactez simplement notre service client avec votre numéro d'intervention.",
+    answer: "Toutes nos réparations sont généralement garanties pendant une période de 12 mois pour les pièces et la main-d'œuvre. Cette garantie couvre les défauts de fabrication et les problèmes liés à l'installation. Elle ne s'applique pas en cas d'usage inapproprié, de vandalisme ou de catastrophe naturelle. Pour faire valoir votre garantie, contactez simplement notre service client avec votre numéro d'intervention.",
     category: 'garantie',
     tags: ['garantie', 'réparations', '12 mois', 'pièces', 'main-d\'œuvre']
   },
@@ -65,7 +65,7 @@ const faqItems: FAQItem[] = [
   {
     id: 'faq-7',
     question: "Que faire en cas de personne bloquée dans l'ascenseur ?",
-    answer: "En cas de personne bloquée, contactez immédiatement notre Service Dépannage au +33 1 23 45 67 89 qui est disponible 24h/24 et 7j/7. Rassurez la personne bloquée via l'interphone de l'ascenseur si possible. Ne tentez jamais de libérer vous-même une personne bloquée, cela pourrait être dangereux. Nos techniciens sont formés pour ces situations et interviennent en priorité absolue pour ce type d'urgence.",
+    answer: "En cas de personne bloquée, contactez immédiatement notre Service Dépannage au 09 70 72 22 63 qui est disponible 24h/24 et 7j/7. Rassurez la personne bloquée via l'interphone de l'ascenseur si possible. Ne tentez jamais de libérer vous-même une personne bloquée, cela pourrait être dangereux. Nos techniciens sont formés pour ces situations et interviennent en priorité absolue pour ce type d'urgence.",
     category: 'urgence',
     tags: ['personne bloquée', 'urgence', 'intervention prioritaire', 'secours', 'ascenseur en panne']
   },

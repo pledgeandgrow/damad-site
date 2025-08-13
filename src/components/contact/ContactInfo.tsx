@@ -48,7 +48,7 @@ export default function ContactInfo() {
             <div className="mt-8 pt-6 border-t border-gray-200">
               <h4 className="text-lg font-medium text-[#2b3343] mb-4">Centrale d&apos;appel</h4>
               <p className="text-gray-600 mb-2">
-                Notre centrale d&apos;appel est disponible 24h/24, 7j/7 pour répondre à toutes vos urgences.
+                Notre service dépannage est disponible 24h/24, 7j/7 pour répondre à toutes vos urgences.
               </p>
               <p className="text-[#2b3343] font-bold flex items-center">
                 <FaPhoneAlt className="mr-2 text-blue-600" />

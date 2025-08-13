@@ -8,7 +8,7 @@ export default function ServiceCards() {
       icon: <FaTools className="w-10 h-10 text-[#0046fe]" />,
       title: 'Dépannage',
       description: 'Service d\'urgence pour résoudre rapidement les problèmes de votre ascenseur',
-      features: ['Intervention rapide', 'Disponible Réponse sous 48h', 'Techniciens qualifiés'],
+      features: ['Intervention rapide', 'Disponible 7/7', 'Techniciens qualifiés'],
       bgColor: 'from-gray-50 to-gray-100'
     },
     {
@@ -36,7 +36,7 @@ export default function ServiceCards() {
       icon: <FaTachometerAlt className="w-10 h-10 text-[#0046fe]" />,
       title: 'Maintenance',
       description: 'Contrats d\'entretien sur mesure pour une tranquillité d\'esprit',
-      features: ['Réponse sous 48h', 'Pièces détachées', 'Rapports détaillés'],
+      features: ['Réponse rapide', 'Pièces détachées', 'Rapports détaillés'],
       bgColor: 'from-gray-50 to-gray-100'
     },
     {

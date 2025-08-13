@@ -246,7 +246,7 @@ export default function MaintenancePage() {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-12 max-w-5xl mx-auto">
             {/* Contract 1 */}
             <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] h-full transform hover:-translate-y-1">
               <div className="h-2 bg-[#2b3343]"></div>
@@ -329,7 +329,66 @@ export default function MaintenancePage() {
               </div>
             </div>
             
-            {/* Cards 03 and 04 removed as requested */}
+            {/* Contract 3 - Premium */}
+            <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] h-full transform hover:-translate-y-1">
+              <div className="h-2 bg-[#0046fe]"></div>
+              <div className="p-8">
+                <div className="w-16 h-16 bg-[#f0f5f9] rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-[#0046fe] font-bold text-lg">03</span>
+                </div>
+                <h3 className="text-xl font-bold mb-6 text-[#2b3343] text-center">CONTRAT PREMIUM</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start">
+                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f0f5f9] flex items-center justify-center mr-3">
+                      <svg className="h-3 w-3 text-[#0046fe]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span className="text-gray-700 font-medium">Visites programmées</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f0f5f9] flex items-center justify-center mr-3">
+                      <svg className="h-3 w-3 text-[#0046fe]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span className="text-gray-700 font-medium">Consommables</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f0f5f9] flex items-center justify-center mr-3">
+                      <svg className="h-3 w-3 text-[#0046fe]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span className="text-gray-700 font-medium">Réparation et remplacement pièces</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f0f5f9] flex items-center justify-center mr-3">
+                      <svg className="h-3 w-3 text-[#0046fe]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span className="text-gray-700 font-medium">Référentiel AFNOR</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f0f5f9] flex items-center justify-center mr-3">
+                      <svg className="h-3 w-3 text-[#0046fe]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span className="text-gray-700 font-medium">Assistance prioritaire 24/7</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-[#f0f5f9] flex items-center justify-center mr-3">
+                      <svg className="h-3 w-3 text-[#0046fe]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span className="text-gray-700 font-medium">Garantie étendue</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">

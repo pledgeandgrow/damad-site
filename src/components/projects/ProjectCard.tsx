@@ -1,4 +1,4 @@
-import { FaArrowRight, FaMapMarkerAlt, FaCalendarAlt, FaBuilding } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 import { Project } from '@/types';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -25,8 +25,11 @@ export default function ProjectCard({ project, className = '', onClick }: Projec
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
     >
       {/* Image container with overlay on hover */}
-      <div className="relative h-60 overflow-hidden">
+      <div className="relative h-72 overflow-hidden">
+        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10"></div>
+        
+        {/* Hover overlay */}
         <motion.div 
           className="absolute inset-0 bg-[#2b3343]/30 z-10"
           initial={{ opacity: 0 }}
@@ -53,6 +56,7 @@ export default function ProjectCard({ project, className = '', onClick }: Projec
           </motion.div>
         </motion.div>
         
+        {/* Project image */}
         <Image 
           src={project.image} 
           alt={project.title} 
@@ -62,44 +66,12 @@ export default function ProjectCard({ project, className = '', onClick }: Projec
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           priority={true}
         />
-        <motion.span 
-          className="absolute top-4 left-4 z-30 inline-block bg-[#2b3343] text-white text-xs px-3 py-1 rounded-full shadow-md"
-          initial={{ x: -20, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.4 }}
-        >
-          {project.category}
-        </motion.span>
-      </div>
-      
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#2b3343] transition-colors">{project.title}</h3>
-        <p className="text-gray-600 mb-4 line-clamp-3">{project.description}</p>
         
-        <div className="mt-auto pt-4 border-t border-gray-100">
-          <div className="flex flex-wrap gap-3 text-sm text-gray-500">
-            {project.location && (
-              <div className="flex items-center">
-                <FaMapMarkerAlt className="mr-1.5 text-[#2b3343]/70" />
-                <span>{project.location}</span>
-              </div>
-            )}
-            {project.year && (
-              <div className="flex items-center">
-                <FaCalendarAlt className="mr-1.5 text-[#2b3343]/70" />
-                <span>{project.year}</span>
-              </div>
-            )}
-            {project.client && (
-              <div className="flex items-center">
-                <FaBuilding className="mr-1.5 text-[#2b3343]/70" />
-                <span className="truncate max-w-[120px]">{project.client}</span>
-              </div>
-            )}
-          </div>
+        {/* Project title overlay */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 z-20">
+          <h3 className="text-xl font-bold text-white">{project.title}</h3>
         </div>
       </div>
-      
     </motion.div>
   );
 }

@@ -4,41 +4,24 @@ import { useState, useRef, useEffect } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { FaChevronLeft, FaChevronRight, FaBuilding, FaHome, FaIndustry } from 'react-icons/fa';
-import { projects as allProjects } from '../../data/projects';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
-// Project interface is defined in the imported data file
+// Use images from public/images/realisations for the home page showcase
+const realisationImages = [
+  { id: 1, src: '/images/realisations/rea1.jpg', alt: 'Réalisation 1' },
+  { id: 2, src: '/images/realisations/rea6.jpg', alt: 'Réalisation 2' },
+  { id: 3, src: '/images/realisations/rea3.jpg', alt: 'Réalisation 3' },
+  { id: 4, src: '/images/realisations/rea8.jpg', alt: 'Réalisation 4' },
+  { id: 5, src: '/images/realisations/rea5.jpg', alt: 'Réalisation 5' },
+];
 
-// Map category to icon
-const getCategoryIcon = (category: string) => {
-  switch (category) {
-    case 'Résidentiel':
-      return <FaHome />;
-    case 'Commercial':
-      return <FaBuilding />;
-    case 'Industriel':
-      return <FaIndustry />;
-    case 'Particulier':
-      return <FaHome />;
-    case 'Maintenance':
-      return <FaIndustry />;
-    case 'Public':
-      return <FaBuilding />;
-    default:
-      return <FaBuilding />;
-  }
-};
-
-// Select a diverse set of projects to showcase on the home page
-// Include projects from different categories and some of the newest ones
-const selectedProjectIds = [1, 7, 9, 10, 12]; // Mix of residential, maintenance, commercial, public projects
-const projects = allProjects
-  .filter(project => selectedProjectIds.includes(project.id))
-  .slice(0, 5) // Limit to 5 projects
-  .map(project => ({
-  ...project,
-  icon: getCategoryIcon(project.category),
-  slug: project.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+// Create projects array using the realisationImages
+const projects = realisationImages.map((img) => ({
+  id: img.id,
+  title: `Réalisation ${img.id}`,
+  image: img.src,
+  alt: img.alt,
+  slug: `realisation-${img.id}`
 }));
 
 const Projects: React.FC = () => {
@@ -142,19 +125,17 @@ const Projects: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                 >
-                  <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col border border-gray-100 overflow-hidden group hover:translate-y-[-5px]">
-                    {/* Project Image */}
-                    <div className="relative h-64 sm:h-80 md:h-96 overflow-hidden">
+                  <div className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col overflow-hidden group hover:translate-y-[-5px]">
+                    {/* Project Image - Fullscreen with reduced height */}
+                    <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                       <Image
                         src={project.image}
-                        alt={project.title}
+                        alt={project.alt}
                         fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#2b3343]/80"></div>
                     </div>
-                    
-                    {/* Content section removed - showing only images */}
                   </div>
                 </motion.div>
               ))}
