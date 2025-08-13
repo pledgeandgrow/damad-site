@@ -115,17 +115,30 @@ export default function ApplicationForm() {
     setSubmitStatus('idle');
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Create FormData to handle file uploads
+      const formDataToSend = new FormData();
       
-      // In a real application, you would send the form data to your backend
-      // const formDataToSend = new FormData();
-      // Object.entries(formData).forEach(([key, value]) => {
-      //   if (value !== null) {
-      //     formDataToSend.append(key, value);
-      //   }
-      // });
-      // await fetch('/api/apply', { method: 'POST', body: formDataToSend });
+      // Add all form fields to FormData
+      Object.entries(formData).forEach(([key, value]) => {
+        if (value !== null) {
+          formDataToSend.append(key, value);
+        }
+      });
+      
+      // Add form type identifier
+      formDataToSend.append('formType', 'recruitment');
+      
+      // Send data to our email API endpoint
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        body: formDataToSend
+      });
+      
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.message || 'Erreur lors de l\'envoi de la candidature');
+      }
       
       setSubmitStatus('success');
       // Reset form after successful submission
@@ -290,7 +303,7 @@ export default function ApplicationForm() {
                     name="position"
                     value={formData.position}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#0046fe] focus:border-[#0046fe] outline-none transition-colors ${
+                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#0046fe] focus:border-[#0046fe] outline-none transition-colors text-[#2b3343] ${
                       errors.position ? 'border-red-500' : 'border-gray-300'
                     }`}
                   >
@@ -313,7 +326,7 @@ export default function ApplicationForm() {
                     name="experience"
                     value={formData.experience}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#0046fe] focus:border-[#0046fe] outline-none transition-colors ${
+                    className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#0046fe] focus:border-[#0046fe] outline-none transition-colors text-[#2b3343] ${
                       errors.experience ? 'border-red-500' : 'border-gray-300'
                     }`}
                   >

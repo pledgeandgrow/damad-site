@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FaArrowRight, FaPhone } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 
 export default function CTA() {
   return (

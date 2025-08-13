@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function MentionsLegales() {
   return (
-    <main className="min-h-screen bg-gray-50 py-16">
+    <main className="min-h-screen bg-gray-50 py-32">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-[#2b3343] mb-4">Mentions Légales</h1>
@@ -160,7 +160,7 @@ export default function MentionsLegales() {
           <div className="mt-6">
             <Link 
               href="/" 
-              className="inline-flex items-center px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-[#4a90e2] hover:bg-[#3a7bc8] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#4a90e2] transition-colors duration-200"
+              className="inline-flex items-center px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-[#2b3343] hover:bg-[#3a4255] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2b3343] transition-colors duration-200"
             >
               Retour à l&apos;accueil
             </Link>

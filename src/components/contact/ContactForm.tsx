@@ -19,6 +19,7 @@ type FormData = {
   bestContactDays: Date[];
   bestContactTime: Date | null;
   service: string;
+  customService: string;
   message: string;
   privacyPolicy: boolean;
 };
@@ -28,7 +29,7 @@ export default function ContactForm() {
   const inputClass = "block w-full rounded-md border-0 px-4 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#2b3343] sm:text-sm sm:leading-6 transition-all duration-200 ease-in-out hover:ring-[#3d4759]";
   const labelClass = "block text-sm font-medium text-[#2b3343] mb-1";
   const errorClass = "mt-1 text-xs text-red-600 font-medium";
-  const selectClass = "block w-full rounded-md border-0 px-4 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#2b3343] sm:text-sm sm:leading-6 transition-all duration-200 ease-in-out hover:ring-[#3d4759]";
+  const selectClass = "block w-full rounded-md border-0 px-4 py-2.5 text-[#2b3343] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#2b3343] sm:text-sm sm:leading-6 transition-all duration-200 ease-in-out hover:ring-[#3d4759]";
   const checkboxClass = "h-4 w-4 rounded border-gray-300 text-[#2b3343] focus:ring-[#3d4759] transition-all duration-200 ease-in-out";
   
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -39,17 +40,40 @@ export default function ContactForm() {
     handleSubmit,
     reset,
     control,
+    watch,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<FormData>({defaultValues: {customService: ''}});
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     setIsSubmitting(true);
     setSubmitStatus(null);
     
     try {
-      // TODO: Replace with your form submission logic
-      console.log('Form submitted:', data);
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Format dates for email
+      const formattedData = {
+        ...data,
+        formType: 'contact',
+        bestContactDays: data.bestContactDays ? data.bestContactDays.map(date => 
+          date instanceof Date ? date.toLocaleDateString('fr-FR') : date
+        ) : [],
+        bestContactTime: data.bestContactTime instanceof Date ? 
+          data.bestContactTime.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) : 
+          data.bestContactTime
+      };
+      
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formattedData),
+      });
+      
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.message || 'Erreur lors de l\'envoi du message');
+      }
       
       setSubmitStatus({
         success: true,
@@ -348,6 +372,7 @@ export default function ContactForm() {
               {...register('service', { required: 'Veuillez sélectionner un service' })}
             >
               <option value="" disabled>Sélectionnez un service</option>
+              <option value="depannage">Dépannage</option>
               <option value="reparation">Réparation</option>
               <option value="maintenance">Maintenance</option>
               <option value="modernisation">Modernisation</option>
@@ -358,6 +383,28 @@ export default function ContactForm() {
               <p className={errorClass}>{errors.service.message}</p>
             )}
           </div>
+          
+          {watch('service') === 'other' && (
+            <div className="mt-3">
+              <label htmlFor="customService" className={labelClass}>
+                Précisez le service *
+              </label>
+              <div className="mt-1.5">
+                <input
+                  type="text"
+                  id="customService"
+                  className={inputClass}
+                  placeholder="Veuillez préciser le service souhaité"
+                  {...register('customService', { 
+                    required: watch('service') === 'other' ? 'Veuillez préciser le service souhaité' : false 
+                  })}
+                />
+                {errors.customService && (
+                  <p className={errorClass}>{errors.customService.message}</p>
+                )}
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="sm:col-span-2">

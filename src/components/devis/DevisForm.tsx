@@ -274,7 +274,7 @@ export default function DevisForm({
             name="capacity"
             value={getInputValue('capacity') as string}
             onChange={handleChange}
-            className="mt-2 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-[#2b3343] focus:outline-none focus:ring-[#2b3343] sm:text-sm transition-all duration-200"
+            className="mt-2 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-[#2b3343] text-base focus:border-[#2b3343] focus:outline-none focus:ring-[#2b3343] sm:text-sm transition-all duration-200"
             required
           >
             <option value="">Sélectionnez une capacité</option>

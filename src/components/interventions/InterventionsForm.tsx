@@ -80,19 +80,23 @@ export default function InterventionsForm() {
     setFormError('');
     
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Send data to our email API endpoint
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          formType: 'intervention'
+        }),
+      });
       
-      // In a real implementation, you would send the data to your backend
-      // const response = await fetch('/api/interventions/request', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData)
-      // });
-      // 
-      // if (!response.ok) {
-      //   throw new Error('Erreur lors de l\'envoi de la demande');
-      // }
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.message || 'Erreur lors de l\'envoi de la demande');
+      }
       
       setIsSubmitted(true);
       
@@ -249,7 +253,7 @@ export default function InterventionsForm() {
                     name="appareilType"
                     value={formData.appareilType}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border ${errors.appareilType ? 'border-red-300' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-[#2b3343]/30 focus:border-[#2b3343] transition-colors`}
+                    className={`w-full px-4 py-2 border ${errors.appareilType ? 'border-red-300' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-[#2b3343]/30 focus:border-[#2b3343] transition-colors text-[#2b3343]`}
                   >
                     <option value="">Sélectionner</option>
                     <option value="elevator">Ascenseur</option>
@@ -269,7 +273,7 @@ export default function InterventionsForm() {
                     name="urgency"
                     value={formData.urgency}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2b3343]/30 focus:border-[#2b3343] transition-colors"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2b3343]/30 focus:border-[#2b3343] transition-colors text-[#2b3343]"
                   >
                     <option value="critical">Critique - Personnes bloquées</option>
                     <option value="high">Élevé - Ascenseur hors service</option>
@@ -286,7 +290,7 @@ export default function InterventionsForm() {
                     name="issueType"
                     value={formData.issueType}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border ${errors.issueType ? 'border-red-300' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-[#2b3343]/30 focus:border-[#2b3343] transition-colors`}
+                    className={`w-full px-4 py-2 border ${errors.issueType ? 'border-red-300' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-[#2b3343]/30 focus:border-[#2b3343] transition-colors text-[#2b3343]`}
                   >
                     <option value="">Sélectionner</option>
                     <option value="mechanical">Problème mécanique</option>
@@ -332,7 +336,7 @@ export default function InterventionsForm() {
                     name="preferredDate"
                     value={formData.preferredDate}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2b3343]/30 focus:border-[#2b3343] transition-colors"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2b3343]/30 focus:border-[#2b3343] transition-colors text-[#2b3343]"
                   />
                 </div>
                 <div>
@@ -344,7 +348,7 @@ export default function InterventionsForm() {
                     name="preferredTime"
                     value={formData.preferredTime}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2b3343]/30 focus:border-[#2b3343] transition-colors"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2b3343]/30 focus:border-[#2b3343] transition-colors text-[#2b3343]"
                   >
                     <option value="">Sélectionner</option>
                     <option value="morning">Matin (8h-12h)</option>

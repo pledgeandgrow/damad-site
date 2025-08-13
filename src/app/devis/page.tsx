@@ -76,17 +76,22 @@ export default function DevisPage() {
     e.preventDefault();
     
     try {
-      // Here you would typically send the data to your backend
-      const response = await fetch('/api/devis', {
+      // Send data to our email API endpoint
+      const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          formType: 'devis'
+        }),
       });
 
+      const result = await response.json();
+
       if (!response.ok) {
-        throw new Error('Erreur lors de l\'envoi du formulaire');
+        throw new Error(result.message || 'Erreur lors de l\'envoi du formulaire');
       }
       
       // Reset form on successful submission

@@ -28,7 +28,7 @@ export default function InterventionsInfo() {
     {
       icon: <FaClock className="h-8 w-8 text-white" />,
       title: "Intervention rapide",
-      description: "Nos techniciens interviennent dans les 24 à 48 heures pour les pannes non critiques, et en urgence pour les situations critiques."
+      description: "Nos techniciens interviennent pour les pannes non critiques, et en urgence pour les situations critiques."
     },
     {
       icon: <FaUserCog className="h-8 w-8 text-white" />,
@@ -38,7 +38,7 @@ export default function InterventionsInfo() {
     {
       icon: <FaShieldAlt className="h-8 w-8 text-white" />,
       title: "Sécurité garantie",
-      description: "Toutes nos interventions respectent les normes de sécurité les plus strictes pour assurer la protection des utilisateurs."
+      description: "Toutes nos interventions respectent les normes de sécurité pour assurer la protection des utilisateurs."
     },
     {
       icon: <FaPhoneAlt className="h-8 w-8 text-white" />,

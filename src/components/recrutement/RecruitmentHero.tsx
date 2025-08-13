@@ -5,13 +5,13 @@ import Image from 'next/image';
 
 export default function RecruitmentHero() {
   return (
-    <section className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+    <section className="relative bg-[#2b3343] h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/images/projects/TECHNICIEN.jpg" 
+          src="/images/recrutement/recrutement0.jpg" 
           alt="Recrutement DAMAD" 
-          className="object-cover z-0"
+          className="object-cover object-center z-0"
           fill
           priority
           sizes="100vw"

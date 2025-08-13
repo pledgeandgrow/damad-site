@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import { FaBars, FaTimes, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
+import { FaBars, FaTimes, FaPhoneAlt, FaEnvelope, FaFileAlt, FaUserCircle } from 'react-icons/fa';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
@@ -86,8 +86,9 @@ export default function Navbar() {
               href="https://damad-client.vercel.app/dashboard" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="hover:text-blue-300 transition-colors border-b border-transparent hover:border-blue-300 py-1 font-medium"
+              className="hover:text-blue-300 transition-colors border-b border-transparent hover:border-blue-300 py-1 font-medium flex items-center"
             >
+              <FaUserCircle className="mr-1.5 text-blue-400" />
               Espace client
             </a>
           </div>
@@ -143,6 +144,7 @@ export default function Navbar() {
                 href="/devis" 
                 className="bg-[#ff5c35] hover:bg-[#e64a25] text-white px-7 py-2.5 rounded-lg transition-all duration-300 font-medium mr-4 hover:shadow-md flex items-center justify-center transform hover:-translate-y-0.5"
               >
+                <FaFileAlt className="mr-2" />
                 <span>Devis</span>
               </Link>
               <a 
@@ -151,6 +153,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="bg-[#0046fe] hover:bg-[#0035c8] text-white px-7 py-2.5 rounded-lg transition-all duration-300 font-medium hover:shadow-md flex items-center justify-center transform hover:-translate-y-0.5"
               >
+                <FaUserCircle className="mr-2" />
                 <span>Espace client</span>
               </a>
             </nav>
@@ -209,16 +212,18 @@ export default function Navbar() {
             <div className="py-4 space-y-3">
               <Link 
                 href="/devis" 
-                className="block w-full text-center bg-[#ff5c35] hover:bg-[#e64a25] text-white px-6 py-3.5 rounded-lg transition-colors font-medium shadow-sm"
+                className="block w-full text-center bg-[#ff5c35] hover:bg-[#e64a25] text-white px-6 py-3.5 rounded-lg transition-colors font-medium shadow-sm flex items-center justify-center"
               >
+                <FaFileAlt className="mr-2" />
                 Demander un devis
               </Link>
               <a 
                 href="https://damad-client.vercel.app/dashboard" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-center bg-[#0046fe] hover:bg-[#0035c8] text-white px-6 py-3.5 rounded-lg transition-colors font-medium shadow-sm"
+                className="block w-full text-center bg-[#0046fe] hover:bg-[#0035c8] text-white px-6 py-3.5 rounded-lg transition-colors font-medium shadow-sm flex items-center justify-center"
               >
+                <FaUserCircle className="mr-2" />
                 Espace client
               </a>
             </div>

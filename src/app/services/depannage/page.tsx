@@ -7,7 +7,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Dépannage d&apos;Appareils d&apos;Accessibilité - DAMAD',
-  description: 'Service de dépannage d&apos;appareils d&apos;accessibilité Réponse sous 48h. Intervention rapide par des techniciens qualifiés pour tous types de pannes.'
+  description: 'Service de dépannage d&apos;appareils d&apos;accessibilité. Intervention rapide par des techniciens qualifiés pour tous types de pannes.'
 };
 
 const features = [
@@ -121,7 +121,7 @@ export default function Depannage() {
             </h2>
             <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
             <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-              Notre équipe d&apos;experts répond sous 48h pour intervenir rapidement en cas de panne d&apos;appareil d&apos;accessibilité.
+              Notre équipe d&apos;experts répond pour intervenir rapidement en cas de panne d&apos;appareil d&apos;accessibilité.
             </p>
           </div>
           <div className="bg-white shadow-lg rounded-xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 hover:border-[#0046fe]">
@@ -184,7 +184,7 @@ export default function Depannage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                   </div>
-                  <h3 className="text-lg font-bold text-[#2b3343]">Interventions en 4h</h3>
+                  <h3 className="text-lg font-bold text-[#2b3343]">Interventions Rapide</h3>
                 </div>
                 <div className="w-10 h-0.5 bg-[#0046fe] my-3 ml-16"></div>
                 <p className="text-[#2b3343] pl-16">Remise en service de tous types d&apos;ascenseurs, d&apos;ascenseurs privatifs, élévateurs, plateforme</p>
@@ -244,7 +244,6 @@ export default function Depannage() {
             <div className="w-full md:w-3/5 order-2 md:order-1">
               <h3 className="text-2xl font-bold text-[#2b3343] mb-8 relative inline-block">
                 Comment ça marche ?
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-[#0046fe] transform -translate-y-2"></div>
               </h3>
               
               <div className="space-y-10">
@@ -336,7 +335,7 @@ export default function Depannage() {
               <div className="rounded-2xl overflow-hidden shadow-2xl transform transition-transform hover:scale-[1.02] group relative">
                 <div className="relative w-full h-[400px]">
                   <Image 
-                    src="/images/depannage-intervention.jpg" 
+                    src="/images/services/depannage2.jpg" 
                     alt="Intervention de dépannage" 
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     fill

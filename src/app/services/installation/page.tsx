@@ -23,7 +23,7 @@ const features = [
   {
     icon: <FaHandshake className="h-8 w-8 text-white" />,
     title: 'Haute technologie',
-    description: 'Équipements dernier cri pour des performances optimales.'
+    description: 'Équipements les plus demandés pour des performances optimales.'
   },
   {
     icon: <FaTools className="h-8 w-8 text-white" />,

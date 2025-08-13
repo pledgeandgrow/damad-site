@@ -64,7 +64,7 @@ export default function PartenariatForm() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError('');
@@ -76,31 +76,32 @@ export default function PartenariatForm() {
       return;
     }
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Send data to our email API endpoint
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          formType: 'partenariat'
+        }),
+      });
+      
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.message || 'Erreur lors de l\'envoi du formulaire');
+      }
+      
       setSubmitted(true);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setError('Une erreur est survenue lors de l\'envoi du formulaire. Veuillez réessayer plus tard.');
+    } finally {
       setLoading(false);
-    }, 1000);
-    
-    // In a real implementation, you would send the data to your backend using FormData
-    // const formDataToSend = new FormData();
-    // Object.entries(formData).forEach(([key, value]) => {
-    //   formDataToSend.append(key, value);
-    // });
-    // 
-    // fetch('/api/partnership-application', {
-    //   method: 'POST',
-    //   body: formDataToSend
-    // })
-    // .then(response => response.json())
-    // .then(data => {
-    //   setSubmitted(true);
-    //   setLoading(false);
-    // })
-    // .catch(error => {
-    //   setError('Une erreur est survenue. Veuillez réessayer.');
-    //   setLoading(false);
-    // });
+    }
   };
 
   return (

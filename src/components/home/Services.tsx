@@ -1,4 +1,4 @@
-import { FaTools, FaWrench, FaShieldAlt, FaArrowRight, FaChevronLeft, FaChevronRight, FaHammer, FaSyncAlt } from 'react-icons/fa';
+import { FaTools, FaWrench, FaShieldAlt, FaChevronLeft, FaChevronRight, FaHammer, FaSyncAlt } from 'react-icons/fa';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
@@ -20,7 +20,7 @@ const services = [
     title: "Dépannage",
     description: "Service Dépannage disponible 24 heures sur 24, 7 jours sur 7 pour tout dépannage.",
     shortDesc: "Intervention rapide en cas d'urgence.",
-    features: ["Response sous 48h", "Délai d'intervention court", "Techniciens qualifiés"],
+    features: ["Response Rapide", "Délai d'intervention court", "Techniciens qualifiés"],
     color: "#0046fe", // Primary brand color
     gradient: "from-[#0046fe] to-[#0046fe]/80",
     link: "/services/depannage"

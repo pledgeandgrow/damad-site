@@ -7,7 +7,7 @@ export default function InterventionsHero() {
     <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/images/services/multiethnic-customer-support-team-work.jpg" 
+          src="/images/services/intervention.jpg" 
           alt="Demande d'intervention" 
           className="object-cover"
           fill
@@ -19,11 +19,11 @@ export default function InterventionsHero() {
       <div className="container mx-auto px-4 max-w-7xl relative z-10 text-center">
         <div className="animate-fade-in-up bg-black/40 backdrop-blur-sm inline-block px-8 py-6 rounded-lg">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-            DEMANDE D&apos;INTERVENTION
+            INTERVENTION
           </h1>
           <div className="w-24 h-1 bg-[#99a8b1] mx-auto"></div>
           <p className="text-white text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
-            Les Experts de DAMAD sont à votre service pour tout dépannage de vos appareils d&apos;accessibilité
+            DAMAD est à votre service pour tout dépannage d&apos;appareils d&apos;accessibilité
           </p>
         </div>
       </div>
