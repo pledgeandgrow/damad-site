@@ -25,7 +25,7 @@ export default function About() {
 
               <div className="space-y-4 sm:space-y-6">
                 <div className="flex items-start bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="bg-[#0046fe] p-2 sm:p-3 rounded-xl mr-3 sm:mr-4 flex-shrink-0">
+                  <div className="bg-[#0046fe] p-2 sm:p-3 rounded-xl mr-3 sm:mr-4 flex-shrink-0 flex items-center justify-center">
                     <FaTools className="text-white text-lg sm:text-xl" />
                   </div>
                   <div>
@@ -35,7 +35,7 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="bg-[#0046fe] p-2 sm:p-3 rounded-xl mr-3 sm:mr-4 flex-shrink-0">
+                  <div className="bg-[#0046fe] p-2 sm:p-3 rounded-xl mr-3 sm:mr-4 flex-shrink-0 flex items-center justify-center">
                     <FaShieldAlt className="text-white text-lg sm:text-xl" />
                   </div>
                   <div>
@@ -45,7 +45,7 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="bg-[#0046fe] p-2 sm:p-3 rounded-xl mr-3 sm:mr-4 flex-shrink-0">
+                  <div className="bg-[#0046fe] p-2 sm:p-3 rounded-xl mr-3 sm:mr-4 flex-shrink-0 flex items-center justify-center">
                     <FaUsers className="text-white text-lg sm:text-xl" />
                   </div>
                   <div>

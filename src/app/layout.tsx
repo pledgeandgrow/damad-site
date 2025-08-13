@@ -55,7 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <body className={`${roboto.variable} font-roboto antialiased flex flex-col min-h-screen`}>
+      <body className={`${roboto.variable} font-roboto antialiased flex flex-col min-h-screen overflow-x-hidden`}>
         <Navbar />
         <main className="flex-grow">
           {children}

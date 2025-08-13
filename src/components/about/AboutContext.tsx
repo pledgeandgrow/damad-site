@@ -47,7 +47,7 @@ export default function AboutContext() {
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <span className="text-[#0046fe] font-semibold tracking-wider text-sm uppercase">Notre philosophie</span>
+
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4 mt-2">
             Développement et Innovation
           </h2>
@@ -66,7 +66,7 @@ export default function AboutContext() {
             <div className="group transform transition-all duration-300 hover:translate-y-[-5px]">
               <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] h-full relative">
                 <div className="p-6">
-                  <div className="w-12 h-12 bg-[#0046fe]/10 rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 bg-[#0046fe]/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
                     <FaBalanceScale className="text-[#0046fe] text-2xl" />
                   </div>
                   <h3 className="text-xl font-bold text-[#2b3343] mb-3">Prudence</h3>
@@ -80,7 +80,7 @@ export default function AboutContext() {
             <div className="group transform transition-all duration-300 hover:translate-y-[-5px]">
               <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] h-full relative">
                 <div className="p-6">
-                  <div className="w-12 h-12 bg-[#0046fe]/10 rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 bg-[#0046fe]/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
                     <FaClipboardCheck className="text-[#0046fe] text-2xl" />
                   </div>
                   <h3 className="text-xl font-bold text-[#2b3343] mb-3">Discipline</h3>
@@ -94,7 +94,7 @@ export default function AboutContext() {
             <div className="group transform transition-all duration-300 hover:translate-y-[-5px]">
               <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] h-full relative">
                 <div className="p-6">
-                  <div className="w-12 h-12 bg-[#0046fe]/10 rounded-lg flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 bg-[#0046fe]/10 rounded-lg flex items-center justify-center mb-4 mx-auto">
                     <FaShieldAlt className="text-[#0046fe] text-2xl" />
                   </div>
                   <h3 className="text-xl font-bold text-[#2b3343] mb-3">Sécurité</h3>

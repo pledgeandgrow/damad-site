@@ -23,16 +23,6 @@ export default function CTA() {
               Demander un devis
               <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
-            
-            <Link 
-              href="tel:+33123456789"
-              className="group inline-flex items-center justify-center font-medium py-4 px-8 rounded-lg 
-                transition-all duration-300 shadow-sm hover:shadow-md
-                border-2 border-[#0046fe] text-[#0046fe] hover:bg-[#0046fe]/10"
-            >
-              <FaPhone className="mr-2" />
-              Nous appeler
-            </Link>
           </div>
           
 

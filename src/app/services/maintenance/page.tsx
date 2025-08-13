@@ -23,7 +23,7 @@ const features = [
   {
     icon: <FaClock className="h-8 w-8 text-white" />,
     title: 'Service Rapide',
-    description: 'Assistance technique et dépannage avec réponse sous 48h.'
+    description: 'Assistance technique et dépannage.'
   },
   {
     icon: <FaShieldAlt className="h-8 w-8 text-white" />,
@@ -185,7 +185,7 @@ export default function MaintenancePage() {
             </h2>
             <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
             <p className="text-[#2b3343] max-w-3xl mx-auto text-sm italic mb-4 bg-blue-50 py-2 px-4 rounded-lg inline-block">
-              conformément aux dispositions de l&apos;article 79 de la loi du 2 juillet 2003 et du décret 2004-964
+              conforme aux dispositions de l&apos;article 79 de la loi du 2 juillet 2003 et du décret 2004-964
             </p>
           </div>
           
@@ -373,17 +373,16 @@ export default function MaintenancePage() {
                 </li>
               </ul>
               <div className="mt-8">
-                <p className="text-gray-700 font-semibold mb-4">Vous souhaitez souscrire à un contrat de maintenance ? Contactez-nous</p>
+                <p className="text-gray-700 font-semibold mb-4">Vous souhaitez souscrire à un contrat de maintenance ?</p>
                 <Link href="/contact" className="inline-block bg-[#ff5c35] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#ff5c35]/80 transition-colors duration-300 shadow-md text-center">
-                  NOUS CONTACTER
+                  CONTACTEZ-NOUS
                 </Link>
               </div>
             </div>
-
             {/* Right Area */}
             <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 lg:col-span-2">
               <h2 className="text-2xl font-bold text-[#2b3343] mb-4">
-                Pourquoi choisir DAMAD
+                Pourquoi choisir DAMAD?
               </h2>
               <div className="w-16 h-1 bg-[#0046fe] mb-6"></div>
               

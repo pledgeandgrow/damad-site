@@ -36,6 +36,7 @@ const milestones = [
 
 const TimelineItem = ({ milestone, index, isVisible }: { milestone: typeof milestones[0], index: number, isVisible: boolean }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const isEven = index % 2 === 0;
   
   return (
     <div 
@@ -48,13 +49,29 @@ const TimelineItem = ({ milestone, index, isVisible }: { milestone: typeof miles
         transitionProperty: 'opacity, transform',
         transitionDuration: '700ms',
         transitionTimingFunction: 'ease-out',
-        transitionDelay: isVisible ? `${index * 100}ms` : '0ms'
+        transitionDelay: isVisible ? `${index * 150}ms` : '0ms'
       }}
     >
-      <div className="md:w-1/2 md:px-8 py-4 relative group" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
-        <div className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 relative z-10">
+      {/* Year indicator for desktop - left side for even items */}
+      <div className={`hidden md:block w-1/2 px-8 py-4 text-center ${!isEven ? 'order-2' : 'order-1'}`}>
+        <div 
+          className={`bg-gradient-to-br ${milestone.color} text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto text-2xl font-bold shadow-lg transition-all duration-300 ${
+            isHovered ? 'scale-110 shadow-xl' : 'scale-100'
+          }`}
+        >
+          {milestone.year}
+        </div>
+      </div>
+      
+      {/* Content card */}
+      <div 
+        className={`md:w-1/2 md:px-8 py-4 relative group ${isEven ? 'order-2' : 'order-1'}`} 
+        onMouseEnter={() => setIsHovered(true)} 
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe]/30 relative z-10">
           <div className="flex items-start">
-            <div className={`bg-gradient-to-br ${milestone.color} p-3 rounded-xl mr-4 flex-shrink-0`}>
+            <div className={`bg-gradient-to-br ${milestone.color} p-3 rounded-xl mr-4 flex-shrink-0 flex items-center justify-center`}>
               {milestone.icon}
             </div>
             <div>
@@ -63,19 +80,13 @@ const TimelineItem = ({ milestone, index, isVisible }: { milestone: typeof miles
             </div>
           </div>
         </div>
-        <div className="absolute inset-0 bg-[#2b3343] rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300 -z-0"></div>
+        
+        {/* Decorative elements */}
+        <div className="absolute inset-0 bg-[#2b3343] rounded-2xl opacity-0 group-hover:opacity-5 transition-opacity duration-300 -z-0"></div>
+        <div className="absolute -inset-1 bg-gradient-to-r from-[#0046fe]/0 via-[#0046fe]/10 to-[#0046fe]/0 rounded-3xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300 -z-10"></div>
       </div>
       
-      <div className="hidden md:block w-1/2 px-8 py-4 text-center">
-        <div 
-          className={`bg-gradient-to-br ${milestone.color} text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto text-2xl font-bold shadow-lg transition-transform duration-300 ${
-            isHovered ? 'scale-110' : 'scale-100'
-          }`}
-        >
-          {milestone.year}
-        </div>
-      </div>
-      
+      {/* Year indicator for mobile */}
       <div className="md:hidden w-full text-center my-6">
         <span className={`bg-gradient-to-r ${milestone.color} text-white rounded-full px-6 py-2 text-sm font-medium shadow-md`}>
           {milestone.year}
@@ -119,36 +130,50 @@ export default function History() {
     <section id="history" ref={sectionRef} className="py-20 bg-white sm:py-24">
       <div className="container mx-auto px-4 max-w-7xl">
         <div 
-          className={`text-center mb-10 sm:mb-16 transition-all duration-700 ease-out ${
+          className={`text-center mb-16 sm:mb-24 transition-all duration-700 ease-out ${
             inView 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <span className="text-[#0046fe] font-semibold tracking-wider text-sm uppercase">Notre parcours</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4 mt-2">Notre Histoire</h2>
-          <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
+
           
-          <div className="space-y-6 text-lg text-gray-600 leading-relaxed mb-12 text-left">
-            <p>
-              Damad est une entreprise de maintenance d&apos;appareils d&apos;accessibilité créée en 2007.
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2b3343] mb-4 sm:mb-5 mt-2">Notre Histoire</h2>
+          
+          <div className="w-16 h-1 bg-gradient-to-r from-[#0046fe]/50 via-[#0046fe] to-[#0046fe]/50 mx-auto mb-6 sm:mb-8 rounded-full"></div>
+          
+          <div className="max-w-3xl mx-auto space-y-6 text-lg text-gray-600 leading-relaxed mb-12">
+            <p className="relative">
+              <span className="relative z-10">Damad est une entreprise de maintenance d&apos;appareils d&apos;accessibilité créée en 2007.</span>
+              <span className="absolute -inset-1 bg-gradient-to-r from-[#0046fe]/0 via-[#0046fe]/5 to-[#0046fe]/0 rounded-lg blur-sm -z-10"></span>
             </p>
             <p>
-              Aujourd&apos;hui, Damad gère plus de 800 ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR confondus. En faisant le choix de s&apos;implanter localement via un maillage du territoire régional, Damad propose des solutions complètes d&apos;installation, de maintenance et d&apos;entretien, de rénovation et de modernisation.
+              Aujourd&apos;hui, Damad gère plus de 1000 ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR confondus. En faisant le choix de s&apos;implanter localement via un maillage du territoire régional, Damad propose des solutions complètes d&apos;installation, de maintenance et d&apos;entretien, de rénovation et de modernisation.
             </p>
           </div>
 
         </div>
 
         <div className="relative">
-          {/* Timeline line */}
+          {/* Timeline line with decorative elements */}
           <div 
-            className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-[#0046fe] transform -translate-x-1/2 scale-y-0 origin-top transition-transform duration-1000"
+            className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-[#0046fe]/80 via-[#0046fe] to-[#0046fe]/80 transform -translate-x-1/2 scale-y-0 origin-top transition-transform duration-1000"
             style={{
               transform: inView ? 'translateX(-50%) scaleY(1)' : 'translateX(-50%) scaleY(0)',
               transitionDelay: '300ms'
             }}
           />
+          
+          {/* Decorative glow for the timeline */}
+          <div 
+            className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-[#0046fe] transform -translate-x-1/2 scale-y-0 origin-top transition-transform duration-1000 blur-md opacity-50"
+            style={{
+              transform: inView ? 'translateX(-50%) scaleY(1)' : 'translateX(-50%) scaleY(0)',
+              transitionDelay: '400ms'
+            }}
+          />
+          
+          {/* Timeline dots removed to fix display issues */}
           
           {/* Timeline items */}
           <div className="space-y-20 md:space-y-32">

@@ -1,7 +1,6 @@
 import AboutHero from '@/components/about/AboutHero';
 import AboutContext from '@/components/about/AboutContext';
 import History from '@/components/about/History';
-import Team from '@/components/about/Team';
 
 export const metadata = {
   title: 'À Propos - DAMAD',
@@ -14,7 +13,6 @@ export default function AboutPage() {
       <AboutHero />
       <History />
       <AboutContext />
-      <Team />
     </main>
   );
 }

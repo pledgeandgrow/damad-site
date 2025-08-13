@@ -42,6 +42,12 @@
   --foreground: #171717;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

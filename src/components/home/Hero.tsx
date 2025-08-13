@@ -79,7 +79,7 @@ export default function Hero() {
             loop
             playsInline
             src="/videos/ascenceur.mp4"
-            className={`absolute inset-0 w-full h-full object-cover ${isMobile ? 'filter blur-[1px]' : 'filter blur-[2px]'}`}
+            className={`absolute inset-0 w-full h-full object-cover ${isMobile }`}
             poster="/images/elevator-placeholder.jpg"
           >
             Your browser does not support the video tag.
@@ -95,9 +95,9 @@ export default function Hero() {
         <div className="max-w-3xl mx-auto text-center">
           
           {/* Headline with improved typography and responsive sizing */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight tracking-tight drop-shadow-lg">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">Installation &amp; Maintenance</span> <br className="hidden sm:block" />
-            <span className="inline-block mt-1">d&#39;Ascenseurs</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-0 sm:mb-1 leading-tight tracking-tight drop-shadow-lg">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">DMD</span> <br className="hidden sm:block" />
+            <span className="inline-block mt-1"></span>
           </h1>
           
           {/* Description with better readability - optimized for mobile */}

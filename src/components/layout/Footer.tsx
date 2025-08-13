@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight, FaTools, FaBuilding, FaInfoCircle, FaEnvelopeOpenText, FaFileInvoiceDollar, FaWrench, FaCogs, FaExclamationTriangle, FaUsers, FaSyncAlt, FaHandshake, FaLinkedin } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight, FaTools, FaBuilding, FaInfoCircle, FaEnvelopeOpenText, FaFileInvoiceDollar, FaWrench, FaCogs, FaExclamationTriangle, FaUsers, FaSyncAlt, FaHandshake, FaLinkedin, FaQuestionCircle, FaHeadset } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 
 interface FooterLink {
@@ -22,7 +22,7 @@ const footerLinks: FooterSection[] = [
       { name: 'À Propos', href: '/a-propos', icon: FaInfoCircle },
       { name: 'Réalisations', href: '/realisations', icon: FaBuilding },
       { name: 'Recrutement', href: '/recrutement', icon: FaUsers },
-      { name: 'FAQ', href: '/faq', icon: FaPhoneAlt },
+      { name: 'FAQ', href: '/faq', icon: FaQuestionCircle },
       { name: 'Partenariat', href: '/partenariat', icon: FaHandshake },
       { name: 'Devis', href: '/contact?subject=demande-de-devis', icon: FaFileInvoiceDollar },
     ],
@@ -52,22 +52,15 @@ const footerLinks: FooterSection[] = [
         icon: FaPhoneAlt
       },
       { 
-        name: '0 826 101 202 (Centrale d\'appel)',
-        href: 'tel:0826101202',
-        icon: FaPhoneAlt
+        name: '09 70 72 22 63 (Centrale d\'appel)',
+        href: 'tel:0970722263',
+        icon: FaHeadset
       },
       { 
         name: 'contact@damad-ascenseurs.com',
         href: 'mailto:contact@damad-ascenseurs.com',
         icon: FaEnvelope
       },
-    ],
-    buttons: [
-      {
-        name: 'Nous joindre',
-        href: '/contact',
-        icon: FaEnvelopeOpenText
-      }
     ]
   },
 ];
@@ -96,18 +89,17 @@ export default function Footer() {
           {/* Mobile layout - first row with company info */}
           <div className="block sm:hidden mb-8">
             <div className="flex items-center justify-between w-full">
-              <Link href="/" className="inline-flex items-center -ml-4">
-                <div className="relative h-12 w-24">
+              <Link href="/" className="inline-flex items-center">
+                <div className="relative h-12 w-auto">
                   <Image 
-                    src="/damad-transparent-white.png" 
-                    alt="DAMAD" 
-                    fill
-                    className="object-contain hover:opacity-90 transition-opacity"
-                    sizes="96px"
+                    src="/dmd-white-transparent.png" 
+                    alt="DMD" 
+                    width={48}
+                    height={48}
+                    className="object-contain hover:opacity-90 transition-opacity h-full w-auto"
                     priority
                   />
                 </div>
-                <span className="text-white font-bold text-xl -ml-6">DMD</span>
               </Link>
               
               <div className="flex space-x-2">
@@ -231,18 +223,17 @@ export default function Footer() {
           <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:gap-12">
           {/* Company Info */}
           <div className="space-y-5 sm:space-y-6 pl-0">
-            <Link href="/" className="inline-flex items-center -ml-12 sm:-ml-16">
-              <div className="relative h-16 sm:h-20 w-32 sm:w-40">
+            <Link href="/" className="inline-flex items-center">
+              <div className="relative h-16 sm:h-20 w-auto">
                 <Image 
-                  src="/damad-transparent-white.png" 
-                  alt="DAMAD" 
-                  fill
-                  className="object-contain hover:opacity-90 transition-opacity"
-                  sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 160px"
+                  src="/dmd-white-transparent.png" 
+                  alt="DMD" 
+                  width={64}
+                  height={64}
+                  className="object-contain hover:opacity-90 transition-opacity h-full w-auto"
                   priority
                 />
               </div>
-              <span className="text-white font-bold text-xl sm:text-2xl -ml-1 sm:-ml-12">DMD</span>
             </Link>
             <p className="text-white/80 text-sm sm:text-base leading-relaxed">
               Votre partenaire de confiance pour tous vos besoins en ascenseurs, de l&apos;installation à la maintenance.
@@ -358,12 +349,6 @@ export default function Footer() {
                 className="text-white/60 hover:text-white text-xs sm:text-sm transition-colors duration-300 whitespace-nowrap"
               >
                 Cookies
-              </Link>
-              <Link 
-                href="/legal/cgv" 
-                className="text-white/60 hover:text-white text-xs sm:text-sm transition-colors duration-300 whitespace-nowrap"
-              >
-                CGV
               </Link>
             </div>
           </div>

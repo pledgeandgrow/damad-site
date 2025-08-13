@@ -198,12 +198,7 @@ export default function Services() {
                       ))}
                     </ul>
                     
-                    {/* Card footer - removed 'En savoir plus' text */}
-                    <div className="mt-4 pt-3 border-t border-gray-100">
-                      <span className="inline-flex items-center text-xs sm:text-sm font-medium text-[#0046fe] group-hover:text-[#0046fe]/80 transition-colors duration-300">
-                        <FaArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
-                      </span>
-                    </div>
+
 
                   </div>
                 </Link>

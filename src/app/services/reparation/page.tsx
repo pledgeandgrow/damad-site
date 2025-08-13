@@ -27,7 +27,7 @@ const commonIssues = [
   {
     icon: <FaClipboardCheck className="h-6 w-6 text-white" />,
     title: 'Dysfonctionnement des portes',
-    description: 'Portes qui ne s&apos;ouvrent ou ne se ferment pas correctement.'
+    description: 'Portes qui ne se ferment pas correctement, défaillance de détecteur d’obstacle'
   }
 ];
 

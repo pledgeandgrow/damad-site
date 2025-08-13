@@ -60,7 +60,7 @@ export default function AboutIntro() {
                   Damad est une entreprise de maintenance d&apos;appareils d&apos;accessibilité créée en 2007, avec l&apos;ambition d&apos;offrir un service de proximité et d&apos;excellence.
                 </p>
                 <p>
-                  Aujourd&apos;hui, Damad gère plus de 800 ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR confondus. En faisant le choix de s&apos;implanter localement via un maillage du territoire régional, Damad propose des solutions complètes d&apos;installation, de maintenance et d&apos;entretien, de rénovation et de modernisation.
+                  Aujourd&apos;hui, Damad gère plus de 1000 ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR confondus. En faisant le choix de s&apos;implanter localement via un maillage du territoire régional, Damad propose des solutions complètes d&apos;installation, de maintenance et d&apos;entretien, de rénovation et de modernisation.
                 </p>
                 <div className="pt-4">
                   <a href="#history" className="inline-block px-8 py-3 bg-[#2b3343] text-white font-medium rounded-lg hover:bg-[#3d4759] transition-colors duration-300 shadow-md hover:shadow-lg">

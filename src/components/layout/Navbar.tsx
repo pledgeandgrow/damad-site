@@ -113,18 +113,17 @@ export default function Navbar() {
         
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center space-x-3 group">
-              <div className={`relative ${scrolled ? 'h-16' : 'h-20'} w-auto transition-all duration-300 overflow-hidden`}>
+            <Link href="/" className="flex items-center group">
+              <div className={`relative ${scrolled ? 'h-16' : 'h-20'} w-auto transition-all duration-300`}>
                 <Image 
-                  src="/damad-transparent.png" 
-                  alt="DAMAD" 
+                  src="/dmd-transparent.png" 
+                  alt="DMD" 
                   width={scrolled ? 64 : 80}
                   height={scrolled ? 64 : 80}
                   className="object-contain h-full w-auto group-hover:scale-105 transition-transform duration-300"
                   priority
                 />
               </div>
-              <span className={`font-bold text-[#2b3343] ${scrolled ? 'text-xl' : 'text-2xl'} transition-all duration-300 group-hover:text-[#ff5c35]`}>DMD</span>
             </Link>
 
             {/* Desktop Navigation */}

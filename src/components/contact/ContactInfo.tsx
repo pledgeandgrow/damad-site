@@ -52,7 +52,7 @@ export default function ContactInfo() {
               </p>
               <p className="text-[#2b3343] font-bold flex items-center">
                 <FaPhoneAlt className="mr-2 text-blue-600" />
-                0 826 101 202
+                09 70 72 22 63
               </p>
             </div>
             
