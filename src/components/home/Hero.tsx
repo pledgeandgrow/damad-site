@@ -64,7 +64,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-[650px] sm:h-[700px] md:h-[800px] overflow-hidden flex items-center justify-center">
+    <section className="relative h-[650px] sm:h-[700px] md:h-[800px] overflow-hidden flex items-center justify-center -mt-[72px] md:-mt-[96px] pt-[72px] md:pt-[96px]">
       {/* Background Video or Image */}
       <div className="absolute inset-0 w-full h-full z-0">
         {/* Fallback background color/gradient while waiting for video */}
@@ -91,17 +91,17 @@ export default function Hero() {
       </div>
       
       {/* Content */}
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-10 sm:pt-16 md:pt-20">
         <div className="max-w-3xl mx-auto text-center">
           
           {/* Headline with improved typography and responsive sizing */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-0 sm:mb-1 leading-tight tracking-tight drop-shadow-lg">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-0 sm:mb-1 leading-tight tracking-tight drop-shadow-lg">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">DMD</span> <br className="hidden sm:block" />
             <span className="inline-block mt-1"></span>
           </h1>
           
           {/* Description with better readability - optimized for mobile */}
-          <p className="text-base xs:text-lg sm:text-xl text-white/90 mb-6 xs:mb-8 sm:mb-10 max-w-3xl mx-auto drop-shadow-md leading-relaxed px-1 xs:px-2 sm:px-0">
+          <p className="text-base xs:text-lg sm:text-xl text-white/90 mb-6 xs:mb-8 sm:mb-10 max-w-3xl mx-auto drop-shadow-md leading-relaxed px-1 xs:px-2 sm:px-0 sm:-mt-6">
             Damad vous accompagne dans vos projets, de l&#39;installation à la maintenance, avec des solutions d&#39;accessibilité et un service d&#39;excellence.
           </p>
           
@@ -115,10 +115,10 @@ export default function Hero() {
               <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
             <Link 
-              href="/services" 
+              href="/a-propos" 
               className="border-2 border-[#0046fe] bg-[#0046fe] text-white hover:bg-[#0046fe]/90 font-medium py-3 xs:py-3.5 px-5 xs:px-7 rounded-lg transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm xs:text-base"
             >
-              Nos services
+              Notre histoire 
             </Link>
           </div>
           

@@ -1,34 +1,29 @@
-"use client";
-
-import React from 'react';
 import Image from 'next/image';
 
-export default function RecruitmentHero() {
+export default function HeroSection() {
   return (
     <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image 
-          src="/images/recrutement/recrutement0.jpg" 
-          alt="Recrutement DAMAD" 
+          src="/images/services/depannage.jpg" 
+          alt="Dépannage d&apos;appareils d&apos;accessibilité" 
           className="object-cover"
           fill
-          priority
           sizes="100vw"
+          priority
         />
       </div>
-
       <div className="container mx-auto px-4 max-w-7xl relative z-10 text-center">
         <div className="animate-fade-in-up bg-black/40 backdrop-blur-sm inline-block px-8 py-6 rounded-lg">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-            RECRUTEMENT
+            DÉPANNAGE
           </h1>
           <div className="w-24 h-1 bg-[#99a8b1] mx-auto"></div>
           <p className="text-white text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
-            Rejoignez notre équipe de professionnels passionnés
+            Les Experts de DAMAD sont à votre service pour tout dépannage
           </p>
         </div>
       </div>
-      
       {/* Decorative elements */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-[2]">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-[60px] text-white">

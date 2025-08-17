@@ -47,13 +47,13 @@ const footerLinks: FooterSection[] = [
         icon: FaMapMarkerAlt 
       },
       { 
-        name: '+33 1 48 35 12 34 (Support)',
-        href: 'tel:+33148351234',
+        name: '01 86 04 30 63 (Support)',
+        href: 'tel:+33186043063',
         icon: FaPhoneAlt
       },
       { 
         name: '09 70 72 22 63 (Centrale d\'appel)',
-        href: 'tel:0970722263',
+        href: 'tel:+33970722263',
         icon: FaHeadset
       },
       { 
@@ -90,12 +90,12 @@ export default function Footer() {
           <div className="block sm:hidden mb-8">
             <div className="flex items-center justify-between w-full">
               <Link href="/" className="inline-flex items-center">
-                <div className="relative h-12 w-auto">
+                <div className="relative h-16 w-auto">
                   <Image 
                     src="/dmd-white-transparent.png" 
                     alt="DMD" 
-                    width={48}
-                    height={48}
+                    width={64}
+                    height={64}
                     className="object-contain hover:opacity-90 transition-opacity h-full w-auto"
                     priority
                   />
@@ -224,12 +224,12 @@ export default function Footer() {
           {/* Company Info */}
           <div className="space-y-5 sm:space-y-6 pl-0">
             <Link href="/" className="inline-flex items-center">
-              <div className="relative h-16 sm:h-20 w-auto">
+              <div className="relative h-24 w-auto">
                 <Image 
                   src="/dmd-white-transparent.png" 
                   alt="DMD" 
-                  width={64}
-                  height={64}
+                  width={96}
+                  height={96}
                   className="object-contain hover:opacity-90 transition-opacity h-full w-auto"
                   priority
                 />

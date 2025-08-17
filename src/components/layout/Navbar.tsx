@@ -68,11 +68,11 @@ export default function Navbar() {
       <div className="bg-[#2b3343] text-white text-sm hidden md:block">
         <div className="container mx-auto px-6 py-2.5 flex justify-between items-center">
           <div className="flex items-center space-x-8">
-            <a href="tel:+33123456789" className="flex items-center hover:text-blue-300 transition-colors group">
+            <a href="tel:+33186043063" className="flex items-center hover:text-blue-300 transition-colors group">
               <div className="bg-blue-500/20 p-1.5 rounded-full mr-2.5 group-hover:bg-blue-500/30 transition-colors">
                 <FaPhoneAlt className="text-blue-400" />
               </div>
-              <span className="font-medium">+33 1 23 45 67 89</span>
+              <span className="font-medium">01 86 04 30 63</span>
             </a>
             <a href="mailto:contact@damad-ascenseurs.fr" className="flex items-center hover:text-blue-300 transition-colors group">
               <div className="bg-blue-500/20 p-1.5 rounded-full mr-2.5 group-hover:bg-blue-500/30 transition-colors">
@@ -115,12 +115,12 @@ export default function Navbar() {
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center group">
-              <div className={`relative ${scrolled ? 'h-16' : 'h-20'} w-auto transition-all duration-300`}>
+              <div className={`relative ${scrolled ? 'h-20' : 'h-24'} w-auto transition-all duration-300`}>
                 <Image 
                   src="/dmd-transparent.png" 
                   alt="DMD" 
-                  width={scrolled ? 64 : 80}
-                  height={scrolled ? 64 : 80}
+                  width={scrolled ? 80 : 96}
+                  height={scrolled ? 80 : 96}
                   className="object-contain h-full w-auto group-hover:scale-105 transition-transform duration-300"
                   priority
                 />

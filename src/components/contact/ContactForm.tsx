@@ -26,7 +26,8 @@ type FormData = {
 
 export default function ContactForm() {
   // Common CSS classes
-  const inputClass = "block w-full rounded-md border-0 px-4 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#2b3343] sm:text-sm sm:leading-6 transition-all duration-200 ease-in-out hover:ring-[#3d4759]";
+  const inputClass = "block w-full rounded-md border-0 py-2.5 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#0046fe] sm:text-sm sm:leading-6";
+  const dateInputClass = "block w-full min-w-[280px] rounded-md border-0 py-2.5 px-3.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#0046fe] sm:text-sm sm:leading-6";
   const labelClass = "block text-sm font-medium text-[#2b3343] mb-1";
   const errorClass = "mt-1 text-xs text-red-600 font-medium";
   const selectClass = "block w-full rounded-md border-0 px-4 py-2.5 text-[#2b3343] shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#2b3343] sm:text-sm sm:leading-6 transition-all duration-200 ease-in-out hover:ring-[#3d4759]";
@@ -287,7 +288,7 @@ export default function ContactForm() {
                     dateFormat="dd/MM/yyyy"
                     locale={fr}
                     placeholderText="Sélectionnez des jours (optionnel)"
-                    className={inputClass}
+                    className={dateInputClass}
                     calendarClassName="bg-white shadow-lg rounded-md"
                     monthsShown={1}
                     highlightDates={field.value || []}
@@ -351,7 +352,7 @@ export default function ContactForm() {
                   timeFormat="HH:mm"
                   locale={fr}
                   placeholderText="Sélectionnez une heure (optionnel)"
-                  className={inputClass}
+                  className={dateInputClass}
                   calendarClassName="bg-white shadow-lg rounded-md"
                   isClearable
                 />
