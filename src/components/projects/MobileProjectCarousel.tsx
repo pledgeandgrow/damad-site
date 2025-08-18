@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from 'react';
-import { FaChevronLeft, FaChevronRight, FaSearch } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import { useSwipeable } from 'react-swipeable';
 import ProjectCard from './ProjectCard';
 import { Project } from '@/types';
@@ -102,51 +102,9 @@ export default function MobileProjectCarousel({ projects, onProjectClick }: Mobi
         </motion.div>
       </div>
 
-      {/* Navigation dots */}
-      <div className="flex justify-center mt-6 space-x-3">
-        {projects.map((_, index) => (
-          <motion.button
-            key={index}
-            onClick={() => {
-              setIsAnimating(true);
-              setCurrentIndex(index);
-              setTimeout(() => setIsAnimating(false), 500);
-            }}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex ? 'bg-[#2b3343] shadow-md' : 'bg-gray-300 hover:bg-gray-400'}`}
-            aria-label={`Go to slide ${index + 1}`}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-            animate={index === currentIndex ? { scale: [1, 1.2, 1] } : { scale: 1 }}
-            transition={{ duration: 0.5 }}
-          />
-        ))}
-      </div>
+      {/* Navigation dots removed */}
 
-      {/* Navigation arrows */}
-      <motion.button
-        onClick={prevSlide}
-        className="absolute top-1/2 left-2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#2b3343] p-3 rounded-full shadow-lg z-10"
-        aria-label="Previous slide"
-        whileHover={{ scale: 1.1, x: -3 }}
-        whileTap={{ scale: 0.9 }}
-        initial={{ opacity: 0, x: -10 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.2 }}
-      >
-        <FaChevronLeft className="w-4 h-4" />
-      </motion.button>
-      <motion.button
-        onClick={nextSlide}
-        className="absolute top-1/2 right-2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#2b3343] p-3 rounded-full shadow-lg z-10"
-        aria-label="Next slide"
-        whileHover={{ scale: 1.1, x: 3 }}
-        whileTap={{ scale: 0.9 }}
-        initial={{ opacity: 0, x: 10 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.2 }}
-      >
-        <FaChevronRight className="w-4 h-4" />
-      </motion.button>
+      {/* Navigation arrows removed */}
       
       {/* Progress indicator */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-200 rounded-full overflow-hidden">

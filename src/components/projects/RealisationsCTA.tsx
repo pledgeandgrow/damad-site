@@ -7,10 +7,7 @@ interface RealisationsCTAProps {
 
 export default function RealisationsCTA({ className = '' }: RealisationsCTAProps) {
   return (
-    <section className={`py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden ${className}`}>
-      {/* Decorative elements similar to a-propos components */}
-      <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#2b3343] rounded-full opacity-10 z-0"></div>
-      <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#2b3343] rounded-full opacity-10 z-0"></div>
+    <section className={`py-20 bg-white relative overflow-hidden ${className}`}>
       
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="max-w-3xl mx-auto p-8 md:p-12 rounded-2xl">

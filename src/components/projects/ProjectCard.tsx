@@ -6,9 +6,10 @@ import { motion } from 'framer-motion';
 interface ProjectCardProps {
   project: Project;
   className?: string;
+  onClick?: () => void;
 }
 
-export default function ProjectCard({ project, className = '' }: ProjectCardProps) {
+export default function ProjectCard({ project, className = '', onClick = () => {} }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
@@ -20,6 +21,7 @@ export default function ProjectCard({ project, className = '' }: ProjectCardProp
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
+      onClick={onClick}
     >
       {/* Image container with overlay on hover */}
       <div className="relative h-72 overflow-hidden">

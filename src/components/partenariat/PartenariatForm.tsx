@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { FaArrowRight, FaCheck } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { FaArrowRight, FaArrowLeft, FaCheck, FaBuilding, FaUser, FaFileAlt } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function PartenariatForm() {
   const [formData, setFormData] = useState({
@@ -41,6 +41,8 @@ export default function PartenariatForm() {
   const [loading, setLoading] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 3;
+  
+  // Mobile detection has been removed as it was unused
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -180,7 +182,7 @@ export default function PartenariatForm() {
     <section className="py-20 bg-[#fbfcfd] text-gray-800">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-8">
+          <div className="text-center mb-8 px-4 sm:px-6 md:px-8">
             <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#2b3343] mb-3 sm:mb-4">
               Devenez partenaire de DAMAD dès aujourd&apos;hui
             </h2>
@@ -200,7 +202,7 @@ export default function PartenariatForm() {
                       className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium transition-all ${currentStep === step 
                         ? 'bg-[#0046fe] text-white' 
                         : currentStep > step 
-                          ? 'bg-green-500 text-white' 
+                          ? 'bg-[#0046fe] text-white' 
                           : 'bg-gray-200 text-gray-600'}`}
                     >
                       {currentStep > step ? <FaCheck /> : step}
@@ -226,17 +228,21 @@ export default function PartenariatForm() {
                 {error && <div className="p-4 bg-red-50 text-red-700 rounded-lg mb-6">{error}</div>}
                 
                 {/* Step content container */}
-                <motion.div
-                  key={`step-${currentStep}`}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3 }}
-                >
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`step-${currentStep}`}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
                   {/* Step 1: Informations de l'entreprise */}
                   {currentStep === 1 && (
                     <div>
-                      <h3 className="text-xl font-semibold mb-4 text-[#2b3343]">Informations de l&apos;entreprise</h3>
+                      <h3 className="text-xl font-semibold mb-4 text-[#2b3343] flex items-center">
+                        <FaBuilding className="mr-2 text-[#0046fe]" />
+                        Informations de l&apos;entreprise
+                      </h3>
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
                         <div>
@@ -320,7 +326,10 @@ export default function PartenariatForm() {
                   {/* Step 2: Personne à contacter */}
                   {currentStep === 2 && (
                     <div>
-                      <h3 className="text-xl font-semibold mb-4 text-[#2b3343]">Personne à contacter</h3>
+                      <h3 className="text-xl font-semibold mb-4 text-[#2b3343] flex items-center">
+                        <FaUser className="mr-2 text-[#0046fe]" />
+                        Personne à contacter
+                      </h3>
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
                         <div>
@@ -389,7 +398,10 @@ export default function PartenariatForm() {
                   {/* Step 3: Documents and Projects */}
                   {currentStep === 3 && (
                     <div>
-                      <h3 className="text-xl font-semibold mb-4 text-[#2b3343]">Documents</h3>
+                      <h3 className="text-xl font-semibold mb-4 text-[#2b3343] flex items-center">
+                        <FaFileAlt className="mr-2 text-[#0046fe]" />
+                        Documents
+                      </h3>
                       
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div>
@@ -529,7 +541,8 @@ export default function PartenariatForm() {
                       </div>
                     </div>
                   )}
-                </motion.div>
+                  </motion.div>
+                </AnimatePresence>
                 
                 {/* Navigation and Submit buttons */}
                 <div className="flex justify-between mt-8">
@@ -537,9 +550,9 @@ export default function PartenariatForm() {
                     <button
                       type="button"
                       onClick={prevStep}
-                      className="px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium rounded-lg transition-colors duration-300"
+                      className="flex items-center px-6 py-3 bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium rounded-lg transition-colors duration-300"
                     >
-                      Précédent
+                      <FaArrowLeft className="mr-2" /> Précédent
                     </button>
                   )}
                   
@@ -547,9 +560,9 @@ export default function PartenariatForm() {
                     <button
                       type="button"
                       onClick={nextStep}
-                      className="px-6 py-3 bg-[#0046fe] hover:bg-[#0046fe]/90 text-white font-medium rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg ml-auto"
+                      className="flex items-center px-6 py-3 bg-[#0046fe] hover:bg-[#0046fe]/90 text-white font-medium rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg ml-auto"
                     >
-                      Suivant
+                      Suivant <FaArrowRight className="ml-2" />
                     </button>
                   )}
                   
@@ -557,7 +570,7 @@ export default function PartenariatForm() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="px-8 py-3 bg-[#0046fe] hover:bg-[#0046fe]/90 text-white font-medium rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg ml-auto"
+                      className="flex items-center px-8 py-3 bg-[#0046fe] hover:bg-[#0046fe]/90 text-white font-medium rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg ml-auto"
                     >
                       {loading ? 'Envoi en cours...' : 'Je candidate'}
                     </button>

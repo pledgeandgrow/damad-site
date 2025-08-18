@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { FaCookieBite, FaTimes } from 'react-icons/fa';
-import { parseCookies, setCookie } from 'nookies';
 
 interface CookieConsentProps {
   cookieName?: string;
@@ -17,8 +16,9 @@ export default function CookieConsent({
 
   useEffect(() => {
     // Check if cookie consent has been given
-    const allCookies = parseCookies();
-    const hasConsent = allCookies[cookieName];
+    const hasConsent = document.cookie.split(';').some(item => {
+      return item.trim().startsWith(`${cookieName}=`);
+    });
     
     // Only show banner if consent hasn't been given
     if (!hasConsent) {
@@ -33,24 +33,20 @@ export default function CookieConsent({
 
   const acceptCookies = () => {
     // Set cookie with consent
-    setCookie(null, cookieName, 'true', {
-      maxAge: expiryDays * 24 * 60 * 60,
-      path: '/',
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-    });
+    const expiryDate = new Date();
+    expiryDate.setDate(expiryDate.getDate() + expiryDays);
+    
+    document.cookie = `${cookieName}=true; expires=${expiryDate.toUTCString()}; path=/; ${process.env.NODE_ENV === 'production' ? 'secure; ' : ''}SameSite=Lax`;
     
     setVisible(false);
   };
 
   const declineCookies = () => {
     // Set cookie with declined status
-    setCookie(null, cookieName, 'false', {
-      maxAge: 7 * 24 * 60 * 60, // Ask again in a week
-      path: '/',
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-    });
+    const expiryDate = new Date();
+    expiryDate.setDate(expiryDate.getDate() + 7); // Ask again in a week
+    
+    document.cookie = `${cookieName}=false; expires=${expiryDate.toUTCString()}; path=/; ${process.env.NODE_ENV === 'production' ? 'secure; ' : ''}SameSite=Lax`;
     
     setVisible(false);
   };

@@ -1,7 +1,11 @@
+"use client";
+
 import { Project } from '@/types';
 import ProjectCard from './ProjectCard';
 import { motion } from 'framer-motion';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { useRef, useState, useEffect } from 'react';
+import './ScrollbarHide.css';
 
 interface ProjectsGridProps {
   projects: Project[];
@@ -16,6 +20,58 @@ export default function ProjectsGrid({
   columns = 3,
   onProjectClick
 }: ProjectsGridProps) {
+  const [isMobile, setIsMobile] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  
+  // Pagination for desktop view
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 6;
+  const totalPages = Math.ceil(projects.length / itemsPerPage);
+  
+  const paginatedProjects = projects.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
+
+  // Check if mobile
+  useEffect(() => {
+    const checkIfMobile = () => {
+      const width = window.innerWidth;
+      setIsMobile(width < 768); // md breakpoint
+    };
+    
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+    
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
+  // Debounce function to limit scroll event firing
+  const debounce = <T extends (...args: unknown[]) => void>(func: T, delay: number) => {
+    let timeoutId: NodeJS.Timeout;
+    return (...args: Parameters<T>) => {
+      if (timeoutId) clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => func(...args), delay);
+    };
+  };
+
+  // Handle scroll position detection with debounce
+  const handleScroll = useRef(
+    debounce(() => {
+      if (carouselRef.current) {
+        const scrollPosition = carouselRef.current.scrollLeft;
+        const cardWidth = carouselRef.current.clientWidth;
+        const newIndex = Math.round(scrollPosition / cardWidth);
+        if (newIndex !== activeIndex && newIndex >= 0 && newIndex < projects.length) {
+          setActiveIndex(newIndex);
+        }
+      }
+    }, 50)
+  ).current;
+
+  // Navigate to specific slide functionality removed as it was unused
+
   const gridCols = {
     1: 'grid-cols-1',
     2: 'grid-cols-1 md:grid-cols-2',
@@ -53,28 +109,92 @@ export default function ProjectsGrid({
     );
   }
 
+  if (isMobile) {
+    return (
+      <div className="relative">
+        <div className="overflow-hidden">
+          <div 
+            ref={carouselRef}
+            className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-6 gap-4"
+            style={{ 
+              scrollbarWidth: 'none', 
+              msOverflowStyle: 'none',
+              scrollSnapType: 'x mandatory',
+              scrollBehavior: 'smooth',
+              WebkitOverflowScrolling: 'touch'
+            }}
+            onScroll={() => handleScroll()}
+          >
+            {projects.map((project) => (
+              <div 
+                key={project.id}
+                className="flex-shrink-0 snap-center w-full" 
+                style={{ scrollSnapAlign: 'center' }}
+              >
+                <ProjectCard 
+                  project={project} 
+                  className="h-full cursor-pointer"
+                  onClick={() => onProjectClick?.(project)}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <motion.div 
-      className={`grid ${gridCols} gap-8 ${className}`}
-      variants={container}
-      initial="hidden"
-      animate="show"
-    >
-      {projects.map((project, index) => (
-        <motion.div
-          key={project.id}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-          className="h-full"
-        >
-          <ProjectCard 
-            project={project} 
-            className="h-full cursor-pointer"
-            onClick={() => onProjectClick?.(project)}
-          />
-        </motion.div>
-      ))}
-    </motion.div>
+    <div className="relative">
+      <motion.div 
+        className={`grid ${gridCols} gap-8 ${className}`}
+        variants={container}
+        initial="hidden"
+        animate="show"
+      >
+        {paginatedProjects.map((project, index) => (
+          <motion.div
+            key={project.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="h-full"
+          >
+            <ProjectCard 
+              project={project} 
+              className="h-full cursor-pointer"
+              onClick={() => onProjectClick?.(project)}
+            />
+          </motion.div>
+        ))}
+      </motion.div>
+      
+      {/* Pagination arrows - only show if more than one page */}
+      {totalPages > 1 && (
+        <div className="flex justify-center items-center mt-10 gap-4">
+          <button
+            onClick={() => setCurrentPage(prev => Math.max(0, prev - 1))}
+            disabled={currentPage === 0}
+            className={`p-3 rounded-full ${currentPage === 0 ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'bg-white shadow-md hover:shadow-lg text-[#2b3343]'} transition-all duration-300`}
+            aria-label="Previous page"
+          >
+            <FaChevronLeft className="w-5 h-5" />
+          </button>
+          
+          <div className="text-[#2b3343] font-medium">
+            {currentPage + 1} / {totalPages}
+          </div>
+          
+          <button
+            onClick={() => setCurrentPage(prev => Math.min(totalPages - 1, prev + 1))}
+            disabled={currentPage === totalPages - 1}
+            className={`p-3 rounded-full ${currentPage === totalPages - 1 ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'bg-white shadow-md hover:shadow-lg text-[#2b3343]'} transition-all duration-300`}
+            aria-label="Next page"
+          >
+            <FaChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+      )}
+    </div>
   );
 }
