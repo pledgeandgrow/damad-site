@@ -124,8 +124,8 @@ export default function InterventionsForm() {
   };
 
   return (
-    <section id="interventions-form" className="py-20 bg-[#fbfcfd]">
-      <div className="container mx-auto px-4 max-w-7xl">
+    <section id="interventions-form" className="py-12 xs:py-16 sm:py-20 bg-[#fbfcfd]">
+      <div className="container mx-auto px-3 xs:px-4 max-w-7xl">
         <div className="max-w-4xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-[#2b3343]">
             Demande d&apos;intervention
@@ -136,7 +136,7 @@ export default function InterventionsForm() {
         </div>
         
         {isSubmitted ? (
-          <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+          <div className="max-w-3xl mx-auto bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-sm border border-gray-100">
             <div className="text-center py-8">
               <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/20 text-green-600">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -159,7 +159,7 @@ export default function InterventionsForm() {
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+          <form onSubmit={handleSubmit} className="max-w-3xl mx-auto bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-sm border border-gray-100">
             {formError && (
               <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-600">
                 <p className="flex items-center">
@@ -174,7 +174,7 @@ export default function InterventionsForm() {
                 <FaBuilding className="mr-2 text-[#0046fe]" />
                 Informations de contact
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                     Nom complet *
@@ -243,7 +243,7 @@ export default function InterventionsForm() {
                 <FaExclamationTriangle className="mr-2 text-[#0046fe]" />
                 Détails de l&apos;intervention
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6">
                 <div>
                   <label htmlFor="appareilType" className="block text-sm font-medium text-gray-700 mb-1">
                     Type d&apos;appareils *
@@ -322,10 +322,10 @@ export default function InterventionsForm() {
             
             <div className="mb-8">
               <h3 className="text-xl font-semibold mb-4 text-[#2b3343] flex items-center">
-                <FaCalendarAlt className="mr-2" />
+                <FaCalendarAlt className="mr-2 text-[#0046fe]" />
                 Planification (optionnel)
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label htmlFor="preferredDate" className="block text-sm font-medium text-gray-700 mb-1">
                     Date préférée

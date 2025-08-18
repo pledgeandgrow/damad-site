@@ -207,14 +207,16 @@ export default function Services() {
             </div>
           </div>
           
-          {/* Carousel Controls */}
+          {/* Carousel Controls - Only 3 dots */}
           <div className="flex justify-center mt-6 gap-3">
-            {services.map((_, index) => (
+            {[0, 1, 2].map((dotIndex) => (
               <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${activeIndex === index ? 'bg-[#0046fe] w-5' : 'bg-gray-300'}`}
-                aria-label={`Go to slide ${index + 1}`}
+                key={dotIndex}
+                onClick={() => setActiveIndex(dotIndex * Math.ceil(services.length / 3))}
+                className={`w-2.5 h-2.5 rounded-full transition-all ${
+                  Math.floor(activeIndex / Math.ceil(services.length / 3)) === dotIndex ? 'bg-[#0046fe] w-5' : 'bg-gray-300'
+                }`}
+                aria-label={`Go to slide group ${dotIndex + 1}`}
               />
             ))}
           </div>

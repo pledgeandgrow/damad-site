@@ -1,28 +1,20 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
-import { FaArrowRight } from 'react-icons/fa';
 import CategoryFilter from '@/components/projects/CategoryFilter';
-import ProjectsGrid from '@/components/projects/ProjectsGrid';
-import ProjectModal from '../../components/projects/ProjectModal';
 import { getProjectsByCategory } from '../../data/projects';
-import { Project } from '@/types';
-import useModal from '@/hooks/useModal';
 import MobileProjectCarousel from '@/components/projects/MobileProjectCarousel';
+import ProjectsGrid from '@/components/projects/ProjectsGrid';
+import RealisationsCTA from '@/components/projects/RealisationsCTA';
 
 export default function RealisationsPage() {
   const [activeCategory, setActiveCategory] = useState('all');
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const { open, close } = useModal();
+  // Removed modal state
   
   const projects = getProjectsByCategory(activeCategory);
   
-  const handleProjectClick = (project: Project) => {
-    setSelectedProject(project);
-    open();
-  };
+  // Project click handler removed
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -78,7 +70,7 @@ export default function RealisationsPage() {
             <ProjectsGrid 
               projects={projects} 
               className="mb-12"
-              onProjectClick={handleProjectClick}
+              onProjectClick={() => {}}
             />
           </div>
           
@@ -86,7 +78,7 @@ export default function RealisationsPage() {
           <div className="md:hidden mb-12">
             <MobileProjectCarousel 
               projects={projects}
-              onProjectClick={handleProjectClick}
+              onProjectClick={() => {}}
             />
           </div>
 
@@ -106,44 +98,10 @@ export default function RealisationsPage() {
         </div>
       </section>
 
-      {/* Project Modal */}
-      {selectedProject && (
-        <ProjectModal 
-          project={selectedProject} 
-          onClose={close} 
-        />
-      )}
+      {/* Project Modal removed */}
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-[#2b3343] to-[#3d4759] text-white py-20 relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
-        
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <div className="max-w-3xl mx-auto bg-white/10 backdrop-blur-sm p-8 md:p-12 rounded-2xl shadow-lg">
-            <h2 className="text-3xl font-bold mb-6">Un projet en tête ?</h2>
-            <p className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
-              Notre équipe d&apos;experts est à votre écoute pour concrétiser votre projet d&apos;installation, de maintenance ou de modernisation d&apos;ascenseurs et d&apos;accessibilité.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Link 
-                href="/contact"
-                className="inline-flex items-center justify-center bg-white text-[#2b3343] hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-xl transform hover:-translate-y-1"
-              >
-                Parler à un expert
-                <FaArrowRight className="ml-2" />
-              </Link>
-              <Link 
-                href="/devis"
-                className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white/10 font-medium py-3 px-8 rounded-lg transition-all duration-300 transform hover:-translate-y-1"
-              >
-                Demander un devis
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <RealisationsCTA />
     </div>
   );
 }

@@ -16,14 +16,15 @@ const DigitalPlatformSection = () => {
 
         <div className="flex flex-col lg:flex-row gap-10 items-center">
           {/* Left side - Image */}
-          <div className="lg:w-1/2">
+          <div className="w-full lg:w-1/2">
             <div className="rounded-xl overflow-hidden shadow-lg border border-gray-100 transform transition-all duration-500 hover:shadow-2xl hover:scale-[1.02] group">
-              <div className="relative w-full h-80">
+              <div className="relative w-full h-64 sm:h-80">
                 <Image 
                   src="/images/renovation/renovation1.jpg" 
                   alt="Gestion de projet de rénovation DAMAD" 
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   fill
+                  priority
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#2b3343]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8">

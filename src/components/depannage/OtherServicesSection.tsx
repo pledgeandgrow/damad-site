@@ -1,6 +1,17 @@
+'use client';
+
 import Link from 'next/link';
 
 export default function OtherServicesSection() {
+  // Services data
+  const services = [
+    { name: "Maintenance" },
+    { name: "Nettoyage fosse" },
+    { name: "Inspection câble" },
+    { name: "Récupération d'objet" },
+    { name: "Assistance technique" },
+    { name: "Essais parachute" }
+  ];
   return (
     <div className="bg-white py-20 sm:py-24 border-t border-gray-100">
         <div className="container mx-auto px-4 max-w-7xl">
@@ -14,36 +25,15 @@ export default function OtherServicesSection() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-            {/* Service 1 */}
-            <div className="bg-gray-50 rounded-lg p-4 text-center hover:bg-gray-100 transition-colors duration-300 shadow-sm hover:shadow-md">
-              <div className="text-[#2b3343] font-medium">Maintenance</div>
-            </div>
-            
-            {/* Service 2 */}
-            <div className="bg-gray-50 rounded-lg p-4 text-center hover:bg-gray-100 transition-colors duration-300 shadow-sm hover:shadow-md">
-              <div className="text-[#2b3343] font-medium">Nettoyage fosse</div>
-            </div>
-            
-            {/* Service 3 */}
-            <div className="bg-gray-50 rounded-lg p-4 text-center hover:bg-gray-100 transition-colors duration-300 shadow-sm hover:shadow-md">
-              <div className="text-[#2b3343] font-medium">Inspection câble</div>
-            </div>
-            
-            {/* Service 4 */}
-            <div className="bg-gray-50 rounded-lg p-4 text-center hover:bg-gray-100 transition-colors duration-300 shadow-sm hover:shadow-md">
-              <div className="text-[#2b3343] font-medium">Récupération d&apos;objet</div>
-            </div>
-            
-            {/* Service 5 */}
-            <div className="bg-gray-50 rounded-lg p-4 text-center hover:bg-gray-100 transition-colors duration-300 shadow-sm hover:shadow-md">
-              <div className="text-[#2b3343] font-medium">Assistance technique</div>
-            </div>
-            
-            {/* Service 6 */}
-            <div className="bg-gray-50 rounded-lg p-4 text-center hover:bg-gray-100 transition-colors duration-300 shadow-sm hover:shadow-md">
-              <div className="text-[#2b3343] font-medium">Essais parachute</div>
-            </div>
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 max-w-5xl mx-auto">
+            {services.map((service, index) => (
+              <div 
+                key={index}
+                className="bg-gray-50 rounded-lg p-2 sm:p-3 text-center hover:bg-gray-100 transition-colors duration-300 shadow-sm hover:shadow-md"
+              >
+                <div className="text-[#2b3343] font-medium text-xs sm:text-sm">{service.name}</div>
+              </div>
+            ))}
           </div>
           
           <div className="mt-12 text-center">
@@ -52,6 +42,6 @@ export default function OtherServicesSection() {
             </Link>
           </div>
         </div>
-      </div>
+    </div>
   );
 }
