@@ -7,6 +7,10 @@ export default function InterventionsInfo() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
+  
+  // Touch handling variables
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
 
   // Check if mobile
   useEffect(() => {
@@ -42,6 +46,32 @@ export default function InterventionsInfo() {
     }
   }, 50);
 
+  // Handle touch events manually
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchEndX.current = e.changedTouches[0].clientX;
+    handleSwipe();
+  };
+  
+  const handleSwipe = () => {
+    // Minimum swipe distance (in px) to trigger next/prev
+    const minSwipeDistance = 50;
+    const distance = touchStartX.current - touchEndX.current;
+    
+    if (Math.abs(distance) < minSwipeDistance) return;
+    
+    if (distance > 0) {
+      // Swiped left, go to next slide
+      setActiveIndex((prevIndex) => (prevIndex + 1) % services.length);
+    } else {
+      // Swiped right, go to previous slide
+      setActiveIndex((prevIndex) => (prevIndex === 0 ? services.length - 1 : prevIndex - 1));
+    }
+  };
+  
   // Scroll to active slide when index changes (mobile only)
   useEffect(() => {
     // Only run this on client side and if mobile
@@ -115,6 +145,8 @@ export default function InterventionsInfo() {
                   scrollBehavior: 'smooth'
                 }}
                 onScroll={handleScroll}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
               >
                 {services.map((service, index) => (
                   <div 

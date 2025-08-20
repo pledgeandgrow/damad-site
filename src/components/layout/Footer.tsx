@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight, FaTools, FaBuilding, FaInfoCircle, FaFileInvoiceDollar, FaWrench, FaCogs, FaExclamationTriangle, FaUsers, FaSyncAlt, FaHandshake, FaLinkedin, FaQuestionCircle, FaHeadset } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight, FaTools, FaBuilding, FaInfoCircle, FaWrench, FaCogs, FaExclamationTriangle, FaUsers, FaSyncAlt, FaHandshake, FaLinkedin, FaQuestionCircle, FaHeadset, FaHardHat } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 
 interface FooterLink {
@@ -24,7 +24,7 @@ const footerLinks: FooterSection[] = [
       { name: 'Recrutement', href: '/recrutement', icon: FaUsers },
       { name: 'FAQ', href: '/faq', icon: FaQuestionCircle },
       { name: 'Partenariat', href: '/partenariat', icon: FaHandshake },
-      { name: 'Devis', href: '/contact?subject=demande-de-devis', icon: FaFileInvoiceDollar },
+      { name: 'Nous Joindre', href: '/contact?subject=demande-de-devis', icon: FaPhoneAlt },
     ],
   },
   {
@@ -35,7 +35,7 @@ const footerLinks: FooterSection[] = [
       { name: 'Dépannage', href: '/services/depannage', icon: FaExclamationTriangle },
       { name: 'Modernisation', href: '/services/modernisation', icon: FaSyncAlt },
       { name: 'Réparation', href: '/services/reparation', icon: FaWrench },
-      { name: 'Interventions', href: '/interventions', icon: FaTools },
+      { name: 'Interventions', href: '/interventions', icon: FaHardHat },
     ],
   },
   {
@@ -90,12 +90,12 @@ export default function Footer() {
           <div className="block sm:hidden mb-8">
             <div className="flex items-center justify-between w-full">
               <Link href="/" className="inline-flex items-center">
-                <div className="relative h-16 w-auto">
+                <div className="relative h-20 w-auto">
                   <Image 
                     src="/dmd-white-transparent.png" 
                     alt="DMD" 
-                    width={64}
-                    height={64}
+                    width={80}
+                    height={80}
                     className="object-contain hover:opacity-90 transition-opacity h-full w-auto"
                     priority
                   />

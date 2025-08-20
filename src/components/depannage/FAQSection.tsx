@@ -76,20 +76,6 @@ export default function FAQSection() {
           ))}
         </div>
         
-        <div className="mt-12 p-6 bg-blue-50 rounded-xl border border-blue-100 text-center">
-          <p className="text-[#2b3343] mb-4">
-            Vous avez d&apos;autres questions concernant nos services de dépannage ?
-          </p>
-          <a 
-            href="/contact" 
-            className="inline-flex items-center px-6 py-3 bg-[#0046fe] text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-300"
-          >
-            Contactez-nous
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-        </div>
       </div>
     </div>
   );

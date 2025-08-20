@@ -11,13 +11,13 @@ const features = [
   },
   {
     icon: <FaLeaf className="h-8 w-8 text-white" />,
-    title: "Économies d&apos;énergie",
-    description: "Installation de dispositifs écologiques comme l&apos;éclairage LED."
+    title: "Économies d'énergie",
+    description: "Installation de dispositifs écologiques comme l'éclairage LED."
   },
   {
     icon: <FaUniversalAccess className="h-8 w-8 text-white" />,
     title: 'Accessibilité améliorée',
-    description: "Remplacement des portes et mise aux normes d&apos;accessibilité."
+    description: "Remplacement des portes et mise aux normes d'accessibilité."
   },
   {
     icon: <FaChartLine className="h-8 w-8 text-white" />,
@@ -97,7 +97,7 @@ const FeaturesSection = () => {
           </h2>
           <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
           <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-            La modernisation d&apos;un appareil d&apos;accessibilité consiste à remplacer ou à améliorer certains composants de l&apos;équipement pour améliorer ses performances, sa sécurité et son efficacité énergétique.
+            La modernisation d{`'`}un appareil d{`'`}accessibilité consiste à remplacer ou à améliorer certains composants de l{`'`}équipement pour améliorer ses performances, sa sécurité et son efficacité énergétique.
           </p>
         </div>
 
@@ -175,10 +175,11 @@ const FeaturesSection = () => {
         <div className="mt-8 sm:mt-12 max-w-4xl mx-auto">
           <div className="bg-[#f0f5f9] rounded-xl p-5 sm:p-8 border border-gray-100">
             <p className="text-gray-700 leading-relaxed mb-6">
-              Cette démarche permet de prolonger la durée de vie de l&apos;installation tout en répondant aux normes actuelles.
+              Cette démarche permet de prolonger la durée de vie de l{`'`}installation tout en répondant aux normes actuelles.
             </p>
+            <p className="text-gray-600 mb-4">L{`'`}installation d{`'`}un variateur de fréquence permet un démarrage et un arrêt progressifs, réduisant l{`'`}usure mécanique.</p>
             <p className="text-gray-700 leading-relaxed font-medium">
-              Nous sommes en mesure de vous proposer diverses solutions d&apos;accompagnement afin de mettre en réussite votre projet de rénovation et de modernisation !
+              Nous sommes en mesure de vous proposer diverses solutions d{`'`}accompagnement afin de mettre en réussite votre projet de rénovation et de modernisation !
             </p>
           </div>
         </div>

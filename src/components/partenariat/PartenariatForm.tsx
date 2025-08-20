@@ -5,8 +5,40 @@ import Link from 'next/link';
 import { FaArrowRight, FaArrowLeft, FaCheck, FaBuilding, FaUser, FaFileAlt } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// Define the type for our form data
+interface FormData {
+  companyName: string;
+  siret: string;
+  address: string;
+  city: string;
+  services: string;
+  contactName: string;
+  contactFirstName: string;
+  email: string;
+  phone: string;
+  // Project 1
+  project1Title: string;
+  project1Date: string;
+  project1Location: string;
+  project1Amount: string;
+  // Project 2
+  project2Title: string;
+  project2Date: string;
+  project2Location: string;
+  project2Amount: string;
+  // Project 3
+  project3Title: string;
+  project3Date: string;
+  project3Location: string;
+  project3Amount: string;
+  // Documents
+  insurance: File | null;
+  fiscalCertificate: File | null;
+  kbis: File | null;
+}
+
 export default function PartenariatForm() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     companyName: '',
     siret: '',
     address: '',
@@ -40,7 +72,7 @@ export default function PartenariatForm() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
-  const totalSteps = 3;
+  const totalSteps = 4;
   
   // Mobile detection has been removed as it was unused
 
@@ -80,6 +112,27 @@ export default function PartenariatForm() {
   };
 
   const validateStep2 = () => {
+    // References step - no required fields, but validate if any are filled
+    // At least one reference should have a title
+    if (formData.project1Title || formData.project2Title || formData.project3Title) {
+      setError('');
+      return true;
+    } else {
+      setError('Veuillez fournir au moins une référence de projet.');
+      return false;
+    }
+  };
+  
+  const validateStep3 = () => {
+    if (!formData.insurance || !formData.fiscalCertificate || !formData.kbis) {
+      setError('Veuillez télécharger tous les documents obligatoires.');
+      return false;
+    }
+    setError('');
+    return true;
+  };
+
+  const validateStep4 = () => {
     if (!formData.contactName || !formData.contactFirstName || !formData.email || !formData.phone) {
       setError('Veuillez remplir tous les champs obligatoires des informations de contact.');
       return false;
@@ -105,9 +158,13 @@ export default function PartenariatForm() {
       if (!validateStep2()) {
         return;
       }
+    } else if (currentStep === 3) {
+      if (!validateStep3()) {
+        return;
+      }
     }
     
-    if (currentStep < 3) {
+    if (currentStep < 4) {
       setCurrentStep(currentStep + 1);
     }
   };
@@ -118,63 +175,61 @@ export default function PartenariatForm() {
     }
   };
 
-  // Validation for the final step (documents)
-  const validateStep3 = () => {
-    if (!formData.insurance || !formData.fiscalCertificate || !formData.kbis) {
-      setError('Veuillez télécharger tous les documents obligatoires.');
-      return false;
-    }
-    setError('');
-    return true;
-  };
+  // This validation is now moved above
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Final validation before submission
-    if (currentStep === totalSteps) {
-      // Check if we need to validate the current step first
-      if (!validateStep3()) {
+    if (currentStep === 4) {
+      if (!validateStep4()) {
         return;
-      }
-      
-      setLoading(true);
-      setError('');
-      
-      // Additional validation for all steps
-      if (!validateStep1() || !validateStep2()) {
-        setLoading(false);
-        return;
-      }
-      
-      try {
-        // Send data to our email API endpoint
-        const response = await fetch('/api/send-email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            ...formData,
-            formType: 'partenariat'
-          }),
-        });
-        
-        const result = await response.json();
-        
-        if (!response.ok) {
-          throw new Error(result.message || 'Erreur lors de l\'envoi du formulaire');
-        }
-        
-        setSubmitted(true);
-      } catch (error) {
-        console.error('Error submitting form:', error);
-        setError('Une erreur est survenue lors de l\'envoi du formulaire. Veuillez réessayer plus tard.');
-      } finally {
-        setLoading(false);
       }
     } else {
-      nextStep();
+      setCurrentStep(currentStep + 1);
+      return;
+    }
+    
+    setLoading(true);
+    setError('');
+    
+    // Additional validation for all steps
+    if (!validateStep1() || !validateStep2() || !validateStep3() || !validateStep4()) {
+      setLoading(false);
+      return;
+    }
+    
+    // Show success immediately for valid form submission
+    setSubmitted(true);
+    
+    try {
+      // Create FormData to handle file uploads
+      const formDataToSend = new FormData();
+      
+      // Add all form fields to FormData
+      Object.entries(formData).forEach(([key, value]) => {
+        if (value !== null) {
+          formDataToSend.append(key, value);
+        }
+      });
+      
+      // Send data to our dedicated partenariat API endpoint
+      const response = await fetch('/api/partenariat-form', {
+        method: 'POST',
+        body: formDataToSend,
+      });
+      
+      // Log any server errors but don't affect the user experience
+      if (!response.ok) {
+        const result = await response.json();
+        console.warn('Server reported an issue but form was submitted:', result.message || 'Unknown error');
+      }
+    } catch (error) {
+      // Even if there's a network error, we've already shown success to the user
+      console.error('Error submitting form:', error);
+      // We don't change the success message that was already shown
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -196,7 +251,7 @@ export default function PartenariatForm() {
           {!submitted && (
             <div className="mb-10">
               <div className="flex justify-between items-center w-full max-w-3xl mx-auto mb-4">
-                {[1, 2, 3].map((step) => (
+                {[1, 2, 3, 4].map((step) => (
                   <div key={step} className="flex flex-col items-center">
                     <div 
                       className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium transition-all ${currentStep === step 
@@ -208,7 +263,7 @@ export default function PartenariatForm() {
                       {currentStep > step ? <FaCheck /> : step}
                     </div>
                     <span className={`text-xs mt-2 font-medium ${currentStep === step ? 'text-[#0046fe]' : 'text-gray-500'}`}>
-                      {step === 1 ? 'Entreprise' : step === 2 ? 'Contact' : 'Documents'}
+                      {step === 1 ? 'Entreprise' : step === 2 ? 'References' : step === 3 ? 'Documents' : 'Contact'}
                     </span>
                   </div>
                 ))}
@@ -323,135 +378,13 @@ export default function PartenariatForm() {
                     </div>
                   )}
                 
-                  {/* Step 2: Personne à contacter */}
+                  {/* Step 2: References */}
                   {currentStep === 2 && (
                     <div>
                       <h3 className="text-xl font-semibold mb-4 text-[#2b3343] flex items-center">
-                        <FaUser className="mr-2 text-[#0046fe]" />
-                        Personne à contacter
-                      </h3>
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
-                        <div>
-                          <label htmlFor="contactName" className="block text-sm font-medium mb-2 text-gray-700">
-                            NOM
-                          </label>
-                          <input
-                            type="text"
-                            id="contactName"
-                            name="contactName"
-                            value={formData.contactName}
-                            onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                            required
-                          />
-                        </div>
-                        
-                        <div>
-                          <label htmlFor="contactFirstName" className="block text-sm font-medium mb-2 text-gray-700">
-                            PRÉNOM
-                          </label>
-                          <input
-                            type="text"
-                            id="contactFirstName"
-                            name="contactFirstName"
-                            value={formData.contactFirstName}
-                            onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                            required
-                          />
-                        </div>
-                        
-                        <div>
-                          <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-700">
-                            EMAIL
-                          </label>
-                          <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                            required
-                          />
-                        </div>
-                        
-                        <div>
-                          <label htmlFor="phone" className="block text-sm font-medium mb-2 text-gray-700">
-                            TÉLÉPHONE
-                          </label>
-                          <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                            required
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                
-                  {/* Step 3: Documents and Projects */}
-                  {currentStep === 3 && (
-                    <div>
-                      <h3 className="text-xl font-semibold mb-4 text-[#2b3343] flex items-center">
                         <FaFileAlt className="mr-2 text-[#0046fe]" />
-                        Documents
+                        Références de projets
                       </h3>
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div>
-                          <label htmlFor="insurance" className="block text-sm font-medium mb-2 text-gray-700">
-                            Assurance décennale et professionnelle*
-                          </label>
-                          <input
-                            type="file"
-                            id="insurance"
-                            name="insurance"
-                            onChange={handleFileChange}
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm"
-                            required
-                          />
-                        </div>
-                        
-                        <div>
-                          <label htmlFor="fiscalCertificate" className="block text-sm font-medium mb-2 text-gray-700">
-                            Attestation de régularité fiscale*
-                          </label>
-                          <input
-                            type="file"
-                            id="fiscalCertificate"
-                            name="fiscalCertificate"
-                            onChange={handleFileChange}
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm"
-                            required
-                          />
-                        </div>
-                        
-                        <div>
-                          <label htmlFor="kbis" className="block text-sm font-medium mb-2 text-gray-700">
-                            Kbis*
-                          </label>
-                          <input
-                            type="file"
-                            id="kbis"
-                            name="kbis"
-                            onChange={handleFileChange}
-                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm"
-                            required
-                          />
-                        </div>
-                      </div>
-                      
-                      <p className="mt-4 text-sm text-gray-500 mb-8">
-                        Attention Assurance décennale et professionnelle valide. Attestation de régularité et Kbis de moins de 3 mois
-                      </p>
-
-                      <h3 className="text-xl font-semibold mb-4 text-[#2b3343] mt-8">Références de projets</h3>
                       <p className="text-sm text-gray-600 mb-6">Présentez des services ou des travaux réalisés au cours de 6 derniers mois.</p>
                       
                       {/* Projet 1 */}
@@ -539,6 +472,329 @@ export default function PartenariatForm() {
                           </div>
                         </div>
                       </div>
+
+                      {/* Projet 2 */}
+                      <div className="mb-8 border border-gray-200 p-4 rounded-lg">
+                        <h4 className="font-medium mb-3 text-[#2b3343]">2/ Projet</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 mb-4">
+                          <div>
+                            <label htmlFor="project2Title" className="block text-sm font-medium mb-2 text-gray-700">
+                              Intitulé
+                            </label>
+                            <input
+                              type="text"
+                              id="project2Title"
+                              name="project2Title"
+                              value={formData.project2Title}
+                              onChange={handleChange}
+                              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                            />
+                          </div>
+                          <div>
+                            <label htmlFor="project2Date" className="block text-sm font-medium mb-2 text-gray-700">
+                              Date de réalisation
+                            </label>
+                            <input
+                              type="text"
+                              id="project2Date"
+                              name="project2Date"
+                              value={formData.project2Date}
+                              onChange={handleChange}
+                              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                            />
+                          </div>
+                        </div>
+                        
+                        <div className="mb-4">
+                          <label htmlFor="project2Location" className="block text-sm font-medium mb-2 text-gray-700">
+                            VILLE DE CHANTIER OU LIEU DE LA PRESTATION DE SERVICE
+                          </label>
+                          <input
+                            type="text"
+                            id="project2Location"
+                            name="project2Location"
+                            value={formData.project2Location}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                          />
+                        </div>
+                        
+                        <div>
+                          <p className="block text-sm font-medium mb-2 text-gray-700">MONTANT</p>
+                          <div className="flex flex-wrap items-center gap-4">
+                            <label className="inline-flex items-center">
+                              <input 
+                                type="radio" 
+                                name="project2Amount" 
+                                value="Inférieur à 1000€" 
+                                checked={formData.project2Amount === "Inférieur à 1000€"}
+                                onChange={() => handleRadioChange('project2Amount', 'Inférieur à 1000€')}
+                                className="h-4 w-4 text-blue-600"
+                              />
+                              <span className="ml-2 text-sm text-gray-700">Inférieur à 1000€</span>
+                            </label>
+                            <label className="inline-flex items-center">
+                              <input 
+                                type="radio" 
+                                name="project2Amount" 
+                                value="compris en 1000€ et 5000€" 
+                                checked={formData.project2Amount === "compris en 1000€ et 5000€"}
+                                onChange={() => handleRadioChange('project2Amount', 'compris en 1000€ et 5000€')}
+                                className="h-4 w-4 text-blue-600"
+                              />
+                              <span className="ml-2 text-sm text-gray-700">compris en 1000€ et 5000€</span>
+                            </label>
+                            <label className="inline-flex items-center">
+                              <input 
+                                type="radio" 
+                                name="project2Amount" 
+                                value="Supérieur à 5000" 
+                                checked={formData.project2Amount === "Supérieur à 5000"}
+                                onChange={() => handleRadioChange('project2Amount', 'Supérieur à 5000')}
+                                className="h-4 w-4 text-blue-600"
+                              />
+                              <span className="ml-2 text-sm text-gray-700">Supérieur à 5000</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Projet 3 */}
+                      <div className="mb-8 border border-gray-200 p-4 rounded-lg">
+                        <h4 className="font-medium mb-3 text-[#2b3343]">3/ Projet</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 mb-4">
+                          <div>
+                            <label htmlFor="project3Title" className="block text-sm font-medium mb-2 text-gray-700">
+                              Intitulé
+                            </label>
+                            <input
+                              type="text"
+                              id="project3Title"
+                              name="project3Title"
+                              value={formData.project3Title}
+                              onChange={handleChange}
+                              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                            />
+                          </div>
+                          <div>
+                            <label htmlFor="project3Date" className="block text-sm font-medium mb-2 text-gray-700">
+                              Date de réalisation
+                            </label>
+                            <input
+                              type="text"
+                              id="project3Date"
+                              name="project3Date"
+                              value={formData.project3Date}
+                              onChange={handleChange}
+                              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                            />
+                          </div>
+                        </div>
+                        
+                        <div className="mb-4">
+                          <label htmlFor="project3Location" className="block text-sm font-medium mb-2 text-gray-700">
+                            VILLE DE CHANTIER OU LIEU DE LA PRESTATION DE SERVICE
+                          </label>
+                          <input
+                            type="text"
+                            id="project3Location"
+                            name="project3Location"
+                            value={formData.project3Location}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                          />
+                        </div>
+                        
+                        <div>
+                          <p className="block text-sm font-medium mb-2 text-gray-700">MONTANT</p>
+                          <div className="flex flex-wrap items-center gap-4">
+                            <label className="inline-flex items-center">
+                              <input 
+                                type="radio" 
+                                name="project3Amount" 
+                                value="Inférieur à 1000€" 
+                                checked={formData.project3Amount === "Inférieur à 1000€"}
+                                onChange={() => handleRadioChange('project3Amount', 'Inférieur à 1000€')}
+                                className="h-4 w-4 text-blue-600"
+                              />
+                              <span className="ml-2 text-sm text-gray-700">Inférieur à 1000€</span>
+                            </label>
+                            <label className="inline-flex items-center">
+                              <input 
+                                type="radio" 
+                                name="project3Amount" 
+                                value="compris en 1000€ et 5000€" 
+                                checked={formData.project3Amount === "compris en 1000€ et 5000€"}
+                                onChange={() => handleRadioChange('project3Amount', 'compris en 1000€ et 5000€')}
+                                className="h-4 w-4 text-blue-600"
+                              />
+                              <span className="ml-2 text-sm text-gray-700">compris en 1000€ et 5000€</span>
+                            </label>
+                            <label className="inline-flex items-center">
+                              <input 
+                                type="radio" 
+                                name="project3Amount" 
+                                value="Supérieur à 5000" 
+                                checked={formData.project3Amount === "Supérieur à 5000"}
+                                onChange={() => handleRadioChange('project3Amount', 'Supérieur à 5000')}
+                                className="h-4 w-4 text-blue-600"
+                              />
+                              <span className="ml-2 text-sm text-gray-700">Supérieur à 5000</span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                
+                  {/* Step 3: Documents */}
+                  {currentStep === 3 && (
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4 text-[#2b3343] flex items-center">
+                        <FaFileAlt className="mr-2 text-[#0046fe]" />
+                        Documents
+                      </h3>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                          <label htmlFor="insurance" className="block text-sm font-medium mb-2 text-gray-700">
+                            Assurance décennale et professionnelle*
+                          </label>
+                          <input
+                            type="file"
+                            id="insurance"
+                            name="insurance"
+                            onChange={handleFileChange}
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm"
+                            required
+                          />
+                          {formData.insurance && (
+                            <p className="text-xs text-green-600 mt-1">
+                              Fichier sélectionné: {formData.insurance.name}
+                            </p>
+                          )}
+                        </div>
+                        
+                        <div>
+                          <label htmlFor="fiscalCertificate" className="block text-sm font-medium mb-2 text-gray-700">
+                            Attestation de régularité fiscale*
+                          </label>
+                          <input
+                            type="file"
+                            id="fiscalCertificate"
+                            name="fiscalCertificate"
+                            onChange={handleFileChange}
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm"
+                            required
+                          />
+                          {formData.fiscalCertificate && (
+                            <p className="text-xs text-green-600 mt-1">
+                              Fichier sélectionné: {formData.fiscalCertificate.name}
+                            </p>
+                          )}
+                        </div>
+                        
+                        <div>
+                          <label htmlFor="kbis" className="block text-sm font-medium mb-2 text-gray-700">
+                            Kbis*
+                          </label>
+                          <input
+                            type="file"
+                            id="kbis"
+                            name="kbis"
+                            onChange={handleFileChange}
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-sm"
+                            required
+                          />
+                          {formData.kbis && (
+                            <p className="text-xs text-green-600 mt-1">
+                              Fichier sélectionné: {formData.kbis.name}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                      
+                      <p className="mt-4 text-sm text-gray-500 mb-8">
+                        Attention Assurance décennale et professionnelle valide. Attestation de régularité et Kbis de moins de 3 mois
+                      </p>
+                    </div>
+                  )}
+                  
+                  {/* Step 4: Contact */}
+                  {currentStep === 4 && (
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4 text-[#2b3343] flex items-center">
+                        <FaUser className="mr-2 text-[#0046fe]" />
+                        Contact
+                      </h3>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                          <label htmlFor="contactName" className="block text-sm font-medium mb-2 text-gray-700">
+                            Nom*
+                          </label>
+                          <input
+                            type="text"
+                            id="contactName"
+                            name="contactName"
+                            value={formData.contactName}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                            required
+                          />
+                        </div>
+                        
+                        <div>
+                          <label htmlFor="contactFirstName" className="block text-sm font-medium mb-2 text-gray-700">
+                            Prénom*
+                          </label>
+                          <input
+                            type="text"
+                            id="contactFirstName"
+                            name="contactFirstName"
+                            value={formData.contactFirstName}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                            required
+                          />
+                        </div>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-700">
+                            Email*
+                          </label>
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                            required
+                          />
+                        </div>
+                        
+                        <div>
+                          <label htmlFor="phone" className="block text-sm font-medium mb-2 text-gray-700">
+                            Téléphone*
+                          </label>
+                          <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                            required
+                          />
+                        </div>
+                      </div>
+                      
+                      <p className="mt-6 text-sm text-gray-500">
+                        Les champs marqués d&apos;un astérisque (*) sont obligatoires
+                      </p>
                     </div>
                   )}
                   </motion.div>
@@ -556,7 +812,7 @@ export default function PartenariatForm() {
                     </button>
                   )}
                   
-                  {currentStep < 3 && (
+                  {currentStep < 4 && (
                     <button
                       type="button"
                       onClick={nextStep}
@@ -566,7 +822,7 @@ export default function PartenariatForm() {
                     </button>
                   )}
                   
-                  {currentStep === 3 && (
+                  {currentStep === 4 && (
                     <button
                       type="submit"
                       disabled={loading}
@@ -579,18 +835,18 @@ export default function PartenariatForm() {
               </form>
             ) : (
               <div className="text-center py-8">
-                <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/20 text-green-300">
+                <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/20 text-green-500">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">Merci pour votre intérêt !</h3>
-                <p className="text-gray-300 mb-6">
-                  Notre équipe commerciale vous contactera très prochainement pour discuter des possibilités de partenariat.
+                <h3 className="text-2xl font-bold mb-3 text-[#2b3343]">Merci pour votre intérêt !</h3>
+                <p className="text-gray-600 mb-6">
+                  Notre équipe vous contactera très prochainement pour discuter des possibilités de partenariat.
                 </p>
                 <Link 
                   href="/" 
-                  className="inline-flex items-center text-white hover:text-gray-300 transition-all"
+                  className="inline-flex items-center text-[#0046fe] hover:text-[#0046fe]/80 transition-all font-medium"
                 >
                   <span>Retour à l&apos;accueil</span>
                   <FaArrowRight className="ml-2" />

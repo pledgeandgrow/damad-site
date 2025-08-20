@@ -33,7 +33,19 @@ export default function MentionsLegales() {
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
-              <span className="text-[#3d4759]">RCS Paris 123 456 789</span>
+              <span className="text-[#3d4759]">SIREN : 499039931</span>
+            </li>
+            <li className="flex">
+              <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
+              <span className="text-[#3d4759]">N° EORI : FR49903993100047</span>
+            </li>
+            <li className="flex">
+              <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
+              <span className="text-[#3d4759]">Activité principale (NAF/APE) : Autres travaux d&apos;installation n.c.a.</span>
+            </li>
+            <li className="flex">
+              <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
+              <span className="text-[#3d4759]">Code NAF/APE : 43.29B</span>
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
@@ -41,7 +53,7 @@ export default function MentionsLegales() {
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
-              <span className="text-[#3d4759]">Téléphone : <Link href="tel:+33123456789" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">+33 1 23 45 67 89</Link></span>
+              <span className="text-[#3d4759]">Téléphone : <Link href="tel:+33186043063" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">01 86 04 30 63</Link></span>
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
@@ -64,7 +76,7 @@ export default function MentionsLegales() {
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
-              <span className="text-[#3d4759]">Tél : <Link href="tel:+33753695840" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">+33.7.53.69.58.40</Link></span>
+              <span className="text-[#3d4759]">Tél : <Link href="tel:+33186043063" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">01 86 04 30 63</Link></span>
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
@@ -78,20 +90,19 @@ export default function MentionsLegales() {
 
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">3. Hébergement</h2>
           <p className="text-[#3d4759] mb-8">
-            Le site est hébergé par :
+            Le site est hébergé par : DAMAD
             <br />
-            <span className="font-medium text-[#2b3343]">Vercel Inc.</span>
+            145 rue rateau
             <br />
-            340 S Lemon Ave #4133
+            La Courneuve, 93160
             <br />
-            Walnut, CA 91789
+            Ile-de-France, France
             <br />
-            <Link href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">www.vercel.com</Link>
           </p>
 
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">4. Propriété intellectuelle</h2>
           <p className="text-[#3d4759] mb-8">
-            L&apos;ensemble des éléments constituant le site damad-ascenseurs.com (textes, images, vidéos, logos, etc.) est la propriété exclusive de DAMAD ou de ses partenaires. Toute reproduction, représentation, utilisation ou adaptation, sous quelque forme que ce soit, de tout ou partie des éléments du site sans l&apos;accord préalable et écrit de DAMAD est strictement interdite et constituerait un acte de contrefaçon sanctionné par les articles L.335-2 et suivants du Code de la propriété intellectuelle.
+            L&apos;ensemble des éléments constituant le site damad-ascenseurs.com (textes, logos, etc.), sauf pour les images et vidéos, est la propriété exclusive de DAMAD ou de ses partenaires. Toute reproduction, représentation, utilisation ou adaptation, sous quelque forme que ce soit, de tout ou partie des éléments du site sans l&apos;accord préalable et écrit de DAMAD est strictement interdite et constituerait un acte de contrefaçon sanctionné par les articles L.335-2 et suivants du Code de la propriété intellectuelle.
           </p>
           <p className="text-[#3d4759] mb-8">
             Les marques et logos figurant sur le site sont des marques déposées. Toute reproduction, imitation ou usage, total ou partiel, de ces marques sans l&apos;accord préalable et écrit de leurs propriétaires est strictement interdite.
@@ -145,22 +156,22 @@ export default function MentionsLegales() {
 
           <h2 className="text-2xl font-semibold text-gray-800 mb-6">10. Crédits</h2>
           <p className="text-gray-600">
-            Conception et réalisation : Équipe DAMAD
+            Conception et réalisation : PLEDGE AND GROW
             <br />
-            Icônes : Font Awesome, Heroicons
+            Icônes : React Icons
             <br />
-            Images : Banques d&apos;images libres de droits
+            Images et vidéos : Banques d&apos;images libres de droits
           </p>
         </div>
 
         <div className="text-center">
           <p className="text-gray-500 text-sm">
-            Dernière mise à jour : 3 juillet 2025
+            Dernière mise à jour : 19 août 2025
           </p>
           <div className="mt-6">
             <Link 
               href="/" 
-              className="inline-flex items-center px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-[#2b3343] hover:bg-[#3a4255] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2b3343] transition-colors duration-200"
+              className="inline-flex items-center px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-[#0046fe] hover:bg-[#0035c8] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0046fe] transition-colors duration-200"
             >
               Retour à l&apos;accueil
             </Link>

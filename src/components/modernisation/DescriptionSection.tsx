@@ -4,11 +4,11 @@ const DescriptionSection = () => {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-10 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
-            Pourquoi moderniser son appareil d&apos;accessibilité ?
+            Pourquoi moderniser son appareil d{`'`}accessibilité ?
           </h2>
           <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
           <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed mb-8">
-            Moderniser partiellement ou totalement un appareil d&apos;accessibilité nécessite un réel savoir-faire. Lorsqu&apos;un appareil est vétuste, la maintenance préventive ne suffit plus à garantir un taux de panne acceptable.
+            Moderniser partiellement ou totalement un appareil d{`'`}accessibilité nécessite un réel savoir-faire. Lorsqu{`'`}un appareil est vétuste, la maintenance préventive ne suffit plus à garantir un taux de panne acceptable.
           </p>
           <div className="bg-white p-6 rounded-xl shadow-md border border-gray-100 text-left hover:border-[#0046fe] transition-all duration-300">
             <p className="text-[#2b3343] font-medium mb-4">La modernisation permet de :</p>

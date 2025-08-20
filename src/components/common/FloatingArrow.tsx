@@ -34,7 +34,7 @@ export default function FloatingArrow() {
         <button
           onClick={scrollToTop}
           aria-label="Retourner en haut"
-          className="fixed bottom-24 right-6 z-50 p-3 rounded-full bg-[#0046fe] text-white shadow-lg hover:bg-[#0035c1] transition-all duration-300 transform hover:scale-110"
+          className="fixed bottom-24 right-6 z-50 p-3 rounded-full bg-[#0046fe] text-white shadow-lg hover:bg-[#0035c8] transition-all duration-300 transform hover:scale-110"
         >
           <FaArrowUp className="text-lg" />
         </button>

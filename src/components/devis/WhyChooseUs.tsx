@@ -6,7 +6,7 @@ export default function WhyChooseUs() {
     {
       icon: <FaAward className="w-10 h-10 text-[#0046fe]" />,
       title: 'Expertise',
-      description: 'Plus de 15 ans d\'expérience dans l\'installation et la maintenance d\'ascenseurs.',
+      description: 'Plus de 20 ans d\'expérience dans l\'installation et la maintenance d\'ascenseurs.',
       color: 'bg-blue-50'
     },
     {

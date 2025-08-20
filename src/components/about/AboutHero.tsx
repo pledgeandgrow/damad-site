@@ -27,7 +27,7 @@ export default function AboutHero() {
           </h1>
           <div className="w-24 h-1 bg-[#99a8b1] mx-auto"></div>
           <p className="text-white text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
-            Votre partenaire de confiance pour l&apos;installation, la maintenance et la modernisation
+            Votre partenaire de confiance pour l{`'`}installation, la maintenance et la modernisation
           </p>
         </div>
       </div>

@@ -2,28 +2,37 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import CategoryFilter from '@/components/projects/CategoryFilter';
-import { getProjectsByCategory } from '../../data/projects';
+import { getAllImages, getProjectsByCategory } from '../../data/projects';
 import MobileProjectCarousel from '@/components/projects/MobileProjectCarousel';
 import ProjectsGrid from '@/components/projects/ProjectsGrid';
 import RealisationsCTA from '@/components/projects/RealisationsCTA';
+import ImageModal from '@/components/projects/ImageModal';
 
 export default function RealisationsPage() {
-  const [activeCategory, setActiveCategory] = useState('all');
-  // Removed modal state
+  // We're not filtering by category anymore
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState('');
   
-  const projects = getProjectsByCategory(activeCategory);
+  const projects = getProjectsByCategory();
+  const allImages = getAllImages();
   
-  // Project click handler removed
+  // Handle project click to open modal
+  const handleProjectClick = (projectId: number) => {
+    const project = projects.find(p => p.id === projectId);
+    if (project) {
+      setSelectedImage(project.image);
+      setIsModalOpen(true);
+    }
+  }
   return (
     <div className="bg-white">
       {/* Hero Section */}
       <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/images/projects/damad1.jpg" 
+            src="/images/site/realisation.jpg" 
             alt="Nos Réalisations" 
-            className="object-cover"
+            className="object-cover object-[center_top]"
             fill
             priority
             sizes="100vw"
@@ -35,7 +44,7 @@ export default function RealisationsPage() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
               NOS RÉALISATIONS
             </h1>
-            <div className="w-24 h-1 bg-[#99a8b1] mx-auto"></div>
+            <div className="w-24 h-1 bg-[#0046fe] mx-auto mt-2"></div>
             <p className="text-white text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
               Découvrez nos projets récents et laissez-vous inspirer par notre savoir-faire
             </p>
@@ -51,18 +60,11 @@ export default function RealisationsPage() {
       </div>
 
       {/* Projects Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#2b3343] mb-4">Explorez nos réalisations par catégorie</h2>
-            <p className="text-gray-600 mb-8">Filtrez nos projets selon le type de bâtiment ou d&apos;installation pour trouver les références qui correspondent à vos besoins.</p>
-            
-            {/* Category Filter */}
-            <CategoryFilter 
-              activeCategory={activeCategory}
-              onCategoryChange={setActiveCategory}
-              className="mt-8"
-            />
+            <h2 className="text-3xl font-bold text-[#2b3343] mb-4">Explorez nos réalisations</h2>
+            <p className="text-gray-600 mb-8">Découvrez nos projets d&apos;accessibilité et ascenseurs réalisés pour nos clients.</p>
           </div>
 
           {/* Desktop Projects Grid - Hidden on Mobile */}
@@ -70,7 +72,7 @@ export default function RealisationsPage() {
             <ProjectsGrid 
               projects={projects} 
               className="mb-12"
-              onProjectClick={() => {}}
+              onProjectClick={handleProjectClick}
             />
           </div>
           
@@ -78,23 +80,11 @@ export default function RealisationsPage() {
           <div className="md:hidden mb-12">
             <MobileProjectCarousel 
               projects={projects}
-              onProjectClick={() => {}}
+              onProjectClick={handleProjectClick}
             />
           </div>
 
-          {/* Le bouton "Charger plus de projets" a été supprimé */}
-          
-          {projects.length === 0 && (
-            <div className="text-center py-16 bg-gray-50 rounded-xl border border-gray-100">
-              <p className="text-gray-500 text-lg">Aucun projet ne correspond à cette catégorie pour le moment.</p>
-              <button 
-                onClick={() => setActiveCategory('all')} 
-                className="mt-4 text-[#2b3343] font-medium hover:underline"
-              >
-                Voir tous les projets
-              </button>
-            </div>
-          )}
+          {/* No empty state needed since we always show all images */}
         </div>
       </section>
 
@@ -102,6 +92,14 @@ export default function RealisationsPage() {
 
       {/* CTA Section */}
       <RealisationsCTA />
+
+      {/* Full-screen Image Modal */}
+      <ImageModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        imageSrc={selectedImage}
+        allImages={allImages}
+      />
     </div>
   );
 }

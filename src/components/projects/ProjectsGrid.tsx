@@ -1,6 +1,5 @@
 "use client";
 
-import { Project } from '@/types';
 import ProjectCard from './ProjectCard';
 import { motion } from 'framer-motion';
 import { FaSearch, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -8,10 +7,10 @@ import { useRef, useState, useEffect } from 'react';
 import './ScrollbarHide.css';
 
 interface ProjectsGridProps {
-  projects: Project[];
+  projects: {id: number, image: string}[];
   className?: string;
   columns?: number;
-  onProjectClick?: (project: Project) => void;
+  onProjectClick?: (imageId: number) => void;
 }
 
 export default function ProjectsGrid({ 
@@ -132,9 +131,9 @@ export default function ProjectsGrid({
                 style={{ scrollSnapAlign: 'center' }}
               >
                 <ProjectCard 
-                  project={project} 
+                  image={project.image} 
                   className="h-full cursor-pointer"
-                  onClick={() => onProjectClick?.(project)}
+                  onClick={() => onProjectClick?.(project.id)}
                 />
               </div>
             ))}
@@ -161,9 +160,9 @@ export default function ProjectsGrid({
             className="h-full"
           >
             <ProjectCard 
-              project={project} 
+              image={project.image} 
               className="h-full cursor-pointer"
-              onClick={() => onProjectClick?.(project)}
+              onClick={() => onProjectClick?.(project.id)}
             />
           </motion.div>
         ))}

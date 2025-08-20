@@ -1,5 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { FaChevronRight } from 'react-icons/fa';
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default function PolitiqueRGPDPage() {
 
         <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
           <p className="text-[#3d4759] mb-8 text-center">
-            En vigueur au {new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+            En vigueur au 19 août 2025
           </p>
 
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">1. Politique de protection des données personnelles</h2>
@@ -120,7 +121,7 @@ export default function PolitiqueRGPDPage() {
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
-              <span className="text-[#3d4759]">Nos sous-traitants (hébergement, maintenance informatique, etc.)</span>
+              <span className="text-[#3d4759]">Nos sous-traitants (maintenance informatique)</span>
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
@@ -201,7 +202,7 @@ export default function PolitiqueRGPDPage() {
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
-              <span className="text-[#3d4759]"><strong>Téléphone :</strong> <a href="tel:+33148351234" className="text-blue-600 hover:underline">+33 1 48 35 12 34</a></span>
+              <span className="text-[#3d4759]"><strong>Téléphone :</strong> <a href="tel:+33186043063" className="text-blue-600 hover:underline">01 86 04 30 63</a></span>
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
@@ -215,8 +216,17 @@ export default function PolitiqueRGPDPage() {
           </p>
           
           <p className="text-sm text-[#3d4759] mt-8 text-center">
-            Dernière mise à jour : {new Date().toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}
+            Dernière mise à jour : 19 août 2025
           </p>
+        </div>
+        
+        <div className="text-center mt-8">
+          <Link 
+            href="/" 
+            className="inline-flex items-center px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-[#0046fe] hover:bg-[#0035c8] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0046fe] transition-colors duration-200"
+          >
+            Retour à l&apos;accueil
+          </Link>
         </div>
       </div>
     </main>

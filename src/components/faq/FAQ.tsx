@@ -79,12 +79,12 @@ const faqItems: FAQItem[] = [
 ];
 
 const categories: FAQCategory[] = [
-  { id: 'all', name: 'Toutes les questions', icon: <FaQuestion />, color: 'bg-gray-600' },
-  { id: 'urgence', name: 'Urgences', icon: <FaPhone />, color: 'bg-red-600' },
-  { id: 'maintenance', name: 'Maintenance', icon: <FaTools />, color: 'bg-blue-600' },
-  { id: 'garantie', name: 'Garanties', icon: <FaShieldAlt />, color: 'bg-green-600' },
-  { id: 'normes', name: 'Normes & Sécurité', icon: <FaBook />, color: 'bg-yellow-600' },
-  { id: 'contrats', name: 'Contrats', icon: <FaFileContract />, color: 'bg-purple-600' },
+  { id: 'all', name: 'Toutes les questions', icon: <FaQuestion />, color: 'bg-[#0046fe]' },
+  { id: 'urgence', name: 'Urgences', icon: <FaPhone />, color: 'bg-[#0046fe]' },
+  { id: 'maintenance', name: 'Maintenance', icon: <FaTools />, color: 'bg-[#0046fe]' },
+  { id: 'garantie', name: 'Garanties', icon: <FaShieldAlt />, color: 'bg-[#0046fe]' },
+  { id: 'normes', name: 'Normes & Sécurité', icon: <FaBook />, color: 'bg-[#0046fe]' },
+  { id: 'contrats', name: 'Contrats', icon: <FaFileContract />, color: 'bg-[#0046fe]' },
 ];
 
 const FAQ: React.FC = () => {
@@ -110,11 +110,12 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section className="pt-28 pb-16 bg-[#fbfcfd]">
+    <section className="pt-36 pb-16 bg-[#fbfcfd]">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Questions fréquentes</h2>
+            <h2 className="text-3xl font-bold text-[#2b3343] mb-4">Questions fréquentes</h2>
+            <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
             <p className="text-lg text-gray-600">
               Trouvez rapidement des réponses aux questions les plus courantes concernant nos services d&apos;appareils d&apos;accessibilité.
             </p>
@@ -146,19 +147,19 @@ const FAQ: React.FC = () => {
           </div>
 
           {/* Category Filters */}
-          <div className="flex flex-wrap gap-2 mb-8">
+          <div className="grid grid-cols-3 md:flex md:flex-wrap gap-2 mb-8">
             {categories.map(category => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`flex items-center justify-center px-2 md:px-4 py-2 rounded-full text-[10px] md:text-xs font-medium transition-colors ${
                   activeCategory === category.id 
                     ? `${category.color} text-white` 
-                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
                 }`}
               >
-                <span className="mr-2">{category.icon}</span>
-                {category.name}
+                <span className="mr-1 md:mr-2 text-[#0046fe]">{category.icon}</span>
+                <span className="truncate">{category.name}</span>
               </button>
             ))}
           </div>
@@ -169,19 +170,19 @@ const FAQ: React.FC = () => {
               filteredFAQs.map((item) => (
                 <div 
                   key={item.id} 
-                  className="bg-white rounded-lg shadow-md overflow-hidden"
+                  className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden"
                 >
                   <button
-                    className="w-full flex justify-between items-center p-5 text-left focus:outline-none"
+                    className="w-full flex justify-between items-center p-6 text-left focus:outline-none"
                     onClick={() => toggleItem(item.id)}
                     aria-expanded={openItemId === item.id}
                   >
-                    <span className="font-medium text-gray-900">{item.question}</span>
+                    <span className="font-bold text-xl text-[#2b3343]">{item.question}</span>
                     <motion.div
                       animate={{ rotate: openItemId === item.id ? 180 : 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <FaChevronDown className="text-gray-500" />
+                      <FaChevronDown className="text-[#0046fe]" />
                     </motion.div>
                   </button>
                   
@@ -193,7 +194,7 @@ const FAQ: React.FC = () => {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <div className="p-5 pt-0 border-t border-gray-200">
+                        <div className="p-6 pt-0 border-t border-gray-200">
                           <p className="text-gray-700">{item.answer}</p>
                           
                           {/* Tags */}

@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function InterventionsHero() {
   return (
-    <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+    <div className="relative bg-[#2b3343] h-[50vh] sm:h-[60vh] min-h-[400px] sm:min-h-[500px] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image 
           src="/images/services/intervention.jpg" 
@@ -15,14 +15,13 @@ export default function InterventionsHero() {
           priority
         />
       </div>
-      {/* Removed overlay patterns */}
-      <div className="container mx-auto px-4 max-w-7xl relative z-10 text-center">
-        <div className="animate-fade-in-up bg-black/40 backdrop-blur-sm inline-block px-8 py-6 rounded-lg">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+      <div className="container mx-auto px-3 xs:px-4 max-w-7xl relative z-10 text-center">
+        <div className="animate-fade-in-up bg-black/40 backdrop-blur-sm inline-block px-4 sm:px-8 py-4 sm:py-6 rounded-lg">
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 tracking-tight">
             INTERVENTION
           </h1>
           <div className="w-24 h-1 bg-[#99a8b1] mx-auto"></div>
-          <p className="text-white text-xl mt-6 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-white text-lg xs:text-xl mt-4 sm:mt-6 max-w-3xl mx-auto leading-relaxed">
             DAMAD est à votre service pour tout dépannage d&apos;appareils d&apos;accessibilité
           </p>
         </div>

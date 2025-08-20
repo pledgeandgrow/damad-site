@@ -19,7 +19,7 @@ export default function PolitiqueDeConfidentialite() {
 
         <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
           <p className="text-[#3d4759] mb-6">
-            Dernière mise à jour : 3 juillet 2024
+            Dernière mise à jour : 19 août 2025
           </p>
 
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">1. Introduction</h2>
@@ -146,7 +146,7 @@ export default function PolitiqueDeConfidentialite() {
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
-              <span className="text-[#3d4759]"><strong>Téléphone :</strong> <a href="tel:+33123456789" className="text-blue-600 hover:underline">+33 1 23 45 67 89</a></span>
+              <span className="text-[#3d4759]"><strong>Téléphone :</strong> <a href="tel:+33186043063" className="text-blue-600 hover:underline">01 86 04 30 63</a></span>
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
@@ -156,12 +156,12 @@ export default function PolitiqueDeConfidentialite() {
 
           <div className="border-t border-gray-200 pt-8 mt-8">
             <p className="text-[#3d4759] text-sm text-center">
-              Dernière mise à jour : 3 juillet 2024
+              Dernière mise à jour : 19 août 2025
             </p>
             <div className="mt-6 text-center">
               <Link 
                 href="/" 
-                className="inline-flex items-center px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-[#2b3343] hover:bg-[#3d4759] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2b3343] transition-colors duration-200"
+                className="inline-flex items-center px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-[#0046fe] hover:bg-[#0035c8] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0046fe] transition-colors duration-200"
               >
                 Retour à l&apos;accueil
               </Link>

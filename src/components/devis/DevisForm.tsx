@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { 
   FaArrowRight, 
   FaArrowLeft, 
@@ -18,7 +19,9 @@ import { motion } from 'framer-motion';
 type FormData = {
   // Step 1
   serviceType: string;
+  customServiceType: string;
   buildingType: string;
+  customBuildingType: string;
   
   // Step 2
   floors: string;
@@ -48,6 +51,8 @@ interface DevisFormProps {
   nextStep: () => void;
   prevStep: () => void;
   handleSubmit: (e: React.FormEvent) => void;
+  isSubmitting?: boolean;
+  submitError?: string | null;
 }
 
 export default function DevisForm({
@@ -56,7 +61,9 @@ export default function DevisForm({
   updateFormData,
   nextStep,
   prevStep,
-  handleSubmit
+  handleSubmit,
+  isSubmitting = false,
+  submitError = null
 }: DevisFormProps) {
   // Handle input changes with proper type handling
   const handleChange = (
@@ -98,7 +105,7 @@ export default function DevisForm({
         <p className="text-[#2b3343]">Sélectionnez le type de service dont vous avez besoin :</p>
       </motion.div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-4 sm:gap-6">
         {[
           { 
             type: 'installation', 
@@ -134,6 +141,13 @@ export default function DevisForm({
             description: 'Urgence Réponse sous 48h', 
             icon: <FaExclamationTriangle className="text-3xl text-[#0046fe] mb-2" />,
             delay: 0.4
+          },
+          { 
+            type: 'other', 
+            title: 'Autres', 
+            description: 'Autre type de service', 
+            icon: <FaTools className="text-3xl text-[#0046fe] mb-2" />,
+            delay: 0.45
           }
         ].map((service) => (
           <motion.button
@@ -143,18 +157,18 @@ export default function DevisForm({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: service.delay }}
-            className={`p-6 border-2 rounded-lg text-center transition-all duration-300 transform hover:-translate-y-1 ${
+            className={`p-3 sm:p-4 md:p-6 border-2 rounded-lg text-center transition-all duration-300 transform hover:-translate-y-1 ${
               getInputValue('serviceType') === service.type
                 ? 'border-[#0046fe] bg-blue-50 shadow-lg'
                 : 'border-gray-300 hover:border-[#0046fe] hover:bg-gray-50 hover:shadow-md'
             }`}
           >
             <div className="flex flex-col items-center">
-              <div className={`rounded-full p-3 mb-2 ${getInputValue('serviceType') === service.type ? 'bg-[#0046fe]/10' : 'bg-gray-100'}`}>
-                {service.icon}
+              <div className={`rounded-full p-2 sm:p-3 mb-1 sm:mb-2 ${getInputValue('serviceType') === service.type ? 'bg-[#0046fe]/10' : 'bg-gray-100'}`}>
+                {React.cloneElement(service.icon, { className: "text-2xl sm:text-3xl text-[#0046fe] mb-1 sm:mb-2" })}
               </div>
-              <span className="font-semibold text-[#2b3343] text-lg">{service.title}</span>
-              <p className="text-sm text-[#2b3343] mt-2">{service.description}</p>
+              <span className="font-semibold text-[#2b3343] text-sm sm:text-base md:text-lg">{service.title}</span>
+              <p className="text-xs sm:text-sm text-[#2b3343] mt-1 sm:mt-2">{service.description}</p>
               {getInputValue('serviceType') === service.type && (
                 <div className="mt-3 text-[#0046fe]">
                   <FaCheckCircle className="inline-block mr-1" /> Sélectionné
@@ -164,6 +178,29 @@ export default function DevisForm({
           </motion.button>
         ))}
       </div>
+
+      {formData.serviceType === 'other' && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.5 }}
+          className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100"
+        >
+          <label htmlFor="customServiceType" className="block text-sm font-medium text-[#2b3343] mb-2">
+            Précisez le type de service *
+          </label>
+          <input
+            type="text"
+            id="customServiceType"
+            name="customServiceType"
+            value={getInputValue('customServiceType') as string}
+            onChange={handleChange}
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200 text-[#2b3343] bg-white"
+            placeholder="Veuillez préciser le type de service souhaité"
+            required={formData.serviceType === 'other'}
+          />
+        </motion.div>
+      )}
 
       <motion.div 
         initial={{ opacity: 0 }}
@@ -178,6 +215,7 @@ export default function DevisForm({
             { value: 'corporate', label: 'Bureaux', icon: <FaBuilding className="text-2xl text-[#0046fe]" /> },
             { value: 'industrial', label: 'Industriel', icon: <FaIndustry className="text-2xl text-[#0046fe]" /> },
             { value: 'commercial', label: 'Commercial', icon: <FaStore className="text-2xl text-[#0046fe]" /> },
+            { value: 'other', label: 'Autres', icon: <FaBuilding className="text-2xl text-[#0046fe]" /> },
           ].map((buildingType, index) => (
             <motion.button
               key={buildingType.value}
@@ -200,6 +238,29 @@ export default function DevisForm({
           ))}
         </div>
       </motion.div>
+
+      {formData.buildingType === 'other' && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.7 }}
+          className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100"
+        >
+          <label htmlFor="customBuildingType" className="block text-sm font-medium text-[#2b3343] mb-2">
+            Précisez le type de bâtiment *
+          </label>
+          <input
+            type="text"
+            id="customBuildingType"
+            name="customBuildingType"
+            value={getInputValue('customBuildingType') as string}
+            onChange={handleChange}
+            className="block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200 text-[#2b3343] bg-white"
+            placeholder="Veuillez préciser le type de bâtiment"
+            required={formData.buildingType === 'other'}
+          />
+        </motion.div>
+      )}
     </div>
   );
 
@@ -233,7 +294,7 @@ export default function DevisForm({
             max="50"
             value={getInputValue('floors') as string}
             onChange={handleChange}
-            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200"
+            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200 text-[#2b3343] bg-white"
             required
           />
         </motion.div>
@@ -255,7 +316,7 @@ export default function DevisForm({
             max="50"
             value={getInputValue('stops') as string}
             onChange={handleChange}
-            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200"
+            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200 text-[#2b3343] bg-white"
             required
           />
         </motion.div>
@@ -325,7 +386,7 @@ export default function DevisForm({
               max="100"
               value={getInputValue('existingElevatorAge') as string}
               onChange={handleChange}
-              className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200 bg-white"
+              className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200 bg-white text-gray-900"
             />
           </motion.div>
         )}
@@ -361,7 +422,7 @@ export default function DevisForm({
             name="name"
             value={getInputValue('name') as string}
             onChange={handleChange}
-            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200"
+            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200 text-[#2b3343] bg-white"
             required
           />
         </motion.div>
@@ -381,7 +442,7 @@ export default function DevisForm({
             name="email"
             value={getInputValue('email') as string}
             onChange={handleChange}
-            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200"
+            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200 text-[#2b3343] bg-white"
             required
           />
         </motion.div>
@@ -401,7 +462,7 @@ export default function DevisForm({
             name="phone"
             value={getInputValue('phone') as string}
             onChange={handleChange}
-            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200"
+            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200 text-[#2b3343] bg-white"
             required
           />
         </motion.div>
@@ -421,7 +482,7 @@ export default function DevisForm({
             name="company"
             value={getInputValue('company') as string}
             onChange={handleChange}
-            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200"
+            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200 text-[#2b3343] bg-white"
           />
         </motion.div>
 
@@ -440,7 +501,7 @@ export default function DevisForm({
             name="address"
             value={getInputValue('address') as string}
             onChange={handleChange}
-            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200"
+            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200 text-[#2b3343] bg-white"
             required
           />
         </motion.div>
@@ -460,7 +521,7 @@ export default function DevisForm({
             name="postalCode"
             value={getInputValue('postalCode') as string}
             onChange={handleChange}
-            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200"
+            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200 text-[#2b3343] bg-white"
             required
           />
         </motion.div>
@@ -480,7 +541,7 @@ export default function DevisForm({
             name="city"
             value={getInputValue('city') as string}
             onChange={handleChange}
-            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200"
+            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200 text-[#2b3343] bg-white"
             required
           />
         </motion.div>
@@ -500,7 +561,7 @@ export default function DevisForm({
             rows={4}
             value={getInputValue('message') as string}
             onChange={handleChange}
-            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200"
+            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#2b3343] focus:ring-[#2b3343] sm:text-sm transition-all duration-200 text-[#2b3343] bg-white"
             placeholder="Précisez vos besoins spécifiques ou posez vos questions..."
           />
         </motion.div>
@@ -586,14 +647,24 @@ export default function DevisForm({
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
           type="submit"
-          disabled={!getInputValue('privacyPolicy')}
+          disabled={!getInputValue('privacyPolicy') || isSubmitting}
           className={`inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md shadow-md text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0046fe] transition-all duration-300 ${
-            getInputValue('privacyPolicy')
+            getInputValue('privacyPolicy') && !isSubmitting
               ? 'bg-[#0046fe] hover:bg-[#0046fe]/90 transform hover:-translate-y-1'
               : 'bg-gray-400 cursor-not-allowed'
           }`}
         >
-          Envoyer la demande
+          {isSubmitting ? (
+            <>
+              <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              Envoi en cours...
+            </>
+          ) : (
+            'Envoyer la demande'
+          )}
         </motion.button>
       )}
     </div>
@@ -601,6 +672,20 @@ export default function DevisForm({
 
   return (
     <form onSubmit={handleSubmit} className="p-6 md:p-8 bg-white rounded-lg shadow-md border border-gray-100">
+      {submitError && (
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-6 p-4 bg-red-50 border-2 border-red-400 rounded-lg text-red-700 shadow-md"
+        >
+          <div className="flex items-center">
+            <FaExclamationTriangle className="mr-2 text-red-600 text-lg" />
+            <span className="font-medium text-base">Erreur:</span>
+            <span className="ml-2 text-base">{submitError}</span>
+          </div>
+        </motion.div>
+      )}
+      
       <div className="mb-10">
         <motion.div
           key={`step-header-${step}`}

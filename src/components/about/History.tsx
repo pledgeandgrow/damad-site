@@ -7,7 +7,7 @@ const milestones = [
   {
     year: "2007",
     title: "Création de DAMAD",
-    description: "Fondation de DAMAD, entreprise spécialisée dans la maintenance d&apos;ascenseurs.",
+    description: "Fondation de DAMAD, entreprise spécialisée dans la maintenance d'ascenseurs.",
     icon: <FaUsers className="w-6 h-6 text-white" />,
     color: "from-[#0046fe] to-[#0057ff]"
   },
@@ -21,7 +21,7 @@ const milestones = [
   {
     year: "2019",
     title: "Expansion Régionale",
-    description: "Développement d&apos;un ancrage francilien fort pour entretenir une relation de proximité avec nos clients et partenaires.",
+    description: "Développement d'un ancrage francilien fort pour entretenir une relation de proximité avec nos clients et partenaires.",
     icon: <FaChartLine className="w-6 h-6 text-white" />,
     color: "from-[#0046fe] to-[#0057ff]"
   },
@@ -144,11 +144,11 @@ export default function History() {
           
           <div className="max-w-3xl mx-auto space-y-6 text-lg text-gray-600 leading-relaxed mb-12">
             <p className="relative">
-              <span className="relative z-10">Damad est une entreprise de maintenance d&apos;appareils d&apos;accessibilité créée en 2007.</span>
+              <span className="relative z-10">Damad est une entreprise de maintenance d{`'`}appareils d{`'`}accessibilité créée en 2007.</span>
               <span className="absolute -inset-1 bg-gradient-to-r from-[#0046fe]/0 via-[#0046fe]/5 to-[#0046fe]/0 rounded-lg blur-sm -z-10"></span>
             </p>
             <p>
-              Aujourd&apos;hui, Damad gère plus de 1000 ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR confondus. En faisant le choix de s&apos;implanter localement via un maillage du territoire régional, Damad propose des solutions complètes d&apos;installation, de maintenance et d&apos;entretien, de rénovation et de modernisation.
+              Aujourd{`'`}hui, Damad gère plus de 1000 ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR confondus. En faisant le choix de s{`'`}implanter localement via un maillage du territoire régional, Damad propose des solutions complètes d{`'`}installation, de maintenance et d{`'`}entretien, de rénovation et de modernisation.
             </p>
           </div>
 

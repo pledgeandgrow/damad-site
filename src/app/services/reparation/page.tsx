@@ -3,7 +3,6 @@ import HeroSection from '@/components/reparation/HeroSection';
 import ServicesSection from '@/components/reparation/ServicesSection';
 import ProcessSection from '@/components/reparation/ProcessSection';
 import CTASection from '@/components/reparation/CTASection';
-import FeaturesSection from '@/components/reparation/FeaturesSection';
 
 export const metadata: Metadata = {
   title: "Réparation d'Appareils d'Accessibilité - DAMAD",
@@ -14,7 +13,6 @@ export default function ReparationPage() {
   return (
     <div className="bg-white">
       <HeroSection />
-      <FeaturesSection />
       <ServicesSection />
       <ProcessSection />
       <CTASection />

@@ -61,36 +61,36 @@ export default function GallerySection() {
   // Gallery images data
   const galleryImages = [
     {
-      src: "/images/renovation/APRES-1-2.jpg",
-      alt: "Rénovation d'ascenseur - Après travaux"
+      src: "/images/modernisation/modernisation1.jpg",
+      alt: "Modernisation d'ascenseur - Exemple 1"
     },
     {
-      src: "/images/renovation/APRES.jpg",
-      alt: "Rénovation d'ascenseur - Résultat final"
+      src: "/images/modernisation/modernisation2.jpg",
+      alt: "Modernisation d'ascenseur - Exemple 2"
     },
     {
-      src: "/images/renovation/REMPLACEMENT ANEP BOX.jpg",
-      alt: "Remplacement ANEP Box"
+      src: "/images/modernisation/modernisation3.jpg",
+      alt: "Modernisation d'ascenseur - Exemple 3"
     },
     {
-      src: "/images/renovation/REMPLACEMENT DE BOITE ROUGE.jpg",
-      alt: "Remplacement de boîte rouge"
+      src: "/images/modernisation/modernisation4.jpg",
+      alt: "Modernisation d'ascenseur - Exemple 4"
     },
     {
-      src: "/images/renovation/REMPLACEMENT DE FERME PORTE - ASCENSEURS.jpg",
-      alt: "Remplacement de ferme-porte pour ascenseurs"
+      src: "/images/modernisation/modernisation5.png",
+      alt: "Modernisation d'ascenseur - Exemple 5"
     },
     {
-      src: "/images/renovation/REMPLACEMENT FERME PORTE.jpg",
-      alt: "Remplacement ferme-porte"
+      src: "/images/modernisation/modernisation6.png",
+      alt: "Modernisation d'ascenseur - Exemple 6"
     },
     {
-      src: "/images/renovation/REMPLACEMENT LUMIERE.jpg",
-      alt: "Remplacement d'éclairage"
+      src: "/images/modernisation/modernisation7.png",
+      alt: "Modernisation d'ascenseur - Exemple 7"
     },
     {
-      src: "/images/renovation/REMPLACMENT DE NEON (1).jpg",
-      alt: "Remplacement de néon"
+      src: "/images/modernisation/modernisation8.png",
+      alt: "Modernisation d'ascenseur - Exemple 8"
     }
   ];
 
@@ -99,7 +99,7 @@ export default function GallerySection() {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-6">
-            Nos réalisations de rénovation
+            Nos réalisations de modernisation
           </h2>
           <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-8"></div>
         </div>

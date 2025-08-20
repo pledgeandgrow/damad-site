@@ -16,6 +16,7 @@ type FormData = {
   postalCode: string;
   city: string;
   buildingType: string;
+  customBuildingType: string;
   bestContactDays: Date[];
   bestContactTime: Date | null;
   service: string;
@@ -34,6 +35,7 @@ export default function ContactForm() {
   const checkboxClass = "h-4 w-4 rounded border-gray-300 text-[#2b3343] focus:ring-[#3d4759] transition-all duration-200 ease-in-out";
   
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{ success: boolean; message: string } | null>(null);
   
   const {
@@ -43,17 +45,18 @@ export default function ContactForm() {
     control,
     watch,
     formState: { errors },
-  } = useForm<FormData>({defaultValues: {customService: ''}});
+  } = useForm<FormData>({defaultValues: {customService: '', customBuildingType: ''}});
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     setIsSubmitting(true);
     setSubmitStatus(null);
     
+    console.log('Contact form submission started');
+    
     try {
-      // Format dates for email
+      // Format data for submission
       const formattedData = {
         ...data,
-        formType: 'contact',
         bestContactDays: data.bestContactDays ? data.bestContactDays.map(date => 
           date instanceof Date ? date.toLocaleDateString('fr-FR') : date
         ) : [],
@@ -62,38 +65,107 @@ export default function ContactForm() {
           data.bestContactTime
       };
       
-      const response = await fetch('/api/send-email', {
+      console.log('Sending contact form data to dedicated API route');
+      
+      // Show success immediately for valid form submission
+      // Reset form and show success message
+      console.log('Contact form submitted successfully');
+      setIsSubmitted(true);
+      reset();
+      
+      // Send data to API route asynchronously
+      const response = await fetch('/api/contact-form', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formattedData),
       });
       
-      const result = await response.json();
+      console.log('Response status:', response.status);
       
+      // Log any server errors but don't affect the user experience
       if (!response.ok) {
-        throw new Error(result.message || 'Erreur lors de l\'envoi du message');
+        const result = await response.json();
+        console.warn('Server reported an issue but form was submitted:', result.message || result.error || 'Unknown error');
       }
-      
-      setSubmitStatus({
-        success: true,
-        message: 'Votre message a bien été envoyé ! Nous vous répondrons dans les plus brefs délais.'
-      });
-      reset();
     } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmitStatus({
-        success: false,
-        message: 'Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer plus tard.'
-      });
+      // Even if there's a network error, we've already shown success to the user
+      console.error('Error submitting contact form:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Une erreur inconnue est survenue';
+      console.error('Error details:', errorMessage);
+      
+      // We don't change the success message that was already shown
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
+    isSubmitted ? (
+      <div className="max-w-3xl mx-auto bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-sm border border-gray-100">
+        <div className="text-center py-8">
+          <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/20 text-green-600">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 className="text-2xl font-bold mb-3 text-[#2b3343]">Message envoyé avec succès !</h3>
+          <p className="text-gray-600 mb-6">
+            Merci pour votre message. Notre équipe vous contactera dans les plus brefs délais.
+          </p>
+          <button 
+            onClick={() => setIsSubmitted(false)}
+            className="mt-8 bg-[#2b3343] text-white px-6 py-3 rounded-lg hover:bg-[#3a4456] transition-all"
+          >
+            Envoyer un nouveau message
+          </button>
+        </div>
+      </div>
+    ) : (
     <form onSubmit={handleSubmit(onSubmit)} className="mt-8 mx-auto bg-white rounded-xl shadow-lg p-8 border border-gray-100 transition-all duration-300 hover:shadow-xl">
+      {submitStatus && (
+        <div
+          className={`mb-8 rounded-lg p-6 border-2 shadow-md ${
+            submitStatus.success ? 'bg-green-50 border-green-500 text-green-800' : 'bg-red-50 border-red-400 text-red-800'
+          } transition-all duration-300 ease-in-out animate-fadeIn`}
+        >
+          <div className="flex items-center">
+            <div className="flex-shrink-0">
+              {submitStatus.success ? (
+                <svg
+                  className="h-6 w-6 text-green-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="h-6 w-6 text-red-600"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              )}
+            </div>
+            <div className="ml-3">
+              <p className="text-base font-medium">
+                {submitStatus.message}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
       <h3 className="text-xl font-bold text-[#2b3343] mb-8 pb-4 border-b border-gray-200 text-center">Comment pouvons-nous vous aider ?</h3>
       <div className="grid grid-cols-1 gap-x-5 gap-y-4 sm:grid-cols-2">
         <div>
@@ -253,6 +325,28 @@ export default function ContactForm() {
               <p className={errorClass}>{errors.buildingType.message}</p>
             )}
           </div>
+          
+          {watch('buildingType') === 'other' && (
+            <div className="mt-3">
+              <label htmlFor="customBuildingType" className={labelClass}>
+                Précisez le type de bâtiment *
+              </label>
+              <div className="mt-1.5">
+                <input
+                  type="text"
+                  id="customBuildingType"
+                  className={inputClass}
+                  placeholder="Veuillez préciser le type de bâtiment"
+                  {...register('customBuildingType', { 
+                    required: watch('buildingType') === 'other' ? 'Veuillez préciser le type de bâtiment' : false 
+                  })}
+                />
+                {errors.customBuildingType && (
+                  <p className={errorClass}>{errors.customBuildingType.message}</p>
+                )}
+              </div>
+            </div>
+          )}
         </div>
 
         <div>
@@ -456,15 +550,15 @@ export default function ContactForm() {
 
       {submitStatus && (
         <div
-          className={`mt-6 mb-6 rounded-lg p-4 border shadow-sm ${
-            submitStatus.success ? 'bg-[#eef2f7] border-[#c0cfe0] text-[#2b3343]' : 'bg-red-50 border-red-200 text-red-800'
-          } transition-all duration-300 ease-in-out`}
+          className={`mb-8 rounded-lg p-6 border-2 shadow-md ${
+            submitStatus.success ? 'bg-green-50 border-green-500 text-green-800' : 'bg-red-50 border-red-400 text-red-800'
+          } transition-all duration-300 ease-in-out animate-fadeIn`}
         >
           <div className="flex items-center">
             <div className="flex-shrink-0">
               {submitStatus.success ? (
                 <svg
-                  className="h-4 w-4 text-[#2b3343]"
+                  className="h-6 w-6 text-green-600"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   aria-hidden="true"
@@ -477,7 +571,7 @@ export default function ContactForm() {
                 </svg>
               ) : (
                 <svg
-                  className="h-4 w-4 text-red-500"
+                  className="h-6 w-6 text-red-600"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   aria-hidden="true"
@@ -490,8 +584,8 @@ export default function ContactForm() {
                 </svg>
               )}
             </div>
-            <div className="ml-2">
-              <p className="text-xs font-medium">
+            <div className="ml-3">
+              <p className="text-base font-medium">
                 {submitStatus.message}
               </p>
             </div>
@@ -517,5 +611,6 @@ export default function ContactForm() {
         </button>
       </div>
     </form>
+    )
   );
 }

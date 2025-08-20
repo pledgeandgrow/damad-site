@@ -1,15 +1,13 @@
 "use client";
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import { useSwipeable } from 'react-swipeable';
 import ProjectCard from './ProjectCard';
-import { Project } from '@/types';
 import { motion } from 'framer-motion';
 
 interface MobileProjectCarouselProps {
-  projects: Project[];
-  onProjectClick?: (project: Project) => void;
+  projects: {id: number, image: string}[];
+  onProjectClick?: (imageId: number) => void;
 }
 
 export default function MobileProjectCarousel({ projects, onProjectClick }: MobileProjectCarouselProps) {
@@ -31,13 +29,38 @@ export default function MobileProjectCarousel({ projects, onProjectClick }: Mobi
     setTimeout(() => setIsAnimating(false), 500); // Match transition duration
   }, [maxIndex, isAnimating]);
 
-  // Swipe handlers
-  const handlers = useSwipeable({
-    onSwipedLeft: () => nextSlide(),
-    onSwipedRight: () => prevSlide(),
-    trackMouse: true,
-    trackTouch: true
-  });
+  // Touch handling variables
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  
+  // Handle touch events manually
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+  
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    touchEndX.current = e.changedTouches[0].clientX;
+    handleSwipe();
+  };
+  
+  const handleSwipe = () => {
+    // Minimum swipe distance (in px) to trigger next/prev
+    const minSwipeDistance = 50;
+    const distance = touchStartX.current - touchEndX.current;
+    
+    if (Math.abs(distance) < minSwipeDistance) return;
+    
+    if (distance > 0) {
+      // Swiped left, go to next slide
+      nextSlide();
+    } else {
+      // Swiped right, go to previous slide
+      prevSlide();
+    }
+  };
+  
+  // Removed unused debounce function
 
   // Auto-scroll with pause on hover
   const [isPaused, setIsPaused] = useState(false);
@@ -73,7 +96,9 @@ export default function MobileProjectCarousel({ projects, onProjectClick }: Mobi
   return (
     <motion.div 
       className="relative px-4 w-full" 
-      {...handlers}
+      ref={carouselRef}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       initial={{ opacity: 0 }}
@@ -93,9 +118,9 @@ export default function MobileProjectCarousel({ projects, onProjectClick }: Mobi
               whileTap={{ scale: 0.98 }}
             >
               <ProjectCard 
-                project={project} 
+                image={project.image} 
                 className="h-full cursor-pointer"
-                onClick={() => onProjectClick?.(project)}
+                onClick={() => onProjectClick?.(project.id)}
               />
             </motion.div>
           ))}
@@ -106,10 +131,10 @@ export default function MobileProjectCarousel({ projects, onProjectClick }: Mobi
 
       {/* Navigation arrows removed */}
       
-      {/* Progress indicator */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-200 rounded-full overflow-hidden">
+      {/* Progress indicator - moved below the image with margin-top */}
+      <div className="mt-6 mx-4 h-1 bg-gray-200 rounded-full overflow-hidden">
         <motion.div 
-          className="h-full bg-[#2b3343]" 
+          className="h-full bg-[#0046fe]" 
           initial={{ width: '0%' }}
           animate={{ width: `${(currentIndex + 1) / projects.length * 100}%` }}
           transition={{ duration: 0.5 }}

@@ -1,4 +1,4 @@
-import { FaBuilding, FaIndustry, FaShoppingCart, FaFilter, FaUtensils } from 'react-icons/fa';
+import { FaFilter } from 'react-icons/fa';
 import { ProjectCategory } from '@/types';
 import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
@@ -20,11 +20,6 @@ export default function CategoryFilter({
 }: CategoryFilterProps) {
   const categories: CategoryWithIcon[] = [
     { name: 'Tout', icon: <FaFilter className="mr-2" />, value: 'all' },
-    { name: 'Immeubles', icon: <FaBuilding className="mr-2" />, value: 'Immeubles' },
-    { name: 'Commercial', icon: <FaShoppingCart className="mr-2" />, value: 'Commercial' },
-    { name: 'Industriel', icon: <FaIndustry className="mr-2" />, value: 'Industriel' },
-    { name: 'Particulier', icon: <FaBuilding className="mr-2" />, value: 'Particulier' },
-    { name: 'Restauration', icon: <FaUtensils className="mr-2" />, value: 'Restauration' },
   ];
 
   return (

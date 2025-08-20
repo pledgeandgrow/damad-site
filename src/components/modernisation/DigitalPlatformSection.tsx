@@ -10,7 +10,7 @@ const DigitalPlatformSection = () => {
           </h2>
           <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
           <p className="text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Suivez en temps réel l&apos;avancement de votre projet de rénovation et modernisation grâce à notre plateforme digitale.
+            Suivez en temps réel l{`'`}avancement de votre projet de rénovation et modernisation grâce à notre plateforme digitale.
           </p>
         </div>
 
@@ -68,8 +68,8 @@ const DigitalPlatformSection = () => {
                 <div>
                   <h3 className="text-xl font-bold text-[#2b3343] mb-2 group-hover:text-[#0046fe] transition-colors duration-300">Suivi de chantier en temps réel</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Suivez l&apos;avancement de vos travaux de modernisation,
-                    consultez les photos, les rapports d&apos;intervention et le calendrier des étapes à venir.
+                    Suivez l{`'`}avancement de vos travaux de modernisation,
+                    consultez les photos, les rapports d{`'`}intervention et le calendrier des étapes à venir.
                   </p>
                 </div>
               </div>
@@ -87,7 +87,7 @@ const DigitalPlatformSection = () => {
                   <h3 className="text-xl font-bold text-[#2b3343] mb-2 group-hover:text-[#0046fe] transition-colors duration-300">Communication simplifiée</h3>
                   <p className="text-gray-600 leading-relaxed">
                     Communiquez directement avec nos équipes via la
-                    messagerie intégrée et recevez des notifications en temps réel sur l&apos;avancement de votre projet.
+                    messagerie intégrée et recevez des notifications en temps réel sur l{`'`}avancement de votre projet.
                   </p>
                 </div>
               </div>

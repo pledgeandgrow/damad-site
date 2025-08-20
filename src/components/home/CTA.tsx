@@ -23,6 +23,15 @@ export default function CTA() {
               Demander un devis
               <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Link>
+            <Link 
+              href="/realisations"
+              className="group inline-flex items-center justify-center font-medium py-4 px-8 rounded-lg 
+                transition-all duration-300 shadow-md hover:shadow-lg
+                bg-[#0046fe] hover:bg-[#0035c8] text-white"
+            >
+              Voir tous nos projets
+              <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+            </Link>
           </div>
           
 
