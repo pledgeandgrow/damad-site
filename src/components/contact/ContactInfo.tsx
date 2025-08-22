@@ -60,7 +60,7 @@ export default function ContactInfo() {
               <h4 className="text-lg font-medium text-[#2b3343] mb-4">Suivez-nous</h4>
               <div className="flex items-center space-x-4">
                 <a 
-                  href="https://www.linkedin.com/company/damad-ascenseurs/" 
+                  href="https://www.linkedin.com/company/dmd-ascenseur/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center text-gray-600 hover:text-[#0077b5] transition-colors duration-300"

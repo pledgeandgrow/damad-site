@@ -20,7 +20,7 @@ export default function MentionsLegales() {
         <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">1. Éditeur du site</h2>
           <p className="text-[#3d4759] mb-6">
-            Le site <span className="font-medium text-[#2b3343]">https://damad-ascenseurs.com/</span> est édité par :
+            Le site <span className="font-medium text-[#2b3343]">https://dmd-ascenseur.fr/</span> est édité par :
           </p>
           <ul className="space-y-3 mb-8">
             <li className="flex">
@@ -57,7 +57,7 @@ export default function MentionsLegales() {
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
-              <span className="text-[#3d4759]">Email : <Link href="mailto:contact@damad-ascenseurs.com" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">contact@damad-ascenseurs.com</Link></span>
+              <span className="text-[#3d4759]">Email : <Link href="mailto:info@dmd-ascenseur.fr" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">info@dmd-ascenseur.fr</Link></span>
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
@@ -102,7 +102,7 @@ export default function MentionsLegales() {
 
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">4. Propriété intellectuelle</h2>
           <p className="text-[#3d4759] mb-8">
-            L&apos;ensemble des éléments constituant le site damad-ascenseurs.com (textes, logos, etc.), sauf pour les images et vidéos, est la propriété exclusive de DAMAD ou de ses partenaires. Toute reproduction, représentation, utilisation ou adaptation, sous quelque forme que ce soit, de tout ou partie des éléments du site sans l&apos;accord préalable et écrit de DAMAD est strictement interdite et constituerait un acte de contrefaçon sanctionné par les articles L.335-2 et suivants du Code de la propriété intellectuelle.
+            L&apos;ensemble des éléments constituant le site dmd-ascenseur.fr (textes, logos, etc.), sauf pour les images et vidéos, est la propriété exclusive de DAMAD ou de ses partenaires. Toute reproduction, représentation, utilisation ou adaptation, sous quelque forme que ce soit, de tout ou partie des éléments du site sans l&apos;accord préalable et écrit de DAMAD est strictement interdite et constituerait un acte de contrefaçon sanctionné par les articles L.335-2 et suivants du Code de la propriété intellectuelle.
           </p>
           <p className="text-[#3d4759] mb-8">
             Les marques et logos figurant sur le site sont des marques déposées. Toute reproduction, imitation ou usage, total ou partiel, de ces marques sans l&apos;accord préalable et écrit de leurs propriétaires est strictement interdite.
@@ -113,7 +113,7 @@ export default function MentionsLegales() {
             Conformément à la loi &apos;Informatique et Libertés&apos; du 6 janvier 1978 modifiée et au Règlement Général sur la Protection des Données (RGPD) du 27 avril 2016, vous disposez d&apos;un droit d&apos;accès, de rectification, de portabilité, d&apos;effacement de vos données ou de limitation du traitement. Vous pouvez également, pour des motifs légitimes, vous opposer au traitement des données vous concernant.
           </p>
           <p className="text-[#3d4759] mb-8">
-            Pour exercer ces droits, vous pouvez nous contacter à l&apos;adresse email suivante : <Link href="mailto:contact@damad-ascenseurs.com" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">contact@damad-ascenseurs.com</Link> ou par courrier à l&apos;adresse du siège social.
+            Pour exercer ces droits, vous pouvez nous contacter à l&apos;adresse email suivante : <Link href="mailto:info@dmd-ascenseur.fr" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">info@dmd-ascenseur.fr</Link> ou par courrier à l&apos;adresse du siège social.
           </p>
           <p className="text-[#3d4759] mb-8">
             Pour plus d&apos;informations sur la manière dont nous traitons vos données, consultez notre <Link href="/politique-de-confidentialite" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">Politique de Confidentialité</Link>.
@@ -121,7 +121,7 @@ export default function MentionsLegales() {
 
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">6. Cookies</h2>
           <p className="text-[#3d4759] mb-8">
-            Le site damad-ascenseurs.com utilise des cookies pour améliorer votre expérience de navigation et réaliser des statistiques de visites. En poursuivant votre navigation sur ce site, vous acceptez l&apos;utilisation de cookies conformément à notre <Link href="/politique-de-confidentialite#cookies" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">Politique de Cookies</Link>.
+            Le site dmd-ascenseur.fr utilise des cookies pour améliorer votre expérience de navigation et réaliser des statistiques de visites. En poursuivant votre navigation sur ce site, vous acceptez l&apos;utilisation de cookies conformément à notre <Link href="/politique-de-confidentialite#cookies" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">Politique de Cookies</Link>.
           </p>
           <p className="text-[#3d4759] mb-8">
             Vous pouvez à tout moment paramétrer votre navigateur pour refuser les cookies. Cependant, certaines fonctionnalités du site pourraient ne plus être accessibles.
@@ -129,10 +129,10 @@ export default function MentionsLegales() {
 
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">7. Liens hypertextes</h2>
           <p className="text-[#3d4759] mb-8">
-            Le site damad-ascenseurs.com peut contenir des liens hypertextes vers d&apos;autres sites. DAMAD ne peut être tenu pour responsable du contenu de ces sites ou des éventuels dommages causés par leur consultation.
+            Le site dmd-ascenseur.fr peut contenir des liens hypertextes vers d&apos;autres sites. DAMAD ne peut être tenu pour responsable du contenu de ces sites ou des éventuels dommages causés par leur consultation.
           </p>
           <p className="text-[#3d4759] mb-8">
-            La création de liens hypertextes vers le site damad-ascenseurs.com est soumise à l&apos;accord préalable et écrit de DAMAD.
+            La création de liens hypertextes vers le site dmd-ascenseur.fr est soumise à l&apos;accord préalable et écrit de DAMAD.
           </p>
 
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">8. Limitation de responsabilité</h2>
@@ -151,7 +151,7 @@ export default function MentionsLegales() {
             Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.
           </p>
           <p className="text-gray-600 mb-8">
-            Pour toute question relative aux présentes mentions légales, vous pouvez nous contacter par email à <Link href="mailto:contact@damad-ascenseurs.com" className="text-[#4a90e2] hover:underline">contact@damad-ascenseurs.com</Link> ou par courrier à l&apos;adresse du siège social.
+            Pour toute question relative aux présentes mentions légales, vous pouvez nous contacter par email à <Link href="mailto:contact@dmd-ascenseur.fr" className="text-[#4a90e2] hover:underline">contact@dmd-ascenseur.fr</Link> ou par courrier à l&apos;adresse du siège social.
           </p>
 
           <h2 className="text-2xl font-semibold text-gray-800 mb-6">10. Crédits</h2>

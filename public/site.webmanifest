@@ -1,11 +1,13 @@
 {
-  "name": "DAMAD",
+  "name": "DAMAD Ascenseurs",
   "short_name": "DAMAD",
-  "description": "Votre partenaire de confiance pour tous vos besoins en ascenseurs, de l'installation à la maintenance.",
+  "description": "Votre partenaire de confiance pour l'installation, la maintenance, la réparation et la modernisation d'ascenseurs et d'appareils d'accessibilité.",
   "start_url": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#2b3343",
   "theme_color": "#2b3343",
+  "lang": "fr-FR",
   "icons": [
     {
       "src": "/favicon-16x16.png",

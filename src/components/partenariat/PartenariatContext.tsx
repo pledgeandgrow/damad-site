@@ -27,7 +27,7 @@ export default function PartenariatContext() {
   }, []);
 
   return (
-    <section id="partenariat-details" className="py-20 bg-[#fbfcfd]">
+    <section id="partenariat-details" className="py-20 bg-[#fbfcfd] -mt-[72px] md:-mt-[96px] pt-[92px] md:pt-[116px]">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="max-w-4xl mx-auto mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#2b3343] mb-3 sm:mb-4">

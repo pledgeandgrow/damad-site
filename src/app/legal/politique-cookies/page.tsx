@@ -148,7 +148,7 @@ export default function PolitiqueCookiesPage() {
           <ul className="space-y-3 mb-8">
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
-              <span className="text-[#3d4759]"><strong>Email :</strong> <a href="mailto:contact@damad-ascenseur.com" className="text-blue-600 hover:underline">contact@damad-ascenseur.com</a></span>
+              <span className="text-[#3d4759]"><strong>Email :</strong> <a href="mailto:info@dmd-ascenseur.fr" className="text-blue-600 hover:underline">info@dmd-ascenseur.fr</a></span>
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />

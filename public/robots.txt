@@ -1,5 +1,5 @@
 # https://www.robotstxt.org/robotstxt.html
-# Dernière mise à jour: 2025-07-17
+# Dernière mise à jour: 2025-08-20
 
 # Règles pour tous les robots
 User-agent: *

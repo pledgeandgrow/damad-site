@@ -37,11 +37,13 @@ export default function RealisationsPage() {
             priority
             sizes="100vw"
           />
+          {/* Add a dark overlay for better text visibility on mobile */}
+          <div className="absolute inset-0 bg-black opacity-40"></div>
         </div>
 
         <div className="container mx-auto px-4 max-w-7xl relative z-10 text-center">
           <div className="animate-fade-in-up bg-black/40 backdrop-blur-sm inline-block px-8 py-6 rounded-lg">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
               NOS RÉALISATIONS
             </h1>
             <div className="w-24 h-1 bg-[#0046fe] mx-auto mt-2"></div>

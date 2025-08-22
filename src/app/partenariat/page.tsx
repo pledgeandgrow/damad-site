@@ -10,7 +10,7 @@ export const metadata = {
 export default function PartenariatPage() {
   return (
     <main>
-      <div className="pt-16 md"> {/* Added padding top */}
+      <div>
         <PartenariatContext />
       </div>
       <PartenariatConditions />

@@ -47,18 +47,18 @@ const footerLinks: FooterSection[] = [
         icon: FaMapMarkerAlt 
       },
       { 
-        name: '01 86 04 30 63 (Support)',
-        href: 'tel:+33186043063',
-        icon: FaPhoneAlt
-      },
-      { 
-        name: '09 70 72 22 63 (Centrale d\'appel)',
+        name: '09 70 72 22 63',
         href: 'tel:+33970722263',
         icon: FaHeadset
       },
       { 
-        name: 'contact@damad-ascenseurs.com',
-        href: 'mailto:contact@damad-ascenseurs.com',
+        name: 'info@dmd-ascenseur.fr',
+        href: 'mailto:info@dmd-ascenseur.fr',
+        icon: FaEnvelope
+      },
+      { 
+        name: 'depannage@dmd-ascenseur.fr',
+        href: 'mailto:depannage@dmd-ascenseur.fr',
         icon: FaEnvelope
       },
     ]
@@ -75,7 +75,7 @@ const socialLinks: SocialLink[] = [
   {
     name: "LinkedIn",
     icon: FaLinkedin,
-    href: "https://www.linkedin.com/company/damad-ascenseurs/"
+    href: "https://www.linkedin.com/company/dmd-ascenseur/"
   }
 ];
 

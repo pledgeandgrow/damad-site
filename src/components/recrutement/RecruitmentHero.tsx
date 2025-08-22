@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function RecruitmentHero() {
   return (
-    <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+    <div className="relative bg-[#2b3343] h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden -mt-[72px] md:-mt-[96px] pt-[72px] md:pt-[96px]">
       <div className="absolute inset-0 z-0">
         <Image 
           src="/images/recrutement/recrutement0.jpg" 

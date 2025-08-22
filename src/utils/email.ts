@@ -68,7 +68,7 @@ export function createEmailTransporter() {
     port: Number(process.env.EMAIL_PORT) || 465,
     secure: process.env.EMAIL_SECURE === 'false' ? false : true, // true for 465, false for other ports
     auth: {
-      user: process.env.EMAIL_USER || 'info@damad-ascenseurs.fr',
+      user: process.env.EMAIL_USER || 'info@dmd-ascenseur.fr',
       pass: process.env.EMAIL_PASSWORD,
     },
     tls: {
@@ -104,8 +104,8 @@ export async function sendEmail(options: {
   const transporter = createEmailTransporter();
   
   const info = await transporter.sendMail({
-    from: process.env.EMAIL_FROM || '"Site Web DAMAD" <info@damad-ascenseurs.fr>',
-    to: process.env.EMAIL_TO || 'info@damad-ascenseurs.fr',
+    from: process.env.EMAIL_FROM || '"Site Web DAMAD" <info@dmd-ascenseur.fr>',
+    to: process.env.EMAIL_TO || 'info@dmd-ascenseur.fr',
     subject: options.subject,
     text: options.text,
     html: options.html,

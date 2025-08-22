@@ -132,7 +132,7 @@ export default function Hero() {
                 key={index} 
                 className="text-center p-3 xs:p-4 sm:p-5 bg-black/40 backdrop-blur-sm rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105"
               >
-                <div className="hidden xs:block mb-1 xs:mb-2">{item.icon}</div>
+                <div className="block mb-1 xs:mb-2">{item.icon}</div>
                 <div className="text-xl xs:text-2xl sm:text-3xl font-bold text-white mb-1 xs:mb-2">{item.number}</div>
                 <div className="text-xs xs:text-sm sm:text-base text-white">{item.label}</div>
               </div>

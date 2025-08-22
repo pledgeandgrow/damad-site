@@ -40,6 +40,7 @@
 :root {
   --background: #fbfcfd;
   --foreground: #171717;
+  --navbar-height: 96px;
 }
 
 html, body {
@@ -66,4 +67,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Add padding to main content to account for fixed navbar */
+main {
+  padding-top: var(--navbar-height);
 }

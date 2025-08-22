@@ -18,8 +18,25 @@ export default function Navbar() {
       setScrolled(window.scrollY > 10);
     };
 
+    // Set CSS variable for navbar height
+    const setNavbarHeight = () => {
+      const isMobileView = window.innerWidth < 768;
+      const navbarHeight = isMobileView ? '72px' : '96px';
+      document.documentElement.style.setProperty('--navbar-height', navbarHeight);
+    };
+
+    // Initial setup
+    setNavbarHeight();
+
+    // Event listeners
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', setNavbarHeight);
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', setNavbarHeight);
+    };
   }, []);
 
   useEffect(() => {
@@ -74,11 +91,11 @@ export default function Navbar() {
               </div>
               <span className="font-medium">01 86 04 30 63</span>
             </a>
-            <a href="mailto:contact@damad-ascenseurs.fr" className="flex items-center hover:text-blue-300 transition-colors group">
+            <a href="mailto:info@dmd-ascenseur.fr" className="flex items-center hover:text-blue-300 transition-colors group">
               <div className="bg-blue-500/20 p-1.5 rounded-full mr-2.5 group-hover:bg-blue-500/30 transition-colors">
                 <FaEnvelope className="text-blue-400" />
               </div>
-              <span className="font-medium">contact@damad-ascenseurs.fr</span>
+              <span className="font-medium">info@dmd-ascenseur.fr</span>
             </a>
           </div>
           <div className="flex items-center">
@@ -114,7 +131,7 @@ export default function Navbar() {
         
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center group">
+            <Link href="/" className="flex items-center group flex-shrink-0">
               <div className={`relative ${scrolled ? 'h-20' : 'h-24'} w-auto transition-all duration-300`}>
                 <Image 
                   src="/dmd-transparent.png" 
@@ -161,7 +178,7 @@ export default function Navbar() {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden text-gray-700 focus:outline-none p-2 rounded-md hover:bg-gray-100 transition-colors"
+              className="md:hidden text-gray-700 focus:outline-none p-2 rounded-md hover:bg-gray-100 transition-colors flex-shrink-0 ml-2"
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
             >
@@ -212,19 +229,19 @@ export default function Navbar() {
             <div className="py-4 space-y-3">
               <Link 
                 href="/devis" 
-                className="block w-full text-center bg-[#ff5c35] hover:bg-[#e64a25] text-white px-6 py-3.5 rounded-lg transition-colors font-medium shadow-sm flex items-center justify-center"
+                className="block w-full text-center bg-[#ff5c35] hover:bg-[#e64a25] text-white px-4 py-3 rounded-lg transition-colors font-medium shadow-sm flex items-center justify-center"
               >
-                <FaFileAlt className="mr-2" />
-                Demander un devis
+                <FaFileAlt className="mr-2 flex-shrink-0" />
+                <span className="truncate">Demander un devis</span>
               </Link>
               <a 
                 href="https://damad-client.vercel.app/dashboard" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-center bg-[#0046fe] hover:bg-[#0035c8] text-white px-6 py-3.5 rounded-lg transition-colors font-medium shadow-sm flex items-center justify-center"
+                className="block w-full text-center bg-[#0046fe] hover:bg-[#0035c8] text-white px-4 py-3 rounded-lg transition-colors font-medium shadow-sm flex items-center justify-center"
               >
-                <FaUserCircle className="mr-2" />
-                Espace client
+                <FaUserCircle className="mr-2 flex-shrink-0" />
+                <span className="truncate">Espace client</span>
               </a>
             </div>
           </div>
