@@ -38,9 +38,7 @@ export const projectImages = [
   '/images/realisations/realisation30.png',
   '/images/realisations/realisation31.png',
   '/images/realisations/realisation32.png',
-  '/images/realisations/realisation33.png',
-  '/images/realisations/realisation34.png',
-  '/images/realisations/realisation35.png'
+  '/images/realisations/realisation33.png'
 ];
 
 // Function to get all images

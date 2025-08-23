@@ -13,7 +13,7 @@ const realisationImages = [
   { id: 5, src: '/images/realisations/realisation27.png', alt: 'Réalisation 27' },
   { id: 6, src: '/images/realisations/realisation29.png', alt: 'Réalisation 29' },
   { id: 7, src: '/images/realisations/realisation31.png', alt: 'Réalisation 31' },
-  { id: 8, src: '/images/realisations/realisation34.png', alt: 'Réalisation 34' },
+  { id: 8, src: '/images/realisations/realisation35.png', alt: 'Réalisation 35' },
 ];
 
 // Create projects array using the realisationImages

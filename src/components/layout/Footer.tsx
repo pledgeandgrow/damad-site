@@ -304,7 +304,7 @@ export default function Footer() {
               )}
               {section.title === 'Nous Rejoindre' && (
                 <a 
-                  href="https://damad-client.vercel.app/" 
+                  href="https://dmd-client.vercel.app/" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center mt-3 text-xs sm:text-sm text-white/60 hover:text-white bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-md transition-all duration-300"
@@ -324,7 +324,7 @@ export default function Footer() {
         
         <div className="border-t border-white/10 pt-6 sm:pt-8 mt-6 sm:mt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-gray-400 text-xs sm:text-sm">&copy; {currentYear} - DAMAD</p>
+            <p className="text-gray-400 text-xs sm:text-sm">&copy; {currentYear} - DMD Ascenseur</p>
             <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mt-4 sm:mt-0">
               <Link 
                 href="/legal/mentions-legales" 

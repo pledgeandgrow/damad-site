@@ -12,4 +12,4 @@ Disallow: /admin/
 Crawl-delay: 10
 
 # Sitemap
-Sitemap: https://damad-ascenseurs.fr/sitemap.xml
+Sitemap: https://dmd-ascenseur.fr/sitemap.xml

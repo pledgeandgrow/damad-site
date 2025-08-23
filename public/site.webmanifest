@@ -1,6 +1,6 @@
 {
-  "name": "DAMAD Ascenseurs",
-  "short_name": "DAMAD",
+  "name": "DMD Ascenseur",
+  "short_name": "DMD",
   "description": "Votre partenaire de confiance pour l'installation, la maintenance, la réparation et la modernisation d'ascenseurs et d'appareils d'accessibilité.",
   "start_url": "/",
   "display": "standalone",

@@ -18,7 +18,7 @@ export default function About() {
               <div className="bg-gray-50 p-5 sm:p-6 md:p-8 rounded-2xl border border-gray-100 shadow-sm">
                 <h3 className="text-xl sm:text-2xl font-bold text-[#2b3343] mb-3 sm:mb-4">Notre engagement</h3>
                 <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                  Chez Damad, nous nous engageons à maintenir votre installation en condition opérationnelle en mettant l&apos;accent sur notre expertise technique, la sécurité, la proximité.
+                  Nous nous engageons à maintenir votre installation en condition opérationnelle en mettant l&apos;accent sur notre expertise technique, la sécurité, la proximité.
                 </p>
                 <div className="w-12 sm:w-16 h-1 bg-[#0046fe] mb-4 sm:mb-6"></div>
               </div>

@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/common/CookieConsent";
 import FloatingArrow from "@/components/common/FloatingArrow";
 import FloatingPhone from "@/components/common/FloatingPhone";
+import LocalBusinessSchema from "@/components/seo/LocalBusinessSchema";
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -25,11 +26,11 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "DAMAD - Installation et Maintenance d'Appareils d'Accessibilité",
-    template: "%s | DAMAD"
+    default: "DMD Ascenseur - Installation et Maintenance d'Ascenseurs en France",
+    template: "%s | DMD Ascenseur"
   },
-  description: "Expert en installation, maintenance et dépannage d'appareils d'accessibilité. Solutions sur mesure pour particuliers et professionnels.",
-  keywords: ["appareils d'accessibilité", "ascenseur", "maintenance", "installation", "dépannage", "DAMAD"],
+  description: "Expert en installation, maintenance et dépannage d'ascenseurs. Solutions sur mesure pour particuliers et professionnels dans toute la France.",
+  keywords: ["ascenseur", "maintenance ascenseur", "installation ascenseur", "dépannage ascenseur", "DMD Ascenseur", "réparation ascenseur", "modernisation ascenseur"],
   manifest: '/site.webmanifest',
   icons: {
     icon: [
@@ -43,6 +44,34 @@ export const metadata: Metadata = {
     'msapplication-TileColor': '#2b3343',
     'msapplication-config': '/browserconfig.xml',
   },
+  // Open Graph metadata
+  openGraph: {
+    type: 'website',
+    locale: 'fr_FR',
+    url: 'https://dmd-ascenseur.fr/',
+    siteName: 'DMD Ascenseur',
+    title: 'DMD Ascenseur - Installation et Maintenance d\'Ascenseurs en France',
+    description: 'Expert en installation, maintenance et dépannage d\'ascenseurs. Solutions sur mesure pour particuliers et professionnels dans toute la France.',
+    images: [
+      {
+        url: 'https://dmd-ascenseur.fr/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'DMD Ascenseur',
+      },
+    ],
+  },
+  // Twitter card metadata
+  twitter: {
+    card: 'summary_large_image',
+    title: 'DMD Ascenseur - Installation et Maintenance d\'Ascenseurs',
+    description: 'Expert en installation, maintenance et dépannage d\'ascenseurs. Solutions sur mesure pour particuliers et professionnels.',
+    images: ['https://dmd-ascenseur.fr/images/og-image.jpg'],
+  },
+  // Canonical URL
+  alternates: {
+    canonical: 'https://dmd-ascenseur.fr',
+  },
 };
 
 export default function RootLayout({
@@ -52,6 +81,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="scroll-smooth">
+      <head>
+        <LocalBusinessSchema />
+      </head>
       <body className={`${roboto.variable} font-roboto antialiased flex flex-col min-h-screen overflow-x-hidden`}>
         <Navbar />
         <main className="flex-grow">

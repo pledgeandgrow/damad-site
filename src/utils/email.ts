@@ -104,7 +104,7 @@ export async function sendEmail(options: {
   const transporter = createEmailTransporter();
   
   const info = await transporter.sendMail({
-    from: process.env.EMAIL_FROM || '"Site Web DAMAD" <info@dmd-ascenseur.fr>',
+    from: process.env.EMAIL_FROM || '"Site Web DMD" <info@dmd-ascenseur.fr>',
     to: process.env.EMAIL_TO || 'info@dmd-ascenseur.fr',
     subject: options.subject,
     text: options.text,

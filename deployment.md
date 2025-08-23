@@ -1,6 +1,6 @@
-# Guide de Déploiement - DAMAD Ascenseurs
+# Guide de Déploiement - DMD Ascenseur
 
-Ce document détaille les étapes nécessaires pour déployer le site web DAMAD Ascenseurs sur un serveur Linux, configurer le serveur SMTP et assurer le bon fonctionnement de l'application.
+Ce document détaille les étapes nécessaires pour déployer le site web DMD Ascenseur sur un serveur Linux, configurer le serveur SMTP et assurer le bon fonctionnement de l'application.
 
 ## Table des matières
 
@@ -51,8 +51,8 @@ sudo npm install -g pm2
 ### 1. Créer un répertoire pour l'application
 
 ```bash
-sudo mkdir -p /var/www/damad-ascenseurs
-sudo chown -R $USER:$USER /var/www/damad-ascenseurs
+sudo mkdir -p /var/www/dmd-ascenseur
+sudo chown -R $USER:$USER /var/www/dmd-ascenseur
 ```
 
 ### 2. Configurer les variables d'environnement
@@ -60,7 +60,7 @@ sudo chown -R $USER:$USER /var/www/damad-ascenseurs
 Créez un fichier `.env.production` dans le répertoire de l'application :
 
 ```bash
-cd /var/www/damad-ascenseurs
+cd /var/www/dmd-ascenseur
 nano .env.production
 ```
 
@@ -73,10 +73,10 @@ NODE_ENV=production
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=465
 EMAIL_SECURE=true
-EMAIL_USER=info@damad-ascenseurs.fr
+EMAIL_USER=info@dmd-ascenseur.fr
 EMAIL_PASSWORD=votre_mot_de_passe_ou_clé_app
-EMAIL_FROM="Site Web DAMAD <info@damad-ascenseurs.fr>"
-EMAIL_TO=info@damad-ascenseurs.fr
+EMAIL_FROM="Site Web DAMAD <info@dmd-ascenseur.fr>"
+EMAIL_TO=info@dmd-ascenseur.fr
 ```
 
 ## Déploiement de l'application
@@ -99,13 +99,13 @@ Utilisez SCP ou SFTP pour transférer les fichiers nécessaires :
 
 ```bash
 # Depuis votre machine locale
-scp -r .next package.json package-lock.json public next.config.ts user@votre-serveur:/var/www/damad-ascenseurs/
+scp -r .next package.json package-lock.json public next.config.ts user@votre-serveur:/var/www/dmd-ascenseur/
 ```
 
 ### 3. Installer les dépendances de production sur le serveur
 
 ```bash
-cd /var/www/damad-ascenseurs
+cd /var/www/dmd-ascenseur
 npm install --production
 ```
 
@@ -114,7 +114,7 @@ npm install --production
 ### 1. Créer une configuration Nginx
 
 ```bash
-sudo nano /etc/nginx/sites-available/damad-ascenseurs.fr
+sudo nano /etc/nginx/sites-available/dmd-ascenseur.fr
 ```
 
 Ajoutez la configuration suivante :
@@ -122,7 +122,7 @@ Ajoutez la configuration suivante :
 ```nginx
 server {
     listen 80;
-    server_name damad-ascenseurs.fr www.damad-ascenseurs.fr;
+    server_name dmd-ascenseur.fr www.dmd-ascenseur.fr;
     
     location / {
         proxy_pass http://localhost:3000;
@@ -146,7 +146,7 @@ server {
 ### 2. Activer la configuration
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/damad-ascenseurs.fr /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/dmd-ascenseur.fr /etc/nginx/sites-enabled/
 sudo nginx -t  # Vérifier la syntaxe
 sudo systemctl reload nginx
 ```
@@ -162,7 +162,7 @@ sudo apt install -y certbot python3-certbot-nginx
 ### 2. Obtenir un certificat SSL
 
 ```bash
-sudo certbot --nginx -d damad-ascenseurs.fr -d www.damad-ascenseurs.fr
+sudo certbot --nginx -d dmd-ascenseur.fr -d www.dmd-ascenseur.fr
 ```
 
 Suivez les instructions à l'écran. Certbot mettra automatiquement à jour votre configuration Nginx.
@@ -180,7 +180,7 @@ sudo certbot renew --dry-run
 Pour utiliser Gmail Workspace comme serveur SMTP, vous devez :
 
 1. Vous connecter à la console d'administration Google Workspace
-2. Activer l'accès SMTP pour votre compte info@damad-ascenseurs.fr
+2. Activer l'accès SMTP pour votre compte info@dmd-ascenseur.fr
 3. Générer un mot de passe d'application spécifique (recommandé) :
    - Accédez à votre compte Google
    - Allez dans "Sécurité" > "Connexion à Google"
@@ -200,12 +200,12 @@ TXT  @  "v=spf1 include:_spf.google.com ~all"
 TXT  google._domainkey  "v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA..."
 
 # Enregistrement DMARC
-TXT  _dmarc  "v=DMARC1; p=quarantine; rua=mailto:info@damad-ascenseurs.fr"
+TXT  _dmarc  "v=DMARC1; p=quarantine; rua=mailto:info@dmd-ascenseur.fr"
 ```
 
 ### 3. Tester la configuration SMTP
 
-Créez un script de test dans `/var/www/damad-ascenseurs/test-email.js` :
+Créez un script de test dans `/var/www/dmd-ascenseur/test-email.js` :
 
 ```javascript
 const nodemailer = require('nodemailer');
@@ -235,7 +235,7 @@ async function main() {
   const info = await transporter.sendMail({
     from: process.env.EMAIL_FROM,
     to: process.env.EMAIL_TO,
-    subject: 'Test Email - DAMAD Ascenseurs',
+    subject: 'Test Email - DMD Ascenseur',
     text: 'Si vous recevez cet email, la configuration SMTP fonctionne correctement.',
     html: '<p>Si vous recevez cet email, la <b>configuration SMTP</b> fonctionne correctement.</p>',
   });
@@ -249,7 +249,7 @@ main().catch(console.error);
 Exécutez le test :
 
 ```bash
-cd /var/www/damad-ascenseurs
+cd /var/www/dmd-ascenseur
 node test-email.js
 ```
 
@@ -258,8 +258,8 @@ node test-email.js
 ### 1. Démarrer l'application avec PM2
 
 ```bash
-cd /var/www/damad-ascenseurs
-pm2 start npm --name "damad-website" -- start
+cd /var/www/dmd-ascenseur
+pm2 start npm --name "dmd-website" -- start
 ```
 
 ### 2. Configurer le démarrage automatique
@@ -274,10 +274,10 @@ pm2 save
 
 ```bash
 # Voir les logs
-pm2 logs damad-website
+pm2 logs dmd-website
 
 # Redémarrer l'application
-pm2 restart damad-website
+pm2 restart dmd-website
 
 # Voir le statut
 pm2 status
@@ -291,7 +291,7 @@ pm2 monit
 ### 1. Configurer la rotation des logs
 
 ```bash
-sudo nano /etc/logrotate.d/pm2-damad
+sudo nano /etc/logrotate.d/pm2-dmd
 ```
 
 Ajoutez :
@@ -311,24 +311,24 @@ Ajoutez :
 ### 2. Configurer des sauvegardes automatiques
 
 ```bash
-sudo nano /etc/cron.daily/backup-damad
+sudo nano /etc/cron.daily/backup-dmd
 ```
 
 Ajoutez :
 
 ```bash
 #!/bin/bash
-BACKUP_DIR="/var/backups/damad-website"
+BACKUP_DIR="/var/backups/dmd-website"
 mkdir -p $BACKUP_DIR
 DATE=$(date +%Y-%m-%d)
-tar -czf $BACKUP_DIR/damad-backup-$DATE.tar.gz /var/www/damad-ascenseurs
+tar -czf $BACKUP_DIR/dmd-backup-$DATE.tar.gz /var/www/dmd-ascenseur
 find $BACKUP_DIR -type f -name "*.tar.gz" -mtime +14 -delete
 ```
 
 Rendez le script exécutable :
 
 ```bash
-sudo chmod +x /etc/cron.daily/backup-damad
+sudo chmod +x /etc/cron.daily/backup-dmd
 ```
 
 ### 3. Configurer la surveillance du site
@@ -341,7 +341,7 @@ Utilisez un service comme UptimeRobot ou Freshping pour surveiller la disponibil
 
 1. Vérifiez que le mot de passe d'application est correct
 2. Assurez-vous que l'accès SMTP est activé dans Google Workspace
-3. Vérifiez les journaux d'erreur avec `pm2 logs damad-website`
+3. Vérifiez les journaux d'erreur avec `pm2 logs dmd-website`
 
 ### Problèmes de certificat SSL
 
@@ -362,9 +362,9 @@ sudo certbot certificates
 ### Redémarrage après une mise à jour
 
 ```bash
-cd /var/www/damad-ascenseurs
+cd /var/www/dmd-ascenseur
 git pull  # Si vous utilisez Git
 npm install --production
 npm run build
-pm2 restart damad-website
+pm2 restart dmd-website
 ```
