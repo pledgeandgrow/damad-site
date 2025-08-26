@@ -7,7 +7,6 @@ export default function Hero() {
   const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isForward, setIsForward] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
   const reverseIntervalRef = useRef<NodeJS.Timeout>();
   const frameRateRef = useRef<number>(30); // Frames per second for reverse playback - higher for smoother playback
   
@@ -53,11 +52,8 @@ export default function Hero() {
           // Set to the end of the video
           videoElement.pause();
           videoElement.currentTime = videoElement.duration;
-          setIsPlaying(true);
           
-          // Calculate optimal step size based on video duration and desired smoothness
-          const videoDuration = videoElement.duration;
-          const totalFrames = videoDuration * frameRateRef.current;
+          // Calculate optimal step size based on desired smoothness
           const stepSize = 1 / frameRateRef.current; // Time in seconds per frame - smaller for smoother playback
           
           // Start smooth reverse playback with interval
