@@ -6,6 +6,10 @@ import { FaElevator } from 'react-icons/fa6';
 export default function Hero() {
   const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isForward, setIsForward] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const reverseIntervalRef = useRef<NodeJS.Timeout>();
+  const frameRateRef = useRef<number>(30); // Frames per second for reverse playback - higher for smoother playback
   
   // Check if device is mobile
   useEffect(() => {
@@ -19,25 +23,17 @@ export default function Hero() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Debug video loading
+  // Handle video playback with ping-pong effect
   useEffect(() => {
     const videoElement = videoRef.current;
     
     if (videoElement) {
       console.log('Video element found, attempting to load video');
       
-      const handleCanPlay = () => {
-        console.log('Video can play now');
-      };
-      
-      const handlePlaying = () => {
-        console.log('Video is playing');
-      };
-      
-      const handleVideoLoaded = () => {
-        console.log('Video loaded successfully');
-      };
-      
+      // Basic event handlers for debugging
+      const handleCanPlay = () => console.log('Video can play now');
+      const handlePlaying = () => console.log('Video is playing');
+      const handleVideoLoaded = () => console.log('Video loaded successfully');
       const handleVideoError = (e: Event) => {
         console.error('Video failed to load:', e);
         if (videoElement.error) {
@@ -46,11 +42,66 @@ export default function Hero() {
         }
       };
       
-      // Add comprehensive event listeners for debugging
+      // Start reverse playback with smoother frame-by-frame approach
+      const startReversePlayback = () => {
+        if (videoElement) {
+          // Clear any existing interval
+          if (reverseIntervalRef.current) {
+            clearInterval(reverseIntervalRef.current);
+          }
+          
+          // Set to the end of the video
+          videoElement.pause();
+          videoElement.currentTime = videoElement.duration;
+          setIsPlaying(true);
+          
+          // Calculate optimal step size based on video duration and desired smoothness
+          const videoDuration = videoElement.duration;
+          const totalFrames = videoDuration * frameRateRef.current;
+          const stepSize = 1 / frameRateRef.current; // Time in seconds per frame - smaller for smoother playback
+          
+          // Start smooth reverse playback with interval
+          reverseIntervalRef.current = setInterval(() => {
+            if (videoElement && videoElement.currentTime > 0.1) {
+              videoElement.currentTime -= stepSize;
+            } else {
+              // Reached the beginning
+              clearInterval(reverseIntervalRef.current);
+              setIsForward(true);
+              videoElement.currentTime = 0;
+              videoElement.play();
+            }
+          }, 1000 / frameRateRef.current); // Interval matches frame rate
+        }
+      };
+      
+      // Handle video end to change direction
+      const handleVideoEnd = () => {
+        if (isForward) {
+          // Just finished playing forward, now play in reverse
+          setIsForward(false);
+          startReversePlayback();
+        } else {
+          // Just finished reverse playback, now play forward
+          setIsForward(true);
+          videoElement.currentTime = 0;
+          videoElement.play();
+        }
+      };
+      
+      // Clean up reverse playback when component unmounts or direction changes
+      const cleanupReversePlayback = () => {
+        if (reverseIntervalRef.current) {
+          clearInterval(reverseIntervalRef.current);
+        }
+      };
+      
+      // Add event listeners
       videoElement.addEventListener('loadeddata', handleVideoLoaded);
       videoElement.addEventListener('canplay', handleCanPlay);
       videoElement.addEventListener('playing', handlePlaying);
       videoElement.addEventListener('error', handleVideoError);
+      videoElement.addEventListener('ended', handleVideoEnd);
       
       return () => {
         if (videoElement) {
@@ -58,9 +109,20 @@ export default function Hero() {
           videoElement.removeEventListener('canplay', handleCanPlay);
           videoElement.removeEventListener('playing', handlePlaying);
           videoElement.removeEventListener('error', handleVideoError);
+          videoElement.removeEventListener('ended', handleVideoEnd);
+          cleanupReversePlayback();
         }
       };
     }
+  }, [isForward]);
+  
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (reverseIntervalRef.current) {
+        clearInterval(reverseIntervalRef.current);
+      }
+    };
   }, []);
 
   return (
@@ -76,7 +138,6 @@ export default function Hero() {
             ref={videoRef}
             autoPlay
             muted
-            loop
             playsInline
             src="/videos/ascenceur.mp4"
             className={`absolute inset-0 w-full h-full object-cover ${isMobile ? 'blur-[2px]' : 'blur-[2px]'}`}
@@ -93,17 +154,19 @@ export default function Hero() {
       <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-4 sm:pt-8 md:pt-10">
         <div className="max-w-3xl mx-auto text-center">
           
-          {/* Logo and title */}
-          <div className="mb-4 sm:mb-6 flex items-center justify-center ">
-            <Image 
-              src="/damad-transparent-white.png" 
-              alt="DMD Logo" 
-              width={112}
-              height={112}
-              className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto"
-              priority
-            />
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white ml-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] text-shadow">DMD</h1>
+          {/* Logo au-dessus du titre avec chevauchement */}
+          <div className="mb-4 sm:mb-6 flex flex-col items-center justify-center">
+            <div className="mb-[-15px] sm:mb-[-20px] md:mb-[-25px] lg:mb-[-30px] relative z-10">
+              <Image 
+                src="/logo-ombre.png" 
+                alt="DMD Logo" 
+                width={112}
+                height={112}
+                className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto"
+                priority
+              />
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] text-shadow relative z-0">DMD</h1>
           </div>
           
           {/* Subtitle */}
