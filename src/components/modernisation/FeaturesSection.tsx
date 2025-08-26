@@ -96,7 +96,7 @@ const FeaturesSection = () => {
             Zoom sur la rénovation et la modernisation
           </h2>
           <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
-          <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+          <p className="text-[#2b3343] max-auto mx-auto text-base sm:text-lg leading-relaxed">
             La modernisation d{`'`}un appareil d{`'`}accessibilité consiste à remplacer ou à améliorer certains composants de l{`'`}équipement pour améliorer ses performances, sa sécurité et son efficacité énergétique.
           </p>
         </div>

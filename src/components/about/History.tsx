@@ -140,15 +140,14 @@ export default function History() {
           
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2b3343] mb-4 sm:mb-5 mt-2">Notre Histoire</h2>
           
-          <div className="w-16 h-1 bg-gradient-to-r from-[#0046fe]/50 via-[#0046fe] to-[#0046fe]/50 mx-auto mb-6 sm:mb-8 rounded-full"></div>
+          <div className="w-16 h-1 bg-blue-600 mx-auto mb-6 sm:mb-8 rounded-full"></div>
           
           <div className="max-w-3xl mx-auto space-y-6 text-lg text-gray-600 leading-relaxed mb-12">
             <p className="relative">
-              <span className="relative z-10">Damad est une entreprise de maintenance d{`'`}appareils d{`'`}accessibilité créée en 2007.</span>
               <span className="absolute -inset-1 bg-gradient-to-r from-[#0046fe]/0 via-[#0046fe]/5 to-[#0046fe]/0 rounded-lg blur-sm -z-10"></span>
             </p>
             <p>
-              Aujourd{`'`}hui, Damad gère plus de 1000 ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR confondus. En faisant le choix de s{`'`}implanter localement via un maillage du territoire régional, Damad propose des solutions complètes d{`'`}installation, de maintenance et d{`'`}entretien, de rénovation et de modernisation.
+              Créée en 2007, DMD gère plus de 1000 ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR confondus. En faisant le choix de s{`'`}implanter localement via un maillage du territoire régional, DMD propose des solutions complètes d{`'`}installation, de maintenance et d{`'`}entretien, de rénovation et de modernisation.
             </p>
           </div>
 

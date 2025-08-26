@@ -110,7 +110,7 @@ export default function FeaturesSection() {
             ASCENSEUR – EPMR – MONTE-CHARGE – MONTE VOITURE - MONTE-FÛTS – PORTE DE PARKING – PORTE GARAGE
           </p>
           <p className="text-[#2b3343] max-w-3xl mx-auto text-base sm:text-lg leading-relaxed">
-            Depuis 2007, les techniciens de Damad vérifient le bon fonctionnement des solutions de mobilité verticale des particuliers et des professionnels.
+            Depuis 2007, les techniciens de DMD vérifient le bon fonctionnement des solutions de mobilité verticale des particuliers et des professionnels.
           </p>
         </div>
 

@@ -7,7 +7,7 @@ import { useRef, useState, useEffect } from 'react';
 import './ScrollbarHide.css';
 
 interface ProjectsGridProps {
-  projects: {id: number, image: string}[];
+  projects: {id: number, image: string, alt?: string}[];
   className?: string;
   columns?: number;
   onProjectClick?: (imageId: number) => void;
@@ -131,7 +131,8 @@ export default function ProjectsGrid({
                 style={{ scrollSnapAlign: 'center' }}
               >
                 <ProjectCard 
-                  image={project.image} 
+                  image={project.image}
+                  alt={project.alt}
                   className="h-full cursor-pointer"
                   onClick={() => onProjectClick?.(project.id)}
                 />
@@ -160,7 +161,8 @@ export default function ProjectsGrid({
             className="h-full"
           >
             <ProjectCard 
-              image={project.image} 
+              image={project.image}
+              alt={project.alt}
               className="h-full cursor-pointer"
               onClick={() => onProjectClick?.(project.id)}
             />

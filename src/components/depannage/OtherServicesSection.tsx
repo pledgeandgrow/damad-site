@@ -19,10 +19,7 @@ export default function OtherServicesSection() {
             <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3">
               Vous avez d&apos;autres besoins ?
             </h2>
-            <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-6"></div>
-            <p className="text-xl font-semibold text-[#2b3343] mb-10">
-              Contactez - nous !
-            </p>
+            <div className="w-16 h-1 bg-blue-600 mx-auto mb-6"></div>
           </div>
           
           <div className="grid grid-cols-3 gap-2 sm:gap-3 max-w-5xl mx-auto">
@@ -38,7 +35,7 @@ export default function OtherServicesSection() {
           
           <div className="mt-12 text-center">
             <Link href="/contact" className="inline-block bg-[#0046fe] text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-md">
-              Nous Contacter
+              Contactez - nous ! 
             </Link>
           </div>
         </div>

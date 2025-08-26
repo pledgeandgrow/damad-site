@@ -16,7 +16,7 @@ export default function HeroSection() {
       <div className="container mx-auto px-3 xs:px-4 max-w-7xl relative z-10 text-center">
         <div className="animate-fade-in-up bg-black/40 backdrop-blur-sm inline-block px-4 sm:px-8 py-4 sm:py-6 rounded-lg">
           <h1 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6 tracking-tight leading-tight">
-            MODERNISATION & RENOVATION
+            MODERNISATION & RÉNOVATION
           </h1>
           <div className="w-24 h-1 bg-[#99a8b1] mx-auto"></div>
           <p className="text-white text-lg xs:text-xl mt-4 sm:mt-6 max-w-3xl mx-auto leading-relaxed">

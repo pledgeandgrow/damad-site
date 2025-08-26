@@ -103,7 +103,7 @@ export default function ServiceCards() {
     },
     {
       icon: <FaShieldAlt className="w-10 h-10 text-[#0046fe]" />,
-      title: 'Contrôle Technique',
+      title: 'Contrôle de sécurité',
       description: 'Vérification complète de la conformité et de la sécurité',
       features: ['Rapport détaillé', 'Mise en conformité', 'Conseils experts'],
       bgColor: 'from-gray-50 to-gray-100'

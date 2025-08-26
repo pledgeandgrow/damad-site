@@ -239,7 +239,7 @@ export default function PartenariatForm() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8 px-4 sm:px-6 md:px-8">
             <h2 className="text-3xl sm:text-4xl font-bold text-center text-[#2b3343] mb-3 sm:mb-4">
-              Devenez partenaire de DAMAD dès aujourd&apos;hui
+              Devenez partenaire de DMD dès aujourd&apos;hui
             </h2>
             <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">

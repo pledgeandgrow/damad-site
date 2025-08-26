@@ -100,9 +100,7 @@ export default function FeaturesSection() {
             Notre service de dépannage
           </h2>
           <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
-          <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-            Une équipe réactive et compétente pour tous vos problèmes d&apos;appareils d&apos;accessibilité.
-          </p>
+          <p className="text-[#2b3343] mx-auto text-base sm:text-lg whitespace-nowrap overflow-hidden">Une équipe réactive et compétente pour tous vos problèmes d&apos;appareils d&apos;accessibilité.</p>
         </div>
 
         {/* Mobile Carousel */}

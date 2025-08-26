@@ -22,7 +22,7 @@ export default function InterventionsHero() {
           </h1>
           <div className="w-24 h-1 bg-[#99a8b1] mx-auto"></div>
           <p className="text-white text-lg xs:text-xl mt-4 sm:mt-6 max-w-3xl mx-auto leading-relaxed">
-            DAMAD est à votre service pour tout dépannage d&apos;appareils d&apos;accessibilité
+            DMD est à votre service pour tout dépannage d&apos;appareils d&apos;accessibilité
           </p>
         </div>
       </div>

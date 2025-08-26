@@ -7,7 +7,7 @@ export default function InterventionsSection() {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-10 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
-            Interventions de dépannages ponctuelle
+            Les interventions de dépannages ponctuelles
           </h2>
           <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
           <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
@@ -97,7 +97,7 @@ export default function InterventionsSection() {
             </div>
             
             <div className="mt-12 text-center">
-              <Link href="/contact?subject=rdv-depannage" className="inline-flex items-center px-8 py-4 bg-[#ff5c35] text-white font-semibold rounded-lg hover:bg-[#ff5c35]/80 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+              <Link href="/interventions" className="inline-flex items-center px-8 py-4 bg-[#ff5c35] text-white font-semibold rounded-lg hover:bg-[#ff5c35]/80 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                 Prendre rendez-vous en ligne
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />

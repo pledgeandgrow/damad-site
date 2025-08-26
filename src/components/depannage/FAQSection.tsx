@@ -10,7 +10,7 @@ type FAQItem = {
 const faqs: FAQItem[] = [
   {
     question: "Dans quelle région vous intervenez ?",
-    answer: "Nous intervenons à Paris et petite couronne (92, 93, 94) ainsi qu'une partie de la grande couronne (78, 95)."
+    answer: "Nous intervenons à Paris et dans toute l'Île-de-France."
   },
   {
     question: "Pourrais-je annuler mon intervention ponctuelle ?",
@@ -37,9 +37,6 @@ export default function FAQSection() {
             Questions fréquentes
           </h2>
           <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
-          <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-            Tout ce que vous devez savoir sur notre service de dépannage d&apos;ascenseurs et monte-charges
-          </p>
         </div>
         
         <div className="space-y-4">

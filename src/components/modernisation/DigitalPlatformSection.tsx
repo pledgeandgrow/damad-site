@@ -9,8 +9,8 @@ const DigitalPlatformSection = () => {
             Une plateforme digitale pour piloter votre projet
           </h2>
           <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
-          <p className="text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Suivez en temps réel l{`'`}avancement de votre projet de rénovation et modernisation grâce à notre plateforme digitale.
+          <p className="text-gray-700 max-auto mx-auto leading-relaxed">
+            Suivez votre chantier et l{`'`}avancement de votre projet de rénovation et modernisation grâce à notre plateforme digitale.
           </p>
         </div>
 
@@ -66,28 +66,10 @@ const DigitalPlatformSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#2b3343] mb-2 group-hover:text-[#0046fe] transition-colors duration-300">Suivi de chantier en temps réel</h3>
+                  <h3 className="text-xl font-bold text-[#2b3343] mb-2 group-hover:text-[#0046fe] transition-colors duration-300">Suivi de chantier</h3>
                   <p className="text-gray-600 leading-relaxed">
                     Suivez l{`'`}avancement de vos travaux de modernisation,
-                    consultez les photos, les rapports d{`'`}intervention et le calendrier des étapes à venir.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 3 - Communication */}
-            <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#0046fe] group">
-              <div className="flex items-start">
-                <div className="bg-[#0046fe] rounded-full p-3 mr-4 transition-colors duration-300 shadow-md">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-[#2b3343] mb-2 group-hover:text-[#0046fe] transition-colors duration-300">Communication simplifiée</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Communiquez directement avec nos équipes via la
-                    messagerie intégrée et recevez des notifications en temps réel sur l{`'`}avancement de votre projet.
+                    les rapports d{`'`}intervention et le calendrier des étapes à venir.
                   </p>
                 </div>
               </div>

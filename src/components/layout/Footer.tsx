@@ -1,10 +1,11 @@
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight, FaTools, FaBuilding, FaInfoCircle, FaWrench, FaCogs, FaExclamationTriangle, FaUsers, FaSyncAlt, FaHandshake, FaLinkedin, FaQuestionCircle, FaHeadset, FaHardHat } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaChevronRight, FaTools, FaBuilding, FaInfoCircle, FaCogs, FaExclamationTriangle, FaUsers, FaSyncAlt, FaHandshake, FaLinkedin, FaQuestionCircle } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 
 interface FooterLink {
-  name: string;
+  name: string | React.ReactNode;
   href: string;
   icon?: IconType;
 }
@@ -24,7 +25,7 @@ const footerLinks: FooterSection[] = [
       { name: 'Recrutement', href: '/recrutement', icon: FaUsers },
       { name: 'FAQ', href: '/faq', icon: FaQuestionCircle },
       { name: 'Partenariat', href: '/partenariat', icon: FaHandshake },
-      { name: 'Nous Joindre', href: '/contact?subject=demande-de-devis', icon: FaPhoneAlt },
+      { name: 'Contact', href: '/contact?subject=demande-de-devis', icon: FaPhoneAlt },
     ],
   },
   {
@@ -34,22 +35,25 @@ const footerLinks: FooterSection[] = [
       { name: 'Maintenance', href: '/services/maintenance', icon: FaCogs },
       { name: 'Dépannage', href: '/services/depannage', icon: FaExclamationTriangle },
       { name: 'Modernisation', href: '/services/modernisation', icon: FaSyncAlt },
-      { name: 'Réparation', href: '/services/reparation', icon: FaWrench },
-      { name: 'Interventions', href: '/interventions', icon: FaHardHat },
     ],
   },
   {
     title: 'Nous Contacter',
     links: [
       { 
-        name: '3 BOULEVARD DE SEBASTOPOL - 75001 PARIS',
-        href: 'https://share.google/O0KDt5Ij8TVjUXJak',
+        name: <>Siège social <br/> 3 Boulevard de Sébastopol <br/> 75001 Paris</>,
+        href: 'https://www.google.fr/maps/place/3+Boulevard+de+S%C3%A9bastopol,+75001+Paris/@48.858212,2.3456114,17z',
         icon: FaMapMarkerAlt 
+      },
+      { 
+        name: <>Agence IDF <br/> 145 Rue Rateau <br/>93120 La Courneuve</>,
+        href: 'https://share.google/O0KDt5Ij8TVjUXJak',
+        icon: FaBuilding   
       },
       { 
         name: '09 70 72 22 63',
         href: 'tel:+33970722263',
-        icon: FaHeadset
+        icon: FaPhoneAlt
       },
       { 
         name: 'info@dmd-ascenseur.fr',
@@ -134,8 +138,8 @@ export default function Footer() {
             <div className="space-y-3">
               <h4 className="text-base font-semibold text-white">{footerLinks[0].title}</h4>
               <ul className="space-y-2">
-                {footerLinks[0].links.map((link) => (
-                  <li key={link.name} className="flex items-start">
+                {footerLinks[0].links.map((link, index) => (
+                  <li key={`quick-link-${index}`} className="flex items-start">
                     <Link
                       href={link.href}
                       className="flex items-center text-sm text-white/70 hover:text-white transition-colors duration-200"
@@ -156,10 +160,10 @@ export default function Footer() {
             <div className="space-y-3">
               <h4 className="text-base font-semibold text-white">{footerLinks[1].title}</h4>
               <ul className="space-y-2 mt-2">
-                {footerLinks[1].links.map((link) => {
+                {footerLinks[1].links.map((link, index) => {
                   const Icon = link.icon;
                   return (
-                    <li key={link.name} className="flex items-start hover:translate-x-1 transition-transform duration-200">
+                    <li key={`service-${index}`} className="flex items-start hover:translate-x-1 transition-transform duration-200">
                       {Icon && <Icon className="w-4 h-4 mt-0.5 mr-2 text-blue-400 flex-shrink-0" />}
                       <Link
                         href={link.href}
@@ -182,10 +186,10 @@ export default function Footer() {
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-400 transform scale-x-50 origin-left"></span>
               </h4>
               <ul className="space-y-3 mt-2">
-                {footerLinks[2].links.map((link) => {
+                {footerLinks[2].links.map((link, index) => {
                   const Icon = link.icon;
                   return (
-                    <li key={link.name} className="flex items-start hover:translate-x-1 transition-transform duration-200">
+                    <li key={`contact-${index}`} className="flex items-start hover:translate-x-1 transition-transform duration-200">
                       {Icon && <Icon className="w-4 h-4 mt-0.5 mr-2 text-blue-400 flex-shrink-0" />}
                       <a
                         href={link.href}
@@ -201,11 +205,11 @@ export default function Footer() {
               </ul>
               {footerLinks[2].buttons && (
                 <div className="flex flex-row space-x-2 mt-4">
-                  {footerLinks[2].buttons.map((button) => {
+                  {footerLinks[2].buttons.map((button, index) => {
                     const Icon = button.icon;
                     return (
                       <a
-                        key={button.name}
+                        key={typeof button.name === 'string' ? button.name : `button-${index}`}
                         href={button.href}
                         className="flex items-center justify-center bg-white/10 hover:bg-white/20 text-white py-1.5 px-3 rounded-md transition-colors duration-200 text-sm"
                       >
@@ -235,9 +239,6 @@ export default function Footer() {
                 />
               </div>
             </Link>
-            <p className="text-white/80 text-sm sm:text-base leading-relaxed">
-              Votre partenaire de confiance pour tous vos besoins en ascenseurs, de l&apos;installation à la maintenance.
-            </p>
 
             <div className="flex space-x-3 sm:space-x-4">
               {socialLinks.map((social) => {
@@ -263,8 +264,8 @@ export default function Footer() {
             <div key={section.title} className="space-y-3 sm:space-y-4">
               <h4 className="text-base sm:text-lg font-semibold text-white">{section.title}</h4>
               <ul className="space-y-2 sm:space-y-3">
-                {section.links.map((link) => (
-                  <li key={link.name} className="flex items-start">
+                {section.links.map((link, index) => (
+                  <li key={`${section.title}-link-${index}`} className="flex items-start">
                     {link.href.startsWith('http') || link.href.startsWith('tel:') || link.href.startsWith('mailto:') ? (
                       <>
                         {link.icon && <link.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 mt-0.5 sm:mt-1 mr-2 text-blue-400 flex-shrink-0" />}
@@ -287,11 +288,11 @@ export default function Footer() {
               </ul>
               {section.buttons && (
                 <div className="flex flex-row space-x-3 mt-4">
-                  {section.buttons.map((button) => {
+                  {section.buttons.map((button, index) => {
                     const Icon = button.icon;
                     return (
                       <a
-                        key={button.name}
+                        key={typeof button.name === 'string' ? button.name : `section-button-${index}`}
                         href={button.href}
                         className="flex items-center justify-center bg-white/10 hover:bg-white/20 text-white py-1.5 px-3 rounded-md transition-colors duration-200 text-sm"
                       >

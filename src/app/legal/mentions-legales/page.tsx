@@ -25,7 +25,7 @@ export default function MentionsLegales() {
           <ul className="space-y-3 mb-8">
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
-              <span className="text-[#3d4759]"><span className="font-medium text-[#2b3343]">DAMAD</span> - SARL au capital de 20 000,00 € (fixe)</span>
+              <span className="text-[#3d4759]"><span className="font-medium text-[#2b3343]">DAMAD</span> - SARL au capital de 20 000,00 €</span>
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />

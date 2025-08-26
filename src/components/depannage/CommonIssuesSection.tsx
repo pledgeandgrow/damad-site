@@ -15,10 +15,10 @@ export default function CommonIssuesSection() {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-10 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
-            Pannes fréquentes que nous dépannons
+            Les types de pannes que nous réparons
           </h2>
           <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
-          <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+          <p className="text-[#2b3343] max-auto mx-auto text-base sm:text-lg leading-relaxed">
             Notre équipe d&apos;experts répond pour intervenir rapidement en cas de panne d&apos;appareil d&apos;accessibilité.
           </p>
         </div>
@@ -31,16 +31,6 @@ export default function CommonIssuesSection() {
               </svg>
             </div>
             <div className="p-8 sm:p-10">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-[#2b3343]">
-                  Types de pannes que nous réparons
-                </h3>
-              </div>
               <p className="text-gray-600 mb-8 text-lg">
                 Nous disposons d&apos;un stock important de pièces détachées pour une réparation rapide et efficace de tous types de pannes.
               </p>

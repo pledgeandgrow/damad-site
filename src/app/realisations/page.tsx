@@ -12,6 +12,7 @@ export default function RealisationsPage() {
   // We're not filtering by category anymore
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
+  const [selectedAlt, setSelectedAlt] = useState('');
   
   const projects = getProjectsByCategory();
   const allImages = getAllImages();
@@ -21,6 +22,7 @@ export default function RealisationsPage() {
     const project = projects.find(p => p.id === projectId);
     if (project) {
       setSelectedImage(project.image);
+      setSelectedAlt(project.alt || `Réalisation DMD Ascenseur ${projectId}`);
       setIsModalOpen(true);
     }
   }
@@ -101,6 +103,7 @@ export default function RealisationsPage() {
         onClose={() => setIsModalOpen(false)}
         imageSrc={selectedImage}
         allImages={allImages}
+        alt={selectedAlt}
       />
     </div>
   );

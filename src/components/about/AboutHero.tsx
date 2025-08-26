@@ -13,7 +13,7 @@ export default function AboutHero() {
       <div className="absolute inset-0 z-0">
         <Image 
           src="/images/a-propos/about1.jpg" 
-          alt="À propos de DAMAD" 
+          alt="À propos de DMD" 
           className="object-cover"
           fill
           sizes="100vw"
@@ -23,7 +23,7 @@ export default function AboutHero() {
       <div className="container mx-auto px-4 max-w-7xl relative z-10 text-center">
         <div className="animate-fade-in-up bg-black/40 backdrop-blur-sm inline-block px-8 py-6 rounded-lg">
           <h1 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-tight">
-            À PROPOS DE DAMAD
+            À PROPOS DE DMD
           </h1>
           <div className="w-24 h-1 bg-[#99a8b1] mx-auto"></div>
           <p className="text-white text-xl mt-6 max-w-3xl mx-auto leading-relaxed">

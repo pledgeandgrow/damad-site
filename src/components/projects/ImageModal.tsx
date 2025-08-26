@@ -11,9 +11,10 @@ interface ImageModalProps {
   onClose: () => void;
   imageSrc: string;
   allImages: string[];
+  alt?: string;
 }
 
-export default function ImageModal({ isOpen, onClose, imageSrc, allImages = [] }: ImageModalProps) {
+export default function ImageModal({ isOpen, onClose, imageSrc, allImages = [], alt = "Réalisation DMD Ascenseur" }: ImageModalProps) {
   const [currentImage, setCurrentImage] = useState(imageSrc || "");
   
   // Ensure allImages is an array, wrapped in useMemo to prevent dependency changes on every render
@@ -22,7 +23,7 @@ export default function ImageModal({ isOpen, onClose, imageSrc, allImages = [] }
   }, [allImages]);
   
   // Find the index of the current image in the allImages array
-  const currentIndex = safeAllImages.indexOf(currentImage);
+  const currentIndex = currentImage ? safeAllImages.indexOf(currentImage) : -1;
 
   // Navigation functions wrapped in useCallback to prevent unnecessary re-renders
   const navigateNext = useCallback(() => {
@@ -140,7 +141,7 @@ export default function ImageModal({ isOpen, onClose, imageSrc, allImages = [] }
               {currentImage ? (
                 <Image 
                   src={currentImage} 
-                  alt="Image en plein écran" 
+                  alt={alt || "Image en plein écran"} 
                   fill
                   className="object-contain"
                   sizes="90vw"

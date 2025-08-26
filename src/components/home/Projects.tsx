@@ -8,10 +8,10 @@ import { useState, useEffect, useRef } from 'react';
 const realisationImages = [
   { id: 1, src: '/images/realisations/realisation16.png', alt: 'Réalisation 16' },
   { id: 2, src: '/images/realisations/realisation12.png', alt: 'Réalisation 12' },
-  { id: 3, src: '/images/realisations/realisation10.png', alt: 'Réalisation 10' },
+  { id: 3, src: '/images/realisations/realisation14.png', alt: 'Réalisation 10' },
   { id: 4, src: '/images/realisations/realisation24.png', alt: 'Réalisation 24' },
   { id: 5, src: '/images/realisations/realisation27.png', alt: 'Réalisation 27' },
-  { id: 6, src: '/images/realisations/realisation29.png', alt: 'Réalisation 29' },
+  { id: 6, src: '/images/realisations/realisation26.png', alt: 'Réalisation 29' },
   { id: 7, src: '/images/realisations/realisation31.png', alt: 'Réalisation 31' },
   { id: 8, src: '/images/realisations/realisation35.png', alt: 'Réalisation 35' },
 ];
@@ -92,7 +92,7 @@ const Projects: React.FC = () => {
         <div className="text-center mb-10 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">Nos Projets Récents</h2>
           <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg">
+          <p className="text-gray-600 max-auto mx-auto text-base sm:text-lg">
             Découvrez nos dernières réalisations et projets d&apos;installation, de maintenance et de modernisation d&apos;ascenseurs.
           </p>
         </div>

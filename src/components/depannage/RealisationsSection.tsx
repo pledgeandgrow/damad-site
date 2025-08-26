@@ -60,35 +60,35 @@ export default function RealisationsSection() {
   const galleryImages = [
     {
       src: "/images/depannage/depannage1.png",
-      alt: "Dépannage ascenseur"
+      alt: "Technicien effectuant un diagnostic sur le tableau de commande d'un ascenseur en panne"
     },
     {
       src: "/images/depannage/depannage2.png",
-      alt: "Dépannage ascenseur"
+      alt: "Réparation d'urgence du système de traction d'un ascenseur bloqué"
     },
     {
       src: "/images/depannage/depannage3.png",
-      alt: "Dépannage ascenseur"
+      alt: "Intervention sur les portes palières d'un ascenseur ne fermant plus correctement"
     },
     {
       src: "/images/depannage/depannage4.png",
-      alt: "Dépannage ascenseur"
+      alt: "Dépannage du système électrique et des capteurs de sécurité d'un ascenseur"
     },
     {
       src: "/images/depannage/depannage5.png",
-      alt: "Dépannage ascenseur"
+      alt: "Technicien utilisant des outils spécialisés pour réparer un ascenseur en urgence"
     },
     {
       src: "/images/depannage/depannage6.png",
-      alt: "Dépannage ascenseur"
+      alt: "Intervention rapide sur un ascenseur bloqué entre deux étages"
     },
     {
       src: "/images/depannage/depannage7.png",
-      alt: "Dépannage ascenseur"
+      alt: "Réparation du système d'appel d'urgence et de communication d'un ascenseur"
     },
     {
       src: "/images/depannage/depannage8.png",
-      alt: "Dépannage ascenseur"
+      alt: "Maintenance corrective sur le moteur et les câbles de traction d'un ascenseur"
     }
   ];
 

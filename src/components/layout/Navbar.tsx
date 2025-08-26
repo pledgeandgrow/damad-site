@@ -66,9 +66,7 @@ export default function Navbar() {
     { name: 'Maintenance & Entretien', href: '/services/maintenance' },
     { name: 'Dépannage', href: '/services/depannage' },
     { name: 'Installation', href: '/services/installation' },
-    { name: 'Réparation', href: '/services/reparation' },
     { name: 'Modernisation & Rénovation', href: '/services/modernisation' },
-    { name: 'Interventions', href: '/interventions' },
   ];
   
   const secondaryLinks = [
@@ -114,6 +112,7 @@ export default function Navbar() {
 
       {/* Main Navigation */}
       <nav className={`bg-[#fbfcfd] shadow-lg transition-all duration-300 fixed w-full z-50 ${scrolled ? 'py-2' : 'py-4'}`} ref={mobileMenuRef}>
+        
         {/* Secondary links above main nav */}
         <div className="container mx-auto px-6 hidden md:block">
           <div className="flex justify-end mb-2">
@@ -126,24 +125,31 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
+            <a 
+                href="https://damad-client.vercel.app/dashboard" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-[#0046fe] transition-colors text-sm font-medium ml-8 py-1 flex items-center"
+              >
+                <FaUserCircle className="mr-1" />
+              </a>
           </div>
         </div>
-        
         <div className="container mx-auto px-6">
           <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center group flex-shrink-0">
-              <div className={`relative ${scrolled ? 'h-20' : 'h-24'} w-auto transition-all duration-300`}>
+            <Link href="/" className="flex items-center group flex-shrink-0 relative top-1/2 transform -translate-y-1/2">
+              <div className={`relative ${scrolled ? 'h-16' : 'h-20'} w-auto transition-all duration-300`}>
                 <Image 
-                  src="/dmd-transparent.png" 
+                  src="/dmd-navbar.png" 
                   alt="DMD" 
-                  width={scrolled ? 80 : 96}
-                  height={scrolled ? 80 : 96}
+                  width={scrolled ? 112 : 128}
+                  height={scrolled ? 112 : 128}
                   className="object-contain h-full w-auto group-hover:scale-105 transition-transform duration-300"
                   priority
                 />
               </div>
             </Link>
-
+            
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-6">
               {navLinks.map((link) => (
@@ -156,23 +162,14 @@ export default function Navbar() {
                   <span className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-[#0046fe] transition-all group-hover:w-full ${pathname === link.href ? 'w-full' : ''}`}></span>
                 </Link>
               ))}
-
               <Link 
                 href="/devis" 
-                className="bg-[#ff5c35] hover:bg-[#e64a25] text-white px-7 py-2.5 rounded-lg transition-all duration-300 font-medium mr-4 hover:shadow-md flex items-center justify-center transform hover:-translate-y-0.5"
+                className="bg-[#ff5c35] hover:bg-[#e64a25] text-white px-7 py-2.5 rounded-lg transition-all duration-300 font-medium hover:shadow-md flex items-center justify-center transform hover:-translate-y-0.5 mr-4 w-32"
               >
                 <FaFileAlt className="mr-2" />
                 <span>Devis</span>
               </Link>
-              <a 
-                href="https://damad-client.vercel.app/dashboard" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#0046fe] hover:bg-[#0035c8] text-white px-7 py-2.5 rounded-lg transition-all duration-300 font-medium hover:shadow-md flex items-center justify-center transform hover:-translate-y-0.5"
-              >
-                <FaUserCircle className="mr-2" />
-                <span>Espace client</span>
-              </a>
+              
             </nav>
 
             {/* Mobile menu button */}
@@ -232,7 +229,7 @@ export default function Navbar() {
                 className="block w-full text-center bg-[#ff5c35] hover:bg-[#e64a25] text-white px-4 py-3 rounded-lg transition-colors font-medium shadow-sm flex items-center justify-center"
               >
                 <FaFileAlt className="mr-2 flex-shrink-0" />
-                <span className="truncate">Demander un devis</span>
+                <span className="truncate">Devis</span>
               </Link>
               <a 
                 href="https://damad-client.vercel.app/dashboard" 
@@ -241,7 +238,7 @@ export default function Navbar() {
                 className="block w-full text-center bg-[#0046fe] hover:bg-[#0035c8] text-white px-4 py-3 rounded-lg transition-colors font-medium shadow-sm flex items-center justify-center"
               >
                 <FaUserCircle className="mr-2 flex-shrink-0" />
-                <span className="truncate">Espace client</span>
+                <span className="truncate">Espace Client</span>
               </a>
             </div>
           </div>

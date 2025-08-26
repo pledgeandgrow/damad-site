@@ -17,7 +17,7 @@ export default function CompanyBenefits() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4 mt-2">
-            Bonnes raisons de nous rejoindre
+            5 Bonnes raisons de nous rejoindre
           </h2>
           <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
         </motion.div>

@@ -6,7 +6,7 @@ import ProjectCard from './ProjectCard';
 import { motion } from 'framer-motion';
 
 interface MobileProjectCarouselProps {
-  projects: {id: number, image: string}[];
+  projects: {id: number, image: string, alt?: string}[];
   onProjectClick?: (imageId: number) => void;
 }
 
@@ -118,7 +118,8 @@ export default function MobileProjectCarousel({ projects, onProjectClick }: Mobi
               whileTap={{ scale: 0.98 }}
             >
               <ProjectCard 
-                image={project.image} 
+                image={project.image}
+                alt={project.alt}
                 className="h-full cursor-pointer"
                 onClick={() => onProjectClick?.(project.id)}
               />

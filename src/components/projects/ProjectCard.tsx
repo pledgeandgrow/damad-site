@@ -4,11 +4,12 @@ import { motion } from 'framer-motion';
 
 interface ProjectCardProps {
   image: string;
+  alt?: string;
   className?: string;
   onClick?: () => void;
 }
 
-export default function ProjectCard({ image, className = '', onClick = () => {} }: ProjectCardProps) {
+export default function ProjectCard({ image, alt = 'Réalisation DMD Ascenseur', className = '', onClick = () => {} }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
@@ -35,7 +36,7 @@ export default function ProjectCard({ image, className = '', onClick = () => {} 
         {/* Project image */}
         <Image 
           src={image} 
-          alt="Réalisation" 
+          alt={alt} 
           className="object-cover transition-transform duration-700 ease-in-out"
           style={{ transform: isHovered ? 'scale(1.1)' : 'scale(1)' }}
           fill

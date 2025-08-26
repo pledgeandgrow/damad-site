@@ -43,7 +43,7 @@ export default function PartenariatContext() {
               dératiseurs, service de nettoyage industriels, services de propreté avant et fin de chantier ...?
             </p>
             <p className="text-lg text-gray-700 mb-8">
-              Collaborez avec DAMAD en tant que partenaire pour des prestations périphériques à notre mission.
+              Collaborez avec DMD en tant que partenaire pour des prestations périphériques à notre mission.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">

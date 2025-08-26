@@ -40,7 +40,7 @@ export default function ThreeAreasSection() {
           {/* Right Area */}
           <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100 lg:col-span-2">
             <h2 className="text-2xl font-bold text-[#2b3343] mb-4">
-              Pourquoi choisir DAMAD?
+              Pourquoi choisir DMD?
             </h2>
             <div className="w-16 h-1 bg-[#0046fe] mb-6"></div>
             

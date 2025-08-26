@@ -30,7 +30,7 @@ const services: ServiceFeature[] = [
     title: "Dépannage",
     description: "Service Dépannage disponible 24 heures sur 24, 7 jours sur 7 pour tout dépannage.",
     shortDesc: "Intervention rapide en cas d'urgence.",
-    features: ["Response Rapide", "Délai d'intervention court", "Techniciens qualifiés"],
+    features: ["Réponse Rapide", "Délai d'intervention court", "Techniciens qualifiés"],
     color: "#0046fe", // Primary brand color
     gradient: "from-[#0046fe] to-[#0046fe]/80",
     link: "/services/depannage"
@@ -50,14 +50,14 @@ const services: ServiceFeature[] = [
     title: "Réparation",
     description: "Réparation professionnelle de tous types de pannes et dysfonctionnements sur vos ascenseurs.",
     shortDesc: "Solutions efficaces pour tous problèmes techniques.",
-    features: ["Diagnostic précis", "Réparations durables", "Pièces de qualité"],
+    features: ["Diagnostique précis", "Réparations durables", "Pièces de qualité"],
     color: "#0046fe", // Primary brand color
     gradient: "from-[#0046fe] to-[#0046fe]/80",
     link: "/services/reparation"
   },
   {
     icon: <FaSyncAlt className="w-6 h-6 text-white" />,
-    title: "Modernisation & Renovation",
+    title: "Modernisation & Rénovation",
     description: "Mise à niveau de vos installations pour améliorer la sécurité, l'efficacité énergétique et le confort.",
     shortDesc: "Donnez une seconde vie à vos ascenseurs.",
     features: ["Mise aux normes", "Économies d'énergie", "Amélioration du confort"],
@@ -165,9 +165,9 @@ export default function Services() {
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
             Solutions sur Mesure
           </h2>
-          <div className="w-16 h-1 bg-[#2b3343] mx-auto mb-4 sm:mb-6"></div>
+          <div className="w-16 h-1 bg-blue-600 mx-auto mb-4 sm:mb-6"></div>
           <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-            Découvrez nos services conçus pour garantir la sécurité, la fiabilité et la longévité de vos appareils d{`'`}accessibilité : ascenseurs, EPMR, monte-charges, etc. 
+            Découvrez nos services pour garantir la sécurité, la fiabilité et la longévité de vos appareils d{`'`}accessibilité : ascenseurs, EPMR, monte-charges, etc. 
           </p>
         </div>
         

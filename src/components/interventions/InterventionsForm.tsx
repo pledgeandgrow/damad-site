@@ -425,7 +425,7 @@ export default function InterventionsForm() {
                       </div>
                       <div>
                         <label htmlFor="urgency" className="block text-sm font-medium text-gray-700 mb-1">
-                          Niveau d&apos;urgence *
+                          Type d&apos;interventions *
                         </label>
                         <select
                           id="urgency"
@@ -434,10 +434,10 @@ export default function InterventionsForm() {
                           onChange={handleChange}
                           className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2b3343]/30 focus:border-[#2b3343] transition-colors text-[#2b3343]"
                         >
-                          <option value="critical">Critique - Personnes bloquées</option>
-                          <option value="high">Élevé - Ascenseur hors service</option>
-                          <option value="normal">Normal - Dysfonctionnement</option>
-                          <option value="low">Faible - Maintenance préventive</option>
+                          <option value="critical">Personnes bloquées</option>
+                          <option value="high">Ascenseur hors service</option>
+                          <option value="normal">Dysfonctionnement</option>
+                          <option value="low">Maintenance préventive</option>
                         </select>
                       </div>
                       <div>

@@ -31,7 +31,7 @@ const steps = [
   {
     number: 6,
     title: "Livraison & garantie",
-    description: "Nous effectuons une réception des travaux avec vous pour garantir votre entière satisfaction et vous accompagnons avec un service après-vente de qualité."
+    description: "Nous effectuons la réception des travaux avec vous pour garantir votre entière satisfaction et vous accompagnons avec un service après-vente de qualité."
   }
 ];
 
@@ -116,7 +116,7 @@ const ProcessStepsSection = () => {
             Notre accompagnement
           </h2>
           <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
-          <p className="text-[#2b3343] max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+          <p className="text-[#2b3343] max-auto mx-auto text-base sm:text-lg leading-relaxed">
             Un accompagnement sur mesure pour rénover et moderniser vos ascenseurs en toute sérénité.
           </p>
         </div>

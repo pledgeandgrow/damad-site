@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
-import { FaArrowRight, FaAward } from 'react-icons/fa';
+import Image from 'next/image';
+import { FaAward } from 'react-icons/fa';
 import { FaElevator } from 'react-icons/fa6';
 
 export default function Hero() {
@@ -79,53 +79,45 @@ export default function Hero() {
             loop
             playsInline
             src="/videos/ascenceur.mp4"
-            className={`absolute inset-0 w-full h-full object-cover ${isMobile }`}
+            className={`absolute inset-0 w-full h-full object-cover ${isMobile ? 'blur-[2px]' : 'blur-[2px]'}`}
             poster="/images/elevator-placeholder.jpg"
           >
             Your browser does not support the video tag.
           </video>
         </div>
         
-        {/* Dynamic overlay based on device size */}
-        <div className={`absolute inset-0 ${isMobile ? 'bg-gradient-to-b from-[#2b3343]/70 to-[#2b3343]/40' : 'bg-gradient-to-r from-[#2b3343]/60 to-[#2b3343]/30'}`}></div>
+        {/* Overlay removed */}
       </div>
       
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 relative z-10 pt-4 sm:pt-8 md:pt-10">
         <div className="max-w-3xl mx-auto text-center">
           
-          {/* Headline with improved typography and responsive sizing */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-0 sm:mb-1 leading-tight tracking-tight drop-shadow-lg">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">DMD</span> <br className="hidden sm:block" />
-          </h1>
-          
-          {/* Description with better readability - optimized for mobile */}
-          <p className="text-base xs:text-lg sm:text-xl text-white/90 mb-6 xs:mb-8 sm:mb-10 max-w-3xl mx-auto drop-shadow-md leading-relaxed px-1 xs:px-2 sm:px-0 mt-2 sm:mt-3">
-            DMD vous accompagne dans vos projets, de l&#39;installation à la maintenance, avec des solutions d&#39;accessibilité et un service d&#39;excellence.
-          </p>
-          
-          {/* CTA buttons with enhanced styling and animations - optimized for mobile */}
-          <div className="flex flex-col xs:flex-row gap-3 xs:gap-4 justify-center mt-6 xs:mt-8">
-            <Link 
-              href="/contact" 
-              className="group bg-[#ff5c35] hover:bg-[#ff5c35]/90 text-white font-medium py-3 xs:py-3.5 px-5 xs:px-7 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center transform hover:-translate-y-0.5 text-sm xs:text-base"
-            >
-              Nous contacter 
-              <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
-            <Link 
-              href="/a-propos" 
-              className="border-2 border-[#0046fe] bg-[#0046fe] text-white hover:bg-[#0046fe]/90 font-medium py-3 xs:py-3.5 px-5 xs:px-7 rounded-lg transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm xs:text-base"
-            >
-              Notre histoire 
-            </Link>
+          {/* Logo and title */}
+          <div className="mb-4 sm:mb-6 flex items-center justify-center ">
+            <Image 
+              src="/damad-transparent-white.png" 
+              alt="DMD Logo" 
+              width={112}
+              height={112}
+              className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto"
+              priority
+            />
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white ml-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] text-shadow">DMD</h1>
           </div>
           
+          {/* Subtitle */}
+          <div className="mb-6 sm:mb-8">
+            <h2 className="text-xl sm:text-2xl md:text-3xl text-white font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)] text-shadow">Maintenance & Réparations Ascenseurs</h2>
+          </div>
+          
+          {/* CTA buttons removed */}
+          
           {/* Stats section with enhanced styling and animations - optimized for mobile */}
-          <div className="grid grid-cols-2 gap-4 xs:gap-5 sm:gap-6 max-w-4xl mx-auto mt-8 xs:mt-10 md:mt-12">
+          <div className="mt-70 grid grid-cols-2 gap-4 xs:gap-5 sm:gap-6 max-w-4xl mx-auto mt-8 xs:mt-10 md:mt-12">
             {[
-              { number: '20+', label: "Ans d'expérience", icon: <FaAward className="w-5 h-5 text-[#99a8b1] mx-auto" /> },
-              { number: '1000+', label: 'Appareils en gestion', icon: <FaElevator className="w-5 h-5 text-[#99a8b1] mx-auto" /> }
+              { number: '+20', label: "Années d'expertise", icon: <FaAward className="w-5 h-5 text-white mx-auto" /> },
+              { number: '+1000', label: 'Appareils en gestion', icon: <FaElevator className="w-5 h-5 text-white mx-auto" /> }
             ].map((item, index) => (
               <div 
                 key={index} 

@@ -20,7 +20,7 @@ export default function HeroSection() {
           </h1>
           <div className="w-24 h-1 bg-[#99a8b1] mx-auto"></div>
           <p className="text-white text-lg xs:text-xl mt-4 sm:mt-6 max-w-3xl mx-auto leading-relaxed">
-            Les Experts de DAMAD sont à votre service pour l&apos;entretien de vos appareils d&apos;accessibilité
+            Les Experts de DMD sont à votre service pour l&apos;entretien de vos appareils d&apos;accessibilité
           </p>
         </div>
       </div>

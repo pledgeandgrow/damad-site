@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaArrowRight } from 'react-icons/fa';
 import { useRef, useState, useEffect } from 'react';
 
 export default function GallerySection() {
@@ -62,35 +61,35 @@ export default function GallerySection() {
   const galleryImages = [
     {
       src: "/images/modernisation/modernisation1.jpg",
-      alt: "Modernisation d'ascenseur - Exemple 1"
+      alt: "Cabine d'ascenseur jaune"
     },
     {
       src: "/images/modernisation/modernisation2.jpg",
-      alt: "Modernisation d'ascenseur - Exemple 2"
+      alt: "Cabine d'ascenseur luxueuse"
     },
     {
       src: "/images/modernisation/modernisation3.jpg",
-      alt: "Modernisation d'ascenseur - Exemple 3"
+      alt: "Intérieur d'ascenseur moderne"
     },
     {
       src: "/images/modernisation/modernisation4.jpg",
-      alt: "Modernisation d'ascenseur - Exemple 4"
+      alt: "Cabine d'ascenseur moderne avec avec miroirs"
     },
     {
       src: "/images/modernisation/modernisation5.png",
-      alt: "Modernisation d'ascenseur - Exemple 5"
+      alt: "2 ascenseurs modernes avec moderne"
     },
     {
       src: "/images/modernisation/modernisation6.png",
-      alt: "Modernisation d'ascenseur - Exemple 6"
+      alt: "Cabine d'ascenseur moderne"
     },
     {
       src: "/images/modernisation/modernisation7.png",
-      alt: "Modernisation d'ascenseur - Exemple 7"
+      alt: "Cabine d'ascenseur panoramique avec parois en verre après rénovation"
     },
     {
       src: "/images/modernisation/modernisation8.png",
-      alt: "Modernisation d'ascenseur - Exemple 8"
+      alt: "Cabine d'ascenseur avec miroirs en ascension "
     }
   ];
 
@@ -179,11 +178,13 @@ export default function GallerySection() {
             ))}
           </div>
         )}
-
-        <div className="mt-10 flex justify-center">
-          <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-[#ff5c35] hover:bg-[#e64a24] transition-all duration-300">
+        <p className="text-center mt-10 text-[#2b3343]">Besoins d&apos;information sur la maintenance après la fin de chantier?</p>
+        <div className="mt-2 flex justify-center">
+          <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-[#e64a24] transition-all duration-300 mr-4">
             Contactez-nous
-            <FaArrowRight className="ml-2 h-5 w-5" />
+          </Link>
+          <Link href="/devis" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-[#ff5c35] hover:bg-[#e64a24] transition-all duration-300">
+            Demandez un devis
           </Link>
         </div>
       </div>

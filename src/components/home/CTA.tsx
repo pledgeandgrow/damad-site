@@ -7,9 +7,9 @@ export default function CTA() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-[#2b3343] mb-6">
-            Prêt à moderniser votre ascenseur ?
+            Démarrer votre projet !
           </h2>
-          <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 mb-10 max-auto mx-auto">
             Nos experts sont à votre disposition pour vous accompagner dans votre projet d&apos;installation, de rénovation ou de maintenance d&apos;ascenseur.
           </p>
           
