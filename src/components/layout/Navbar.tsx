@@ -136,14 +136,14 @@ export default function Navbar() {
           </div>
         </div>
         <div className="container mx-auto px-6">
-          <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center group flex-shrink-0 relative top-1/2 transform -translate-y-1/2">
-              <div className={`relative ${scrolled ? 'h-16' : 'h-20'} w-auto transition-all duration-300`}>
+          <div className="flex justify-between items-center md:items-stretch">
+            <Link href="/" className="flex items-center group flex-shrink-0 relative md:transform md:-translate-y-1/2 md:top-1/2">
+              <div className={`relative ${scrolled ? 'h-10 md:h-16' : 'h-12 md:h-20'} w-auto transition-all duration-300 flex items-center`}>
                 <Image 
                   src="/dmd-navbar.png" 
                   alt="DMD" 
-                  width={scrolled ? 112 : 128}
-                  height={scrolled ? 112 : 128}
+                  width={scrolled ? 90 : 100}
+                  height={scrolled ? 90 : 100}
                   className="object-contain h-full w-auto group-hover:scale-105 transition-transform duration-300"
                   priority
                 />
