@@ -7,7 +7,7 @@ export default function Hero() {
   const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isForward, setIsForward] = useState(true);
-  const reverseIntervalRef = useRef<NodeJS.Timeout>();
+  const reverseIntervalRef = useRef<NodeJS.Timeout | undefined>(undefined);
   const frameRateRef = useRef<number>(30); // Frames per second for reverse playback - higher for smoother playback
   
   // Check if device is mobile
