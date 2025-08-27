@@ -8,7 +8,7 @@ export default function About() {
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">Notre engagement</h2>
           <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-4 sm:mb-6"></div>
           <p className="text-gray-600 max-auto mx-auto text-lg">
-            Nous maintenons vos appareils en condition opérationnelle en mettant l&apos;accent sur notre expertise technique, la sécurité, la proximité.
+            Nous maintenons vos appareils opérationnelles en mettant l&apos;accent sur notre expertise technique, la sécurité, la proximité.
           </p>
         </div>
 
