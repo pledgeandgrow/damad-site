@@ -158,14 +158,14 @@ export default function Services() {
   }, [activeIndex, isMobile, isTablet]);
 
   return (
-    <div id="services" className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white">
+    <div id="services" className="py-1 sm:py-6 md:py-8 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
             Solutions sur Mesure
           </h2>
-          <div className="w-16 h-1 bg-blue-600 mx-auto mb-4 sm:mb-6"></div>
+          <div className="w-16 h-1 bg-blue-700 mx-auto mb-4 sm:mb-6"></div>
           <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
             Découvrez nos services pour garantir la sécurité, la fiabilité et la longévité de vos appareils d{`'`}accessibilité : ascenseurs, EPMR, monte-charges, etc. 
           </p>

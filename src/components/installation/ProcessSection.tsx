@@ -93,7 +93,7 @@ export default function ProcessSection() {
   }, [activeIndex, isMobile]);
 
   return (
-    <div className="bg-[#fbfcfc] py-12 xs:py-16 sm:py-20 border-t border-gray-100">
+    <div className="bg-[#fbfcfc] py-8 xs:py-10 sm:py-12 border-t border-gray-100">
       <div className="container mx-auto px-3 xs:px-4 max-w-7xl">
         <div className="text-center mb-10 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">

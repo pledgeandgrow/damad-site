@@ -64,7 +64,7 @@ export default function RealisationsPage() {
       </div>
 
       {/* Projects Section */}
-      <section className="py-20 bg-white">
+      <section className="py-8 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold text-[#2b3343] mb-4">Explorez nos réalisations</h2>

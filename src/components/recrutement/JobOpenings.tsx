@@ -31,7 +31,7 @@ export default function JobOpenings() {
   };
 
   return (
-    <section id="postes-ouverts" className="py-16 bg-[#fbfcfc]">
+    <section id="postes-ouverts" className="py-8 bg-[#fbfcfc]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

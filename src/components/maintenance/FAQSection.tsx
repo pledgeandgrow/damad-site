@@ -4,7 +4,7 @@ import FaqDropdown from '@/components/FaqDropdown';
 
 export default function FAQSection() {
   return (
-    <div className="py-16 bg-[#fbfcfd]">
+    <div className="py-8 sm:py-10 bg-[#fbfcfd]">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-[#2b3343] mb-4">

@@ -23,9 +23,14 @@ export default function ContactInfo() {
                   </div>
                 </div>
                 <div className="ml-4">
-                  <p className="text-sm font-medium text-[#2b3343]">Adresse</p>
-                  <p className="text-base text-gray-600">3 BOULEVARD DE SEBASTOPOL</p>
-                  <p className="text-base text-gray-600">75001 PARIS, France</p>
+                  <p className="text-sm font-medium text-[#2b3343]">Adresses</p>
+                  <p className="text-base text-gray-600 font-medium">Siège social</p>
+                  <p className="text-base text-gray-600">3 Boulevard de Sébastopol</p>
+                  <p className="text-base text-gray-600 mb-4">75001 Paris, France</p>
+                  
+                  <p className="text-base text-gray-600 font-medium">Agence IDF</p>
+                  <p className="text-base text-gray-600">145 Rue Rateau</p>
+                  <p className="text-base text-gray-600">93120 La Courneuve, France</p>
                 </div>
               </div>
               

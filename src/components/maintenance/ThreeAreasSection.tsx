@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function ThreeAreasSection() {
   return (
-    <div className="py-10 xs:py-12 sm:py-16 bg-white">
+    <div className="py-6 xs:py-8 sm:py-10 bg-white">
       <div className="container mx-auto px-3 xs:px-4 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 xs:gap-8">
           {/* Left Area */}

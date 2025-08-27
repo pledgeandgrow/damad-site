@@ -94,7 +94,7 @@ export default function GallerySection() {
   ];
 
   return (
-    <div className="py-20 bg-white">
+    <div className="py-8 bg-white">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-6">

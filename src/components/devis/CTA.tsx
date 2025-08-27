@@ -38,7 +38,7 @@ export default function CTA({ scrollToForm }: CTAProps) {
   ];
 
   return (
-    <section className="relative bg-[#fbfcfd] text-[#2b3343] py-16">
+    <section className="relative bg-[#fbfcfd] text-[#2b3343] py-8">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-[#fbfcfd] opacity-95"></div>
       </div>

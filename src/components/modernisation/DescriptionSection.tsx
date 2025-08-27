@@ -1,6 +1,6 @@
 const DescriptionSection = () => {
   return (
-    <div className="py-16 bg-[#fbfcfc] border-t border-gray-100">
+    <div className="py-8 bg-[#fbfcfc] border-t border-gray-100">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-10 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">

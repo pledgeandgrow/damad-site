@@ -279,7 +279,7 @@ export default function ApplicationForm() {
   };
 
   return (
-    <section id="application" className="py-20 bg-[#fbfcfd]">
+    <section id="application" className="py-8 bg-[#fbfcfd]">
       <div className="container mx-auto px-4 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

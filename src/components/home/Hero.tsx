@@ -167,7 +167,7 @@ export default function Hero() {
           
           {/* Subtitle */}
           <div className="mb-6 sm:mb-8">
-            <h2 className="text-xl sm:text-2xl md:text-3xl text-white font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)] text-shadow">Maintenance & Réparations Ascenseurs</h2>
+            <h2 className="text-xl sm:text-2xl md:text-3xl text-white font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)] text-shadow">Maintenance & Réparations d&apos;ascenseurs multimarques</h2>
           </div>
           
           {/* CTA buttons removed */}

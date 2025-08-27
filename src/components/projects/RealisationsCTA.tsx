@@ -7,7 +7,7 @@ interface RealisationsCTAProps {
 
 export default function RealisationsCTA({ className = '' }: RealisationsCTAProps) {
   return (
-    <section className={`py-20 bg-white relative overflow-hidden ${className}`}>
+    <section className={`bg-white relative overflow-hidden ${className}`}>
       
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="max-w-3xl mx-auto p-8 md:p-12 rounded-2xl">

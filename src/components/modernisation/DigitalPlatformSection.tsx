@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const DigitalPlatformSection = () => {
   return (
-    <div className="bg-white py-20 border-t border-gray-100">
+    <div className="bg-white py-8 border-t border-gray-100">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4 mt-2">

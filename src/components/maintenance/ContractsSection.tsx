@@ -99,7 +99,7 @@ export default function ContractsSection() {
     };
   }, [isMobile, currentSlide]);
   return (
-    <div className="bg-[#fbfcfc] py-12 xs:py-16 sm:py-20 border-t border-gray-100">
+    <div className="bg-[#fbfcfc] py-8 xs:py-10 sm:py-12 border-t border-gray-100">
       <div className="container mx-auto px-3 xs:px-4 max-w-7xl">
         <div className="text-center mb-6 xs:mb-8 sm:mb-10">
           <span className="text-[#0046fe] font-semibold tracking-wider text-sm uppercase">Solutions personnalisées</span>

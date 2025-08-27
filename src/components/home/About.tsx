@@ -2,7 +2,7 @@ import { FaUsers, FaTools, FaShieldAlt, FaArrowRight } from 'react-icons/fa';
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-[#fbfcfd]">
+    <section id="about" className=" sm:py-8 bg-[#fbfcfd]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">Notre engagement</h2>
