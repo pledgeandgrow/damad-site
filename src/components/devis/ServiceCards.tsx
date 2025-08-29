@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { FaBuilding, FaIndustry, FaTools, FaTachometerAlt, FaShieldAlt } from 'react-icons/fa';
+import { FaBuilding, FaTools, FaTachometerAlt, FaShieldAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 export default function ServiceCards() {
@@ -78,13 +78,6 @@ export default function ServiceCards() {
       title: 'Installation',
       description: 'Installation professionnelle d\'ascenseurs pour tous types de bâtiments',
       features: ['Planification détaillée', 'Conformité aux normes', 'Mise en service complète'],
-      bgColor: 'from-gray-50 to-gray-100'
-    },
-    {
-      icon: <FaIndustry className="w-10 h-10 text-[#0046fe]" />,
-      title: 'Réparation',
-      description: 'Services de réparation complets pour tous types de pannes et dysfonctionnements',
-      features: ['Diagnostic précis', 'Pièces d\'origine', 'Garantie des réparations'],
       bgColor: 'from-gray-50 to-gray-100'
     },
     {
@@ -200,7 +193,7 @@ export default function ServiceCards() {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -210,21 +203,21 @@ export default function ServiceCards() {
                 viewport={{ once: true }}
                 className={`group bg-gradient-to-br ${service.bgColor} rounded-xl shadow-md overflow-hidden hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300`}
               >
-                <div className="p-6">
-                  <div className="flex items-center mb-6">
-                    <div className="p-4 bg-gradient-to-br from-[#0046fe] to-[#0046fe]/80 rounded-lg shadow-md">
-                      {React.cloneElement(service.icon, { className: "w-10 h-10 text-white" })}
+                <div className="p-4">
+                  <div className="flex items-center mb-4">
+                    <div className="p-3 bg-gradient-to-br from-[#0046fe] to-[#0046fe]/80 rounded-lg shadow-md">
+                      {React.cloneElement(service.icon, { className: "w-8 h-8 text-white" })}
                     </div>
-                    <h3 className="ml-4 text-xl font-semibold text-[#2b3343]">{service.title}</h3>
+                    <h3 className="ml-3 text-lg font-semibold text-[#2b3343]">{service.title}</h3>
                   </div>
-                  <p className="text-[#2b3343] mb-6">{service.description}</p>
-                  <ul className="space-y-3">
+                  <p className="text-[#2b3343] mb-4 text-sm">{service.description}</p>
+                  <ul className="space-y-2">
                     {service.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
-                        <svg className="h-5 w-5 text-[#0046fe] mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg className="h-4 w-4 text-[#0046fe] mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
-                        <span className="text-[#2b3343]">{feature}</span>
+                        <span className="text-[#2b3343] text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>

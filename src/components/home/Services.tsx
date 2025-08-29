@@ -1,4 +1,4 @@
-import { FaTools, FaWrench, FaShieldAlt, FaChevronLeft, FaChevronRight, FaHammer, FaSyncAlt } from 'react-icons/fa';
+import { FaTools, FaWrench, FaShieldAlt, FaChevronLeft, FaChevronRight, FaSyncAlt } from 'react-icons/fa';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 
@@ -44,16 +44,6 @@ const services: ServiceFeature[] = [
     color: "#0046fe", // Primary brand color
     gradient: "from-[#0046fe] to-[#0046fe]/80",
     link: "/services/installation"
-  },
-  {
-    icon: <FaHammer className="w-6 h-6 text-white" />,
-    title: "Réparation",
-    description: "Réparation professionnelle de tous types de pannes et dysfonctionnements sur vos ascenseurs.",
-    shortDesc: "Solutions efficaces pour tous problèmes techniques.",
-    features: ["Diagnostique précis", "Réparations durables", "Pièces de qualité"],
-    color: "#0046fe", // Primary brand color
-    gradient: "from-[#0046fe] to-[#0046fe]/80",
-    link: "/services/reparation"
   },
   {
     icon: <FaSyncAlt className="w-6 h-6 text-white" />,
@@ -158,14 +148,14 @@ export default function Services() {
   }, [activeIndex, isMobile, isTablet]);
 
   return (
-    <div id="services" className="py-1 sm:py-6 md:py-8 bg-gradient-to-b from-gray-50 to-white">
+    <div id="services" className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 sm:mb-4">
             Solutions sur Mesure
           </h2>
-          <div className="w-16 h-1 bg-blue-700 mx-auto mb-4 sm:mb-6"></div>
+          <div className="w-16 h-1 bg-blue-600 mx-auto mb-4 sm:mb-6"></div>
           <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
             Découvrez nos services pour garantir la sécurité, la fiabilité et la longévité de vos appareils d{`'`}accessibilité : ascenseurs, EPMR, monte-charges, etc. 
           </p>
@@ -175,38 +165,45 @@ export default function Services() {
         <div className="relative mb-10">
           {/* Desktop view - static grid */}
           <div className={`${isMobile || isTablet ? 'hidden' : 'block'} px-4 md:px-8`}>
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
               {services.map((service, index) => (
                 <div key={index} className="service-card">
-                  <Link 
-                    href={service.link || '#'}
-                    className="block h-full bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 relative hover:translate-y-[-5px] hover:border-blue-600 group"
+                  <div 
+                    className="block h-full bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative hover:translate-y-[-5px] hover:border-blue-600 group cursor-pointer"
+                    onClick={() => window.location.href = service.link || '#'}
                   >
                     <div className={`h-2 bg-[#0046fe]`}></div>
-                    <div className="p-3 sm:p-4 text-center">
+                    <div className="p-5 sm:p-6 text-center flex flex-col h-full">
                       <div 
-                        className={`inline-flex items-center justify-center w-10 h-10 rounded-full mb-2 mx-auto bg-[#0046fe] transform transition-transform group-hover:scale-110 shadow-md`}
+                        className={`inline-flex items-center justify-center w-14 h-14 rounded-full mb-4 mx-auto bg-[#0046fe] transform transition-transform group-hover:scale-110 shadow-md`}
                       >
                         {service.icon}
                       </div>
-                      <h3 className="text-base font-bold mb-2 text-[#2b3343] group-hover:text-[#0046fe] transition-colors duration-300">
+                      <h3 className="text-lg font-bold mb-3 text-[#2b3343] group-hover:text-[#0046fe] transition-colors duration-300">
                         {service.title}
                       </h3>
                       
-                      <p className="text-gray-600 text-xs mb-2">
-                        {service.shortDesc}
+                      <p className="text-gray-600 text-sm mb-4 flex-grow">
+                        {service.description}
                       </p>
                       
-                      <ul className="text-left mb-2">
+                      <ul className="text-left mb-4">
                         {service.features.map((feature, i) => (
-                          <li key={i} className="flex items-center text-xs text-gray-600 mb-1">
-                            <span className={`inline-flex items-center justify-center w-3 h-3 rounded-full mr-1 bg-[#0046fe] text-white text-[8px] shadow-sm`}>✓</span>
-                            {feature}
+                          <li key={i} className="flex items-center text-sm text-gray-600 mb-2">
+                            <span className={`inline-flex items-center justify-center w-4 h-4 rounded-full mr-2 bg-[#0046fe] text-white text-[10px] shadow-sm flex-shrink-0`}>✓</span>
+                            <span>{feature}</span>
                           </li>
                         ))}
                       </ul>
+                      
+                      <Link 
+                        href={service.link || '#'}
+                        className="mt-auto inline-block w-full py-2 px-4 bg-white border border-[#0046fe] text-[#0046fe] rounded-md font-medium hover:bg-[#0046fe] hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0"
+                      >
+                        En savoir plus
+                      </Link>
                     </div>
-                  </Link>
+                  </div>
                 </div>
               ))}
             </div>

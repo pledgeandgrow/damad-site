@@ -122,13 +122,6 @@ export default function DevisForm({
             delay: 0.2
           },
           { 
-            type: 'reparation', 
-            title: 'Réparation', 
-            description: 'Remise en état et réparations', 
-            icon: <FaTools className="text-3xl text-[#0046fe] mb-2" />,
-            delay: 0.25
-          },
-          { 
             type: 'modernisation', 
             title: 'Renovation & Modernisation', 
             description: 'Mise à jour d\'ascenseur existant', 

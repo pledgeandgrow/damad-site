@@ -63,7 +63,7 @@ export default function Navbar() {
   }, [isMenuOpen]);
 
   const navLinks = [
-    { name: 'Maintenance & Entretien', href: '/services/maintenance' },
+    { name: 'Maintenance', href: '/services/maintenance' },
     { name: 'Dépannage', href: '/services/depannage' },
     { name: 'Installation', href: '/services/installation' },
     { name: 'Modernisation & Rénovation', href: '/services/modernisation' },

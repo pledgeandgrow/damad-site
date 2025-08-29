@@ -29,7 +29,6 @@ export function getServiceTypeForDevis(serviceType: string): string {
     case 'installation': return 'Installation nouvelle';
     case 'modernisation': return 'Modernisation';
     case 'maintenance': return 'Contrat de maintenance';
-    case 'reparation': return 'Réparation';
     case 'depannage': return 'Dépannage';
     default: return serviceType || 'Non spécifié';
   }

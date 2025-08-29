@@ -468,7 +468,6 @@ export default function ContactForm() {
             >
               <option value="" disabled>Sélectionnez un service</option>
               <option value="depannage">Dépannage</option>
-              <option value="reparation">Réparation</option>
               <option value="maintenance">Maintenance</option>
               <option value="modernisation">Modernisation</option>
               <option value="installation">Installation</option>

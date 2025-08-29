@@ -104,7 +104,7 @@ export default function ContractsSection() {
         <div className="text-center mb-6 xs:mb-8 sm:mb-10">
           <span className="text-[#0046fe] font-semibold tracking-wider text-sm uppercase">Solutions personnalisées</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-[#2b3343] mb-3 mt-2">
-            Nos Contrats de Maintenance et d&apos;Entretien
+            Nos Contrats de Maintenance et Dépannage
           </h2>
           <div className="w-16 h-1 bg-[#0046fe] mx-auto mb-6"></div>
           <p className="text-[#2b3343] max-w-3xl mx-auto text-sm italic mb-4 bg-blue-50 py-2 px-4 rounded-lg inline-block">
@@ -121,9 +121,9 @@ export default function ContractsSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-[#2b3343]">Le contrat d&apos;entretien</h3>
+                <h3 className="text-xl font-bold text-[#2b3343]">Contrat de maintenance</h3>
               </div>
-              <p className="text-gray-600 pl-16">assurer le fonctionnement installation ou d&apos;un équipement</p>
+              <p className="text-gray-600 pl-16">Prestation dédiée à la maintenance et au maintien en état de vos appareils.</p>
             </div>
             
             <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500 transform hover:-translate-y-1">
@@ -133,9 +133,9 @@ export default function ContractsSection() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-[#2b3343]">Le contrat de maintenance</h3>
+                <h3 className="text-xl font-bold text-[#2b3343]">Contrat de dépannage</h3>
               </div>
-              <p className="text-gray-600 pl-16">prestation de service garantissant le bon fonctionnement d&apos;une installation.</p>
+              <p className="text-gray-600 pl-16">Votre tranquillité garantie grâce à notre contrat de dépannage.</p>
             </div>
           </div>
           
@@ -383,7 +383,7 @@ export default function ContractsSection() {
         
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link 
-            href="/contact" 
+            href="/devis" 
             className="inline-block bg-[#0046fe] hover:bg-[#0035c8] text-white px-7 py-2.5 rounded-lg transition-all duration-300 font-medium hover:shadow-md flex items-center justify-center transform hover:-translate-y-0.5"
           >
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
