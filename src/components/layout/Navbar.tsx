@@ -140,7 +140,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center group flex-shrink-0 relative md:transform md:-translate-y-1/2 md:top-1/2">
               <div className={`relative ${scrolled ? 'h-10 md:h-16' : 'h-12 md:h-20'} w-auto transition-all duration-300 flex items-center`}>
                 <Image 
-                  src="/logo-svg.svg" 
+                  src="/dmd-vector-final2.svg" 
                   alt="DMD" 
                   width={scrolled ? 90 : 100}
                   height={scrolled ? 90 : 100}
