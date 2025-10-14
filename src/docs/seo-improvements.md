@@ -41,10 +41,10 @@ openGraph: {
   siteName: 'DMD Ascenseur',
   images: [
     {
-      url: 'https://www.dmd-ascenseur.fr/images/og-image.jpg',
+      url: 'https://www.dmd-ascenseur.fr/og-logo.jpg',
       width: 1200,
       height: 630,
-      alt: 'DMD Ascenseur',
+      alt: 'DMD Ascenseur - Logo',
     },
   ],
 },

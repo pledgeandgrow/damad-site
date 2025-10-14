@@ -200,25 +200,44 @@ export default function ApplicationForm() {
     setSubmitStatus('idle');
     
     try {
-      // Create FormData to handle file uploads
+      // Create FormData to handle file uploads for FormSubmit.co
       const formDataToSend = new FormData();
       
-      // Add all form fields to FormData
-      Object.entries(formData).forEach(([key, value]) => {
-        if (value !== null) {
-          formDataToSend.append(key, value);
-        }
-      });
+      // Add FormSubmit.co configuration
+      formDataToSend.append('_subject', 'Nouvelle candidature');
+      formDataToSend.append('_template', 'table');
+      formDataToSend.append('_captcha', 'false');
       
-      // Send data to our dedicated application form API endpoint
-      const response = await fetch('/api/application-form', {
+      // Add form fields with proper labels
+      formDataToSend.append('Prénom', formData.firstName);
+      formDataToSend.append('Nom', formData.lastName);
+      formDataToSend.append('Email', formData.email);
+      formDataToSend.append('Téléphone', formData.phone);
+      formDataToSend.append('Poste', formData.position);
+      formDataToSend.append('Expérience', formData.experience);
+      formDataToSend.append('Message', formData.message || 'Aucun message');
+      
+      // Add file attachments
+      if (formData.resume) {
+        formDataToSend.append('CV', formData.resume);
+      }
+      if (formData.coverLetter) {
+        formDataToSend.append('Lettre de motivation', formData.coverLetter);
+      }
+      
+      // Send directly to FormSubmit.co
+      const response = await fetch(`https://formsubmit.co/${process.env.NEXT_PUBLIC_FORMSUBMIT_EMAIL || 'info@dmd-ascenseur.fr'}`, {
         method: 'POST',
         body: formDataToSend
       });
       
-      // Show success regardless of email sending status
-      // as long as the form data is valid
-      setSubmitStatus('success');
+      if (response.ok) {
+        setSubmitStatus('success');
+      } else {
+        // Still show success to user but log the error
+        console.warn('FormSubmit.co returned error:', response.status);
+        setSubmitStatus('success');
+      }
       
       // Reset form after submission
       setFormData({
@@ -240,39 +259,10 @@ export default function ApplicationForm() {
           input.value = '';
         }
       });
-      
-      // Log any server errors but don't show to user since we're showing success anyway
-      if (!response.ok) {
-        const result = await response.json();
-        console.warn('Server reported an issue but form was submitted:', result.message || 'Unknown error');
-      }
       
     } catch (error) {
       console.error('Error submitting form:', error);
-      // Show success even if there was a network error
-      // since the form data was valid
-      setSubmitStatus('success');
-      
-      // Reset form after submission
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        position: '',
-        experience: '',
-        message: '',
-        resume: null,
-        coverLetter: null,
-      });
-      
-      // Reset file inputs
-      const fileInputs = document.querySelectorAll('input[type="file"]');
-      fileInputs.forEach((input: Element) => {
-        if (input instanceof HTMLInputElement) {
-          input.value = '';
-        }
-      });
+      setSubmitStatus('error');
     } finally {
       setSubmitting(false);
     }

@@ -7,6 +7,7 @@ import CookieConsent from "@/components/common/CookieConsent";
 import FloatingArrow from "@/components/common/FloatingArrow";
 import FloatingPhone from "@/components/common/FloatingPhone";
 import LocalBusinessSchema from "@/components/seo/LocalBusinessSchema";
+import { Analytics } from "@vercel/analytics/react";
 
 const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
@@ -54,10 +55,10 @@ export const metadata: Metadata = {
     description: 'Expert en installation, maintenance et dépannage d\'ascenseurs. Solutions sur mesure pour particuliers et professionnels dans toute la France.',
     images: [
       {
-        url: 'https://dmd-ascenseur.fr/images/og-image.jpg',
+        url: 'https://dmd-ascenseur.fr/og-logo.jpg',
         width: 1200,
         height: 630,
-        alt: 'DMD Ascenseur',
+        alt: 'DMD Ascenseur - Logo',
       },
     ],
   },
@@ -66,7 +67,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'DMD Ascenseur - Installation et Maintenance d\'Ascenseurs',
     description: 'Expert en installation, maintenance et dépannage d\'ascenseurs. Solutions sur mesure pour particuliers et professionnels.',
-    images: ['https://dmd-ascenseur.fr/images/og-image.jpg'],
+    images: ['https://dmd-ascenseur.fr/og-logo.jpg'],
   },
   // Canonical URL
   alternates: {
@@ -93,6 +94,7 @@ export default function RootLayout({
         <CookieConsent />
         <FloatingArrow />
         <FloatingPhone />
+        <Analytics />
       </body>
     </html>
   );

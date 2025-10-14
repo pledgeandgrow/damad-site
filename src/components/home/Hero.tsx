@@ -4,23 +4,10 @@ import { FaAward } from 'react-icons/fa';
 import { FaElevator } from 'react-icons/fa6';
 
 export default function Hero() {
-  const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isForward, setIsForward] = useState(true);
   const reverseIntervalRef = useRef<NodeJS.Timeout | undefined>(undefined);
   const frameRateRef = useRef<number>(30); // Frames per second for reverse playback - higher for smoother playback
-  
-  // Check if device is mobile
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
 
   // Handle video playback with ping-pong effect
   useEffect(() => {
@@ -128,7 +115,7 @@ export default function Hero() {
         {/* Fallback background color/gradient while waiting for video */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#2b3343] to-[#4a5568] w-full h-full"></div>
         
-        {/* Video element with conditional blur based on device */}
+        {/* Video element */}
         <div className="w-full h-full">
           <video
             ref={videoRef}
@@ -136,7 +123,7 @@ export default function Hero() {
             muted
             playsInline
             src="/videos/ascenceur.mp4"
-            className={`absolute inset-0 w-full h-full object-cover ${isMobile ? 'blur-[2px]' : 'blur-[2px]'}`}
+            className="absolute inset-0 w-full h-full object-cover"
             poster="/images/elevator-placeholder.jpg"
           >
             Your browser does not support the video tag.

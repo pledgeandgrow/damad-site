@@ -1,16 +1,7 @@
 {
   "version": 2,
-  "env": {
-    "NODE_ENV": "production"
-  },
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
   "framework": "nextjs",
   "regions": ["cdg1"],
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/(.*)", "destination": "/" }
-  ],
   "headers": [
     {
       "source": "/(.*)",

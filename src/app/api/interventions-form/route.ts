@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import { sendEmail } from '@/utils/email';
 
 interface InterventionsFormData {
   name: string;
@@ -63,55 +62,48 @@ export async function POST(request: Request) {
       );
     }
     
-    // Format email content
-    const subject = 'Nouvelle demande d\'intervention';
+    // Prepare FormSubmit.co data
+    const formData = new URLSearchParams();
+    formData.append('_subject', 'Nouvelle demande d\'intervention');
+    formData.append('Nom', body.name);
+    formData.append('Email', body.email);
+    formData.append('Téléphone', body.phone);
+    formData.append('Adresse', body.address);
+    formData.append('Type d\'appareil', body.appareilType);
+    formData.append('Urgence', body.urgency === 'urgent' ? 'Urgente' : 'Normale');
+    formData.append('Type de problème', body.issueType === 'other' ? `${body.customIssueType} (personnalisé)` : body.issueType);
+    formData.append('Description du problème', body.description);
+    formData.append('Date préférée', body.preferredDate || 'Non spécifiée');
+    formData.append('Heure préférée', body.preferredTime || 'Non spécifiée');
     
-    const text = `
-      Nouvelle demande d'intervention:
-      
-      Nom: ${body.name}
-      Email: ${body.email}
-      Téléphone: ${body.phone}
-      Adresse: ${body.address}
-      Type d'appareil: ${body.appareilType}
-      Urgence: ${body.urgency === 'urgent' ? 'Urgente' : 'Normale'}
-      Type de problème: ${body.issueType === 'other' ? `${body.customIssueType} (personnalisé)` : body.issueType}
-      
-      Description du problème:
-      ${body.description}
-      
-      Date préférée: ${body.preferredDate || 'Non spécifiée'}
-      Heure préférée: ${body.preferredTime || 'Non spécifiée'}
-    `;
-    
-    const html = `
-      <h2>Nouvelle demande d'intervention</h2>
-      <p><strong>Nom:</strong> ${body.name}</p>
-      <p><strong>Email:</strong> ${body.email}</p>
-      <p><strong>Téléphone:</strong> ${body.phone}</p>
-      <p><strong>Adresse:</strong> ${body.address}</p>
-      <p><strong>Type d'appareil:</strong> ${body.appareilType}</p>
-      <p><strong>Urgence:</strong> ${body.urgency === 'urgent' ? '<span style="color: red;">Urgente</span>' : 'Normale'}</p>
-      <p><strong>Type de problème:</strong> ${body.issueType === 'other' ? `${body.customIssueType} (personnalisé)` : body.issueType}</p>
-      <p><strong>Description du problème:</strong><br>${body.description.replace(/\n/g, '<br>')}</p>
-      <p><strong>Date préférée:</strong> ${body.preferredDate || 'Non spécifiée'}</p>
-      <p><strong>Heure préférée:</strong> ${body.preferredTime || 'Non spécifiée'}</p>
-    `;
+    // FormSubmit.co configuration
+    formData.append('_template', 'table');
+    formData.append('_captcha', 'false');
 
     try {
-      // Try to send email but don't block success response on failure
-      const info = await sendEmail({
-        subject,
-        text,
-        html
+      // Send to FormSubmit.co
+      const response = await fetch(`https://formsubmit.co/${process.env.FORMSUBMIT_EMAIL || 'info@dmd-ascenseur.fr'}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formData.toString(),
       });
-      console.log('Interventions form email sent successfully:', info.messageId);
       
-      return NextResponse.json({ 
-        success: true, 
-        message: 'Votre demande d\'intervention a été envoyée avec succès',
-        messageId: info.messageId
-      });
+      if (response.ok) {
+        console.log('Interventions form email sent successfully via FormSubmit.co');
+        return NextResponse.json({ 
+          success: true, 
+          message: 'Votre demande d\'intervention a été envoyée avec succès'
+        });
+      } else {
+        console.error('FormSubmit.co returned error:', response.status);
+        return NextResponse.json({ 
+          success: true, 
+          message: 'Votre demande d\'intervention a été reçue avec succès',
+          emailSent: false
+        });
+      }
     } catch (emailError) {
       // Log email sending error but still return success to the client
       console.error('Error sending email but form data was valid:', emailError);

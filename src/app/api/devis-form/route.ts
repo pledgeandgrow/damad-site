@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { 
-  sendEmail, 
   getServiceTypeForDevis, 
   getBuildingTypeForDevis 
 } from '@/utils/email';
@@ -42,70 +41,59 @@ export async function POST(request: Request) {
     // Handle custom building type if "other" is selected
     const buildingTypeText = body.buildingType === 'other' ? `${body.customBuildingType} (personnalisé)` : getBuildingTypeForDevis(body.buildingType);
     
-    // Format email content
-    const subject = 'Nouvelle demande de devis';
+    // Prepare FormSubmit.co data
+    const formData = new URLSearchParams();
+    formData.append('_subject', 'Nouvelle demande de devis');
     
-    const text = `
-      Nouvelle demande de devis:
-      
-      Type de service: ${serviceTypeText}
-      Type de bâtiment: ${buildingTypeText}
-      Nombre d'étages: ${body.floors}
-      Nombre d'arrêts: ${body.stops}
-      Capacité: ${body.capacity} personnes
-      Ascenseur existant: ${body.hasExistingElevator ? 'Oui' : 'Non'}
-      ${body.hasExistingElevator ? `Âge de l'ascenseur existant: ${body.existingElevatorAge}` : ''}
-      
-      Informations de contact:
-      Nom: ${body.name}
-      Email: ${body.email}
-      Téléphone: ${body.phone || 'Non fourni'}
-      Société: ${body.company || 'Non fournie'}
-      Adresse: ${body.address}
-      Code postal: ${body.postalCode}
-      Ville: ${body.city}
-      
-      Message:
-      ${body.message || 'Aucun message'}
-    `;
+    // Project information
+    formData.append('Type de service', serviceTypeText);
+    formData.append('Type de bâtiment', buildingTypeText);
+    formData.append('Nombre d\'étages', body.floors);
+    formData.append('Nombre d\'arrêts', body.stops);
+    formData.append('Capacité', `${body.capacity} personnes`);
+    formData.append('Ascenseur existant', body.hasExistingElevator ? 'Oui' : 'Non');
+    if (body.hasExistingElevator) {
+      formData.append('Âge de l\'ascenseur existant', body.existingElevatorAge);
+    }
     
-    const html = `
-      <h2>Nouvelle demande de devis</h2>
-      <h3>Informations sur le projet</h3>
-      <p><strong>Type de service:</strong> ${serviceTypeText}</p>
-      <p><strong>Type de bâtiment:</strong> ${buildingTypeText}</p>
-      <p><strong>Nombre d'étages:</strong> ${body.floors}</p>
-      <p><strong>Nombre d'arrêts:</strong> ${body.stops}</p>
-      <p><strong>Capacité:</strong> ${body.capacity} personnes</p>
-      <p><strong>Ascenseur existant:</strong> ${body.hasExistingElevator ? 'Oui' : 'Non'}</p>
-      ${body.hasExistingElevator ? `<p><strong>Âge de l'ascenseur existant:</strong> ${body.existingElevatorAge}</p>` : ''}
-      
-      <h3>Informations de contact</h3>
-      <p><strong>Nom:</strong> ${body.name}</p>
-      <p><strong>Email:</strong> ${body.email}</p>
-      <p><strong>Téléphone:</strong> ${body.phone || 'Non fourni'}</p>
-      <p><strong>Société:</strong> ${body.company || 'Non fournie'}</p>
-      <p><strong>Adresse:</strong> ${body.address}</p>
-      <p><strong>Code postal:</strong> ${body.postalCode}</p>
-      <p><strong>Ville:</strong> ${body.city}</p>
-      
-      <p><strong>Message:</strong><br>${(body.message || 'Aucun message').replace(/\n/g, '<br>')}</p>
-    `;
+    // Contact information
+    formData.append('Nom', body.name);
+    formData.append('Email', body.email);
+    formData.append('Téléphone', body.phone || 'Non fourni');
+    formData.append('Société', body.company || 'Non fournie');
+    formData.append('Adresse', body.address);
+    formData.append('Code postal', body.postalCode);
+    formData.append('Ville', body.city);
+    formData.append('Message', body.message || 'Aucun message');
+    
+    // FormSubmit.co configuration
+    formData.append('_template', 'table'); // Use table format for better readability
+    formData.append('_captcha', 'false'); // Disable captcha for API submissions
 
     try {
-      // Try to send email but don't block success response on failure
-      const info = await sendEmail({
-        subject,
-        text,
-        html
+      // Send to FormSubmit.co
+      const response = await fetch(`https://formsubmit.co/${process.env.FORMSUBMIT_EMAIL || 'info@dmd-ascenseur.fr'}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formData.toString(),
       });
-      console.log('Devis form email sent successfully:', info.messageId);
       
-      return NextResponse.json({ 
-        success: true, 
-        message: 'Votre demande de devis a été envoyée avec succès',
-        messageId: info.messageId
-      });
+      if (response.ok) {
+        console.log('Devis form email sent successfully via FormSubmit.co');
+        return NextResponse.json({ 
+          success: true, 
+          message: 'Votre demande de devis a été envoyée avec succès'
+        });
+      } else {
+        console.error('FormSubmit.co returned error:', response.status);
+        return NextResponse.json({ 
+          success: true, 
+          message: 'Votre demande de devis a été reçue avec succès',
+          emailSent: false
+        });
+      }
     } catch (emailError) {
       // Log email sending error but still return success to the client
       console.error('Error sending email but form data was valid:', emailError);
