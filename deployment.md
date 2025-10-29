@@ -69,15 +69,25 @@ Ajoutez les variables d'environnement suivantes :
 ```
 NODE_ENV=production
 
-# Configuration email
+# FormSubmit.co Configuration (for form submissions)
+FORMSUBMIT_EMAIL=info@dmd-ascenseur.com
+NEXT_PUBLIC_FORMSUBMIT_EMAIL=info@dmd-ascenseur.com
+
+# Configuration email (alternative SMTP setup)
 EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=465
 EMAIL_SECURE=true
-EMAIL_USER=info@dmd-ascenseur.fr
+EMAIL_USER=info@dmd-ascenseur.com
 EMAIL_PASSWORD=votre_mot_de_passe_ou_clé_app
-EMAIL_FROM="Site Web DAMAD <info@dmd-ascenseur.fr>"
-EMAIL_TO=info@dmd-ascenseur.fr
+EMAIL_FROM="Site Web DAMAD <info@dmd-ascenseur.com>"
+EMAIL_TO=info@dmd-ascenseur.com
 ```
+
+**Important**: 
+- `FORMSUBMIT_EMAIL` is used by server-side API routes for form submissions
+- `NEXT_PUBLIC_FORMSUBMIT_EMAIL` is used by client-side forms (public, visible in browser)
+- Both should point to `info@dmd-ascenseur.com`
+- Ensure the email is verified in your FormSubmit.co account
 
 ## Déploiement de l'application
 

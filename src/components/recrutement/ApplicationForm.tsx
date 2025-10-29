@@ -226,7 +226,7 @@ export default function ApplicationForm() {
       }
       
       // Send directly to FormSubmit.co
-      const response = await fetch(`https://formsubmit.co/${process.env.NEXT_PUBLIC_FORMSUBMIT_EMAIL || 'info@dmd-ascenseur.fr'}`, {
+      const response = await fetch(`https://formsubmit.co/${process.env.NEXT_PUBLIC_FORMSUBMIT_EMAIL || 'info@dmd-ascenseur.com'}`, {
         method: 'POST',
         body: formDataToSend
       });

@@ -64,7 +64,7 @@ export async function POST(request: Request) {
 
     try {
       // Send to FormSubmit.co
-      const response = await fetch(`https://formsubmit.co/${process.env.FORMSUBMIT_EMAIL || 'info@dmd-ascenseur.fr'}`, {
+      const response = await fetch(`https://formsubmit.co/${process.env.FORMSUBMIT_EMAIL || 'info@dmd-ascenseur.com'}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
