@@ -41,6 +41,11 @@ export const sendEmail = async (
   try {
     const transporter = createTransporter();
 
+    // Test connection before sending
+    console.log('Testing SMTP connection...');
+    await transporter.verify();
+    console.log('SMTP connection verified successfully');
+
     const mailOptions = {
       from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
       to,
@@ -48,6 +53,12 @@ export const sendEmail = async (
       html,
       replyTo: replyTo || process.env.EMAIL_USER,
     };
+
+    console.log('Sending email with options:', {
+      from: mailOptions.from,
+      to: mailOptions.to,
+      subject: mailOptions.subject,
+    });
 
     const info = await transporter.sendMail(mailOptions);
     console.log('Email sent successfully:', info.messageId);

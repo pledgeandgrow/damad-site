@@ -45,10 +45,15 @@ export function getBuildingTypeForDevis(buildingType: string): string {
   }
 }
 
-export function formatDates(dates: string[]): string {
-  return dates.join(', ');
+export function formatDates(dates: string[] | string): string {
+  // Handle both array and string inputs
+  if (Array.isArray(dates)) {
+    return dates.join(', ');
+  }
+  // If it's already a string, return as-is
+  return dates || 'Non spécifié';
 }
 
 export function formatTime(time: string): string {
-  return time;
+  return time || 'Non spécifiée';
 }
