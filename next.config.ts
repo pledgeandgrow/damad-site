@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import withPWA from 'next-pwa';
+import path from 'path';
 
 const nextConfig: NextConfig = {
   output: 'standalone',
@@ -7,17 +8,9 @@ const nextConfig: NextConfig = {
   compress: true,
   productionBrowserSourceMaps: false,
   reactStrictMode: true,
-  swcMinify: true,
-  outputFileTracingRoot: './output-tracing',
+  outputFileTracingRoot: path.join(__dirname, './output-tracing'),
   
   // Performance optimizations
-  optimizeFonts: true,
-  optimizePackageImports: [
-    'react-icons',
-    'react-icons/fa',
-    'react-icons/fa6',
-  ],
-  
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],

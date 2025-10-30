@@ -6,14 +6,14 @@ import { useState, useEffect, useRef } from 'react';
 
 // Use images from public/images/realisations for the home page showcase
 const realisationImages = [
-  { id: 1, src: '/images/realisations/realisation16.png', alt: 'Réalisation 16' },
+  { id: 1, src: '/images/realisations/realisation1.jpg', alt: 'Réalisation 1' },
   { id: 2, src: '/images/realisations/realisation12.png', alt: 'Réalisation 12' },
   { id: 3, src: '/images/realisations/realisation14.png', alt: 'Réalisation 10' },
   { id: 4, src: '/images/realisations/realisation24.png', alt: 'Réalisation 24' },
   { id: 5, src: '/images/realisations/realisation27.png', alt: 'Réalisation 27' },
   { id: 6, src: '/images/realisations/realisation26.png', alt: 'Réalisation 29' },
-  { id: 7, src: '/images/realisations/realisation31.png', alt: 'Réalisation 31' },
-  { id: 8, src: '/images/realisations/realisation35.png', alt: 'Réalisation 35' },
+  { id: 7, src: '/images/realisations/realisation32.png', alt: 'Réalisation 32' },
+  { id: 8, src: '/images/realisations/realisation28.png', alt: 'Réalisation 29' },
 ];
 
 // Create projects array using the realisationImages

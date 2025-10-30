@@ -20,7 +20,7 @@ export default function MentionsLegales() {
         <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
           <h2 className="text-2xl font-semibold text-[#2b3343] mb-6">1. Éditeur du site</h2>
           <p className="text-[#3d4759] mb-6">
-            Le site <span className="font-medium text-[#2b3343]">https://dmd-ascenseur.fr/</span> est édité par :
+            Le site <span className="font-medium text-[#2b3343]">https://dmd-ascenseur.com/</span> est édité par :
           </p>
           <ul className="space-y-3 mb-8">
             <li className="flex">
