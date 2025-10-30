@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   compress: true,
   productionBrowserSourceMaps: false,
   reactStrictMode: true,
-  outputFileTracingRoot: path.join(__dirname, './output-tracing'),
+  outputFileTracingRoot: path.join(__dirname, './'),
   
   // Performance optimizations
   images: {
@@ -22,7 +22,9 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   
-  // Experimental performance features
+  turbopack: {
+  },
+  
   experimental: {
     optimizePackageImports: [
       'react-icons',
