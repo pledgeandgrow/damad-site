@@ -41,7 +41,7 @@ export const sendEmail = async (
 };
 
 // Format form data to HTML email
-export const formatFormDataToHtml = (data: Record<string, any>): string => {
+export const formatFormDataToHtml = (data: Record<string, unknown>): string => {
   const rows = Object.entries(data)
     .map(
       ([key, value]) =>

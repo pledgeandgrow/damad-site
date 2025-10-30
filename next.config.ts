@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   reactStrictMode: true,
   swcMinify: true,
+  outputFileTracingRoot: './output-tracing',
   
   // Performance optimizations
   optimizeFonts: true,

@@ -20,7 +20,7 @@ export async function validateRequest<T>(
     }
 
     return { valid: true, data: result.data as T };
-  } catch (error) {
+  } catch {
     return { valid: false, error: 'Invalid JSON in request body' };
   }
 }
@@ -49,14 +49,14 @@ export function sanitizeInput(input: string): string {
 /**
  * Sanitize object recursively
  */
-export function sanitizeObject(obj: Record<string, any>): Record<string, any> {
+export function sanitizeObject(obj: Record<string, unknown>): Record<string, unknown> {
   const sanitized = { ...obj };
   
   for (const key in sanitized) {
     if (typeof sanitized[key] === 'string') {
-      sanitized[key] = sanitizeInput(sanitized[key]);
+      sanitized[key] = sanitizeInput(sanitized[key] as string);
     } else if (typeof sanitized[key] === 'object' && sanitized[key] !== null) {
-      sanitized[key] = sanitizeObject(sanitized[key]);
+      sanitized[key] = sanitizeObject(sanitized[key] as Record<string, unknown>);
     }
   }
   
@@ -100,7 +100,7 @@ export function errorResponse(message: string, status: number = 400) {
 /**
  * Create success response
  */
-export function successResponse(data: any, status: number = 200) {
+export function successResponse(data: unknown, status: number = 200) {
   return NextResponse.json(
     { success: true, data },
     { status }
@@ -112,7 +112,7 @@ export function successResponse(data: any, status: number = 200) {
  */
 export function logSecurityEvent(
   eventType: string,
-  details: Record<string, any>,
+  details: Record<string, unknown>,
   severity: 'low' | 'medium' | 'high' = 'low'
 ) {
   const timestamp = new Date().toISOString();

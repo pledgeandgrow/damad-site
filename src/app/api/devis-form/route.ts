@@ -43,7 +43,7 @@ export async function POST(request: Request) {
     const buildingTypeText = body.buildingType === 'other' ? `${body.customBuildingType} (personnalisé)` : getBuildingTypeForDevis(body.buildingType);
     
     // Prepare email data
-    const emailData: Record<string, any> = {
+    const emailData: Record<string, unknown> = {
       'Type de service': serviceTypeText,
       'Type de bâtiment': buildingTypeText,
       'Nombre d\'étages': body.floors,

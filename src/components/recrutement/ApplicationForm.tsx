@@ -201,7 +201,7 @@ export default function ApplicationForm() {
     
     try {
       // Prepare email data
-      const emailData: Record<string, any> = {
+      const emailData: Record<string, unknown> = {
         'Prénom': formData.firstName,
         'Nom': formData.lastName,
         'Email': formData.email,

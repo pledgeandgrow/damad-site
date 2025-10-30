@@ -201,7 +201,7 @@ export default function PartenariatForm() {
     
     try {
       // Prepare email data
-      const emailData: Record<string, any> = {
+      const emailData: Record<string, unknown> = {
         'Nom de l\'entreprise': formData.companyName,
         'SIRET': formData.siret,
         'Adresse': formData.address,
