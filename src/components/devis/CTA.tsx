@@ -17,8 +17,8 @@ export default function CTA({ scrollToForm }: CTAProps) {
     {
       icon: <FaEnvelope className="w-6 h-6 text-[#2b3343]" />,
       title: 'Email',
-      description: 'info@dmd-ascenseur.fr',
-      link: 'mailto:info@dmd-ascenseur.fr',
+      description: 'info@dmd-ascenseur.com',
+      link: 'mailto:info@dmd-ascenseur.com',
       linkText: 'Nous écrire'
     },
     {

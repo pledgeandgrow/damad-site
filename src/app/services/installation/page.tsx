@@ -6,7 +6,7 @@ import ProcessSection from '@/components/installation/ProcessSection';
 import CTASection from '@/components/installation/CTASection';
 
 export const metadata: Metadata = {
-  title: 'Installation Appareils d\'Accessibilité - DAMAD',
+  title: 'Installation Appareils d\'Accessibilité - DMD Ascenseur',
   description: 'Installation sur mesure d\'appareils d\'accessibilité neufs. Conception, réalisation et mise en service de votre futur équipement par des experts.',
 };
 

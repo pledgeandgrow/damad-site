@@ -6,7 +6,7 @@ import ThreeAreasSection from '@/components/maintenance/ThreeAreasSection';
 import FAQSection from '@/components/maintenance/FAQSection';
 
 export const metadata: Metadata = {
-  title: 'Maintenance d\'Appareils d\'Accessibilité - DAMAD',
+  title: 'Maintenance d\'Appareils d\'Accessibilité - DMD Ascenseur',
   description: 'Service d\'entretien préventif et curatif pour garantir la performance et la longévité de vos appareils d\'accessibilité.',
 };
 

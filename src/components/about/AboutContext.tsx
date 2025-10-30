@@ -119,7 +119,7 @@ export default function AboutContext() {
               En développant un encrage francilien fort, nous entretenons une relation de proximité avec nos clients, mais aussi avec les entrepreneurs et sociétés partenaires.
             </p>
             <p>
-              Depuis 2024, DAMAD renforce sa structure et son équipe pour faire face aux nouveaux enjeux économiques, technologiques et sociétaux (vieillissement de la population, croissance verticale des villes, densification urbaine, sobriété énergétique...).
+              Depuis 2024, DMD renforce sa structure et son équipe pour faire face aux nouveaux enjeux économiques, technologiques et sociétaux (vieillissement de la population, croissance verticale des villes, densification urbaine, sobriété énergétique...).
             </p>
           </div>
           
@@ -262,7 +262,7 @@ export default function AboutContext() {
           )}
           
           <div className="mt-12 text-lg text-gray-600 italic font-medium">
-            <p>Passionné par ce métier et par l{`'`}accessibilité, Damad met son savoir et son expérience à votre service.</p>
+            <p>Passionné par ce métier et par l{`'`}accessibilité, DMD met son savoir et son expérience à votre service.</p>
           </div>
         </div>
       </div>

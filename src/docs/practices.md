@@ -1,4 +1,4 @@
-# DAMAD Ascenseurs - Best Practices & Dependencies
+# DMD Ascenseur - Best Practices & Dependencies
 
 ## Project Dependencies
 

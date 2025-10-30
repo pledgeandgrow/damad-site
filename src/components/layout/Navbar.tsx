@@ -89,11 +89,11 @@ export default function Navbar() {
               </div>
               <span className="font-medium">01 86 04 30 63</span>
             </a>
-            <a href="mailto:info@dmd-ascenseur.fr" className="flex items-center hover:text-blue-300 transition-colors group">
+            <a href="mailto:info@dmd-ascenseur.com" className="flex items-center hover:text-blue-300 transition-colors group">
               <div className="bg-blue-500/20 p-1.5 rounded-full mr-2.5 group-hover:bg-blue-500/30 transition-colors">
                 <FaEnvelope className="text-blue-400" />
               </div>
-              <span className="font-medium">info@dmd-ascenseur.fr</span>
+              <span className="font-medium">info@dmd-ascenseur.com</span>
             </a>
           </div>
           <div className="flex items-center">

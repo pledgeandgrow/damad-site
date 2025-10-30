@@ -9,7 +9,7 @@ export default function RecruitmentHero() {
       <div className="absolute inset-0 z-0">
         <Image 
           src="/images/recrutement/recrutement0.jpg" 
-          alt="Recrutement DAMAD" 
+          alt="Recrutement DMD Ascenseur" 
           className="object-cover"
           fill
           priority

@@ -57,10 +57,10 @@ export default function AboutIntro() {
               
               <div className="space-y-6 text-lg md:text-xl text-gray-700 leading-relaxed">
                 <p className="font-medium">
-                  Damad est une entreprise de maintenance d{`'`}appareils d{`'`}accessibilité créée en 2007, avec l{`'`}ambition d{`'`}offrir un service de proximité et d{`'`}excellence.
+                  DMD est une entreprise de maintenance d{`'`}appareils d{`'`}accessibilité créée en 2007, avec l{`'`}ambition d{`'`}offrir un service de proximité et d{`'`}excellence.
                 </p>
                 <p>
-                  Aujourd{`'`}hui, Damad gère plus de 1000 ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR confondus. En faisant le choix de s{`'`}implanter localement via un maillage du territoire régional, Damad propose des solutions complètes d{`'`}installation, de maintenance et d{`'`}entretien, de rénovation et de modernisation.
+                  Aujourd{`'`}hui, DMD gère plus de 1000 ascenseurs, portes automatiques, monte-charges, monte-voitures et EPMR confondus. En faisant le choix de s{`'`}implanter localement via un maillage du territoire régional, DMD propose des solutions complètes d{`'`}installation, de maintenance et d{`'`}entretien, de rénovation et de modernisation.
                 </p>
                 <div className="pt-4">
                   <a href="#history" className="inline-block px-8 py-3 bg-[#2b3343] text-white font-medium rounded-lg hover:bg-[#3d4759] transition-colors duration-300 shadow-md hover:shadow-lg">
@@ -75,7 +75,7 @@ export default function AboutIntro() {
                 {/* Replace with your actual image path */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#2b3343]/80 to-transparent opacity-30 z-10"></div>
                 <div className="bg-[#2b3343] h-full w-full flex items-center justify-center text-white text-lg font-medium">
-                  Image d{`'`}appareil d{`'`}accessibilité DAMAD
+                  Image d{`'`}appareil d{`'`}accessibilité DMD Ascenseur
                 </div>
               </div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#2b3343] rounded-full opacity-10 z-0"></div>

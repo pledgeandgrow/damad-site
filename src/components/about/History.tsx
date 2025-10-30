@@ -28,7 +28,7 @@ const milestones = [
   {
     year: "2024",
     title: "Renforcement Structurel",
-    description: "DAMAD renforce sa structure et son équipe pour faire face aux nouveaux enjeux économiques, technologiques et sociétaux.",
+    description: "DMD Ascenseur renforce sa structure et son équipe pour faire face aux nouveaux enjeux économiques, technologiques et sociétaux.",
     icon: <FaBuilding className="w-6 h-6 text-white" />,
     color: "from-[#0046fe] to-[#0057ff]"
   }

@@ -7,7 +7,7 @@ import DigitalPlatformSection from '@/components/modernisation/DigitalPlatformSe
 import GallerySection from '@/components/modernisation/GallerySection';
 
 export const metadata: Metadata = {
-  title: "Modernisation d'Appareils d'Accessibilité - DAMAD",
+  title: "Modernisation d'Appareils d'Accessibilité - DMD Ascenseur",
   description: "Services de modernisation d'appareils d'accessibilité pour améliorer la sécurité, l'efficacité énergétique et le confort de vos installations.",
 };
 

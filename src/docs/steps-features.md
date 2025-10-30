@@ -1,6 +1,6 @@
-# DAMAD Ascenseurs - Improvement Recommendations
+# DMD Ascenseur - Improvement Recommendations
 
-This document outlines potential improvements, enhancements, and optimizations for the DAMAD Ascenseurs website before and after launch.
+This document outlines potential improvements, enhancements, and optimizations for the DMD Ascenseur website before and after launch.
 
 ## Immediate Improvements (Pre-Launch)
 

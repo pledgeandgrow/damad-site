@@ -3,7 +3,7 @@ import ContactForm from '@/components/contact/ContactForm';
 import ContactInfo from '@/components/contact/ContactInfo';
 
 export const metadata: Metadata = {
-  title: 'Contact - DAMAD',
+  title: 'Contact - DMD Ascenseur',
   description: 'Contactez-nous pour toute demande de devis ou information sur nos services de réparation, maintenance et modernisation d\'ascenseurs.',
 };
 

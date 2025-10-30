@@ -21,7 +21,7 @@ const DigitalPlatformSection = () => {
               <div className="relative w-full h-64 sm:h-80">
                 <Image 
                   src="/images/renovation/renovation1.jpg" 
-                  alt="Gestion de projet de rénovation DAMAD" 
+                  alt="Gestion de projet de rénovation DMD Ascenseur" 
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                   fill
                   priority

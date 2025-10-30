@@ -56,13 +56,13 @@ const footerLinks: FooterSection[] = [
         icon: FaPhoneAlt
       },
       { 
-        name: 'info@dmd-ascenseur.fr',
-        href: 'mailto:info@dmd-ascenseur.fr',
+        name: 'info@dmd-ascenseur.com',
+        href: 'mailto:info@dmd-ascenseur.com',
         icon: FaEnvelope
       },
       { 
-        name: 'depannage@dmd-ascenseur.fr',
-        href: 'mailto:depannage@dmd-ascenseur.fr',
+        name: 'depannage@dmd-ascenseur.com',
+        href: 'mailto:depannage@dmd-ascenseur.com',
         icon: FaEnvelope
       },
     ]

@@ -4,8 +4,8 @@ import { FaChevronRight } from 'react-icons/fa';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Politique de Confidentialité - DAMAD',
-  description: 'Politique de confidentialité de DAMAD - Comment nous collectons, utilisons et protégeons vos données personnelles.',
+  title: 'Politique de Confidentialité - DMD Ascenseur',
+  description: 'Politique de confidentialité de DMD Ascenseur - Comment nous collectons, utilisons et protégeons vos données personnelles.',
 };
 
 export default function PolitiqueDeConfidentialite() {
@@ -142,7 +142,7 @@ export default function PolitiqueDeConfidentialite() {
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
-              <span className="text-[#3d4759]"><strong>Email :</strong> <a href="mailto:info@dmd-ascenseur.fr" className="text-blue-600 hover:underline">info@dmd-ascenseur.fr</a></span>
+              <span className="text-[#3d4759]"><strong>Email :</strong> <a href="mailto:info@dmd-ascenseur.com" className="text-blue-600 hover:underline">info@dmd-ascenseur.com</a></span>
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />

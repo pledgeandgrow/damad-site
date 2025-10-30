@@ -190,7 +190,7 @@ sudo certbot renew --dry-run
 Pour utiliser Gmail Workspace comme serveur SMTP, vous devez :
 
 1. Vous connecter à la console d'administration Google Workspace
-2. Activer l'accès SMTP pour votre compte info@dmd-ascenseur.fr
+2. Activer l'accès SMTP pour votre compte info@dmd-ascenseur.com
 3. Générer un mot de passe d'application spécifique (recommandé) :
    - Accédez à votre compte Google
    - Allez dans "Sécurité" > "Connexion à Google"
@@ -210,7 +210,7 @@ TXT  @  "v=spf1 include:_spf.google.com ~all"
 TXT  google._domainkey  "v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA..."
 
 # Enregistrement DMARC
-TXT  _dmarc  "v=DMARC1; p=quarantine; rua=mailto:info@dmd-ascenseur.fr"
+TXT  _dmarc  "v=DMARC1; p=quarantine; rua=mailto:info@dmd-ascenseur.com"
 ```
 
 ### 3. Tester la configuration SMTP

@@ -559,7 +559,7 @@ export default function InterventionsForm() {
                             J&apos;accepte les conditions générales de service *
                           </label>
                           <p className="text-gray-500">
-                            En soumettant ce formulaire, vous acceptez que DAMAD traite vos données personnelles conformément à notre politique de confidentialité.
+                            En soumettant ce formulaire, vous acceptez que DMD Ascenseur traite vos données personnelles conformément à notre politique de confidentialité.
                           </p>
                           {errors.acceptTerms && <p className="mt-1 text-sm text-red-500">{errors.acceptTerms}</p>}
                         </div>

@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { sendEmail, formatFormDataToHtml } from '@/lib/email';
 import { 
   getServiceTypeForDevis, 
   getBuildingTypeForDevis 
@@ -41,66 +42,50 @@ export async function POST(request: Request) {
     // Handle custom building type if "other" is selected
     const buildingTypeText = body.buildingType === 'other' ? `${body.customBuildingType} (personnalisé)` : getBuildingTypeForDevis(body.buildingType);
     
-    // Prepare FormSubmit.co data
-    const formData = new URLSearchParams();
-    formData.append('_subject', 'Nouvelle demande de devis');
+    // Prepare email data
+    const emailData: Record<string, any> = {
+      'Type de service': serviceTypeText,
+      'Type de bâtiment': buildingTypeText,
+      'Nombre d\'étages': body.floors,
+      'Nombre d\'arrêts': body.stops,
+      'Capacité': `${body.capacity} personnes`,
+      'Ascenseur existant': body.hasExistingElevator ? 'Oui' : 'Non',
+    };
     
-    // Project information
-    formData.append('Type de service', serviceTypeText);
-    formData.append('Type de bâtiment', buildingTypeText);
-    formData.append('Nombre d\'étages', body.floors);
-    formData.append('Nombre d\'arrêts', body.stops);
-    formData.append('Capacité', `${body.capacity} personnes`);
-    formData.append('Ascenseur existant', body.hasExistingElevator ? 'Oui' : 'Non');
     if (body.hasExistingElevator) {
-      formData.append('Âge de l\'ascenseur existant', body.existingElevatorAge);
+      emailData['Âge de l\'ascenseur existant'] = body.existingElevatorAge;
     }
     
     // Contact information
-    formData.append('Nom', body.name);
-    formData.append('Email', body.email);
-    formData.append('Téléphone', body.phone || 'Non fourni');
-    formData.append('Société', body.company || 'Non fournie');
-    formData.append('Adresse', body.address);
-    formData.append('Code postal', body.postalCode);
-    formData.append('Ville', body.city);
-    formData.append('Message', body.message || 'Aucun message');
-    
-    // FormSubmit.co configuration
-    formData.append('_template', 'table'); // Use table format for better readability
-    formData.append('_captcha', 'false'); // Disable captcha for API submissions
+    emailData['Nom'] = body.name;
+    emailData['Email'] = body.email;
+    emailData['Téléphone'] = body.phone || 'Non fourni';
+    emailData['Société'] = body.company || 'Non fournie';
+    emailData['Adresse'] = body.address;
+    emailData['Code postal'] = body.postalCode;
+    emailData['Ville'] = body.city;
+    emailData['Message'] = body.message || 'Aucun message';
 
     try {
-      // Send to FormSubmit.co
-      const response = await fetch(`https://formsubmit.co/${process.env.FORMSUBMIT_EMAIL || 'info@dmd-ascenseur.com'}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formData.toString(),
-      });
+      // Send email via Nodemailer
+      const htmlContent = formatFormDataToHtml(emailData);
+      await sendEmail(
+        process.env.EMAIL_TO || 'info@dmd-ascenseur.com',
+        'Nouvelle demande de devis',
+        htmlContent,
+        body.email
+      );
       
-      if (response.ok) {
-        console.log('Devis form email sent successfully via FormSubmit.co');
-        return NextResponse.json({ 
-          success: true, 
-          message: 'Votre demande de devis a été envoyée avec succès'
-        });
-      } else {
-        console.error('FormSubmit.co returned error:', response.status);
-        return NextResponse.json({ 
-          success: true, 
-          message: 'Votre demande de devis a été reçue avec succès',
-          emailSent: false
-        });
-      }
-    } catch (emailError) {
-      // Log email sending error but still return success to the client
-      console.error('Error sending email but form data was valid:', emailError);
-      
+      console.log('Devis form email sent successfully via Nodemailer');
       return NextResponse.json({ 
         success: true, 
-        message: 'Votre demande de devis a été reçue avec succès',
+        message: 'Votre demande de devis a été envoyée avec succès'
+      });
+    } catch (emailError) {
+      console.error('Error sending email but form data was valid:', emailError);
+      return NextResponse.json({ 
+        success: true, 
+        message: 'Votre demande a été reçue avec succès',
         emailSent: false
       });
     }

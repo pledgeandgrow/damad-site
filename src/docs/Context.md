@@ -1,7 +1,7 @@
-# DAMAD Ascenseurs - Project Context
+# DMD Ascenseur - Project Context
 
 ## Overview
-DAMAD is a comprehensive professional website for an elevator installation and maintenance company specializing in ascenseurs, EPMR (Équipements pour Personnes à Mobilité Réduite), monte-charges, and vertical mobility solutions. The site serves as a complete digital presence showcasing services, projects, company values, and recruitment opportunities.
+DMD Ascenseur is a comprehensive professional website for an elevator installation and maintenance company specializing in ascenseurs, EPMR (Équipements pour Personnes à Mobilité Réduite), monte-charges, and vertical mobility solutions. The site serves as a complete digital presence showcasing services, projects, company values, and recruitment opportunities.
 
 ## Current State
 
@@ -45,7 +45,7 @@ The project follows the Next.js App Router structure:
 
 #### **👥 Recruitment System**
 - **CompanyIntro**: 2-point company presentation + team collaboration paragraph
-- **Hero Section**: "REJOINGNEZ DAMAD!" with inclusive messaging
+- **Hero Section**: "REJOINGNEZ DMD ASCENSEUR!" with inclusive messaging
 - **Company Benefits**: "Bonnes raisons de nous rejoindre" (5 key reasons)
 - **Job Openings**: Technical positions only (removed commercial roles)
 - **Application Form**: Comprehensive candidate application system

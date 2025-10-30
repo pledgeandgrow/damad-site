@@ -131,7 +131,7 @@ export default function RecruitmentProcess() {
               <div className="relative h-80 w-full">
                 <Image 
                   src="/images/recrutement/recrutement1.jpg" 
-                  alt="Formation technique DAMAD" 
+                  alt="Formation technique DMD" 
                   className="object-cover object-center"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -151,7 +151,7 @@ export default function RecruitmentProcess() {
               <div className="relative h-80 w-full">
                 <Image 
                   src="/images/recrutement/recrutement2.jpg" 
-                  alt="Formation sécurité DAMAD" 
+                  alt="Formation sécurité DMD" 
                   className="object-cover object-center"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"

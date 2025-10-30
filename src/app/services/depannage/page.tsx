@@ -10,8 +10,8 @@ import OtherServicesSection from '@/components/depannage/OtherServicesSection';
 
 
 export const metadata: Metadata = {
-  title: 'Dépannage Appareils d\'Accessibilité - DAMAD',
-  description: 'Dépannage sur mesure d\'appareils d\'accessibilité. Les Experts de DAMAD sont à votre service pour tout dépannage',
+  title: 'Dépannage Appareils d\'Accessibilité - DMD Ascenseur',
+  description: 'Dépannage sur mesure d\'appareils d\'accessibilité. Les Experts de DMD Ascenseur sont à votre service pour tout dépannage',
 };
 
 export default function Depannage() {

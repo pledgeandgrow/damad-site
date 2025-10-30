@@ -1,11 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import DatePicker from 'react-datepicker';
-import { format } from 'date-fns';
-import { fr } from 'date-fns/locale';
-import 'react-datepicker/dist/react-datepicker.css';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
 type FormData = {
   firstName: string;
@@ -17,8 +13,8 @@ type FormData = {
   city: string;
   buildingType: string;
   customBuildingType: string;
-  bestContactDays: Date[];
-  bestContactTime: Date | null;
+  bestContactDays: string;
+  bestContactTime: string;
   service: string;
   customService: string;
   message: string;
@@ -54,21 +50,9 @@ export default function ContactForm() {
     console.log('Contact form submission started');
     
     try {
-      // Format data for submission
-      const formattedData = {
-        ...data,
-        bestContactDays: data.bestContactDays ? data.bestContactDays.map(date => 
-          date instanceof Date ? date.toLocaleDateString('fr-FR') : date
-        ) : [],
-        bestContactTime: data.bestContactTime instanceof Date ? 
-          data.bestContactTime.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) : 
-          data.bestContactTime
-      };
-      
       console.log('Sending contact form data to dedicated API route');
       
       // Show success immediately for valid form submission
-      // Reset form and show success message
       console.log('Contact form submitted successfully');
       setIsSubmitted(true);
       reset();
@@ -77,7 +61,7 @@ export default function ContactForm() {
       const response = await fetch('/api/contact-form', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formattedData),
+        body: JSON.stringify(data),
       });
       
       console.log('Response status:', response.status);
@@ -354,73 +338,13 @@ export default function ContactForm() {
             Meilleur jour pour vous joindre
           </label>
           <div className="mt-1.5">
-            <Controller
-              control={control}
-              name="bestContactDays"
-              defaultValue={[]}
-              render={({ field }) => (
-                <div className="react-datepicker-wrapper">
-                  <DatePicker
-                    id="bestContactDays"
-                    selected={null}
-                    onChange={(date: Date | null) => {
-                      if (date) {
-                        const newDates = [...(field.value || [])]; 
-                        // Check if date already exists
-                        const dateExists = newDates.some(d => 
-                          d.getDate() === date.getDate() && 
-                          d.getMonth() === date.getMonth() && 
-                          d.getFullYear() === date.getFullYear()
-                        );
-                        
-                        if (!dateExists) {
-                          newDates.push(date);
-                          field.onChange(newDates);
-                        }
-                      }
-                    }}
-                    dateFormat="dd/MM/yyyy"
-                    locale={fr}
-                    placeholderText="Sélectionnez des jours (optionnel)"
-                    className={dateInputClass}
-                    calendarClassName="bg-white shadow-lg rounded-md"
-                    monthsShown={1}
-                    highlightDates={field.value || []}
-                  />
-                </div>
-              )}
+            <input
+              type="date"
+              id="bestContactDays"
+              className={inputClass}
+              placeholder="Sélectionnez un jour (optionnel)"
+              {...register('bestContactDays')}
             />
-            {/* Display selected dates */}
-            <div className="mt-2 flex flex-wrap gap-2">
-              <Controller
-                control={control}
-                name="bestContactDays"
-                render={({ field }) => (
-                  <>
-                    {field.value && field.value.length > 0 ? (
-                      field.value.map((date, index) => (
-                        <div key={index} className="inline-flex items-center bg-[#2b3343] bg-opacity-10 rounded-md px-2 py-1">
-                          <span className="text-sm text-[#2b3343]">
-                            {format(date, 'dd/MM/yyyy', { locale: fr })}
-                          </span>
-                          <button
-                            type="button"
-                            className="ml-1 text-[#2b3343] hover:text-red-600"
-                            onClick={() => {
-                              const newDates = [...field.value];
-                              newDates.splice(index, 1);
-                              field.onChange(newDates);
-                            }}
-                          >
-                            ×
-                          </button>
-                        </div>
-                      ))
-                    ) : null}
-                  </>
-                )}
-              />
-            </div>
           </div>
         </div>
 
@@ -429,28 +353,12 @@ export default function ContactForm() {
             Meilleure heure pour vous joindre
           </label>
           <div className="mt-1.5">
-            <Controller
-              control={control}
-              name="bestContactTime"
-              defaultValue={null}
-              render={({ field }) => (
-                <DatePicker
-                  id="bestContactTime"
-                  selected={field.value}
-                  onChange={(date: Date | null) => field.onChange(date)}
-                  showTimeSelect
-                  showTimeSelectOnly
-                  timeIntervals={15}
-                  timeCaption="Heure"
-                  dateFormat="HH:mm"
-                  timeFormat="HH:mm"
-                  locale={fr}
-                  placeholderText="Sélectionnez une heure (optionnel)"
-                  className={dateInputClass}
-                  calendarClassName="bg-white shadow-lg rounded-md"
-                  isClearable
-                />
-              )}
+            <input
+              type="time"
+              id="bestContactTime"
+              className={inputClass}
+              placeholder="Sélectionnez une heure (optionnel)"
+              {...register('bestContactTime')}
             />
           </div>
         </div>

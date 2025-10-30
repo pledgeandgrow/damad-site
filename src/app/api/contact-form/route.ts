@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { sendEmail, formatFormDataToHtml } from '@/lib/email';
 import { 
   getBuildingTypeName, 
   getServiceName, 
@@ -43,49 +44,36 @@ export async function POST(request: Request) {
     // Handle custom building type if "other" is selected
     const buildingTypeText = body.buildingType === 'other' ? `${body.customBuildingType} (personnalisé)` : getBuildingTypeName(body.buildingType);
     
-    // Prepare FormSubmit.co data
-    const formData = new URLSearchParams();
-    formData.append('_subject', 'Nouvelle demande de contact');
-    formData.append('Nom', `${body.firstName} ${body.lastName}`);
-    formData.append('Email', body.email);
-    formData.append('Téléphone', body.phone || 'Non fourni');
-    formData.append('Société', body.company || 'Non fournie');
-    formData.append('Code postal', body.postalCode);
-    formData.append('Ville', body.city);
-    formData.append('Type de bâtiment', buildingTypeText);
-    formData.append('Service concerné', serviceText);
-    formData.append('Message', body.message);
-    formData.append('Jours de contact préférés', body.bestContactDays ? formatDates(body.bestContactDays) : 'Non spécifié');
-    formData.append('Heure de contact préférée', body.bestContactTime ? formatTime(body.bestContactTime) : 'Non spécifiée');
-    
-    // FormSubmit.co configuration
-    formData.append('_template', 'table'); // Use table format for better readability
-    formData.append('_captcha', 'false'); // Disable captcha for API submissions
+    // Prepare email data
+    const emailData = {
+      'Nom': `${body.firstName} ${body.lastName}`,
+      'Email': body.email,
+      'Téléphone': body.phone || 'Non fourni',
+      'Société': body.company || 'Non fournie',
+      'Code postal': body.postalCode,
+      'Ville': body.city,
+      'Type de bâtiment': buildingTypeText,
+      'Service concerné': serviceText,
+      'Message': body.message,
+      'Jours de contact préférés': body.bestContactDays ? formatDates(body.bestContactDays) : 'Non spécifié',
+      'Heure de contact préférée': body.bestContactTime ? formatTime(body.bestContactTime) : 'Non spécifiée',
+    };
 
     try {
-      // Send to FormSubmit.co
-      const response = await fetch(`https://formsubmit.co/${process.env.FORMSUBMIT_EMAIL || 'info@dmd-ascenseur.com'}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formData.toString(),
-      });
+      // Send email via Nodemailer
+      const htmlContent = formatFormDataToHtml(emailData);
+      await sendEmail(
+        process.env.EMAIL_TO || 'info@dmd-ascenseur.com',
+        'Nouvelle demande de contact',
+        htmlContent,
+        body.email
+      );
       
-      if (response.ok) {
-        console.log('Contact form email sent successfully via FormSubmit.co');
-        return NextResponse.json({ 
-          success: true, 
-          message: 'Votre message a été envoyé avec succès'
-        });
-      } else {
-        console.error('FormSubmit.co returned error:', response.status);
-        return NextResponse.json({ 
-          success: true, 
-          message: 'Votre message a été reçu avec succès',
-          emailSent: false
-        });
-      }
+      console.log('Contact form email sent successfully via Nodemailer');
+      return NextResponse.json({ 
+        success: true, 
+        message: 'Votre message a été envoyé avec succès'
+      });
     } catch (emailError) {
       // Log email sending error but still return success to the client
       console.error('Error sending email but form data was valid:', emailError);

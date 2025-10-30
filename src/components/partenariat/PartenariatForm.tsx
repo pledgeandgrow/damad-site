@@ -200,68 +200,54 @@ export default function PartenariatForm() {
     }
     
     try {
-      // Create FormData to handle file uploads for FormSubmit.co
-      const formDataToSend = new FormData();
-      
-      // Add FormSubmit.co configuration
-      formDataToSend.append('_subject', 'Nouvelle demande de partenariat');
-      formDataToSend.append('_template', 'table');
-      formDataToSend.append('_captcha', 'false');
-      
-      // Add company information
-      formDataToSend.append('Nom de l\'entreprise', formData.companyName);
-      formDataToSend.append('SIRET', formData.siret);
-      formDataToSend.append('Adresse', formData.address);
-      formDataToSend.append('Ville', formData.city);
-      formDataToSend.append('Services proposés', formData.services);
-      
-      // Add contact information
-      formDataToSend.append('Nom du contact', formData.contactName);
-      formDataToSend.append('Prénom du contact', formData.contactFirstName);
-      formDataToSend.append('Email', formData.email);
-      formDataToSend.append('Téléphone', formData.phone);
+      // Prepare email data
+      const emailData: Record<string, any> = {
+        'Nom de l\'entreprise': formData.companyName,
+        'SIRET': formData.siret,
+        'Adresse': formData.address,
+        'Ville': formData.city,
+        'Services proposés': formData.services,
+        'Nom du contact': formData.contactName,
+        'Prénom du contact': formData.contactFirstName,
+        'Email': formData.email,
+        'Téléphone': formData.phone,
+      };
       
       // Add project references
       if (formData.project1Title) {
-        formDataToSend.append('Projet 1 - Titre', formData.project1Title);
-        formDataToSend.append('Projet 1 - Date', formData.project1Date || 'Non spécifiée');
-        formDataToSend.append('Projet 1 - Lieu', formData.project1Location || 'Non spécifié');
-        formDataToSend.append('Projet 1 - Montant', formData.project1Amount || 'Non spécifié');
+        emailData['Projet 1 - Titre'] = formData.project1Title;
+        emailData['Projet 1 - Date'] = formData.project1Date || 'Non spécifiée';
+        emailData['Projet 1 - Lieu'] = formData.project1Location || 'Non spécifié';
+        emailData['Projet 1 - Montant'] = formData.project1Amount || 'Non spécifié';
       }
       if (formData.project2Title) {
-        formDataToSend.append('Projet 2 - Titre', formData.project2Title);
-        formDataToSend.append('Projet 2 - Date', formData.project2Date || 'Non spécifiée');
-        formDataToSend.append('Projet 2 - Lieu', formData.project2Location || 'Non spécifié');
-        formDataToSend.append('Projet 2 - Montant', formData.project2Amount || 'Non spécifié');
+        emailData['Projet 2 - Titre'] = formData.project2Title;
+        emailData['Projet 2 - Date'] = formData.project2Date || 'Non spécifiée';
+        emailData['Projet 2 - Lieu'] = formData.project2Location || 'Non spécifié';
+        emailData['Projet 2 - Montant'] = formData.project2Amount || 'Non spécifié';
       }
       if (formData.project3Title) {
-        formDataToSend.append('Projet 3 - Titre', formData.project3Title);
-        formDataToSend.append('Projet 3 - Date', formData.project3Date || 'Non spécifiée');
-        formDataToSend.append('Projet 3 - Lieu', formData.project3Location || 'Non spécifié');
-        formDataToSend.append('Projet 3 - Montant', formData.project3Amount || 'Non spécifié');
+        emailData['Projet 3 - Titre'] = formData.project3Title;
+        emailData['Projet 3 - Date'] = formData.project3Date || 'Non spécifiée';
+        emailData['Projet 3 - Lieu'] = formData.project3Location || 'Non spécifié';
+        emailData['Projet 3 - Montant'] = formData.project3Amount || 'Non spécifié';
       }
       
-      // Add file attachments
-      if (formData.insurance) {
-        formDataToSend.append('Assurance', formData.insurance);
-      }
-      if (formData.fiscalCertificate) {
-        formDataToSend.append('Attestation fiscale', formData.fiscalCertificate);
-      }
-      if (formData.kbis) {
-        formDataToSend.append('KBIS', formData.kbis);
-      }
-      
-      // Send directly to FormSubmit.co
-      const response = await fetch(`https://formsubmit.co/${process.env.NEXT_PUBLIC_FORMSUBMIT_EMAIL || 'info@dmd-ascenseur.com'}`, {
+      // Send via API endpoint
+      const response = await fetch('/api/send-email', {
         method: 'POST',
-        body: formDataToSend,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          subject: 'Nouvelle demande de partenariat',
+          data: emailData,
+          replyTo: formData.email,
+        }),
       });
       
       if (response.ok) {
         setSubmitted(true);
       } else {
-        console.warn('FormSubmit.co returned error:', response.status);
+        console.warn('Email API returned error:', response.status);
         setSubmitted(true); // Still show success to user
       }
     } catch (error) {

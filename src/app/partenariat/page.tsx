@@ -3,8 +3,8 @@ import PartenariatConditions from '@/components/partenariat/PartenariatCondition
 import PartenariatForm from '@/components/partenariat/PartenariatForm';
 
 export const metadata = {
-  title: 'Partenariat - DAMAD',
-  description: 'Découvrez les opportunités de partenariat avec DAMAD, votre expert en appareils d\'accessibilité. Ensemble, développons des solutions innovantes et durables pour vos projets d\'appareils d\'accessibilité.',
+  title: 'Partenariat - DMD Ascenseur',
+  description: 'Découvrez les opportunités de partenariat avec DMD Ascenseur, votre expert en appareils d\'accessibilité. Ensemble, développons des solutions innovantes et durables pour vos projets d\'appareils d\'accessibilité.',
 };
 
 export default function PartenariatPage() {

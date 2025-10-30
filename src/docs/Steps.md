@@ -1,4 +1,4 @@
-# DAMAD Ascenseurs - Project Completion Steps
+# DMD Ascenseur - Project Completion Steps
 
 ## Deployment Readiness Checklist
 

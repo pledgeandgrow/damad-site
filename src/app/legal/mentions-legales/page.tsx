@@ -4,8 +4,8 @@ import { FaChevronRight } from 'react-icons/fa';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Mentions Légales - DAMAD',
-  description: 'Mentions légales de DAMAD - Toutes les informations légales concernant notre entreprise et ce site web.',
+  title: 'Mentions Légales - DMD Ascenseur',
+  description: 'Mentions légales de DMD Ascenseur - Toutes les informations légales concernant notre entreprise et ce site web.',
 };
 
 export default function MentionsLegales() {
@@ -57,7 +57,7 @@ export default function MentionsLegales() {
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
-              <span className="text-[#3d4759]">Email : <Link href="mailto:info@dmd-ascenseur.fr" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">info@dmd-ascenseur.fr</Link></span>
+              <span className="text-[#3d4759]">Email : <Link href="mailto:info@dmd-ascenseur.com" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">info@dmd-ascenseur.com</Link></span>
             </li>
             <li className="flex">
               <FaChevronRight className="text-[#2b3343] mt-1 mr-2 flex-shrink-0" />
@@ -113,7 +113,7 @@ export default function MentionsLegales() {
             Conformément à la loi &apos;Informatique et Libertés&apos; du 6 janvier 1978 modifiée et au Règlement Général sur la Protection des Données (RGPD) du 27 avril 2016, vous disposez d&apos;un droit d&apos;accès, de rectification, de portabilité, d&apos;effacement de vos données ou de limitation du traitement. Vous pouvez également, pour des motifs légitimes, vous opposer au traitement des données vous concernant.
           </p>
           <p className="text-[#3d4759] mb-8">
-            Pour exercer ces droits, vous pouvez nous contacter à l&apos;adresse email suivante : <Link href="mailto:info@dmd-ascenseur.fr" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">info@dmd-ascenseur.fr</Link> ou par courrier à l&apos;adresse du siège social.
+            Pour exercer ces droits, vous pouvez nous contacter à l&apos;adresse email suivante : <Link href="mailto:info@dmd-ascenseur.com" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">info@dmd-ascenseur.com</Link> ou par courrier à l&apos;adresse du siège social.
           </p>
           <p className="text-[#3d4759] mb-8">
             Pour plus d&apos;informations sur la manière dont nous traitons vos données, consultez notre <Link href="/politique-de-confidentialite" className="text-[#2b3343] hover:text-[#3d4759] hover:underline transition-colors">Politique de Confidentialité</Link>.
@@ -151,7 +151,7 @@ export default function MentionsLegales() {
             Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.
           </p>
           <p className="text-gray-600 mb-8">
-            Pour toute question relative aux présentes mentions légales, vous pouvez nous contacter par email à <Link href="mailto:contact@dmd-ascenseur.fr" className="text-[#4a90e2] hover:underline">contact@dmd-ascenseur.fr</Link> ou par courrier à l&apos;adresse du siège social.
+            Pour toute question relative aux présentes mentions légales, vous pouvez nous contacter par email à <Link href="mailto:contact@dmd-ascenseur.com" className="text-[#4a90e2] hover:underline">contact@dmd-ascenseur.com</Link> ou par courrier à l&apos;adresse du siège social.
           </p>
 
           <h2 className="text-2xl font-semibold text-gray-800 mb-6">10. Crédits</h2>

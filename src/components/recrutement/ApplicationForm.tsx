@@ -200,42 +200,33 @@ export default function ApplicationForm() {
     setSubmitStatus('idle');
     
     try {
-      // Create FormData to handle file uploads for FormSubmit.co
-      const formDataToSend = new FormData();
+      // Prepare email data
+      const emailData: Record<string, any> = {
+        'Prénom': formData.firstName,
+        'Nom': formData.lastName,
+        'Email': formData.email,
+        'Téléphone': formData.phone,
+        'Poste': formData.position,
+        'Expérience': formData.experience,
+        'Message': formData.message || 'Aucun message',
+      };
       
-      // Add FormSubmit.co configuration
-      formDataToSend.append('_subject', 'Nouvelle candidature');
-      formDataToSend.append('_template', 'table');
-      formDataToSend.append('_captcha', 'false');
-      
-      // Add form fields with proper labels
-      formDataToSend.append('Prénom', formData.firstName);
-      formDataToSend.append('Nom', formData.lastName);
-      formDataToSend.append('Email', formData.email);
-      formDataToSend.append('Téléphone', formData.phone);
-      formDataToSend.append('Poste', formData.position);
-      formDataToSend.append('Expérience', formData.experience);
-      formDataToSend.append('Message', formData.message || 'Aucun message');
-      
-      // Add file attachments
-      if (formData.resume) {
-        formDataToSend.append('CV', formData.resume);
-      }
-      if (formData.coverLetter) {
-        formDataToSend.append('Lettre de motivation', formData.coverLetter);
-      }
-      
-      // Send directly to FormSubmit.co
-      const response = await fetch(`https://formsubmit.co/${process.env.NEXT_PUBLIC_FORMSUBMIT_EMAIL || 'info@dmd-ascenseur.com'}`, {
+      // Send via API endpoint
+      const response = await fetch('/api/send-email', {
         method: 'POST',
-        body: formDataToSend
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          subject: 'Nouvelle candidature',
+          data: emailData,
+          replyTo: formData.email,
+        }),
       });
       
       if (response.ok) {
         setSubmitStatus('success');
       } else {
         // Still show success to user but log the error
-        console.warn('FormSubmit.co returned error:', response.status);
+        console.warn('Email API returned error:', response.status);
         setSubmitStatus('success');
       }
       
@@ -333,7 +324,7 @@ export default function ApplicationForm() {
               </div>
               <h3 className="text-2xl font-bold text-[#2b3343] mb-4">Candidature envoyée avec succès !</h3>
               <p className="text-gray-700 mb-6">
-                Nous avons bien reçu votre candidature et nous vous remercions de l&apos;intérêt que vous portez à Damad Ascenseurs. 
+                Nous avons bien reçu votre candidature et nous vous remercions de l&apos;intérêt que vous portez à DMD Ascenseurs. 
                 Notre équipe RH examinera votre profil et vous contactera dans les plus brefs délais.
               </p>
               <button

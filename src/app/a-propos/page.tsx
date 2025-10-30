@@ -3,8 +3,8 @@ import AboutContext from '@/components/about/AboutContext';
 import History from '@/components/about/History';
 
 export const metadata = {
-  title: 'À Propos - DAMAD',
-  description: 'Découvrez DAMAD, votre partenaire de confiance pour la sécurité, la performance et la longévité de vos appareils d\'accessibilité. Notre équipe d\'experts vous accompagne dans tous vos projets.',
+  title: 'À Propos - DMD Ascenseur',
+  description: 'Découvrez DMD Ascenseur, votre partenaire de confiance pour la sécurité, la performance et la longévité de vos appareils d\'accessibilité. Notre équipe d\'experts vous accompagne dans tous vos projets.',
 };
 
 export default function AboutPage() {
