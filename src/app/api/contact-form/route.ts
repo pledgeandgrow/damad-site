@@ -62,6 +62,8 @@ export async function POST(request: Request) {
     try {
       // Send email via Nodemailer
       const htmlContent = formatFormDataToHtml(emailData);
+      console.log('Attempting to send email to:', process.env.EMAIL_TO || 'info@dmd-ascenseur.com');
+      
       await sendEmail(
         process.env.EMAIL_TO || 'info@dmd-ascenseur.com',
         'Nouvelle demande de contact',
@@ -72,16 +74,25 @@ export async function POST(request: Request) {
       console.log('Contact form email sent successfully via Nodemailer');
       return NextResponse.json({ 
         success: true, 
-        message: 'Votre message a été envoyé avec succès'
+        message: 'Votre message a été envoyé avec succès',
+        emailSent: true
       });
     } catch (emailError) {
-      // Log email sending error but still return success to the client
-      console.error('Error sending email but form data was valid:', emailError);
+      // Log email sending error with full details
+      const errorMsg = emailError instanceof Error ? emailError.message : String(emailError);
+      const errorCode = emailError instanceof Error && 'code' in emailError ? (emailError as any).code : 'UNKNOWN';
+      
+      console.error('Error sending email but form data was valid:', {
+        message: errorMsg,
+        code: errorCode,
+        fullError: emailError
+      });
       
       return NextResponse.json({ 
         success: true, 
         message: 'Votre message a été reçu avec succès',
-        emailSent: false
+        emailSent: false,
+        emailError: errorMsg
       });
     }
   } catch (error) {

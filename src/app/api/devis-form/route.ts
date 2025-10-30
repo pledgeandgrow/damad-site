@@ -69,6 +69,8 @@ export async function POST(request: Request) {
     try {
       // Send email via Nodemailer
       const htmlContent = formatFormDataToHtml(emailData);
+      console.log('Attempting to send devis email to:', process.env.EMAIL_TO || 'info@dmd-ascenseur.com');
+      
       await sendEmail(
         process.env.EMAIL_TO || 'info@dmd-ascenseur.com',
         'Nouvelle demande de devis',
@@ -79,14 +81,24 @@ export async function POST(request: Request) {
       console.log('Devis form email sent successfully via Nodemailer');
       return NextResponse.json({ 
         success: true, 
-        message: 'Votre demande de devis a été envoyée avec succès'
+        message: 'Votre demande de devis a été envoyée avec succès',
+        emailSent: true
       });
     } catch (emailError) {
-      console.error('Error sending email but form data was valid:', emailError);
+      const errorMsg = emailError instanceof Error ? emailError.message : String(emailError);
+      const errorCode = emailError instanceof Error && 'code' in emailError ? (emailError as any).code : 'UNKNOWN';
+      
+      console.error('Error sending devis email:', {
+        message: errorMsg,
+        code: errorCode,
+        fullError: emailError
+      });
+      
       return NextResponse.json({ 
         success: true, 
         message: 'Votre demande a été reçue avec succès',
-        emailSent: false
+        emailSent: false,
+        emailError: errorMsg
       });
     }
   } catch (error) {

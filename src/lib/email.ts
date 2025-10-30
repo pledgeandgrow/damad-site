@@ -2,6 +2,24 @@ import nodemailer from 'nodemailer';
 
 // Create transporter for sending emails
 export const createTransporter = () => {
+  // Log configuration (without sensitive data)
+  console.log('Creating email transporter with config:', {
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT,
+    secure: process.env.EMAIL_SECURE,
+    userConfigured: !!process.env.EMAIL_USER,
+    passwordConfigured: !!process.env.EMAIL_PASSWORD,
+  });
+
+  if (!process.env.EMAIL_HOST || !process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
+    console.error('Missing email configuration:', {
+      EMAIL_HOST: process.env.EMAIL_HOST ? '✓' : '✗ MISSING',
+      EMAIL_USER: process.env.EMAIL_USER ? '✓' : '✗ MISSING',
+      EMAIL_PASSWORD: process.env.EMAIL_PASSWORD ? '✓' : '✗ MISSING',
+      EMAIL_PORT: process.env.EMAIL_PORT ? '✓' : '✗ MISSING',
+    });
+  }
+
   return nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: parseInt(process.env.EMAIL_PORT || '465'),
